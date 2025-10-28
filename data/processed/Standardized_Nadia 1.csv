@@ -1,0 +1,31 @@
+source_paper,fuel_name,is_biodiesel,fuel_type,feedstock_type,boiling_point,melting_point,flash_point_C,density_kg_m3,dynamic_viscosity_at_20,dynamic_viscosity_at_60,lower_heating_value_MJ_kg,cetane_number,engine_type,engine_speed,injection_pressure_bar,IMEP_bar,CIN_injection_timing_CAD_BTDC,CIN_ignition_delay_CAD,CIN_indicated_thermal_efficiency,CIN_injection_duration,CIN_peak_pressure_bar,CIN_peak_HRR_J_deg,CIN_max_average_temp_K,CIN_NOx_ppm,CIN_CO_ppm,CIN_THC_ppm,CIN_particulate_mass_mg_m3,CIG_ignition_timing_CAD_BTDC,CIG_ignition_delay_CAD,CIG_indicated_thermal_efficiency,CIG_injection_duration,CIG_peak_pressure_bar,CIG_peak_HRR_J_deg,CIG_max_average_temp_K,CIG_NOx_ppm,CIG_CO_ppm,CIG_THC_ppm,CIG_particulate_mass_mg_m3,2_EHN_dosage_ppm,CID_injection_timing_CAD_BTDC,CID_ignition_timing_CAD_BTDC,CID_ignition_delay_CAD,CID_indicated_thermal_efficiency,CID_injection_duration,CID_peak_pressure_bar,CID_peak_HRR_J_deg,CID_max_average_temp_K,CID_NOx_ppm,CID_CO_ppm,CID_THC_ppm,CID_particulate_mass_mg_m3
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",Reference Diesel,Non-biofuel,,,,,,0.835,,,,,"a single cylinder, direct injection compression ignition research engine.",,,,,4.9,,,,132.0,,677.0,433.0,192.0,0.37,,4.9,,,,131.0,,665.0,436.0,203.0,0.41,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",SCG Oil,Biofuel,,,,,,,,,,,"a single cylinder, direct injection compression ignition research engine.",,,,,5.2,,,,44.0,,301.0,742.0,427.0,0.79,,5.0,,,,55.0,,384.0,648.0,420.0,0.68,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",SCG Biodiesel,Biofuel,,,,,,0.893,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",SCG B5,Biofuel,,,,,,0.85,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",SCG B7,Biofuel,,,,,,,,,,,"a single cylinder, direct injection compression ignition research engine.",,,,,5.0,,,,107.0,,572.0,417.0,189.0,0.41,,5.0,,,,107.0,,591.0,412.0,198.0,0.46,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",SCG B20,Biofuel,,,,,,0.856,,,,,"a single cylinder, direct injection compression ignition research engine.",,,,,4.4,,,,110.0,,670.0,401.0,236.0,0.36,,4.4,,,,108.0,,632.0,403.0,245.0,0.38,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",SCG B100,Biofuel,,,,,,0.892,,,,,"a single cylinder, direct injection compression ignition research engine.",,,,,4.2,,,,72.0,,570.0,434.0,210.0,0.48,,4.2,,,,68.0,,508.0,505.0,346.0,0.67,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",Rapeseed Biodiesel,Biofuel,,,,,,0.883,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",Rapeseed B7,Biofuel,,,,,,,,,,,"a single cylinder, direct injection compression ignition research engine.",,,,,4.4,,,,106.0,,585.0,368.0,217.0,0.43,,4.5,,,,105.0,,584.0,381.0,215.0,0.45,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",Rapeseed B20,Biofuel,,,,,,,,,,,"a single cylinder, direct injection compression ignition research engine.",,,,,4.2,,,,91.0,,592.0,409.0,194.0,0.42,,4.3,,,,93.0,,555.0,404.0,197.0,0.47,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",Rapeseed B100,Biofuel,,,,,,,,,,,"a single cylinder, direct injection compression ignition research engine.",,,,,3.6,,,,63.0,,682.0,330.0,189.0,0.22,,3.6,,,,65.0,,573.0,347.0,211.0,0.3,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",Soya Biodiesel ,Biofuel,,,,,,0.885,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",Soya B7,Biofuel,,,,,,,,,,,"a single cylinder, direct injection compression ignition research engine.",,,,,4.6,,,,114.0,,601.0,398.0,172.0,0.37,,4.6,,,,115.0,,605.0,412.0,198.0,0.41,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",Soya B20,Biofuel,,,,,,,,,,,"a single cylinder, direct injection compression ignition research engine.",,,,,4.4,,,,110.0,,647.0,402.0,194.0,0.35,,4.5,,,,113.0,,606.0,417.0,202.0,0.37,,,,,,,,,,,,,
+"Research Paper: Transesterification of high-acidity spent coffee ground oil and subsequent
+ combustion and emissions characteristics in a compression-ignition engine",Soya B100,Biofuel,,,,,,,,,,,"a single cylinder, direct injection compression ignition research engine.",,,,,4.2,,,,85.0,,735.0,349.0,255.0,0.32,,4.0,,,,84.0,,693.0,355.0,246.0,0.36,,,,,,,,,,,,,

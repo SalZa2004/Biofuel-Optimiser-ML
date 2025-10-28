@@ -1,0 +1,39 @@
+source_paper,fuel_name,is_biodiesel,fuel_type,feedstock_type,boiling_point,melting_point,flash_point_C,density_kg_m3,dynamic_viscosity_at_20,dynamic_viscosity_at_60,lower_heating_value_MJ_kg,cetane_number,engine_type,engine_speed,injection_pressure_bar,IMEP_bar,CIN_injection_timing_CAD_BTDC,CIN_ignition_delay_CAD,CIN_indicated_thermal_efficiency,CIN_injection_duration,CIN_peak_pressure_bar,CIN_peak_HRR_J_deg,CIN_max_average_temp_K,CIN_NOx_ppm,CIN_CO_ppm,CIN_THC_ppm,CIN_particulate_mass_mg_m3,CIG_ignition_timing_CAD_BTDC,CIG_ignition_delay_CAD,CIG_indicated_thermal_efficiency,CIG_injection_duration,CIG_peak_pressure_bar,CIG_peak_HRR_J_deg,CIG_max_average_temp_K,CIG_NOx_ppm,CIG_CO_ppm,CIG_THC_ppm,CIG_particulate_mass_mg_m3,2_EHN_dosage_ppm,CID_injection_timing_CAD_BTDC,CID_ignition_timing_CAD_BTDC,CID_ignition_delay_CAD,CID_indicated_thermal_efficiency,CID_injection_duration,CID_peak_pressure_bar,CID_peak_HRR_J_deg,CID_max_average_temp_K,CID_NOx_ppm,CID_CO_ppm,CID_THC_ppm,CID_particulate_mass_mg_m3
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",Reference fossil diesel,,,,542,,,0.8345,,,,51.7,a single cylinder direct injection diesel engine,,,,,7.4,,,,,,,,,,,7.3,,,,,,,,,,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",n-heptane,Non-biofuels,,,371.5,,,0.6838,,,,54.4,a single cylinder direct injection diesel engine,,,,,7.4,,,,94.0,1377.0,577.0,,,0.57,,7.5,,,,98.0,1342.0,465.0,,,0.89,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",n-octane,Non-biofuels,,,398.7,,,0.7028,,,,64.1,a single cylinder direct injection diesel engine,,,,,7,,,,78.0,1348.0,528.0,,,0.61,,6.9,,,,80.0,1299.0,384.0,,,0.63,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",n-decane,Non-biofuels,,,447.2,,,0.7301,,,,76.7,a single cylinder direct injection diesel engine,,,,,6.3,,,,,,,,,,,6.1,,,,,,,,,,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",n-undecane,Non-biofuels,,,468,,,0.7402,,,,81.1,a single cylinder direct injection diesel engine,,,,,5.8,,,,74.0,1384.0,607.0,,,0.69,,5.8,,,,84.0,1328.0,454.0,,,0.73,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",n-dodecane,Non-biofuels,,,489,,,0.749,,,,82.5,a single cylinder direct injection diesel engine,,,,,5.6,,,,72.0,1374.0,577.0,,,1.29,,5.4,,,,89.0,1336.0,465.0,,,1.06,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",n-tetradecane,Non-biofuels,,,523,,,0.7627,,,,95,a single cylinder direct injection diesel engine,,,,,5.1,,,,68.0,1358.0,532.0,,,1.26,,5,,,,78.0,1301.0,387.0,,,1.23,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",n-pentadecane,Non-biofuels,,,540,,,0.7684,,,,96,a single cylinder direct injection diesel engine,,,,,4.8,,,,70.0,1385.0,548.0,,,1.25,,4.7,,,,84.0,1319.0,406.0,,,1.15,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",n-hexadecane,Non-biofuels,,,554,,,0.7733,,,,96,a single cylinder direct injection diesel engine,,,,,4.9,,,,60.0,1339.0,524.0,,,1.29,,4.7,,,,81.0,1300.0,418.0,,,1.19,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",n-octadecane,Non-biofuels,,,589.3,,,0.7767,,,,106.3,a single cylinder direct injection diesel engine,,,,,4.4,,,,67.0,1361.0,522.0,,,1.2,,4.4,,,,82.0,1317.0,403.0,,,0.9,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",n-eicosane,Non-biofuels,,,616.2,,,0.7823,,,,110,a single cylinder direct injection diesel engine,,,,,4.3,,,,63.0,1365.0,582.0,,,1.43,,4.3,,,,79.0,1324.0,450.0,,,1.19,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",n-docosane,Non-biofuels,,,641.8,,,0.7782,,,,,a single cylinder direct injection diesel engine,,,,,4.3,,,,58.0,1359.0,577.0,,,1.13,,4.1,,,,71.0,1316.0,437.0,,,1.0,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",1-octene,Non-biofuels,,,395,,,0.7149,,,,70.8,a single cylinder direct injection diesel engine,,,,,9,,,,92.0,1358.0,733.0,,,1.83,,8.7,,,,85.0,1301.0,563.0,,,0.87,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ","1, 7-octadiene",Non-biofuels,,,389,,,,,,,,a single cylinder direct injection diesel engine,,,,,13,,,,94.0,1397.0,1066.0,,,0.48,,12.2,,,,105.0,1326.0,815.0,,,0.57,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",1-decene,Non-biofuels,,,440,,,0.7408,,,,56.5,a single cylinder direct injection diesel engine,,,,,7.8,,,,,,,,,,,7.6,,,,,,,,,,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",1-dodecene,Non-biofuels,,,486.2,,,0.7584,,,,71.2,a single cylinder direct injection diesel engine,,,,,7,,,,83.0,1357.0,647.0,,,0.71,,7,,,,84.0,1308.0,511.0,,,0.93,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",1-tetradecene,Non-biofuels,,,524.2,,,0.775,,,,80.3,a single cylinder direct injection diesel engine,,,,,6,,,,77.0,1344.0,540.0,,,0.98,,5.9,,,,90.0,1321.0,512.0,,,0.53,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ",8-methyl-hexadecane,Non-biofuels,,,587.9,,,,,,,,a single cylinder direct injection diesel engine,,,,,5,,,,68.0,1360.0,496.0,,,1.7,,4.9,,,,83.0,1308.0,370.0,,,2.72,,,,,,,,,,,,,
+"Research Paper: The Impact of Saturated and Unsaturated Fuel Molecules 
+on Diesel Combustion and Exhaust Emissions ","2, 6, 10, 14-tetra-metyl-pentadecane",Non-biofuels,,,439.2,,,0.7827,,,,,a single cylinder direct injection diesel engine,,,,,6,,,,67.0,1371.0,575.0,,,0.92,,5.9,,,,76.0,1312.0,426.0,,,1.11,,,,,,,,,,,,,
