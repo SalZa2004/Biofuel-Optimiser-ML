@@ -10,12 +10,17 @@ def clean_standardized_dataframe(csv_file: Path) -> pd.DataFrame:
 
     df = pd.read_csv(csv_file)
     df = df[~df.apply(lambda row: row.astype(str).str.contains("DNC", case=False, na=False)).any(axis=1)]
-    df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+    df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
+    df = df.dropna(how="all")
 
     for col in df.columns:
-        df[col] = pd.to_numeric(df[col], errors="ignore")
+        try:
+            df[col] = pd.to_numeric(df[col])
+        except (ValueError, TypeError):
+            pass
 
-    df = df.dropna(how="all")
+    if "engine_type" in df.columns:
+        df = df[df["engine_type"].notna() & (df["engine_type"].astype(str).str.strip() != "")]
 
     return df
 
