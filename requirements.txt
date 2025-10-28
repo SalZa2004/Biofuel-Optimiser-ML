@@ -23,3 +23,6 @@ joblib
 # Utilities
 pyyaml
 tqdm
+
+# Excel handling
+openpyxl
