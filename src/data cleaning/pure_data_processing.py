@@ -4,7 +4,7 @@ from pathlib import Path
 def clean_pure_data():
     """
     Extract and clean pure fuel data from the raw Excel file.
-    Saves the cleaned data to 'data/processed/expanded_pure.csv'.
+    Saves the cleaned data to 'data/processed/RP_PURE.csv'.
     
     """
     excel_file = "data/raw/RP_Database.xlsx"
