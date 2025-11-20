@@ -24,17 +24,21 @@ def clean_standardized_dataframe(csv_file: Path) -> pd.DataFrame:
 
     return df
 
+def merge_cleaned_dataframes(cleaned_dir: Path) -> pd.DataFrame:
+
+    all_dfs = []
+    for csv_file in cleaned_dir.glob("Standardized_fuel_*.csv"):
+        df = pd.read_csv(csv_file)
+        all_dfs.append(df)
+
+    merged_df = pd.concat(all_dfs, ignore_index=True)
+    return merged_df    
+
 
 if __name__ == "__main__":
 
     csv_dir = Path("data/processed")
-    cleaned_dir = Path("data/processed")
-    cleaned_dir.mkdir(parents=True, exist_ok=True)
-
-    for csv_file in csv_dir.glob("Standardized_*.csv"):
-
-        cleaned_df = clean_standardized_dataframe(csv_file)
-        cleaned_path = cleaned_dir / f"Cleaned_{csv_file.name}"
-        cleaned_df.to_csv(cleaned_path, index=False)
-
-        print(f"Saved cleaned file: {cleaned_path.name}")
+    merged_df = merge_cleaned_dataframes(csv_dir)
+    merged_path = csv_dir / "Merged_Cleaned_Standardized_Data.csv"
+    merged_df.to_csv(merged_path, index=False)  
+    print(f"Saved merged cleaned data to: {merged_path.name}")

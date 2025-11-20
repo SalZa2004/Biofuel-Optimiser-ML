@@ -167,7 +167,18 @@ if __name__ == "__main__":
 # -----------------------------------
 
     sheet_name = "Salvina"
-    excel_file = "data/raw/latest master.xlsx"
+    excel_file = "data/raw/latest master 2.xlsx"
+    template_file = Path("data/processed/biofuel_template.csv")
+    output_file = "data/processed"
+
+    extract_and_append_data(sheet_name, excel_file, template_file, output_file)
+
+# -----------------------------------
+# EXTRACTING DATA FROM SALVINA SHEET
+# -----------------------------------
+
+    sheet_name = "Intan"
+    excel_file = "data/raw/latest master 2.xlsx"
     template_file = Path("data/processed/biofuel_template.csv")
     output_file = "data/processed"
 
@@ -178,7 +189,7 @@ if __name__ == "__main__":
 # --------------------------------
 
     sheet_name = "Yang"
-    excel_file = "data/raw/latest master.xlsx"
+    excel_file = "data/raw/latest master 2.xlsx"
     template_file = Path("data/processed/biofuel_template.csv")
     output_file = "data/processed"
 
@@ -238,7 +249,7 @@ if __name__ == "__main__":
 # ------------------------------------
 
     sheet_name = "Maimoona"
-    excel_file = "data/raw/latest master.xlsx"
+    excel_file = "data/raw/latest master 2.xlsx"
     template_file = Path("data/processed/biofuel_template.csv")
     output_file = "data/processed"
 
@@ -321,7 +332,7 @@ if __name__ == "__main__":
 # ---------------------------------
 
     sheet_name = "Nadia 2"
-    excel_file = "data/raw/latest master.xlsx"
+    excel_file = "data/raw/latest master 2.xlsx"
     template_file = Path("data/processed/biofuel_template.csv")
     output_file = "data/processed"
 
@@ -408,7 +419,7 @@ if __name__ == "__main__":
 # ---------------------------------
 
     sheet_name = "Nadia 1"
-    excel_file = "data/raw/latest master.xlsx"
+    excel_file = "data/raw/latest master 2.xlsx"
     template_file = Path("data/processed/biofuel_template.csv")
     output_file = "data/processed"
 
@@ -427,7 +438,7 @@ if __name__ == "__main__":
     except ValueError:
         df_sheet = pd.read_excel(excel_file, sheet_name=sheet_name)
 
-    #print(df_sheet.columns.tolist())
+    # print(df_sheet.columns.tolist())
     
     df_sheet = df_sheet.iloc[:19]
     temp_df = standard_df.copy()
