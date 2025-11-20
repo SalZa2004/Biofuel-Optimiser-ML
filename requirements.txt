@@ -26,3 +26,6 @@ tqdm
 
 # Excel handling
 openpyxl
+
+# Chemistry
+rdkit
