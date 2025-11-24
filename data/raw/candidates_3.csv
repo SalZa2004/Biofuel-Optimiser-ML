@@ -1,0 +1,281 @@
+names,smiles
+1-Octadecanol,CCCCCCCCCCCCCCCCCCO
+"(1R,2R)-1,2-cyclohexanediol",C1CCC(C(C1)O)O
+"1,2-Propanediol",CC(CO)O
+"1,2,3-Cyclohexanetriol",C1CC(C(C(C1)O)O)O
+"1,4-Pentanediol",CC(CCCO)O
+"3,7-dimethyl-1,6-Octadien-3-ol",CC(=CCCC(C)(C=C)O)C
+1-Butene,CCC=C
+1-dodecanol,CCCCCCCCCCCCO
+1-hexadecanol,CCCCCCCCCCCCCCCCO
+1-Hexene,CCCCC=C
+1-Nonene,CCCCCCCC=C
+1-tetradecanol,CCCCCCCCCCCCCCO
+Tetrahydro-2-furanmethanol,C1CC(OC1)CO
+5-methyl-2(5H)-Furanone,CC1C=CC(=O)O1
+"2,3-Butanedione",CC(=O)C(=O)C
+"2,4-dimethyl-2-pentene",CC(C)C=C(C)C
+"2,4-dimethyl-3-pentanone",CC(C)C(=O)C(C)C
+"2,5,8-nonanetrione",CC(=O)CCC(=O)CCC(=O)C
+"2,5-bis(hydroxymethyl)furan",C1=C(OC(=C1)CO)CO
+"2,5-Dimethylfuran",CC1=CC=C(O1)C
+"2,6-Dimethylheptane",CC(C)CCCC(C)C
+"2,7-dihydroxy-5-methylchromone",CC1=CC(=CC2=C1C(=CC(=O)O2)O)O
+2-butanol,CCC(C)O
+2-butene,"CC=CC
+CC=CC
+CC=CC"
+2-ethylhexan-1-ol,CCCCC(CC)CO
+2-methoxyphenol,COC1=CC=CC=C1O
+2-methyl-5-pentyl tetrahydrofuran,CCCCCC1CCC(O1)C
+2-methyl-1-butanol,CCC(C)CO
+2-methylcyclopent-2-en-1-one,CC1=CCCC1=O
+2-methylfuran,CC1=CC=CO1
+2-Methyltetrahydrofuran,CC1CCCO1
+2-Pentanol,CCCC(C)O
+2-pentanone,CCCC(=O)C
+2-pentene,"CCC=CC
+CCC=CC
+CCC=CC"
+4-(2-furanyl)-3-buten-2-one,CC(=O)C=CC1=CC=CO1
+3-Undecene,CCCCCCCC=CCC
+3-ethyl octane,CCCCCC(CC)CC
+3-heptene,CCCC=CCC
+3-hexanol,CCCC(CC)O
+3-hexanone,CCCC(=O)CC
+3-hexene,CCC=CCC
+3-methyl-2-buten-1-ol,CC(=CCO)C
+3-methylhexane,CCCC(C)CC
+3-methylnonane,CCCCCCC(C)CC
+3-methyloctane,CCCCCC(C)CC
+3-Pentanol,CCC(CC)O
+3-Pentanone,CCC(=O)CC
+4-heptanol,CCCC(CCC)O
+4-Heptanone,CCCC(=O)CCC
+4-octene,"CCCC=CCCC
+CCCC=CCCC"
+4-ethenyl-phenol,C=CC1=CC=C(C=C1)O
+"4-ethenyl-2,6-dimethoxy-phenol",COC1=CC(=CC(=C1O)OC)C=C
+5-Nonanone,CCCCC(=O)CCCC
+5-hydroxymethyl-2-furancarboxaldehyde,C1=C(OC(=C1)C=O)CO
+5-methyl-2(3H)-furanone,CC1=CCC(=O)O1
+5-methyl-2-furancarboxaldehyde,CC1=CC=C(O1)C=O
+6-methyldodecane,CCCCCCC(C)CCCCC
+"1,2,3,4,4a,4b,5,6,10,10a-decahydro-1,4a-dimethyl-7-(1-methylethyl)-1-phenanthrenecarboxylic acid",CC(C)C1=CC2=CCC3C(C2CC1)(CCCC3(C)C(=O)O)C
+3-hydroxy-2-butanone,CC(C(=O)C)O
+"(3R,5aS,6R,8aS,9R,12S,12aR)-octahydro-3,6,9-trimethyl-3,12-Epoxy-12H-pyrano[4,3-j]-1,2-benzodioxepin-10(3H)-one",CC1CCC2C(C(=O)OC3C24C1CCC(O3)(OO4)C)C
+4-phenyl-3-buten-2-one,CC(=O)C=CC1=CC=CC=C1
+Benzene,C1=CC=CC=C1
+"4-(1,5-dimethyl-1,4-hexadien-1-yl)-1-methyl-cyclohexene",CC1=CCC(CC1)C(=CCC=C(C)C)C
+"1,7-bis(4-hydroxyphenyl)-1,6-heptadiene-3,5-dione",C1=CC(=CC=C1C=CC(=O)CC(=O)C=CC2=CC=C(C=C2)O)O
+"2,2,3-Trimethylbutane",CC(C)C(C)(C)C
+"2,2,3,3-tetramethyl-butane",CC(C)(C)C(C)(C)C
+"1,4-Butanediol",C(CCO)CO
+"2,3-Butanediol",CC(C(C)O)O
+Butylcyclohexane,CCCCC1CCCCC1
+"1,7,7-trimethyl-bicyclo[2.2.1]heptan-2-one",CC1(C2CCC1(C(=O)C2)C)C
+"4,11,11-trimethyl-8-methylene-bicyclo[7.2.0]undec-4-ene","CC1=CCCC(=C)C2CC(C2CC1)(C)C
+CC1=CCCC(=C)C2CC(C2CC1)(C)C"
+"1,2-Benzenediol",C1=CC=C(C(=C1)O)O
+"3,7-dimethyl-1,3,6-octatriene",CC(=CCC=C(C)C=C)C
+Cyclohexane,C1CCCCC1
+Cyclohexanol,C1CCC(CC1)O
+4-methyl-cyclohexanol,CC1CCC(CC1)O
+1-ethyl-1-methyl-cyclopentane,CCC1(CCCC1)C
+Cyclopentanone,C1CCC(=O)C1
+"2,6-dimethyl-4-heptanone",CC(C)CC(=O)CC(C)C
+"1,7-diphenyl-1,6-heptadiene-3,5-dione",C1=CC=C(C=C1)C=CC(=O)CC(=O)C=CC2=CC=CC=C2
+"2,6-dimethyl-4-heptanol",CC(C)CC(CC(C)C)O
+Dodecane,CCCCCCCCCCCC
+1-ethoxy-2-methyl-propane,CCOCC(C)C
+2-ethoxy-2-methyl-propane,CCOC(C)(C)C
+"Dodecanoic acid, ethyl ester",CCCCCCCCCCCC(=O)OCC
+"Tetradecanoic acid, ethyl ester",CCCCCCCCCCCCCC(=O)OCC
+"Hexadecanoic acid, ethyl ester",CCCCCCCCCCCCCCCC(=O)OCC
+"Octadecanoic acid, ethyl ester",CCCCCCCCCCCCCCCCCC(=O)OCC
+Ethylcyclopentane,CCC1CCCC1
+Ethene,C=C
+"1,2-Ethanediol",C(CO)O
+"2,6,10-trimethyl-dodecane",CCC(C)CCCC(C)CCCC(C)C
+"3,7,11-trimethyl-1,3,6,10-dodecatetraene",CC(=CCCC(=CCC=C(C)C=C)C)C
+"3,7,11-trimethyl-2,6,10-dodecatrien-1-ol",CC(=CCCC(=CCCC(=CCO)C)C)C
+Furan,C1=COC=C1
+2(5H)-Furanone,C1C=CC(=O)O1
+2-Furancarboxaldehyde,C1=COC(=C1)C=O
+2-Furanmethanol,C1=COC(=C1)CO
+dihydro-5-methyl-2(3H)-furanone,CC1CCC(=O)O1
+"1-ethoxy-3,7-dimethyl-2,6-octadiene",CCOCC=C(C)CCC=C(C)C
+2-Heptacosanone,CCCCCCCCCCCCCCCCCCCCCCCCCC(=O)C
+Heptacos-1-ene,CCCCCCCCCCCCCCCCCCCCCCCCCC=C
+Heptadecane,CCCCCCCCCCCCCCCCC
+2-methylhexane,CCCCC(C)C
+"2,4-dimethylhexane",CCC(C)CC(C)C
+"1,6-hexanediol",C(CCCO)CCO
+"1,4-Benzenediol",C1=CC(=CC=C1O)O
+1H-Indole,C1=CC=C2C(=C1)C=CN2
+2-methyl-1-propene,CC(=C)C
+"2-methyl-1,3-butadiene",CC(=C)C=C
+4-oxo-pentanoic acid,CC(=O)CCC(=O)O
+"1a,2,3,3a,4,5,6,7b-octahydro-1,1,3a,7-tetramethyl-1H-cyclopropa[a]naphthalene",CC1=C2C3C(C3(C)C)CCC2(CCC1)C
+2-Butanone,CCC(=O)C
+5-methyl-2-(1-methylethyl)-cyclohexanol,CC1CCC(C(C1)O)C(C)C
+"Hexadecanoic acid, methyl ester",CCCCCCCCCCCCCCCC(=O)OC
+"Octadecanoic acid, methyl ester",CCCCCCCCCCCCCCCCCC(=O)OC
+"Acetic acid, methyl ester",CC(=O)OC
+Methylcyclohexane,CC1CCCCC1
+1-methoxy-2-methyl-propane,CC(C)COC
+4-methyl-2-pentanone,CC(C)CC(=O)C
+2-methoxy-2-methyl-propane,CC(C)(C)OC
+"7-methyl-3-methylene-1,6-octadiene",CC(=CCCC(=C)C=C)C
+1-Butanol,CCCCO
+Nonacos-1-ene,CCCCCCCCCCCCCCCCCCCCCCCCCCCC=C
+Nonane,CCCCCCCCC
+5-ethyl-3-methyl-nonane,CCCCC(CC)CC(C)CC
+n-Propanol,CCCO
+n-Tetradecane,CCCCCCCCCCCCCC
+n-Undecane,CCCCCCCCCCC
+Octadecane,CCCCCCCCCCCCCCCCCC
+Octane,CCCCCCCC
+"2,4,6-trimethyl-octane",CCC(C)CC(C)CC(C)C
+"2,4-dihydroxy-6-pentyl-benzoic acid",CCCCCC1=C(C(=CC(=C1)O)O)C(=O)O
+Pentadecane,CCCCCCCCCCCCCCC
+Pentan-1-ol,CCCCCO
+Pentane,CCCCC
+Pentanoic acid,CCCCC(=O)O
+4-hydroxy-pentanoic acid,CC(CCC(=O)O)O
+Benzeneethanol,C1=CC=C(C=C1)CCO
+"3-methyl-1-(2,4,6-trihydroxyphenyl)-1-butanone",CC(C)CC(=O)C1=C(C=C(C=C1O)O)O
+"2,6-dimethyl-2,5-heptadien-4-one",CC(=CC(=O)C=C(C)C)C
+"2,6,6-trimethyl-bicyclo[3.1.1]hept-2-ene",CC1=CCC2CC1C2(C)C
+Propane,CCC
+Propylcyclohexane,CCCC1CCCCC1
+1-Propene,CC=C
+4-ethenyl-2-methoxy-phenol,COC1=C(C=CC(=C1)C=C)O
+"1,3-Benzenediol",C1=CC(=CC(=C1)O)O
+"2,6-dimethoxy-phenol",COC1=C(C(=CC=C1)OC)O
+"1-methyl-4-(1-methylethyl)-1,3-cyclohexadiene",CC1=CC=C(CC1)C(C)C
+"1-methyl-4-(1-methylethyl)-1,4-cyclohexadiene",CC1=CCC(=CC1)C(C)C
+Methylbenzene,CC1=CC=CC=C1
+4-hydroxy-6-methyl-2H-pyran-2-one,CC1=CC(=CC(=O)O1)O
+Tridecane,CCCCCCCCCCCCC
+4-hydroxy-3-methoxy-benzaldehyde,COC1=C(C=CC(=C1)C=O)O
+Methoxybenzene,COC1=CC=CC=C1
+"2-Ethyl-5,5-dimethyl-1,3-cyclopentadiene",CCC1=CC(C=C1)(C)C
+3-Methylheptane,CCCCC(C)CC
+"2,4-Dimethyl-2-heptene",CCCC(C)C=C(C)C
+1-methoxy-4-methyl-benzene,CC1=CC=C(C=C1)OC
+4-Nonanol,CCCCCC(CCC)O
+6-Undecanol,CCCCCC(CCCCC)O
+5-Undecene,CCCCCC=CCCCC
+2-Heptanone,CCCCCC(=O)C
+4-Nonanone,CCCCCC(=O)CCC
+2-Hexanone,CCCCC(=O)C
+"Hexanoic acid, methyl ester",CCCCCC(=O)OC
+Acetic acid ethyl ester,CCOC(=O)C
+"Butanoic acid, ethyl ester",CCCC(=O)OCC
+"Hexanoic acid, ethyl ester",CCCCCC(=O)OCC
+"Hexanoic acid, butyl ester",CCCCCC(=O)OCCCC
+"Butanoic acid, hexyl ester",CCCCCCOC(=O)CCC
+"Hexanoic acid, hexyl ester",CCCCCCOC(=O)CCCCC
+"3,7-dimethyl-1,3,6-octatriene",CC(=CCC=C(C)C=C)C
+"Butanoic Acid, butyl ester",CCCCOC(=O)CCC
+6-Undecanone,CCCCCC(=O)CCCCC
+2-Heptene,CCCCC=CC
+2-Heptanol,CCCCCC(C)O
+"2,2,4-trimethylpentane",CC(C)CC(C)(C)C
+Heptane,CCCCCCC
+2-methylpropan-1-ol,CC(C)CO
+Hexadecane,CCCCCCCCCCCCCCCC
+"2,2,4,4,6,8,8-heptamethylnonane",CC(CC(C)(C)C)CC(C)(C)CC(C)(C)C
+o-Xylene,CC1=CC=CC=C1C
+"1,2,4-Trimethylbenzene",CC1=CC(=C(C=C1)C)C
+Methylcyclopentane,CC1CCCC1
+1-Methyl-4-(1-methylethyl)benzene,CC1=CC=C(C=C1)C(C)C
+"4,7,7-trimethylbicyclo[4.1.0]hept-3-ene",CC1=CCC2C(C1)C2(C)C
+4-methylene-1-(1-methylethyl)bicyclo[3.1.0]hexane,CC(C)C12CCC(=C)C1C2
+"6,6-dimethyl-2-methylenebicyclo[3.1.1]heptane",CC1(C2CCC(=C)C1C2)C
+2-Nonanol,CCCCCCCC(C)O
+Phenylmethanol,C1=CC=C(C=C1)CO
+4-Methylheptan-3-ol,CCCC(C)C(CC)O
+1-Octanol,CCCCCCCCO
+4-Methylpentan-2-ol,CC(C)CC(C)O
+3-Methylbut-3-en-1-ol,CC(=C)CCO
+4-Methylhexan-3-ol,CCC(C)C(CC)O
+4-Methyl-1-hexanol,CCC(C)CCCO
+"hexane-2,3-diol",CCCC(C(C)O)O
+"3,7-dimethyloct-6-en-1-ol",CC(CCC=C(C)C)CCO
+1-methyl-4-propan-2-yl-7-oxabicyclo[2.2.1]heptane,CC(C)C12CCC(O1)(CC2)C
+Dimethoxymethylbenzene,COC(C1=CC=CC=C1)OC
+4-Methyl-2-(2-methyl-1-propen-1-yl)tetrahydro-2H-pyran,CC1CCOC(C1)C=C(C)C
+Methyl benzoate,COC(=O)C1=CC=CC=C1
+Ethyl 2-methylpropanoate,CCOC(=O)C(C)C
+Methyl-2-methylbutanoate,CCC(C)C(=O)OC.CCC(C)C(=O)OC
+Butyl acetate,CCCCOC(=O)C
+3-Methylbutyl acetate,CC(C)CCOC(=O)C
+"2-pentyl-2,3-dihydropyran-6-one",CCCCCC1CC=CC(=O)O1
+10-Methyldodecyl acetate,CCC(C)CCCCCCCCCOC(=O)C
+"2,4-Dimethyl-5-hexanolide",CC1CC(C(=O)OC1C)C
+(Z)-octadec-11-enyl acetate,CCCCCCC=CCCCCCCCCCCOC(=O)C
+"2,6-Dimethyloctane",CCC(C)CCCC(C)C
+1-methyl-4-propan-2-ylcyclohexane,CC1CCC(CC1)C(C)C
+1-Isopropyl-4-methylbicyclo[3.1.0]hexane,CC1CCC2(C1C2)C(C)C
+"4-Isopropyl-1,6-dimethyldecahydronaphthalene",CC1CCC2C(CCC(C2C1)C(C)C)C
+"1,7,7-trimethylbicyclo[2.2.1]heptane",CC1(C2CCC1(CC2)C)C
+Ethylbenzene,CCC1=CC=CC=C1
+Propylbenzene,CCCC1=CC=CC=C1
+Butylbenzene,CCCCC1=CC=CC=C1
+"3,7-Dimethyl-1-octanol",CC(C)CCCC(C)CCO
+Decane,CCCCCCCCCC
+Hexyl acetate,CCCCCCOC(=O)C
+2-Methylbutan-2-ol,CCC(C)(C)O
+3-Methylbutan-1-ol,CC(C)CCO
+"2,2,6-Trimethylcyclohexan-1-one",CC1CCCC(C1=O)(C)C
+6-Methylheptan-2-ol,CC(C)CCCC(C)O
+(1-methylethyl)benzene,CC(C)C1=CC=CC=C1
+"2,3,6-Trimethylheptane",CC(C)CCC(C)C(C)C
+"1,1,3-Trimethylcyclohexane",CC1CCCC(C1)(C)C
+2-Propanol,CC(C)O
+Ethanol,CCO
+"2,4,4-Trimethyl-1-pentene",CC(=C)CC(C)(C)C
+2-Methyl-3-buten-2-ol,CC(C)(C=C)O
+"3,7-Dimethyl-3-octanol",CCC(C)(CCCC(C)C)O
+2-Methylpropyl acetate,CC(C)COC(=O)C
+1-Methylethyl acetate,CC(C)OC(=O)C
+"2,4-Dimethyl-1-heptene",CCCC(C)CC(=C)C
+"3,7-dimethyl-2,6-Octadien-1-ol","CC(=CCCC(=CCO)C)C
+CC(=CCCC(=CCO)C)C
+CC(=CCCC(=CCO)C)C"
+6-pentyl-2H-Pyran-2-one,CCCCCC1=CC=CC(=O)O1
+3-Octanone,CCCCCC(=O)CC
+"2,2,5,5-tetramethyl-3-hexanone",CC(C)(C)CC(=O)C(C)(C)C
+3-Methyl-2-hexanone,CCCC(C)C(=O)C
+3-Methyl-2-heptanone,CCCCC(=O)C(C)C
+"3,5-Dimethyl-2-hexanone",CC(C)CC(C)C(=O)C
+4-Methyl-3-heptanone,CCCC(C)C(=O)CC
+4-Methyl-3-octanone,"CCCCC(C)C(=O)CC
+CCCCC(C)C(=O)CC"
+"4,6-Dimethyl-3-heptanone",CCC(=O)C(C)CC(C)C
+2-Methyl-1-pentanol,CCCC(C)CO
+2-Methyl-1-hexanol,CCCCC(C)CO
+Cyclohexanone,C1CCC(=O)CC1
+"2,4-Dimethyl-1-pentanol",CC(C)CC(C)CO
+3-Methyl-2-butanone,CC(C)C(=O)C
+3-Methyl-2-pentanone,CCC(C)C(=O)C
+4-Methyl-3-hexanone,CCC(C)C(=O)CC
+5-Methyl-3-hexanone,CCC(=O)CC(C)C
+5-Methyl-1-hexanol,CC(C)CCCCO
+1-Hexanol,CCCCCCO
+4-Methyl-1-pentanol,CC(C)CCCO
+6-Hepten-3-one,CCC(=O)CCC=C
+1-Hexen-3-one,CCCC(=O)C=C
+1-Penten-3-one,CCC(=O)C=C
+1-Methoxy-3-methyl-benzene,CC1=CC(=CC=C1)OC
+"1,1,3-trimethylcyclopentane",CC1CCC(C1)(C)C
+"1,5,5-trimethylcyclopentene",CC1=CCCC1(C)C
+propyl acetate,CCCOC(=O)C
+"1,3,5-Trimethylbenzene",CC1=CC(=CC(=C1)C)C
+"Pentanoic acid, methyl ester",CCCCC(=O)OC
+2-Propanone,CC(=O)C
+Methanol,CO
+"2,4-Xylenol",CC1=CC(=C(C=C1)O)C
+"3,5-Xylenol",CC1=CC(=CC(=C1)O)C
