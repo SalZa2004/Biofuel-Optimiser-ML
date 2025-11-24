@@ -1,0 +1,98 @@
+Species,Formula,Original YSI,Original Scale,Species Category,Unified YSI,Unified YSI Error,SMILES_file1,measured (D)CN,measurement type
+1-METHYLNAPHTHALENE,C11H10,135,high soot,aromatic,649.1,24.7,Cc1cccc2ccccc12,-1.333333333,Other
+2-METHYLNAPHTHALENE,C11H10,135,high soot,aromatic,649.1,24.7,Cc1ccc2ccccc2c1,6,Other
+BIPHENYL,C12H10,128,high soot,aromatic,612.5,22.9,c1ccc(-c2ccccc2)cc1,18,Other
+DIPHENYLMETHANE,C13H12,128,high soot,aromatic,612.5,22.9,c1ccc(Cc2ccccc2)cc1,11,Other
+NAPHTHALENE,C10H8,100,high soot,aromatic,466.1,8.4,c1ccc2ccccc2c1,22,Other
+TETRALIN,C10H12,75.1,high soot,aromatic,336,13.4,c1ccc2c(c1)CCCC2,13.2,IQT-DCN
+N-TETRADECYLBENZENE,C20H34,74,high soot,aromatic,330.3,20.2,CCCCCCCCCCCCCCc1ccccc1,72,Other
+"1,3-DIETHYLBENZENE",C10H14,72.2,high soot,aromatic,320.9,12.8,CCc1cccc(CC)c1,5,Other
+"1,2,3-TRIMETHYLBENZENE",C9H12,71.1,high soot,aromatic,315.1,12.3,Cc1cccc(C)c1C,10.1,IQT-DCN
+"1,3,5-TRIMETHYLBENZENE",C9H12,70.3,high soot,aromatic,310.9,12.3,Cc1cc(C)cc(C)c1,8,IQT-DCN
+"1,2,4-TRIMETHYLBENZENE",C9H12,69.8,high soot,aromatic,308.3,12.2,Cc1ccc(C)c(C)c1,8.9,IQT-DCN
+N-DODECYLBENZENE,C18H30,69,high soot,aromatic,304.1,12.2,CCCCCCCCCCCCc1ccccc1,68,Other
+N-NONYLBENZENE,C15H24,65,high soot,aromatic,283.2,11.6,CCCCCCCCCc1ccccc1,50,Other
+N-HEPTYLBENZENE,C13H20,60,high soot,aromatic,257.1,10.5,CCCCCCCc1ccccc1,34.66666667,Other
+N-OCTYLBENZENE,C14H22,60,high soot,aromatic,257.1,10.5,CCCCCCCCc1ccccc1,37.5,Other
+N-PENTYLBENZENE,C11H16,59.6,high soot,aromatic,255,10.5,CCCCCc1ccccc1,11.66666667,Other
+N-HEXYLBENZENE,C12H18,58,high soot,aromatic,246.7,9.9,CCCCCCc1ccccc1,26,Other
+N-BUTYLBENZENE,C10H14,57.7,high soot,aromatic,245.1,9.9,CCCCc1ccccc1,12.45,IQT-DCN
+"1,3-DIMETHYLBENZENE",C8H10,53.2,high soot,aromatic,221.6,9.3,Cc1cccc(C)c1,7,IQT-DCN
+"1,4-DIMETHYLBENZENE",C8H10,51.2,high soot,aromatic,211.1,8.8,Cc1ccc(C)cc1,6.2,IQT-DCN
+"1,2-DIMETHYLBENZENE",C8H10,50,high soot,aromatic,204.8,8.8,Cc1ccccc1C,8.3,IQT-DCN
+TOLUENE,C7H8,43.5,high soot,aromatic,170.9,7.7,Cc1ccccc1,6,IQT-DCN
+BICYCLOHEXYL,C12H22,30,high soot,aromatic,100.3,3.5,C1CCC(C2CCCCC2)CC1,50,Other
+BENZENE,C6H6,30,high soot,aromatic,100.3,5.8,c1ccccc1,4.825,Other
+1-DODECENE,C12H24,93,low soot,alkenes,90.3,2.6,C=CCCCCCCCCCC,56.8,IQT-DCN
+1-DECENE,C10H20,69,low soot,alkenes,74.8,2.2,C=CCCCCCCCC,49.1,IQT-DCN
+N-DODECANE,C12H26,64.2,low soot,linear alkanes,71.7,2.1,CCCCCCCCCCCC,73.45,IQT-DCN
+N-UNDECANE,C11H24,53.3,low soot,linear alkanes,64.7,2,CCCCCCCCCCC,81,Other
+1-NONENE,C9H18,52.8,low soot,alkenes,64.4,2,C=CCCCCCCC,51,Other
+CYCLOHEXENE,C6H10,22.7,high soot,aliphatic,62.2,5.2,C1=CCCCC1,18.1,IQT-DCN
+4-METHYL-1-CYCLOHEXENE,C7H12,,unified scale,cyclic alkenes,61.27218258,3,CC1CC=CCC1,52,Other
+ETHYLCYCLOHEXANE,C8H16,47.1,low soot,cyclic alkanes,60.7,2,CCC1CCCCC1,35.8,IQT-DCN
+CYCLOOCTANE,C8H16,42.4,low soot,cyclic alkanes,57.7,2,C1CCCCCCC1,22.3,IQT-DCN
+N-DECANE,C10H22,41.7,low soot,linear alkanes,57.2,2,CCCCCCCCCC,66.35,IQT-DCN
+1-OCTENE,C8H16,39.8,low soot,alkenes,56,2,C=CCCCCCC,40,IQT-DCN
+"2,2,3-TRIMETHYLBUTANE",C7H16,38.7,low soot,linear alkanes,55.3,2,CC(C)C(C)(C)C,12.9,IQT-DCN
+METHYLCYCLOHEXANE,C7H14,36,low soot,cyclic alkanes,53.6,2,CC1CCCCC1,23.3,IQT-DCN
+2-ETHYL-1-HEXANOL,C8H18O,31.1,low soot,saturated alcohols,50.4,2,CCCCC(CC)CO,23.5,IQT-DCN
+METHYLCYCLOPENTANE,C6H12,30.9,low soot,cyclic alkanes,50.3,2,CC1CCCC1,17.2,IQT-DCN
+N-NONANE,C9H20,30.6,low soot,linear alkanes,50.1,2,CCCCCCCCC,60.9,IQT-DCN
+"2,4-DIMETHYLPENTANE",C7H16,29.9,low soot,linear alkanes,49.6,2,CC(C)CC(C)C,28.45,IQT-DCN
+"2,3-DIMETHYLPENTANE",C7H16,29.6,low soot,linear alkanes,49.4,2,CCC(C)C(C)C,21.85,IQT-DCN
+2-METHYLHEPTANE,C8H18,29.5,low soot,linear alkanes,49.4,2,CCCCCC(C)C,49.8,IQT-DCN
+1-HEPTENE,C7H14,27.9,low soot,alkenes,48.4,2,C=CCCCCC,32,IQT-DCN
+CYCLOHEXENE,C6H10,23.7,low soot,cyclic alkenes,45.6,2,C1=CCCCC1,18.1,IQT-DCN
+2-NONANONE,C9H18O,22.9,low soot,saturated alkanone,45.1,2,CCCCCCCC(C)=O,46.1,IQT-DCN
+3-OCTANOL,C8H18O,20.6,low soot,saturated alcohols,43.6,2,CCCCCC(O)CC,25.1,IQT-DCN
+"2,2-DIMETHYLBUTANE",C6H14,20.2,low soot,linear alkanes,43.4,2,CCC(C)(C)C,24.4,IQT-DCN
+3-METHYLHEXANE,C7H16,19.6,low soot,linear alkanes,43,2,CCCC(C)CC,42,IQT-DCN
+CYCLOHEXANE,C6H12,19.1,low soot,cyclic alkanes,42.7,2,C1CCCCC1,19.95,IQT-DCN
+N-OCTANE,C8H18,18.9,low soot,linear alkanes,42.6,2,CCCCCCCC,58.2,IQT-DCN
+1-HEXENE,C6H12,18.7,low soot,alkenes,42.4,2,C=CCCCC,27.35,IQT-DCN
+2-METHYLHEXANE,C7H16,18.6,low soot,linear alkanes,42.4,2,CCCCC(C)C,43.5,IQT-DCN
+CYCLOHEXANOL,C6H12O,18.5,low soot,saturated alcohols,42.3,2,OC1CCCCC1,16.3,IQT-DCN
+1-OCTANOL,C8H18O,16.7,low soot,saturated alcohols,41.1,2.1,CCCCCCCCO,33.8,IQT-DCN
+PENTYL ACETATE,C7H14O2,15.6,low soot,saturated esters,40.4,2.1,CCCCCOC(C)=O,23.6,IQT-DCN
+CYCLOPENTANE,C5H10,14,low soot,cyclic alkanes,39.4,2.1,C1CCCC1,6.1,IQT-DCN
+2-HEPTANOL,C7H16O,14,low soot,saturated alcohols,39.4,2.1,CCCCCC(C)O,25,IQT-DCN
+METHYL OCTANOATE,C9H18O2,13.3,low soot,saturated esters,38.9,2.1,CCCCCCCC(=O)OC,39.8,IQT-DCN
+DIISOPROPYL ETHER,C6H14O,12.9,low soot,saturated ethers,38.7,2.1,CC(C)OC(C)C,23.6,IQT-DCN
+DIBUTYL ETHER,C8H18O,12.9,low soot,saturated ethers,38.7,2.1,CCCCOCCCC,115.4,IQT-DCN
+4-HEPTANOL,C7H16O,12.6,low soot,saturated alcohols,38.5,2.1,CCCC(O)CCC,21,IQT-DCN
+3-METHYLPENTANE,C6H14,12.2,low soot,linear alkanes,38.2,2.1,CCC(C)CC,30.7,IQT-DCN
+2-OCTANONE,C8H16O,11.7,low soot,saturated alkanone,37.9,2.1,CCCCCCC(C)=O,36.6,IQT-DCN
+OCTANAL,C8H16O,11.1,low soot,saturated aldehyde,37.5,2.1,CCCCCCCC=O,105.75,IQT-DCN
+2-METHYLPENTANE,C6H14,9.8,low soot,linear alkanes,36.7,2.1,CCCC(C)C,34.5,IQT-DCN
+N-HEPTANE,C7H16,8.7,low soot,linear alkanes,36,2.2,CCCCCCC,53.52857143,IQT-DCN
+3-OCTANONE,C8H16O,8.8,low soot,saturated alkanone,36,2.2,CCCCCC(=O)CC,36,IQT-DCN
+1-HEPTANOL,C7H16O,6.7,low soot,saturated alcohols,34.7,2.2,CCCCCCCO,29,IQT-DCN
+CYCLOHEXANONE,C6H10O,6.1,low soot,saturated alkanone,34.3,2.2,O=C1CCCCC1,10.4,IQT-DCN
+2-METHYL-2-BUTANOL,C5H12O,3.9,low soot,saturated alcohols,32.9,2.2,CCC(C)(C)O,12.1,IQT-DCN
+METHYL HEPTANOATE,C8H16O2,3.3,low soot,saturated esters,32.5,2.2,CCCCCCC(=O)OC,34.2,IQT-DCN
+2-HEPTANONE,C7H14O,17,high soot,aliphatic,32.4,4.7,CCCCCC(C)=O,30,IQT-DCN
+1-BUTOXY-2-PROPANOL,C7H16O2,2,low soot,other multi-oxygen compounds,31.7,2.2,CCCCOCC(C)O,36.1,IQT-DCN
+N-HEXANE,C6H14,0,low soot,linear alkanes,30.4,2.3,CCCCCC,48.95,IQT-DCN
+2-HEPTANONE,C7H14O,0,low soot,saturated alkanone,30.4,2.3,CCCCCC(C)=O,30,IQT-DCN
+1-HEXANOL,C6H14O,-0.6,low soot,saturated alcohols,30,2.3,CCCCCCO,23.3,Other
+ETHYL PENTANOATE,C7H14O2,-3,low soot,saturated esters,28.4,2.3,CCCCC(=O)OCC,18.6,IQT-DCN
+HEXANAL,C6H12O,-5.7,low soot,saturated aldehyde,26.7,2.4,CCCCCC=O,75.2,IQT-DCN
+TETRAHYDROPYRAN,C5H10O,-6,low soot,cyclic saturated ethers,26.5,2.4,C1CCOCC1,38.2,IQT-DCN
+2-ISOPROPOXYETHANOL,C5H12O2,-7.5,low soot,other multi-oxygen compounds,25.5,2.4,CC(C)OCCO,27.8,IQT-DCN
+1-PENTANOL,C5H12O,-7.7,low soot,saturated alcohols,25.4,2.4,CCCCCO,19.1,Other
+2-BUTOXYETHANOL,C6H14O2,-7.8,low soot,other multi-oxygen compounds,25.3,2.4,CCCCOCCO,38,Other
+2-BUTANOL,C4H10O,-8.6,low soot,saturated alcohols,24.8,2.4,CCC(C)O,8.5,IQT-DCN
+N-PENTANE,C5H12,-8.9,low soot,linear alkanes,24.6,2.4,CCCCC,30,Other
+METHYL PENTANOATE,C6H12O2,-12.6,low soot,saturated esters,22.3,2.5,CCCCC(=O)OC,13.3,IQT-DCN
+CYCLOPENTANONE,C5H8O,,unified scale,cyclic ketone,21.83809051,4,O=C1CCCC1,9,IQT-DCN
+3-PENTANONE,C5H10O,-14.4,low soot,saturated alkanone,21.1,2.5,CCC(=O)CC,14.6,IQT-DCN
+TETRAHYDROFURAN,C4H8O,-15.7,low soot,cyclic saturated ethers,20.3,2.6,C1CCOC1,21.9,IQT-DCN
+DIETHOXYMETHANE,C5H12O2,-18.4,low soot,other multi-oxygen compounds,18.5,2.6,CCOCOCC,57.3,IQT-DCN
+BUTANAL,C4H8O,-19.9,low soot,saturated aldehyde,17.6,2.6,CCCC=O,41.1,IQT-DCN
+DIETHYL ETHER,C4H10O,-21.1,low soot,saturated ethers,16.8,2.7,CCOCC,150,Other
+"1,2-DIMETHOXYETHANE",C4H10O2,-28.8,low soot,other multi-oxygen compounds,11.8,2.8,COCCOC,81,IQT-DCN
+METHYL ACETATE,C3H6O2,-29,low soot,saturated esters,11.7,2.8,COC(C)=O,19.5,IQT-DCN
+DIMETHOXYMETHANE,C3H8O2,-30.3,low soot,other multi-oxygen compounds,10.9,2.9,COCOC,45.75,Other
+ETHANOL,C2H6O,-31.1,low soot,saturated alcohols,10.3,2.9,CCO,7,Other
+METHANOL,CH4O,-36.9,low soot,saturated alcohols,6.6,3,CO,3.333333333,Other

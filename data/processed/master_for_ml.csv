@@ -1,0 +1,297 @@
+test_type,result_id,test_id,peak_pressure_bar,peak_HRR_J_deg,max_average_temp_K,NOx_ppm,CO_ppm,THC_ppm,particulate_mass_mg_m3,fuel_id,engine_id,injection_timing_CAD_BTDC,ignition_delay_CAD,indicated_thermal_efficiency,injection_duration,engine_type,engine_speed,injection_pressure_bar,IMEP_bar,fuel_name,fuel_type,feedstock_type,is_biodiesel,source_id,boiling_point,melting_point,flash_point_C,density_kg_m3,dynamic_viscosity_at_20,dynamic_viscosity_at_60,lower_heating_value_MJ_kg,cetane_number,ignition_timing_CAD_BTDC
+constant_injection_timing,1,1,,,,,,,,1,1,7.5,3.7,35.41,747.0,fd-rh diesel,1200.0,450.0,4.0,methyl oleate,fatty acid ester,,Y,1,600.3,252.94,,,,2.638,37.42,62.3,
+constant_injection_timing,2,2,,,,,,,,2,1,7.5,6.1,34.29,820.0,fd-rh diesel,1200.0,450.0,4.0,methyl stearate,fatty acid ester,,Y,1,601.8,310.81,,,,3.2252,37.64,88.9,
+constant_injection_timing,3,3,,,,,,,,3,1,7.5,4.4,35.16,816.0,fd-rh diesel,1200.0,450.0,4.0,ethyl stearate,fatty acid ester,,Y,1,611.5,306.13,,,,3.3073,37.79,86.83,
+constant_injection_timing,4,4,,,,,,,,4,1,7.5,4.3,35.31,804.0,fd-rh diesel,1200.0,450.0,4.0,n-propyl stearate,fatty acid ester,,Y,1,620.8,301.25,,,,4.406,37.72,80.4,
+constant_injection_timing,5,5,,,,,,,,5,1,7.5,4.5,35.35,816.0,fd-rh diesel,1200.0,450.0,4.0,n-butyl stearate,fatty acid ester,,Y,1,629.6,298.78,,,,,38.4,86.3,
+constant_injection_timing,6,6,,,,,,,,6,1,7.5,4.5,34.9,843.0,fd-rh diesel,1200.0,450.0,4.0,iso-propyl stearate,fatty acid ester,,Y,1,616.1,301.55,,,,4.355,37.96,96.5,
+constant_injection_timing,7,7,,,,,,,,7,1,7.5,4.5,35.26,847.0,fd-rh diesel,1200.0,450.0,4.0,iso-butyl stearate,fatty acid ester,,Y,1,625.2,302.9,,,,,38.06,99.3,
+constant_injection_timing,8,8,,76.0,,,,,,8,1,7.5,4.5,35.53,820.0,fd-rh diesel,1200.0,450.0,4.0,tert-butyl stearate,fatty acid ester,,Y,1,622.5,305.05,,,,,38.1,,
+constant_injection_timing,9,9,,60.8,,503.9,,,0.21,9,1,7.5,4.9,34.82,862.0,fd-rh diesel,1200.0,450.0,4.0,n-octadecane,n-alkane,,N,1,589.3,301.65,,,,2.062,43.9,106.3,
+constant_injection_timing,10,10,,90.0,,457.1,,,0.2,10,1,7.5,4.7,33.74,725.0,fd-rh diesel,1200.0,450.0,4.0,reference fossil diesel,diesel,,N,1,542.0,,,,,,43.14,51.7,
+constant_injection_timing,11,11,,67.8,,506.7,,,0.14,11,1,7.5,4.5,34.58,804.0,fd-rh diesel,1200.0,450.0,4.0,methyl oleate,fatty acid ester,,Y,1,600.3,252.94,,,,2.638,37.42,62.3,
+constant_injection_timing,12,12,,67.3,,444.7,,,0.14,12,1,7.5,3.7,35.98,840.0,fd-rh diesel,1200.0,450.0,4.0,methyl stearate,fatty acid ester,,Y,1,601.8,310.81,,,,3.2252,37.64,88.9,
+constant_injection_timing,13,13,,47.9,,,,,,13,1,7.5,4.3,35.15,886.0,fd-rh diesel,1200.0,450.0,4.0,tert-butyl stearate,fatty acid ester,,Y,1,622.5,305.05,,,,,38.1,,
+constant_injection_timing,14,14,,87.2,,1143.0,727.3,341.0,,14,2,7.5,9.5,,597.0,fd-rh diesel,1200.0,700.0,4.0,geraniol,terpene,,Y,2,503.6,258.2,,880.1,8.28,2.85,,,
+constant_injection_timing,15,15,,138.2,,1536.0,386.4,163.0,,15,2,7.5,8.1,,583.0,fd-rh diesel,1200.0,700.0,4.0,nerol,terpene,,Y,2,499.4,,,876.0,7.19,2.52,,,
+constant_injection_timing,16,16,,156.2,,955.5,846.6,225.2,,16,2,7.5,8.5,,618.0,fd-rh diesel,1200.0,700.0,4.0,citronellol,terpene,,Y,2,498.1,,,855.1,11.5,3.3,,,
+constant_injection_timing,17,17,,190.4,,1356.1,403.4,135.12,,17,2,7.5,7.9,,596.0,fd-rh diesel,1200.0,700.0,4.0,"3,7-dimethyl-1-octanol",terpene,,Y,2,,,,830.8,15.33,3.82,,,
+constant_injection_timing,18,18,,150.6,,1328.6,434.7,195.2,,18,2,7.5,8.4,,637.0,fd-rh diesel,1200.0,700.0,4.0,geranyl acetate,terpene,,Y,2,,,,915.0,3.03,1.63,,,
+constant_injection_timing,19,19,,186.8,,1676.2,221.6,115.8,,19,2,7.5,5.5,,598.0,fd-rh diesel,1200.0,700.0,4.0,geranial (citral-A),terpene,,Y,2,499.2,,,886.8,2.65,1.48,,,
+constant_injection_timing,20,20,,192.1,,1872.2,213.1,135.1,,20,2,7.5,7.9,,647.0,fd-rh diesel,1200.0,700.0,4.0,citraldimethylacetal,terpene,,Y,2,,,,,2.41,1.37,,,
+constant_injection_timing,21,21,,216.2,,1748.1,224.4,169.4,,21,2,7.5,6.5,,566.0,fd-rh diesel,1200.0,700.0,4.0,farnesene (mixtureof isomers),terpene,,Y,2,,,,841.0,3.29,1.7,,,
+constant_injection_timing,22,22,,213.4,,1838.1,309.7,332.4,,22,2,7.5,6.7,,598.0,fd-rh diesel,1200.0,700.0,4.0,squalene,terpene,,Y,2,,268.2,,857.7,15.5,5.49,,,
+constant_injection_timing,23,23,,,,,,,,23,3,7.5,7.5,,685.0,fd-rh diesel,1200.0,450.0,4.09,reference fossil diesel,diesel,,N,2,542.2,,,834.5,3.42,1.75,,,
+constant_injection_timing,24,24,,,,,,,,24,3,7.5,8.1,,736.0,fd-rh diesel,1200.0,450.0,4.09,5.0% farnesene,terpene and reference diesel blend,,Y,2,,,,,,,,,
+constant_injection_timing,25,25,,,,,,,,25,3,7.5,8.5,,735.0,fd-rh diesel,1200.0,450.0,4.09,10.1% farnesene,terpene and reference diesel blend,,Y,2,,,,,,,,,
+constant_injection_timing,26,26,,,,,,,,26,3,7.5,8.9,,736.0,fd-rh diesel,1200.0,450.0,4.09,20.3% farnesene,terpene and reference diesel blend,,Y,2,,,,,,,,,
+constant_injection_timing,27,27,,,,,,,,27,3,7.5,10.1,,737.0,fd-rh diesel,1200.0,450.0,4.09,40.0% farnesene,terpene and reference diesel blend,,Y,2,,,,,,,,,
+constant_injection_timing,28,28,,,,,,,,28,3,7.5,11.1,,778.0,fd-rh diesel,1200.0,450.0,4.09,41.2% farnesene,terpene and reference diesel blend,,Y,2,,,,,,,,,
+constant_injection_timing,29,29,,,,,,,,29,3,7.5,7.5,,636.0,fd-rh diesel,1200.0,450.0,4.09,7.8% geranial,terpene and reference diesel blend,,Y,2,,,,,,,,,
+constant_injection_timing,30,30,,,,,,,,30,3,7.5,7.5,,640.0,fd-rh diesel,1200.0,450.0,4.09,10.0% geranial,terpene and reference diesel blend,,Y,2,,,,,,,,,
+constant_injection_timing,31,31,,,,,,,,31,3,7.5,7.9,,635.0,fd-rh diesel,1200.0,450.0,4.09,20.3% geranial,terpene and reference diesel blend,,Y,2,,,,,,,,,
+constant_injection_timing,32,32,,,,,,,,32,3,7.5,8.9,,644.0,fd-rh diesel,1200.0,450.0,4.09,40.0% geranial,terpene and reference diesel blend,,Y,2,,,,,,,,,
+constant_injection_timing,33,33,,,,,,,,33,3,7.5,9.9,,658.0,fd-rh diesel,1200.0,450.0,4.09,50.0% geranial,terpene and reference diesel blend,,Y,2,,,,,,,,,
+constant_injection_timing,34,34,,,,,,,,34,3,7.5,10.1,,677.0,fd-rh diesel,1200.0,450.0,4.09,60.0% geranial,terpene and reference diesel blend,,Y,2,,,,,,,,,
+constant_injection_timing,35,35,,,,,,,,35,1,7.5,7.1,42.67,655.0,fd-rh diesel,1200.0,450.0,4.0,n-heptane,alkane,,N,3,371.6,182.6,,684.06,0.41,,44.5,54.4,
+constant_injection_timing,36,36,,,,,,,,36,1,7.5,7.3,42.95,644.0,fd-rh diesel,1200.0,450.0,4.0,5.0% toluene/95.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,
+constant_injection_timing,37,37,,,,,,,,37,1,7.5,7.5,42.75,658.0,fd-rh diesel,1200.0,450.0,4.0,10.1% toluene/89.9% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,
+constant_injection_timing,38,38,,,,,,,,38,1,7.5,8.1,42.84,650.0,fd-rh diesel,1200.0,450.0,4.0,25.0% toluene/75.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,
+constant_injection_timing,39,39,,,,,,,,39,1,7.5,8.7,43.28,642.0,fd-rh diesel,1200.0,450.0,4.0,35.0.0% toluene/65.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,
+constant_injection_timing,40,40,,,,,,,,40,1,7.5,8.9,44.09,628.0,fd-rh diesel,1200.0,450.0,4.0,35.1% toluene/64.9% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,
+constant_injection_timing,41,41,,,,,,,,41,1,7.5,9.3,43.21,638.0,fd-rh diesel,1200.0,450.0,4.0,40.0% toluene/60.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,
+constant_injection_timing,42,42,,,,,,,,42,1,7.5,9.9,41.93,658.0,fd-rh diesel,1200.0,450.0,4.0,46.3% toluene/53.7% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,
+constant_injection_timing,43,43,,,,,,,,43,1,7.5,10.7,39.31,717.0,fd-rh diesel,1200.0,450.0,4.0,50.0% toluene/50.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,
+constant_injection_timing,44,44,,,,,,,,44,1,7.5,6.3,43.85,635.0,fd-rh diesel,1200.0,450.0,4.0,n-heptane,alkane,,N,3,371.6,182.6,,684.06,0.41,,44.5,54.4,
+constant_injection_timing,45,45,,,,,,,,45,1,7.5,6.3,43.74,622.0,fd-rh diesel,1200.0,450.0,4.0,10.0% toluene/90.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,
+constant_injection_timing,46,46,,,,,,,,46,1,7.5,6.1,43.67,622.0,fd-rh diesel,1200.0,450.0,4.0,19.8% toluene/80.2% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,
+constant_injection_timing,47,47,,,,,,,,47,1,7.5,6.1,43.77,620.0,fd-rh diesel,1200.0,450.0,4.0,30.9% toluene/69.1% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,
+constant_injection_timing,48,48,,,,,,,,48,1,7.5,6.3,43.65,639.0,fd-rh diesel,1200.0,450.0,4.0,40.0% toluene/60.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,
+constant_injection_timing,49,49,,,,,,,,49,1,7.5,7.1,42.7,617.0,fd-rh diesel,1200.0,450.0,4.0,reference fossil diesel,diesel,,N,3,541.9,,,834.5,,,43.14,51.7,
+constant_injection_timing,50,50,,,,,,,,50,1,7.5,6.5,42.12,615.0,fd-rh diesel,1200.0,450.0,4.0,n-octane,alkane,,N,3,398.9,216.3,,702.8,0.546,,44.79,64.1,
+constant_injection_timing,51,51,,,,,,,,51,1,7.5,6.5,42.27,616.0,fd-rh diesel,1200.0,450.0,4.0,10.0% 1-octene/90.0% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,
+constant_injection_timing,52,52,,,,,,,,52,1,7.5,6.9,42.3,617.0,fd-rh diesel,1200.0,450.0,4.0,25.0% 1-octene/75.0% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,
+constant_injection_timing,53,53,,,,,,,,53,1,7.5,7.3,41.84,619.0,fd-rh diesel,1200.0,450.0,4.0,50.0% 1-octene/50.0% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,
+constant_injection_timing,54,54,,,,,,,,54,1,7.5,7.3,42.09,617.0,fd-rh diesel,1200.0,450.0,4.0,63.1% 1-octene/36.9% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,
+constant_injection_timing,55,55,,,,,,,,55,1,7.5,7.5,42.15,615.0,fd-rh diesel,1200.0,450.0,4.0,75.0% 1-octene/25.0% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,
+constant_injection_timing,56,56,,,,,,,,56,1,7.5,7.7,42.59,618.0,fd-rh diesel,1200.0,450.0,4.0,87.5% 1-octene/12.5% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,
+constant_injection_timing,57,57,,,,,,,,57,1,7.5,7.9,42.31,617.0,fd-rh diesel,1200.0,450.0,4.0,95.5% 1-octene/4.5% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,
+constant_injection_timing,58,58,,,,,,,,58,1,7.5,8.1,42.24,617.0,fd-rh diesel,1200.0,450.0,4.0,1-octene,alkene,,N,3,394.5,170.6,,714.9,0.47,,44.56,40.8,
+constant_injection_timing,59,59,,,,,,,,59,1,7.5,5.9,41.9,619.0,fd-rh diesel,1200.0,450.0,4.0,n-octane,alkane,,N,3,398.9,216.3,,702.8,0.546,,44.79,64.1,
+constant_injection_timing,60,60,,,,,,,,60,1,7.5,5.7,41.89,619.0,fd-rh diesel,1200.0,450.0,4.0,50.0% 1-octene/50.0% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,
+constant_injection_timing,61,61,,,,,,,,61,1,7.5,6.1,41.79,620.0,fd-rh diesel,1200.0,450.0,4.0,1-octene,alkene,,N,3,394.5,170.6,,714.9,0.47,,44.56,40.8,
+constant_injection_timing,62,62,,132.0,,677.0,433.0,192.0,0.37,62,4,,4.9,,,"a single cylinder, direct injection compression ignition research engine.",,,,Reference Diesel,,,Non-biofuel,4,,,,0.835,,,,,
+constant_injection_timing,63,63,,44.0,,301.0,742.0,427.0,0.79,63,4,,5.2,,,"a single cylinder, direct injection compression ignition research engine.",,,,SCG Oil,,,Biofuel,4,,,,,,,,,
+constant_injection_timing,64,64,,107.0,,572.0,417.0,189.0,0.41,64,4,,5.0,,,"a single cylinder, direct injection compression ignition research engine.",,,,SCG B7,,,Biofuel,4,,,,,,,,,
+constant_injection_timing,65,65,,110.0,,670.0,401.0,236.0,0.36,65,4,,4.4,,,"a single cylinder, direct injection compression ignition research engine.",,,,SCG B20,,,Biofuel,4,,,,0.856,,,,,
+constant_injection_timing,66,66,,72.0,,570.0,434.0,210.0,0.48,66,4,,4.2,,,"a single cylinder, direct injection compression ignition research engine.",,,,SCG B100,,,Biofuel,4,,,,0.892,,,,,
+constant_injection_timing,67,67,,106.0,,585.0,368.0,217.0,0.43,67,4,,4.4,,,"a single cylinder, direct injection compression ignition research engine.",,,,Rapeseed B7,,,Biofuel,4,,,,,,,,,
+constant_injection_timing,68,68,,91.0,,592.0,409.0,194.0,0.42,68,4,,4.2,,,"a single cylinder, direct injection compression ignition research engine.",,,,Rapeseed B20,,,Biofuel,4,,,,,,,,,
+constant_injection_timing,69,69,,63.0,,682.0,330.0,189.0,0.22,69,4,,3.6,,,"a single cylinder, direct injection compression ignition research engine.",,,,Rapeseed B100,,,Biofuel,4,,,,,,,,,
+constant_injection_timing,70,70,,114.0,,601.0,398.0,172.0,0.37,70,4,,4.6,,,"a single cylinder, direct injection compression ignition research engine.",,,,Soya B7,,,Biofuel,4,,,,,,,,,
+constant_injection_timing,71,71,,110.0,,647.0,402.0,194.0,0.35,71,4,,4.4,,,"a single cylinder, direct injection compression ignition research engine.",,,,Soya B20,,,Biofuel,4,,,,,,,,,
+constant_injection_timing,72,72,,85.0,,735.0,349.0,255.0,0.32,72,4,,4.2,,,"a single cylinder, direct injection compression ignition research engine.",,,,Soya B100,,,Biofuel,4,,,,,,,,,
+constant_injection_timing,73,73,,,,,,,,73,5,,7.4,,,a single cylinder direct injection diesel engine,,,,Reference fossil diesel,,,,5,542.0,,,0.8345,,,,51.7,
+constant_injection_timing,74,74,,94.0,1377.0,577.0,,,0.57,74,5,,7.4,,,a single cylinder direct injection diesel engine,,,,n-heptane,,,Non-biofuels,5,371.5,,,0.6838,,,,54.4,
+constant_injection_timing,75,75,,78.0,1348.0,528.0,,,0.61,75,5,,7.0,,,a single cylinder direct injection diesel engine,,,,n-octane,,,Non-biofuels,5,398.7,,,0.7028,,,,64.1,
+constant_injection_timing,76,76,,,,,,,,76,5,,6.3,,,a single cylinder direct injection diesel engine,,,,n-decane,,,Non-biofuels,5,447.2,,,0.7301,,,,76.7,
+constant_injection_timing,77,77,,74.0,1384.0,607.0,,,0.69,77,5,,5.8,,,a single cylinder direct injection diesel engine,,,,n-undecane,,,Non-biofuels,5,468.0,,,0.7402,,,,81.1,
+constant_injection_timing,78,78,,72.0,1374.0,577.0,,,1.29,78,5,,5.6,,,a single cylinder direct injection diesel engine,,,,n-dodecane,,,Non-biofuels,5,489.0,,,0.749,,,,82.5,
+constant_injection_timing,79,79,,68.0,1358.0,532.0,,,1.26,79,5,,5.1,,,a single cylinder direct injection diesel engine,,,,n-tetradecane,,,Non-biofuels,5,523.0,,,0.7627,,,,95.0,
+constant_injection_timing,80,80,,70.0,1385.0,548.0,,,1.25,80,5,,4.8,,,a single cylinder direct injection diesel engine,,,,n-pentadecane,,,Non-biofuels,5,540.0,,,0.7684,,,,96.0,
+constant_injection_timing,81,81,,60.0,1339.0,524.0,,,1.29,81,5,,4.9,,,a single cylinder direct injection diesel engine,,,,n-hexadecane,,,Non-biofuels,5,554.0,,,0.7733,,,,96.0,
+constant_injection_timing,82,82,,67.0,1361.0,522.0,,,1.2,82,5,,4.4,,,a single cylinder direct injection diesel engine,,,,n-octadecane,,,Non-biofuels,5,589.3,,,0.7767,,,,106.3,
+constant_injection_timing,83,83,,63.0,1365.0,582.0,,,1.43,83,5,,4.3,,,a single cylinder direct injection diesel engine,,,,n-eicosane,,,Non-biofuels,5,616.2,,,0.7823,,,,110.0,
+constant_injection_timing,84,84,,58.0,1359.0,577.0,,,1.13,84,5,,4.3,,,a single cylinder direct injection diesel engine,,,,n-docosane,,,Non-biofuels,5,641.8,,,0.7782,,,,,
+constant_injection_timing,85,85,,92.0,1358.0,733.0,,,1.83,85,5,,9.0,,,a single cylinder direct injection diesel engine,,,,1-octene,,,Non-biofuels,5,395.0,,,0.7149,,,,70.8,
+constant_injection_timing,86,86,,94.0,1397.0,1066.0,,,0.48,86,5,,13.0,,,a single cylinder direct injection diesel engine,,,,"1, 7-octadiene",,,Non-biofuels,5,389.0,,,,,,,,
+constant_injection_timing,87,87,,,,,,,,87,5,,7.8,,,a single cylinder direct injection diesel engine,,,,1-decene,,,Non-biofuels,5,440.0,,,0.7408,,,,56.5,
+constant_injection_timing,88,88,,83.0,1357.0,647.0,,,0.71,88,5,,7.0,,,a single cylinder direct injection diesel engine,,,,1-dodecene,,,Non-biofuels,5,486.2,,,0.7584,,,,71.2,
+constant_injection_timing,89,89,,77.0,1344.0,540.0,,,0.98,89,5,,6.0,,,a single cylinder direct injection diesel engine,,,,1-tetradecene,,,Non-biofuels,5,524.2,,,0.775,,,,80.3,
+constant_injection_timing,90,90,,68.0,1360.0,496.0,,,1.7,90,5,,5.0,,,a single cylinder direct injection diesel engine,,,,8-methyl-hexadecane,,,Non-biofuels,5,587.9,,,,,,,,
+constant_injection_timing,91,91,,67.0,1371.0,575.0,,,0.92,91,5,,6.0,,,a single cylinder direct injection diesel engine,,,,"2, 6, 10, 14-tetra-metyl-pentadecane",,,Non-biofuels,5,439.2,,,0.7827,,,,,
+constant_injection_timing,92,92,62.0,155.8,1414.56310679611,622.6,532.710018162934,326.335763261649,0.0011214308307213,92,6,7.5,7.2,42.97,602.0,compression ignition,1200.0,450.0,,Diesel,,Fossil Diesel,,6,,,66.5,834.5,3.41,1.72,43.14,51.7,
+constant_injection_timing,93,93,53.0,46.3,1325.87378640776,249.8,898.1,570.7,0.313649826034447,93,6,7.5,6.9,41.1,737.0,compression ignition,1200.0,450.0,,Algal,,Vegetable Oil,,6,,,220.0,912.0,79.87,18.7,35.8,-,
+constant_injection_timing,94,94,52.0,45.1,1316.35922330097,234.9,1018.6,566.8,0.437335020272018,94,6,7.5,7.7,37.07,752.0,compression ignition,1200.0,450.0,,Corn,,Vegetable Oil,,6,,,277.0,916.7,66.57,16.7,39.5,37.6,
+constant_injection_timing,95,95,52.3,47.2,1319.75728155339,242.5,950.9,613.4,0.341633838456451,95,6,7.5,7.1,36.5,746.0,compression ignition,1200.0,450.0,,Groundnut,,Vegetable Oil,,6,,,271.0,902.6,86.7,19.87,39.8,41.8,
+constant_injection_timing,96,96,52.1,47.5,1311.60194174757,239.1,889.9,592.7,0.265899876355062,96,6,7.5,6.9,39.94,747.0,compression ignition,1200.0,450.0,,Palm,,Vegetable Oil,,6,,,330.0,910.0,87.67,19.4,36.54,42.0,
+constant_injection_timing,97,97,51.2,45.5,1301.06796116504,225.6,1040.7,545.2,0.495954222618397,97,6,7.5,7.7,36.87,764.0,compression ignition,1200.0,450.0,,Rapeseed,,Vegetable Oil,,6,,,246.0,914.5,73.97,18.0,39.7,37.6,
+constant_injection_timing,98,98,52.9,46.3,1308.88349514563,234.2,996.5,541.3,0.465083244673203,98,6,7.5,7.7,37.21,760.0,compression ignition,1200.0,450.0,,Soybean,,Vegetable Oil,,6,,,254.0,918.5,71.9,17.6,39.6,37.9,
+constant_injection_timing,99,99,53.8,46.2,1313.30097087378,236.4,992.7,561.0,0.475762716738073,99,6,7.5,7.5,37.27,756.0,compression ignition,1200.0,450.0,,Sunflower,,Vegetable Oil,,6,,,274.0,916.9,69.5,17.2,39.6,37.1,
+constant_injection_timing,100,100,,65.0,1481.0,1359.2,,,0.0196341463414634,100,7,7.5,5.3,49.4,,compression ignition,1200.0,600.0,,Heptane,,Alkane,,7,372.0,,,682.0,0.39,,45.0,,
+constant_injection_timing,101,101,,60.5,1450.0,1135.3,,,0.0220731707317073,101,7,7.5,5.1,41.4,,compression ignition,1200.0,600.0,,Nonane,,Alkane,,7,424.0,,,715.0,0.67,,45.0,,
+constant_injection_timing,102,102,,52.4,1453.0,1069.2,,,0.0223714896511514,102,7,7.5,4.7,40.9,,compression ignition,1200.0,600.0,,Decane,,Alkane,,7,447.0,,,730.0,0.86,,44.0,,
+constant_injection_timing,103,103,,46.0,1476.0,1288.5,,,0.0205903216402681,103,7,7.5,4.5,44.5,,compression ignition,1200.0,600.0,,Dipentyl ether,,Ether,,7,460.0,,,785.0,1.61,,39.0,,
+constant_injection_timing,104,104,,167.6,1506.0,1425.0,,,0.0100403264988825,104,7,7.5,6.9,28.5,,compression ignition,1200.0,600.0,,3-heptanone,,Ketone,,7,421.0,,,818.0,0.75,,36.0,,
+constant_injection_timing,105,105,,131.0,1467.0,1128.7,,,0.0174390243902439,105,7,7.5,5.9,41.3,,compression ignition,1200.0,600.0,,5-nonane,,Ketone,,7,462.6,,,826.0,,,38.0,,
+constant_injection_timing,106,106,,132.4,1548.0,1300.0,,,0.0149727917597901,106,7,7.5,8.0,44.3,,compression ignition,1200.0,600.0,,ethyl levulinate,,Levulinate,,7,480.0,,,1016.0,,,24.0,,
+constant_injection_timing,107,107,,177.4,1516.0,1393.0,,,0.0103143523467107,107,7,7.5,7.4,33.7,,compression ignition,1200.0,600.0,,butyl levulinate,,Levulinate,,7,514.0,,,974.0,,,28.0,,
+constant_injection_timing,108,108,,168.0,1529.0,1394.7,,,0.0151098046837042,108,7,7.5,7.8,44.0,,compression ignition,1200.0,600.0,,ethyle valerate,,Valerate,,7,420.0,,,875.0,8.47,,31.0,,
+constant_injection_timing,109,109,,165.6,1502.0,1316.0,,,0.0140137012923914,109,7,7.5,7.2,47.9,,compression ignition,1200.0,600.0,,butyl valerate,,Valerate,,7,462.0,,,868.0,,,33.0,,
+constant_injection_timing,110,110,,152.2,1496.0,1289.4,,,0.0129175979010786,110,7,7.5,6.6,49.1,,compression ignition,1200.0,600.0,,pentyl valerate,,Valerate,,7,481.0,,,865.0,,,34.0,,
+constant_injection_timing,111,111,,,,839.376660904564,,,,111,7,7.5,4.50815604104838,,,compression ignition,1200.0,600.0,,Octane,,Alkane,,8,399.0,,,699.0,0.51,,,,
+constant_injection_timing,112,112,,,,786.902396862664,,,,112,7,7.5,4.25240461973039,,,compression ignition,1200.0,600.0,,Nonane,,Alkane,,8,424.0,,,715.0,0.67,,,,
+constant_injection_timing,113,113,,,,777.683892773291,,,,113,7,7.5,3.89328136732577,,,compression ignition,1200.0,600.0,,Decane,,Alkane,,8,447.0,,,728.0,0.86,,,,
+constant_injection_timing,114,114,,,,764.703681725534,,,,114,7,7.5,3.84432366717917,,,compression ignition,1200.0,600.0,,Undecane,,Alkane,,8,469.0,,,737.0,1.1,,,,
+constant_injection_timing,115,115,,,,810.033798601615,,,,115,7,7.5,3.71767440197375,,,compression ignition,1200.0,600.0,,Dodecane,,Alkane,,8,489.0,,,745.0,1.39,,,,
+constant_injection_timing,116,116,,,,814.170902242059,,,,116,7,7.5,3.49045660957557,,,compression ignition,1200.0,600.0,,Tetradecane,,Alkane,,8,527.0,,,758.0,2.11,,,,
+constant_injection_timing,117,117,,,,829.596996826543,,,,117,7,7.5,3.5213930704044,,,compression ignition,1200.0,600.0,,Hexadecane,,Alkane,,8,560.0,,,770.0,3.06,,,,
+constant_injection_timing,118,118,,,,1208.02007275729,,,,118,7,7.5,6.065,,,compression ignition,1200.0,600.0,,1-Octene,,Alkene,,8,394.0,,,711.0,0.45,,,,
+constant_injection_timing,119,119,,,,1009.02887071389,,,,119,7,7.5,4.9145,,,compression ignition,1200.0,600.0,,1-Decene,,Alkene,,8,444.0,,,737.0,0.76,,,,
+constant_injection_timing,120,120,,,,1016.18075801749,,,,120,7,7.5,7.067,,,compression ignition,1200.0,600.0,,1-Octanol,,Alcohol,,8,468.0,,,823.0,7.49,,,,
+constant_injection_timing,121,121,,,,954.104853066384,,,,121,7,7.5,7.88427046057111,,,compression ignition,1200.0,600.0,,2-Octanol,,Alcohol,,8,453.0,,,817.0,7.41,,,,
+constant_injection_timing,122,122,,,,870.642277089656,,,,122,7,7.5,7.947,,,compression ignition,1200.0,600.0,,3-Octanol,,Alcohol,,8,448.0,,,818.0,6.9,,,,
+constant_injection_timing,123,123,,,,56.6729554589451,,,,123,7,7.5,10.378,,,compression ignition,1200.0,600.0,,1-Octen-3-ol,,Alcohol,,8,448.0,,,830.0,,,,,
+constant_injection_timing,124,124,,,,843.324131169534,,,,124,7,7.5,6.13565043536212,,,compression ignition,1200.0,600.0,,1-Nonanol,,Alcohol,,8,486.0,,,824.0,9.85,,,,
+constant_injection_timing,125,125,,,,845.208854717613,,,,125,7,7.5,6.39892499601582,,,compression ignition,1200.0,600.0,,2-Nonanol,,Alcohol,,8,472.0,,,820.0,9.44,,,,
+constant_injection_timing,126,126,,,,810.231243849114,,,,126,7,7.5,8.38116280080553,,,compression ignition,1200.0,600.0,,5-Nonanol,,Alcohol,,8,468.0,,,818.0,9.03,,,,
+constant_injection_timing,127,127,,,,807.777548440362,,,,127,7,7.5,5.651,,,compression ignition,1200.0,600.0,,1-Decanol,,Alcohol,,8,503.0,,,825.0,11.17,,,,
+constant_injection_timing,128,128,,,,1118.99816351086,,,,128,7,7.5,7.2462,,,compression ignition,1200.0,600.0,,1-Decen-3-ol,,Alcohol,,8,489.0,,,837.0,,,,,
+constant_injection_timing,129,129,,,,819.2484326221,,,,129,7,7.5,5.1100153752637,,,compression ignition,1200.0,600.0,,1-Undecanol,,Alcohol,,8,518.0,,,831.0,14.73,,,,
+constant_injection_timing,130,130,,,,802.32462137826,,,,130,7,7.5,5.61,,,compression ignition,1200.0,600.0,,2-Undecanol,,Alcohol,,8,508.0,,,823.0,15.36,,,,
+constant_injection_timing,131,131,,,,923.771634812566,,,,131,7,7.5,5.1100153752637,,,compression ignition,1200.0,600.0,,10-Undecen-1-ol,,Alcohol,,8,523.0,,,850.0,,,,,
+constant_injection_timing,132,132,,,,985.933642849054,,,,132,7,7.5,7.91,,,compression ignition,1200.0,600.0,,"3,7-Dimethyl-1-octanol",,Alcohol,,8,485.0,,,832.0,13.66,,,,
+constant_injection_timing,133,133,,,,308.655871362246,,,,133,7,7.5,7.71,,,compression ignition,1200.0,600.0,,"3,7-Dimethyl-3-octanol",,Alcohol,,8,469.0,,,826.0,11.06,,,,
+constant_injection_timing,134,134,,,,836.361877241414,,,,134,7,7.5,4.49263775163585,,,compression ignition,1200.0,600.0,,1-Dodecanol,,Alcohol,,8,535.0,,,830.0,16.34,,,,
+constant_injection_timing,135,135,,,,808.528341804484,,,,135,7,7.5,4.31708084528194,,,compression ignition,1200.0,600.0,,1-Tetradecanol,,Alcohol,,8,560.0,,,824.0,,,,,
+constant_injection_timing,136,136,,,,812.669315513816,,,,136,7,7.5,3.72803661458147,,,compression ignition,1200.0,600.0,,1-Hexadecanol,,Alcohol,,8,585.0,,,818.0,,,,,
+constant_injection_timing,137,137,,168.4,,700.0,,,,137,7,7.5,8.1,,,compression ignition,1200.0,600.0,,1-Heptanol,Alcohol,plant/animal oils or fermentation of sugars,yes,9,449.0,,,820.0,5.78,,,,
+constant_injection_timing,138,138,,173.8,,750.0,,,,138,7,7.5,8.1,,,compression ignition,1200.0,600.0,,1-Octanol,Alcohol,"palm oil, coconut oil, etc",yes,9,468.0,,,823.0,7.49,,,,
+constant_injection_timing,139,139,,94.7,,650.0,,,,139,7,7.5,5.3,,,compression ignition,1200.0,600.0,,1-Dodecanol,Alcohol,lauric acid found in palm or coconut oil,yes,9,535.0,,,830.0,16.34,,,,
+constant_injection_timing,140,140,,156.9,,900.0,,,,140,7,7.5,6.1,,,compression ignition,1200.0,600.0,,Heptylbenzene,Alkylbenzene,Fossil / Synthetic,No,9,519.0,,,853.0,1.92,,,,
+constant_injection_timing,141,141,,141.8,,850.0,,,,141,7,7.5,5.5,,,compression ignition,1200.0,600.0,,Octylbenzene,Alkylbenzene,Fossil / Synthetic,No,9,538.0,,,853.0,2.37,,,,
+constant_injection_timing,142,142,,98.9,,800.0,,,,142,7,7.5,5.3,,,compression ignition,1200.0,600.0,,Dodecylbenzene,Alkylbenzene,Fossil / Synthetic,No,9,601.0,,,849.0,4.95,,,,
+constant_injection_timing,143,143,,139.2,,600.0,,,,143,7,7.5,6.0,,,compression ignition,1200.0,600.0,,Heptane,Alkane (Paraffin),Fossil,No,9,372.0,,,682.0,0.39,,,,
+constant_injection_timing,144,144,,118.8,,600.0,,,,144,7,7.5,5.5,,,compression ignition,1200.0,600.0,,Octane,Alkane (Paraffin),Fossil,No,9,399.0,,,699.0,0.51,,,,
+constant_injection_timing,145,145,,57.0,,550.0,,,,145,7,7.5,4.5,,,compression ignition,1200.0,600.0,,Dodecane,Alkane (Paraffin),Fossil,No,9,489.0,,,745.0,1.39,,,,
+constant_injection_timing,146,146,,176.4,,700.0,,,,146,7,7.5,6.7,,,compression ignition,1200.0,600.0,,Toluene+Hexane,Alkane/Aromatic Mix,Fossil,Blend,9,,,,692.0,,,,,
+constant_injection_timing,147,147,,162.6,,800.0,,,,147,7,7.5,6.3,,,compression ignition,1200.0,600.0,,Toluene+Heptane,Alkane/Aromatic Mix,Fossil,Blend,9,,,,720.0,,,,,
+constant_injection_timing,148,148,,93.1,,750.0,,,,148,7,7.5,5.2,,,compression ignition,1200.0,600.0,,Toluene+Undecane,Alkane/Aromatic Mix,Fossil,Blend,9,,,,783.0,,,,,
+constant_ignition_timing,1,1,,,,,,,,1,1,,3.6,35.27,747.0,fd-rh diesel,1200.0,450.0,4.0,methyl oleate,fatty acid ester,,Y,1,600.3,252.94,,,,2.638,37.42,62.3,0.0
+constant_ignition_timing,2,2,,80.3,,,,,,2,1,,5.9,34.07,823.0,fd-rh diesel,1200.0,450.0,4.0,methyl stearate,fatty acid ester,,Y,1,601.8,310.81,,,,3.2252,37.64,88.9,0.0
+constant_ignition_timing,3,3,,,,,,,,3,1,,4.3,35.04,815.0,fd-rh diesel,1200.0,450.0,4.0,ethyl stearate,fatty acid ester,,Y,1,611.5,306.13,,,,3.3073,37.79,86.83,0.0
+constant_ignition_timing,4,4,,,,,,,,4,1,,4.3,34.68,801.0,fd-rh diesel,1200.0,450.0,4.0,n-propyl stearate,fatty acid ester,,Y,1,620.8,301.25,,,,4.406,37.72,80.4,0.0
+constant_ignition_timing,5,5,,,,,,,,5,1,,4.3,34.9,817.0,fd-rh diesel,1200.0,450.0,4.0,n-butyl stearate,fatty acid ester,,Y,1,629.6,298.78,,,,,38.4,86.3,0.0
+constant_ignition_timing,6,6,,,,,,,,6,1,,4.4,34.26,848.0,fd-rh diesel,1200.0,450.0,4.0,iso-propyl stearate,fatty acid ester,,Y,1,616.1,301.55,,,,4.355,37.96,96.5,0.0
+constant_ignition_timing,7,7,,,,,,,,7,1,,4.4,34.96,864.0,fd-rh diesel,1200.0,450.0,4.0,iso-butyl stearate,fatty acid ester,,Y,1,625.2,302.9,,,,,38.06,99.3,0.0
+constant_ignition_timing,8,8,,77.2,,,,,,8,1,,4.3,34.88,829.0,fd-rh diesel,1200.0,450.0,4.0,tert-butyl stearate,fatty acid ester,,Y,1,622.5,305.05,,,,,38.1,,0.0
+constant_ignition_timing,9,9,,74.6,,345.6,,,0.36,9,1,,4.7,34.54,854.0,fd-rh diesel,1200.0,450.0,4.0,n-octadecane,n-alkane,,N,1,589.3,301.65,,,,2.062,43.9,106.3,0.0
+constant_ignition_timing,10,10,,106.6,,442.0,,,0.39,10,1,,4.4,33.7,723.0,fd-rh diesel,1200.0,450.0,4.0,reference fossil diesel,diesel,,N,1,542.0,,,,,,43.14,51.7,0.0
+constant_ignition_timing,11,11,,80.9,,388.3,,,0.34,11,1,,4.4,34.23,805.0,fd-rh diesel,1200.0,450.0,4.0,methyl oleate,fatty acid ester,,Y,1,600.3,252.94,,,,2.638,37.42,62.3,0.0
+constant_ignition_timing,12,12,,80.6,,345.0,,,0.29,12,1,,3.7,36.21,838.0,fd-rh diesel,1200.0,450.0,4.0,methyl stearate,fatty acid ester,,Y,1,601.8,310.81,,,,3.2252,37.64,88.9,0.0
+constant_ignition_timing,13,13,,57.0,,,,,,13,1,,4.2,34.9,898.0,fd-rh diesel,1200.0,450.0,4.0,tert-butyl stearate,fatty acid ester,,Y,1,622.5,305.05,,,,,38.1,,0.0
+constant_ignition_timing,14,14,,134.9,,1608.9,377.8,261.7,,14,2,,8.5,,600.0,fd-rh diesel,1200.0,700.0,4.0,geraniol,terpene,,Y,2,503.6,258.2,,880.1,8.28,2.85,,,0.0
+constant_ignition_timing,15,15,,129.1,,1695.1,321.0,199.5,,15,2,,7.7,,591.0,fd-rh diesel,1200.0,700.0,4.0,nerol,terpene,,Y,2,499.4,,,876.0,7.19,2.52,,,0.0
+constant_ignition_timing,16,16,,117.1,,1326.7,531.3,208.0,,16,2,,8.7,,624.0,fd-rh diesel,1200.0,700.0,4.0,citronellol,terpene,,Y,2,498.1,,,855.1,11.5,3.3,,,0.0
+constant_ignition_timing,17,17,,194.9,,1409.1,389.2,308.8,,17,2,,7.8,,603.0,fd-rh diesel,1200.0,700.0,4.0,"3,7-dimethyl-1-octanol",terpene,,Y,2,,,,830.8,15.33,3.82,,,0.0
+constant_ignition_timing,18,18,,185.0,,1593.8,289.8,178.0,,18,2,,8.2,,642.0,fd-rh diesel,1200.0,700.0,4.0,geranyl acetate,terpene,,Y,2,,,,915.0,3.03,1.63,,,0.0
+constant_ignition_timing,19,19,,173.6,,1479.2,218.7,152.3,,19,2,,5.1,,601.0,fd-rh diesel,1200.0,700.0,4.0,geranial (citral-A),terpene,,Y,2,499.2,,,886.8,2.65,1.48,,,0.0
+constant_ignition_timing,20,20,,223.0,,1773.7,198.9,143.7,,20,2,,7.7,,654.0,fd-rh diesel,1200.0,700.0,4.0,citraldimethylacetal,terpene,,Y,2,,,,,2.41,1.37,,,0.0
+constant_ignition_timing,21,21,,210.1,,1634.5,224.4,145.8,,21,2,,6.4,,571.0,fd-rh diesel,1200.0,700.0,4.0,farnesene (mixtureof isomers),terpene,,Y,2,,,,841.0,3.29,1.7,,,0.0
+constant_ignition_timing,22,22,,207.3,,1739.6,309.7,381.8,,22,2,,6.7,,591.0,fd-rh diesel,1200.0,700.0,4.0,squalene,terpene,,Y,2,,268.2,,857.7,15.5,5.49,,,0.0
+constant_ignition_timing,23,23,,,,,,,,23,3,,7.5,,686.0,fd-rh diesel,1200.0,450.0,4.09,reference fossil diesel,diesel,,N,2,542.2,,,834.5,3.42,1.75,,,0.0
+constant_ignition_timing,24,24,,,,,,,,24,3,,8.0,,736.0,fd-rh diesel,1200.0,450.0,4.09,5.0% farnesene,terpene and reference diesel blend,,Y,2,,,,,,,,,0.0
+constant_ignition_timing,25,25,,,,,,,,25,3,,8.3,,737.0,fd-rh diesel,1200.0,450.0,4.09,10.1% farnesene,terpene and reference diesel blend,,Y,2,,,,,,,,,0.0
+constant_ignition_timing,26,26,,,,,,,,26,3,,8.7,,741.0,fd-rh diesel,1200.0,450.0,4.09,20.3% farnesene,terpene and reference diesel blend,,Y,2,,,,,,,,,0.0
+constant_ignition_timing,27,27,,,,,,,,27,3,,9.9,,735.0,fd-rh diesel,1200.0,450.0,4.09,40.0% farnesene,terpene and reference diesel blend,,Y,2,,,,,,,,,0.0
+constant_ignition_timing,28,28,,,,,,,,28,3,,10.7,,742.0,fd-rh diesel,1200.0,450.0,4.09,41.2% farnesene,terpene and reference diesel blend,,Y,2,,,,,,,,,0.0
+constant_ignition_timing,29,29,,,,,,,,29,3,,7.4,,639.0,fd-rh diesel,1200.0,450.0,4.09,7.8% geranial,terpene and reference diesel blend,,Y,2,,,,,,,,,0.0
+constant_ignition_timing,30,30,,,,,,,,30,3,,7.6,,642.0,fd-rh diesel,1200.0,450.0,4.09,10.0% geranial,terpene and reference diesel blend,,Y,2,,,,,,,,,0.0
+constant_ignition_timing,31,31,,,,,,,,31,3,,8.0,,635.0,fd-rh diesel,1200.0,450.0,4.09,20.3% geranial,terpene and reference diesel blend,,Y,2,,,,,,,,,0.0
+constant_ignition_timing,32,32,,,,,,,,32,3,,9.0,,647.0,fd-rh diesel,1200.0,450.0,4.09,40.0% geranial,terpene and reference diesel blend,,Y,2,,,,,,,,,0.0
+constant_ignition_timing,33,33,,,,,,,,33,3,,9.7,,652.0,fd-rh diesel,1200.0,450.0,4.09,50.0% geranial,terpene and reference diesel blend,,Y,2,,,,,,,,,0.0
+constant_ignition_timing,34,34,,,,,,,,34,3,,10.1,,655.0,fd-rh diesel,1200.0,450.0,4.09,60.0% geranial,terpene and reference diesel blend,,Y,2,,,,,,,,,0.0
+constant_ignition_timing,35,35,,,,,,,,35,1,,7.4,42.9,657.0,fd-rh diesel,1200.0,450.0,4.0,n-heptane,alkane,,N,3,371.6,182.6,,684.06,0.41,,44.5,54.4,0.0
+constant_ignition_timing,36,36,,,,,,,,36,1,,7.5,43.08,646.0,fd-rh diesel,1200.0,450.0,4.0,5.0% toluene/95.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,37,37,,,,,,,,37,1,,7.5,42.65,658.0,fd-rh diesel,1200.0,450.0,4.0,10.1% toluene/89.9% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,38,38,,,,,,,,38,1,,8.1,42.96,648.0,fd-rh diesel,1200.0,450.0,4.0,25.0% toluene/75.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,39,39,,,,,,,,39,1,,8.8,43.22,630.0,fd-rh diesel,1200.0,450.0,4.0,35.0.0% toluene/65.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,40,40,,,,,,,,40,1,,8.9,43.67,631.0,fd-rh diesel,1200.0,450.0,4.0,35.1% toluene/64.9% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,41,41,,,,,,,,41,1,,9.0,43.19,638.0,fd-rh diesel,1200.0,450.0,4.0,40.0% toluene/60.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,42,42,,,,,,,,42,1,,9.6,43.62,632.0,fd-rh diesel,1200.0,450.0,4.0,46.3% toluene/53.7% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,43,43,,,,,,,,43,1,,9.9,42.38,664.0,fd-rh diesel,1200.0,450.0,4.0,50.0% toluene/50.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,44,44,,,,,,,,44,1,,6.4,43.8,637.0,fd-rh diesel,1200.0,450.0,4.0,n-heptane,alkane,,N,3,371.6,182.6,,684.06,0.41,,44.5,54.4,0.0
+constant_ignition_timing,45,45,,,,,,,,45,1,,6.2,43.91,618.0,fd-rh diesel,1200.0,450.0,4.0,10.0% toluene/90.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,46,46,,,,,,,,46,1,,6.2,43.68,620.0,fd-rh diesel,1200.0,450.0,4.0,19.8% toluene/80.2% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,47,47,,,,,,,,47,1,,6.2,43.78,617.0,fd-rh diesel,1200.0,450.0,4.0,30.9% toluene/69.1% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,48,48,,,,,,,,48,1,,6.4,43.58,638.0,fd-rh diesel,1200.0,450.0,4.0,40.0% toluene/60.0% n-heptane,toluene and n-heptane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,49,49,,,,,,,,49,1,,7.2,42.4,619.0,fd-rh diesel,1200.0,450.0,4.0,reference fossil diesel,diesel,,N,3,541.9,,,834.5,,,43.14,51.7,0.0
+constant_ignition_timing,50,50,,,,,,,,50,1,,6.5,42.01,618.0,fd-rh diesel,1200.0,450.0,4.0,n-octane,alkane,,N,3,398.9,216.3,,702.8,0.546,,44.79,64.1,0.0
+constant_ignition_timing,51,51,,,,,,,,51,1,,6.7,42.3,621.0,fd-rh diesel,1200.0,450.0,4.0,10.0% 1-octene/90.0% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,52,52,,,,,,,,52,1,,6.8,42.05,619.0,fd-rh diesel,1200.0,450.0,4.0,25.0% 1-octene/75.0% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,53,53,,,,,,,,53,1,,7.4,42.14,621.0,fd-rh diesel,1200.0,450.0,4.0,50.0% 1-octene/50.0% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,54,54,,,,,,,,54,1,,7.4,42.0,620.0,fd-rh diesel,1200.0,450.0,4.0,63.1% 1-octene/36.9% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,55,55,,,,,,,,55,1,,7.7,42.28,620.0,fd-rh diesel,1200.0,450.0,4.0,75.0% 1-octene/25.0% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,56,56,,,,,,,,56,1,,7.8,42.13,621.0,fd-rh diesel,1200.0,450.0,4.0,87.5% 1-octene/12.5% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,57,57,,,,,,,,57,1,,8.0,42.41,623.0,fd-rh diesel,1200.0,450.0,4.0,95.5% 1-octene/4.5% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,58,58,,,,,,,,58,1,,8.1,42.08,618.0,fd-rh diesel,1200.0,450.0,4.0,1-octene,alkene,,N,3,394.5,170.6,,714.9,0.47,,44.56,40.8,0.0
+constant_ignition_timing,59,59,,,,,,,,59,1,,5.9,42.12,619.0,fd-rh diesel,1200.0,450.0,4.0,n-octane,alkane,,N,3,398.9,216.3,,702.8,0.546,,44.79,64.1,0.0
+constant_ignition_timing,60,60,,,,,,,,60,1,,5.8,41.95,620.0,fd-rh diesel,1200.0,450.0,4.0,50.0% 1-octene/50.0% n-octane,1-octene and n-octane blend,,N,3,,,,,,,,,0.0
+constant_ignition_timing,61,61,,,,,,,,61,1,,6.0,41.87,620.0,fd-rh diesel,1200.0,450.0,4.0,1-octene,alkene,,N,3,394.5,170.6,,714.9,0.47,,44.56,40.8,0.0
+constant_ignition_timing,62,62,,131.0,,665.0,436.0,203.0,0.41,62,4,,4.9,,,"a single cylinder, direct injection compression ignition research engine.",,,,Reference Diesel,,,Non-biofuel,4,,,,0.835,,,,,
+constant_ignition_timing,63,63,,55.0,,384.0,648.0,420.0,0.68,63,4,,5.0,,,"a single cylinder, direct injection compression ignition research engine.",,,,SCG Oil,,,Biofuel,4,,,,,,,,,
+constant_ignition_timing,64,64,,107.0,,591.0,412.0,198.0,0.46,64,4,,5.0,,,"a single cylinder, direct injection compression ignition research engine.",,,,SCG B7,,,Biofuel,4,,,,,,,,,
+constant_ignition_timing,65,65,,108.0,,632.0,403.0,245.0,0.38,65,4,,4.4,,,"a single cylinder, direct injection compression ignition research engine.",,,,SCG B20,,,Biofuel,4,,,,0.856,,,,,
+constant_ignition_timing,66,66,,68.0,,508.0,505.0,346.0,0.67,66,4,,4.2,,,"a single cylinder, direct injection compression ignition research engine.",,,,SCG B100,,,Biofuel,4,,,,0.892,,,,,
+constant_ignition_timing,67,67,,105.0,,584.0,381.0,215.0,0.45,67,4,,4.5,,,"a single cylinder, direct injection compression ignition research engine.",,,,Rapeseed B7,,,Biofuel,4,,,,,,,,,
+constant_ignition_timing,68,68,,93.0,,555.0,404.0,197.0,0.47,68,4,,4.3,,,"a single cylinder, direct injection compression ignition research engine.",,,,Rapeseed B20,,,Biofuel,4,,,,,,,,,
+constant_ignition_timing,69,69,,65.0,,573.0,347.0,211.0,0.3,69,4,,3.6,,,"a single cylinder, direct injection compression ignition research engine.",,,,Rapeseed B100,,,Biofuel,4,,,,,,,,,
+constant_ignition_timing,70,70,,115.0,,605.0,412.0,198.0,0.41,70,4,,4.6,,,"a single cylinder, direct injection compression ignition research engine.",,,,Soya B7,,,Biofuel,4,,,,,,,,,
+constant_ignition_timing,71,71,,113.0,,606.0,417.0,202.0,0.37,71,4,,4.5,,,"a single cylinder, direct injection compression ignition research engine.",,,,Soya B20,,,Biofuel,4,,,,,,,,,
+constant_ignition_timing,72,72,,84.0,,693.0,355.0,246.0,0.36,72,4,,4.0,,,"a single cylinder, direct injection compression ignition research engine.",,,,Soya B100,,,Biofuel,4,,,,,,,,,
+constant_ignition_timing,73,73,,,,,,,,73,5,,7.3,,,a single cylinder direct injection diesel engine,,,,Reference fossil diesel,,,,5,542.0,,,0.8345,,,,51.7,
+constant_ignition_timing,74,74,,98.0,1342.0,465.0,,,0.89,74,5,,7.5,,,a single cylinder direct injection diesel engine,,,,n-heptane,,,Non-biofuels,5,371.5,,,0.6838,,,,54.4,
+constant_ignition_timing,75,75,,80.0,1299.0,384.0,,,0.63,75,5,,6.9,,,a single cylinder direct injection diesel engine,,,,n-octane,,,Non-biofuels,5,398.7,,,0.7028,,,,64.1,
+constant_ignition_timing,76,76,,,,,,,,76,5,,6.1,,,a single cylinder direct injection diesel engine,,,,n-decane,,,Non-biofuels,5,447.2,,,0.7301,,,,76.7,
+constant_ignition_timing,77,77,,84.0,1328.0,454.0,,,0.73,77,5,,5.8,,,a single cylinder direct injection diesel engine,,,,n-undecane,,,Non-biofuels,5,468.0,,,0.7402,,,,81.1,
+constant_ignition_timing,78,78,,89.0,1336.0,465.0,,,1.06,78,5,,5.4,,,a single cylinder direct injection diesel engine,,,,n-dodecane,,,Non-biofuels,5,489.0,,,0.749,,,,82.5,
+constant_ignition_timing,79,79,,78.0,1301.0,387.0,,,1.23,79,5,,5.0,,,a single cylinder direct injection diesel engine,,,,n-tetradecane,,,Non-biofuels,5,523.0,,,0.7627,,,,95.0,
+constant_ignition_timing,80,80,,84.0,1319.0,406.0,,,1.15,80,5,,4.7,,,a single cylinder direct injection diesel engine,,,,n-pentadecane,,,Non-biofuels,5,540.0,,,0.7684,,,,96.0,
+constant_ignition_timing,81,81,,81.0,1300.0,418.0,,,1.19,81,5,,4.7,,,a single cylinder direct injection diesel engine,,,,n-hexadecane,,,Non-biofuels,5,554.0,,,0.7733,,,,96.0,
+constant_ignition_timing,82,82,,82.0,1317.0,403.0,,,0.9,82,5,,4.4,,,a single cylinder direct injection diesel engine,,,,n-octadecane,,,Non-biofuels,5,589.3,,,0.7767,,,,106.3,
+constant_ignition_timing,83,83,,79.0,1324.0,450.0,,,1.19,83,5,,4.3,,,a single cylinder direct injection diesel engine,,,,n-eicosane,,,Non-biofuels,5,616.2,,,0.7823,,,,110.0,
+constant_ignition_timing,84,84,,71.0,1316.0,437.0,,,1.0,84,5,,4.1,,,a single cylinder direct injection diesel engine,,,,n-docosane,,,Non-biofuels,5,641.8,,,0.7782,,,,,
+constant_ignition_timing,85,85,,85.0,1301.0,563.0,,,0.87,85,5,,8.7,,,a single cylinder direct injection diesel engine,,,,1-octene,,,Non-biofuels,5,395.0,,,0.7149,,,,70.8,
+constant_ignition_timing,86,86,,105.0,1326.0,815.0,,,0.57,86,5,,12.2,,,a single cylinder direct injection diesel engine,,,,"1, 7-octadiene",,,Non-biofuels,5,389.0,,,,,,,,
+constant_ignition_timing,87,87,,,,,,,,87,5,,7.6,,,a single cylinder direct injection diesel engine,,,,1-decene,,,Non-biofuels,5,440.0,,,0.7408,,,,56.5,
+constant_ignition_timing,88,88,,84.0,1308.0,511.0,,,0.93,88,5,,7.0,,,a single cylinder direct injection diesel engine,,,,1-dodecene,,,Non-biofuels,5,486.2,,,0.7584,,,,71.2,
+constant_ignition_timing,89,89,,90.0,1321.0,512.0,,,0.53,89,5,,5.9,,,a single cylinder direct injection diesel engine,,,,1-tetradecene,,,Non-biofuels,5,524.2,,,0.775,,,,80.3,
+constant_ignition_timing,90,90,,83.0,1308.0,370.0,,,2.72,90,5,,4.9,,,a single cylinder direct injection diesel engine,,,,8-methyl-hexadecane,,,Non-biofuels,5,587.9,,,,,,,,
+constant_ignition_timing,91,91,,76.0,1312.0,426.0,,,1.11,91,5,,5.9,,,a single cylinder direct injection diesel engine,,,,"2, 6, 10, 14-tetra-metyl-pentadecane",,,Non-biofuels,5,439.2,,,0.7827,,,,,
+constant_ignition_timing,92,92,60.7692307692307,154.298642533936,1412.18446601941,628.102949681897,532.710018162934,379.464070367836,0.0011214308307213,92,6,,7.1,42.81,604.0,compression ignition,1200.0,450.0,,Diesel,,Fossil Diesel,,6,,,66.5,834.5,3.41,1.72,43.14,51.7,
+constant_ignition_timing,93,93,52.7692307692307,46.465934065934,1322.81553398058,241.604420198629,1003.54447950147,883.478128184051,0.343566150041694,93,6,,6.8,40.21,743.0,compression ignition,1200.0,450.0,,Algal,,Vegetable Oil,,6,,,220.0,912.0,79.87,18.7,35.8,-,
+constant_ignition_timing,94,94,52.4,46.0615384615384,1319.75728155339,236.542173730591,1056.25538366123,713.788079405003,0.452293182275641,94,6,,7.5,36.88,754.0,compression ignition,1200.0,450.0,,Corn,,Vegetable Oil,,6,,,277.0,916.7,66.57,16.7,39.5,37.6,
+constant_ignition_timing,95,95,53.3846153846153,47.4505494505494,1317.37864077669,233.105329416701,999.429516491846,713.394303040445,0.373212180464099,95,6,,7.1,36.28,743.0,compression ignition,1200.0,450.0,,Groundnut,,Vegetable Oil,,6,,,271.0,902.6,86.7,19.87,39.8,41.8,
+constant_ignition_timing,96,96,51.6615384615384,47.2043956043956,1305.14563106796,228.052874527906,945.923184075683,659.895846151574,0.304114788509647,96,6,,6.8,39.44,747.0,compression ignition,1200.0,450.0,,Palm,,Vegetable Oil,,6,,,330.0,910.0,87.67,19.4,36.54,42.0,
+constant_ignition_timing,97,97,51.5384615384615,45.8505494505494,1305.4854368932,228.914533501189,1051.75451981433,642.904396020889,0.495954222618397,97,6,,7.7,36.59,759.0,compression ignition,1200.0,450.0,,Rapeseed,,Vegetable Oil,,6,,,246.0,914.5,73.97,18.0,39.7,37.6,
+constant_ignition_timing,98,98,53.7538461538461,46.8351648351648,1314.32038834951,236.777171632396,1034.77094521094,695.599549126062,0.483376944532305,98,6,,7.6,36.92,761.0,compression ignition,1200.0,450.0,,Soybean,,Vegetable Oil,,6,,,254.0,918.5,71.9,17.6,39.6,37.9,
+constant_ignition_timing,99,99,53.876923076923,45.6571428571428,1316.01941747572,239.802769618128,1041.00048729825,728.401120293757,0.499019466889035,99,6,,7.6,36.53,750.0,compression ignition,1200.0,450.0,,Sunflower,,Vegetable Oil,,6,,,274.0,916.9,69.5,17.2,39.6,37.1,
+constant_ignition_timing,100,100,,,,,,,,100,7,,,,,compression ignition,1200.0,600.0,,Heptane,,Alkane,,7,372.0,,,682.0,0.39,,45.0,,
+constant_ignition_timing,101,101,,,,,,,,101,7,,,,,compression ignition,1200.0,600.0,,Nonane,,Alkane,,7,424.0,,,715.0,0.67,,45.0,,
+constant_ignition_timing,102,102,,,,,,,,102,7,,,,,compression ignition,1200.0,600.0,,Decane,,Alkane,,7,447.0,,,730.0,0.86,,44.0,,
+constant_ignition_timing,103,103,,,,,,,,103,7,,,,,compression ignition,1200.0,600.0,,Dipentyl ether,,Ether,,7,460.0,,,785.0,1.61,,39.0,,
+constant_ignition_timing,104,104,,,,,,,,104,7,,,,,compression ignition,1200.0,600.0,,3-heptanone,,Ketone,,7,421.0,,,818.0,0.75,,36.0,,
+constant_ignition_timing,105,105,,,,,,,,105,7,,,,,compression ignition,1200.0,600.0,,5-nonane,,Ketone,,7,462.6,,,826.0,,,38.0,,
+constant_ignition_timing,106,106,,,,,,,,106,7,,,,,compression ignition,1200.0,600.0,,ethyl levulinate,,Levulinate,,7,480.0,,,1016.0,,,24.0,,
+constant_ignition_timing,107,107,,,,,,,,107,7,,,,,compression ignition,1200.0,600.0,,butyl levulinate,,Levulinate,,7,514.0,,,974.0,,,28.0,,
+constant_ignition_timing,108,108,,,,,,,,108,7,,,,,compression ignition,1200.0,600.0,,ethyle valerate,,Valerate,,7,420.0,,,875.0,8.47,,31.0,,
+constant_ignition_timing,109,109,,,,,,,,109,7,,,,,compression ignition,1200.0,600.0,,butyl valerate,,Valerate,,7,462.0,,,868.0,,,33.0,,
+constant_ignition_timing,110,110,,,,,,,,110,7,,,,,compression ignition,1200.0,600.0,,pentyl valerate,,Valerate,,7,481.0,,,865.0,,,34.0,,
+constant_ignition_timing,111,111,,,,,,,,111,7,,,,,compression ignition,1200.0,600.0,,Octane,,Alkane,,8,399.0,,,699.0,0.51,,,,
+constant_ignition_timing,112,112,,,,,,,,112,7,,,,,compression ignition,1200.0,600.0,,Nonane,,Alkane,,8,424.0,,,715.0,0.67,,,,
+constant_ignition_timing,113,113,,,,,,,,113,7,,,,,compression ignition,1200.0,600.0,,Decane,,Alkane,,8,447.0,,,728.0,0.86,,,,
+constant_ignition_timing,114,114,,,,,,,,114,7,,,,,compression ignition,1200.0,600.0,,Undecane,,Alkane,,8,469.0,,,737.0,1.1,,,,
+constant_ignition_timing,115,115,,,,,,,,115,7,,,,,compression ignition,1200.0,600.0,,Dodecane,,Alkane,,8,489.0,,,745.0,1.39,,,,
+constant_ignition_timing,116,116,,,,,,,,116,7,,,,,compression ignition,1200.0,600.0,,Tetradecane,,Alkane,,8,527.0,,,758.0,2.11,,,,
+constant_ignition_timing,117,117,,,,,,,,117,7,,,,,compression ignition,1200.0,600.0,,Hexadecane,,Alkane,,8,560.0,,,770.0,3.06,,,,
+constant_ignition_timing,118,118,,,,,,,,118,7,,,,,compression ignition,1200.0,600.0,,1-Octene,,Alkene,,8,394.0,,,711.0,0.45,,,,
+constant_ignition_timing,119,119,,,,,,,,119,7,,,,,compression ignition,1200.0,600.0,,1-Decene,,Alkene,,8,444.0,,,737.0,0.76,,,,
+constant_ignition_timing,120,120,,,,,,,,120,7,,,,,compression ignition,1200.0,600.0,,1-Octanol,,Alcohol,,8,468.0,,,823.0,7.49,,,,
+constant_ignition_timing,121,121,,,,,,,,121,7,,,,,compression ignition,1200.0,600.0,,2-Octanol,,Alcohol,,8,453.0,,,817.0,7.41,,,,
+constant_ignition_timing,122,122,,,,,,,,122,7,,,,,compression ignition,1200.0,600.0,,3-Octanol,,Alcohol,,8,448.0,,,818.0,6.9,,,,
+constant_ignition_timing,123,123,,,,,,,,123,7,,,,,compression ignition,1200.0,600.0,,1-Octen-3-ol,,Alcohol,,8,448.0,,,830.0,,,,,
+constant_ignition_timing,124,124,,,,,,,,124,7,,,,,compression ignition,1200.0,600.0,,1-Nonanol,,Alcohol,,8,486.0,,,824.0,9.85,,,,
+constant_ignition_timing,125,125,,,,,,,,125,7,,,,,compression ignition,1200.0,600.0,,2-Nonanol,,Alcohol,,8,472.0,,,820.0,9.44,,,,
+constant_ignition_timing,126,126,,,,,,,,126,7,,,,,compression ignition,1200.0,600.0,,5-Nonanol,,Alcohol,,8,468.0,,,818.0,9.03,,,,
+constant_ignition_timing,127,127,,,,,,,,127,7,,,,,compression ignition,1200.0,600.0,,1-Decanol,,Alcohol,,8,503.0,,,825.0,11.17,,,,
+constant_ignition_timing,128,128,,,,,,,,128,7,,,,,compression ignition,1200.0,600.0,,1-Decen-3-ol,,Alcohol,,8,489.0,,,837.0,,,,,
+constant_ignition_timing,129,129,,,,,,,,129,7,,,,,compression ignition,1200.0,600.0,,1-Undecanol,,Alcohol,,8,518.0,,,831.0,14.73,,,,
+constant_ignition_timing,130,130,,,,,,,,130,7,,,,,compression ignition,1200.0,600.0,,2-Undecanol,,Alcohol,,8,508.0,,,823.0,15.36,,,,
+constant_ignition_timing,131,131,,,,,,,,131,7,,,,,compression ignition,1200.0,600.0,,10-Undecen-1-ol,,Alcohol,,8,523.0,,,850.0,,,,,
+constant_ignition_timing,132,132,,,,,,,,132,7,,,,,compression ignition,1200.0,600.0,,"3,7-Dimethyl-1-octanol",,Alcohol,,8,485.0,,,832.0,13.66,,,,
+constant_ignition_timing,133,133,,,,,,,,133,7,,,,,compression ignition,1200.0,600.0,,"3,7-Dimethyl-3-octanol",,Alcohol,,8,469.0,,,826.0,11.06,,,,
+constant_ignition_timing,134,134,,,,,,,,134,7,,,,,compression ignition,1200.0,600.0,,1-Dodecanol,,Alcohol,,8,535.0,,,830.0,16.34,,,,
+constant_ignition_timing,135,135,,,,,,,,135,7,,,,,compression ignition,1200.0,600.0,,1-Tetradecanol,,Alcohol,,8,560.0,,,824.0,,,,,
+constant_ignition_timing,136,136,,,,,,,,136,7,,,,,compression ignition,1200.0,600.0,,1-Hexadecanol,,Alcohol,,8,585.0,,,818.0,,,,,
+constant_ignition_timing,137,137,,,,,,,,137,7,,,,,compression ignition,1200.0,600.0,,1-Heptanol,Alcohol,plant/animal oils or fermentation of sugars,yes,9,449.0,,,820.0,5.78,,,,
+constant_ignition_timing,138,138,,,,,,,,138,7,,,,,compression ignition,1200.0,600.0,,1-Octanol,Alcohol,"palm oil, coconut oil, etc",yes,9,468.0,,,823.0,7.49,,,,
+constant_ignition_timing,139,139,,,,,,,,139,7,,,,,compression ignition,1200.0,600.0,,1-Dodecanol,Alcohol,lauric acid found in palm or coconut oil,yes,9,535.0,,,830.0,16.34,,,,
+constant_ignition_timing,140,140,,,,,,,,140,7,,,,,compression ignition,1200.0,600.0,,Heptylbenzene,Alkylbenzene,Fossil / Synthetic,No,9,519.0,,,853.0,1.92,,,,
+constant_ignition_timing,141,141,,,,,,,,141,7,,,,,compression ignition,1200.0,600.0,,Octylbenzene,Alkylbenzene,Fossil / Synthetic,No,9,538.0,,,853.0,2.37,,,,
+constant_ignition_timing,142,142,,,,,,,,142,7,,,,,compression ignition,1200.0,600.0,,Dodecylbenzene,Alkylbenzene,Fossil / Synthetic,No,9,601.0,,,849.0,4.95,,,,
+constant_ignition_timing,143,143,,,,,,,,143,7,,,,,compression ignition,1200.0,600.0,,Heptane,Alkane (Paraffin),Fossil,No,9,372.0,,,682.0,0.39,,,,
+constant_ignition_timing,144,144,,,,,,,,144,7,,,,,compression ignition,1200.0,600.0,,Octane,Alkane (Paraffin),Fossil,No,9,399.0,,,699.0,0.51,,,,
+constant_ignition_timing,145,145,,,,,,,,145,7,,,,,compression ignition,1200.0,600.0,,Dodecane,Alkane (Paraffin),Fossil,No,9,489.0,,,745.0,1.39,,,,
+constant_ignition_timing,146,146,,,,,,,,146,7,,,,,compression ignition,1200.0,600.0,,Toluene+Hexane,Alkane/Aromatic Mix,Fossil,Blend,9,,,,692.0,,,,,
+constant_ignition_timing,147,147,,,,,,,,147,7,,,,,compression ignition,1200.0,600.0,,Toluene+Heptane,Alkane/Aromatic Mix,Fossil,Blend,9,,,,720.0,,,,,
+constant_ignition_timing,148,148,,,,,,,,148,7,,,,,compression ignition,1200.0,600.0,,Toluene+Undecane,Alkane/Aromatic Mix,Fossil,Blend,9,,,,783.0,,,,,
