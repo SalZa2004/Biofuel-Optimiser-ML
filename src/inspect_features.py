@@ -10,7 +10,7 @@ print("FEATURE SELECTION BREAKDOWN")
 print("====================================================\n")
 
 # Load selector
-selector: FeatureSelector = joblib.load("feature_selector.pkl")
+selector: FeatureSelector = joblib.load("models/feature_selector.pkl")
 
 # Important attributes
 n_morgan = selector.n_morgan
@@ -40,7 +40,7 @@ print(selected_mfp_bits.tolist(), "\n")
 print("Selected RDKit Descriptors:")
 for name in descriptor_names:
     print(" -", name)
-
+print(len(descriptor_names), "descriptors selected out of", len(DESCRIPTOR_NAMES))
 # Save for export
 df_export = pd.DataFrame({
     "feature_type": (
