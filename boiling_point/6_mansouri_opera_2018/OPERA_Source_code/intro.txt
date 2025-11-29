@@ -1,0 +1,23 @@
+
+       _______________________________________________________________________
+      |                                                                       |
+      |   OPERA models for physchem, environmental fate and tox properties.   |
+      |                 Version 2.9 (June 2025)                               |
+      |_______________________________________________________________________|      
+
+
+  OPERA is a command line & GUI application developed in Matlab providing QSAR 
+models predictions as well as applicability domain and accuracy assessment. 
+
+Developed by:
+Kamel Mansouri
+kamel.mansouri@nih.gov
+
+
+ Usage: ./run_OPERA.sh <mcr_directory> <argument_list>
+
+ Examples: 
+./run_OPERA.sh /mathworks/home/application/v99 -s Sample_50.sdf -o predictions.csv -a -x -n -v 2
+./run_OPERA.sh /mathworks/home/application/v99 -d Sample_50_PadelDesc.csv -o predictions.txt -e logP BCF -v 1
+
+Use -h or --help for more info.
