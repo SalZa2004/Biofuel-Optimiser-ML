@@ -52,4 +52,4 @@ def evaluate_model(csv_filename):
 # from evaluate_model import evaluate_model
 # evaluate_model('bp_1.csv')
 
-# NOTE: Won't work for bp_3.csv as it has bp_predicted_gcn and bp_predicted_mpnn columns instead. Use evaluate_gnn_model.py instead.
+# NOTE: Won't work for bp_3.csv and bp_4.csv. Use evaluate_gnn_model.py and evaluate_chemprop_model instead.
