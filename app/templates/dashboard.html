@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container py-4">
+
+  <!-- Title -->
+  <h2 class="fw-bold mb-3">Welcome to BioFuelOpt</h2>
+  <p class="text-muted">add description here</p>
+
+  <!-- Section 1: Intro to Biofuels -->
+  <div class="card card-metric p-4 mb-4">
+    <h4 class="fw-bold mb-3">Introduction to Biofuels</h4>
+    <p>
+      Add description about biofuels here. Can also include info abt compression ignition
+    </p>
+    <p>
+      Can add images or diagrams if needed
+    </p>
+  </div>
+
+  <!-- Section 2: DCN & YSI -->
+  <div class="card card-metric p-4 mb-4">
+    <h4 class="fw-bold mb-3">Why We Focus on DCN and YSI?</h4>
+    <p>
+      Our machine learning models target two primary fuel properties:
+    </p>
+    <ul>
+      <li><strong>Derived Cetane Number (DCN)</strong> – add explanation here</li>
+      <li><strong>Yield Sooting Index (YSI)</strong> – add explanation here</li>
+    </ul>
+    <p>
+      Can add images or diagrams if needed
+    </p>
+  </div>
+
+  <!-- Section 3: How the ML App Helps -->
+  <div class="card card-metric p-4 mb-4">
+    <h4 class="fw-bold mb-3">How This ML App Helps</h4>
+    <p>
+      Explanation on how the ML app can contribute to biofuel context
+    </p>
+    <ul>
+      <li>add bullet points</li>
+    </ul>
+  </div>
+
+  <!-- Section 4: How to Use the App -->
+  <div class="card card-metric p-4 mb-4">
+    <h4 class="fw-bold mb-3">How to Use This App</h4>
+
+    <p>Follow these steps to navigate the platform effectively:</p>
+
+    <ol>
+      <li><strong>Pure Fuel Predictor:</strong>  
+          Enter IUPAC names or SMILESto predict DCN & YSI of single molecules.
+          Add multiple pure fuels to get ranked results and visual comparisons.</li>
+
+      <li><strong>Mixture Fuel Predictor:</strong>  
+          Provide component IUPAC names or SMILES + composition percentages of all mixture components to predict DCN & YSI values. 
+          Add multiple mixture fuels to get ranked results and visual comparisons.</li>
+
+      <li><strong>Generative Molecule:</strong>  
+          Input your target DCN and let the model propose a new hypothetical molecule.</li>
+
+      <li><strong>Fuel Constraint:</strong>  
+          Review all design guidelines applied within optimisation and prediction steps.</li>
+
+      <li><strong>Dataset:</strong>  
+          Download the pure or mixture dataset or submit new data for review (admin approval required).</li>
+
+      <li><strong>About:</strong>  
+          Learn more about the research background and project contributors. Github link is included here</li>
+    </ol>
+  </div>
+
+</div>
+
+{% endblock %}

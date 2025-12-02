@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container py-4">
+
+    <h2 class="fw-bold mb-4">Datasets Used for Model Training & Evaluation</h2>
+    <p class="text-muted">Download the exact datasets used to train and test the cetane number prediction model.</p>
+
+    <!-- PURE DATASET -->
+    <div class="card card-metric p-4 mb-4">
+        <h4 class="fw-bold">Pure Fuel Dataset</h4>
+        <p class="text-muted">Contains all pure fuel molecules used for the pure fuel model.</p>
+        <a href="/download/pure" class="btn btn-primary mt-2">
+            ⬇️ Download Pure Fuel Dataset (.xlsx)
+        </a>
+    </div>
+
+    <!-- MIXTURE DATASET -->
+    <div class="card card-metric p-4 mb-4">
+        <h4 class="fw-bold">Mixture Fuel Dataset</h4>
+        <p class="text-muted">Contains multi-component mixtures fuels used for the mixture fuel model.</p>
+        <a href="/download/mixture" class="btn btn-primary mt-2">
+            ⬇️ Download Mixture Fuel Dataset (.xlsx)
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

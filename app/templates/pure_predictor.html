@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container py-4">
+
+  <!-- Page title -->
+  <h2 class="fw-bold mb-3">Pure Fuel Cetane Number Predictor</h2>
+  <p class="text-muted">Enter one or more pure fuels using IUPAC names or SMILES to predict DCN.</p>
+
+  <!-- Input form card -->
+  <div class="card card-metric p-4 mb-4">
+
+    <h4 class="fw-bold mb-3">Input Pure Fuel Candidates</h4>
+
+    <form method="POST">
+
+      <!-- Fuel input -->
+      <div id="fuel-container">
+
+        <div class="row g-3 mb-3 fuel-row">
+          <div class="col-md-6">
+            <input type="text" name="fuel_name[]" class="form-control"
+                   placeholder="Fuel IUPAC Name (ex. decane)">
+          </div>
+
+          <div class="col-md-6">
+            <input type="text" name="smiles[]" class="form-control"
+                   placeholder="SMILES (ex. CCCCCCCCCC)">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Add more row -->
+      <button type="button" id="add-row" class="btn btn-primary mb-3">
+        + Add Another Fuel
+      </button>
+
+      <br>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary px-4 mt-2">
+        Predict
+      </button>
+
+    </form>
+  </div>
+
+  <!-- Bulk CSV Upload Section -->
+  <div class="card card-metric p-4 mb-4">
+
+    <h4 class="fw-bold mb-3">Bulk Prediction (CSV Upload)</h4>
+    <p class="text-muted">Upload a CSV file with columns <strong>SMILES</strong> and <strong>IUPAC names</strong>.</p>
+
+    <form method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <input type="file" name="csv_file" accept=".csv" class="form-control">
+      </div>
+
+      <button type="submit" name="mode" value="csv" class="btn btn-primary">
+        Upload & Predict CSV
+      </button>
+    </form>
+
+  </div>
+
+  <!-- Results Section -->
+  {% if results %}
+  <div class="card card-metric p-4 mt-4">
+
+    <h4 class="fw-bold mb-3">Prediction Results</h4>
+
+    <table class="table table-striped table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>SMILES</th>
+          <th>Predicted DCN</th>
+          <th>Structure</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      {% for r in results %}
+      <tr>
+        <td>{{ r.name }}</td>
+        <td>{{ r.smiles }}</td>
+        <td>
+          {% if r.dcn %}<strong>{{ r.dcn }}</strong>{% else %}-{% endif %}
+        </td>
+
+        <td>
+          {% if r.img_id %}
+            <img src="{{ url_for('static', filename='generated/' ~ r.img_id) }}" width="120">
+          {% else %}
+            -
+          {% endif %}
+        </td>
+
+        <td>
+          {% if r.error %}
+            <span class="text-danger">{{ r.error }}</span>
+          {% else %}
+            <span class="text-success fw-bold">OK</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+
+    </table>
+
+    <!-- Download CSV -->
+    <form method="POST" action="{{ url_for('download_results') }}">
+      <input type="hidden" name="results_data" value='{{ results | tojson }}'>
+      <button type="submit" class="btn btn-primary mt-3">
+        ⬇️ Download Results as CSV
+      </button>
+    </form>
+
+  </div>
+  {% endif %}
+
+</div>
+
+<!-- JavaScript to dynamically add ONLY new rows -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const container = document.getElementById("fuel-container");
+    const addRowBtn = document.getElementById("add-row");
+
+    addRowBtn.addEventListener("click", function () {
+
+      const row = document.createElement("div");
+      row.classList.add("row", "g-3", "mb-3", "fuel-row");
+
+      row.innerHTML = `
+        <div class="col-md-6">
+          <input type="text" name="fuel_name[]" class="form-control"
+                 placeholder="Fuel IUPAC Name (ex. decane)">
+        </div>
+
+        <div class="col-md-6">
+          <input type="text" name="smiles[]" class="form-control"
+                 placeholder="SMILES (ex. CCCCCCCCCC)">
+        </div>
+      `;
+
+      container.appendChild(row);
+    });
+
+  });
+</script>
+
+{% endblock %}
+
+

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BioFuelOpt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
+    <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar: REPLACED WITH GLASSMORPHISM -->
+  <nav id="sidebar-wrapper" class="glass-sidebar">
+
+    <div class="sidebar-header text-center py-4">
+      <h5 class="fw-bold m-0">BioFuelOpt 1.0</h5>
+    </div>
+
+    <div class="list-group list-group-flush mt-3">
+
+      <a href="{{ url_for('dashboard') }}"
+         class="list-group-item sidebar-link {% if request.endpoint == 'dashboard' %}active{% endif %}">
+        <i class="bi bi-speedometer2 me-3"></i>Dashboard
+      </a>
+
+      <a href="{{ url_for('pure_predictor') }}"
+         class="list-group-item sidebar-link {% if request.endpoint == 'pure_predictor' %}active{% endif %}">
+        <i class="bi bi-droplet-half me-3"></i>Pure fuel predictor
+      </a>
+
+      <a href="{{ url_for('mixture_predictor') }}"
+         class="list-group-item sidebar-link {% if request.endpoint == 'mixture_predictor' %}active{% endif %}">
+        <i class="bi bi-bezier2 me-3"></i>Mixture fuel predictor
+      </a>
+
+      <a href="{{ url_for('generative') }}"
+         class="list-group-item sidebar-link {% if request.endpoint == 'generative' %}active{% endif %}">
+        <i class="bi bi-stars me-3"></i>Generative molecule
+      </a>
+
+      <a href="{{ url_for('constraints') }}"
+         class="list-group-item sidebar-link {% if request.endpoint == 'constraints' %}active{% endif %}">
+        <i class="bi bi-sliders me-3"></i>Fuel constraints
+      </a>
+
+      <a href="{{ url_for('dataset') }}"
+         class="list-group-item sidebar-link {% if request.endpoint == 'dataset' %}active{% endif %}">
+        <i class="bi bi-table me-3"></i>Dataset
+      </a>
+
+      <a href="{{ url_for('about') }}"
+         class="list-group-item sidebar-link {% if request.endpoint == 'about' %}active{% endif %}">
+        <i class="bi bi-info-circle me-3"></i>About
+      </a>
+
+    </div>
+
+  </nav>
+
+  <!-- Page content -->
+  <div id="page-content-wrapper" class="flex-grow-1">
+
+    <!-- Green navbar -->
+    <nav class="navbar navbar-expand-lg px-3 py-2 position-relative">
+      <button class="btn btn-outline-light me-3" id="sidebarToggle">
+        <i class="bi bi-list"></i>
+      </button>
+      <span class="navbar-title-center fw-semibold">BioFuelOpt 1.0</span>
+    </nav>
+
+    <main class="container-fluid py-4">
+      {% block content %}
+      {% endblock %}
+    </main>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
