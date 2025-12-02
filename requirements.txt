@@ -1,25 +1,8 @@
-# Core scientific stack
-numpy
+flask
+pubchempy
 pandas
-scipy
-
-# Machine learning
+numpy
 scikit-learn
-xgboost
-lightgbm
-
-# Visualization
-matplotlib
-seaborn
-plotly   # for interactive plots in GUI
-
-# Optimization
-deap     # evolutionary algorithms for Pareto optimization (optional)
-
-
-# Model persistence
 joblib
-
-# Utilities
-pyyaml
-tqdm
+pillow
+rdkit
