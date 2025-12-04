@@ -23,3 +23,5 @@ torchdrug_env/
 *.so
 *.dylib
 pip-selfcheck.json
+
+wandb/
