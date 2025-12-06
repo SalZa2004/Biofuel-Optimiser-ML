@@ -25,3 +25,4 @@ torchdrug_env/
 pip-selfcheck.json
 
 wandb/
+chembl22_sa2.db
