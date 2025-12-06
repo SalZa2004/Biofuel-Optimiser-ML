@@ -1,34 +1,37 @@
-# Python cache
+# Large database files
+*.db
+data/database/
+data/replacement_db/
+
+# Model files
+*.pt
+*.pth
+*.joblib
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+model.pt
+**/model.pt
+
+# Archives
+*.tar.gz
+*.zip
+*.tar
+*.gz
+
+# Large data files
+*.csv.gz
+atomic_bond_regression.csv
+OPERA_*.zip
+data.tar.gz
+
+# Python
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
-
-# Virtual environments
-venv/
-env/
-.venv/
-.env/
-biofuel/
-torchdrug_env/
-# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
-# VS Code settings
-.vscode/
 
-# Jupyter runtime checkpoints
-.jupyter/
-*.conda
-*.dll
-*.so
-*.dylib
-pip-selfcheck.json
-
-wandb/
-
-# Large files
-*.db
-*.joblib
-cn_model/artifacts/
-
-boiling_point/
+# Environment
+.env
+*.env
