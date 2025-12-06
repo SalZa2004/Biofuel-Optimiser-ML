@@ -25,5 +25,4 @@ torchdrug_env/
 pip-selfcheck.json
 
 wandb/
-data/replacement_db
 
