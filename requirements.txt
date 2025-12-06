@@ -8,3 +8,7 @@ lightgbm
 optuna
 xgboost
 ipykernel
+wandb
+rdkit-pypi
+crem 
+joblib

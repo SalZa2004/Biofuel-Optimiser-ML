@@ -4,6 +4,15 @@ import os
 from rdkit import Chem
 from mordred import Calculator, descriptors
 from sklearn.base import BaseEstimator, RegressorMixin
+import sys
+import os
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.append(PROJECT_ROOT)
+
+from boiling_point.data_latest import load_data
+from boiling_point.evaluate_model import evaluate_model
+
 
 # 1. Define MetaModel
 class MetaModel(BaseEstimator, RegressorMixin):
@@ -30,7 +39,7 @@ if __name__ == "__main__":
     descriptor_path = os.path.join(BASE_DIR, "example", "noms_colonnes_247_TC.txt")
 
     # Input and output CSVs
-    input_csv = os.path.join(BASE_DIR, "..", "..", "data", "processed", "filtered_smiles_bp.csv")
+
     output_csv = os.path.join(BASE_DIR, "..", "..", "data", "predicted", "bp_1.csv")
 
     ## LOAD FILES
@@ -43,7 +52,7 @@ if __name__ == "__main__":
     descriptor_list = descriptor_list[1:]  # remove header if present
 
     # Input CSV
-    df = pd.read_csv(input_csv)
+    df = load_data()
 
     ## PREDICT
 
@@ -66,3 +75,4 @@ if __name__ == "__main__":
     # Save results to CSV
     df.to_csv(output_csv, index=False)
     print(f"Predictions saved to {output_csv}")
+    evaluate_model("bp_1.csv")

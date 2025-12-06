@@ -3,6 +3,12 @@ import os
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import numpy as np
 
+import sys
+import os
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.append(PROJECT_ROOT)
+from boiling_point.data_latest import load_data
 def evaluate_model(csv_filename):
     """
     Compute performance metrics (MAE, RMSE, R²) for predicted boiling points.
@@ -25,12 +31,12 @@ def evaluate_model(csv_filename):
     df = pd.read_csv(csv_path)
     
     # Check required columns
-    required_cols = ["EX_Boiling Point", "bp_predicted"]
+    required_cols = ["boiling_point", "bp_predicted"]
     missing = [col for col in required_cols if col not in df.columns]
     if missing:
         raise ValueError(f"CSV is missing required columns: {missing}")
     
-    y_true = df["EX_Boiling Point"]
+    y_true = df["boiling_point"]
     y_pred = df["bp_predicted"]
     
     # Compute metrics
@@ -44,7 +50,12 @@ def evaluate_model(csv_filename):
     print("  Mean Absolute Error (MAE):", MAE)
     print("  Root Mean Squared Error (RMSE):", RMSE)
     print("  R² Score:", R2)
-    
+    N= 0
+    for y_true, y_pred in zip(df["boiling_point"], df["bp_predicted"]):
+        if y_pred - y_true > 50:
+            N+=1
+            
+    print("  Number of large errors (>100K):", N)
     return {"MAE": MAE, "RMSE": RMSE, "R2": R2}
 
 # Example usage in terminal:
