@@ -4,9 +4,9 @@ import pandas as pd
 import sys
 PROJECT_ROOT = os.path.abspath(os.getcwd())
 CN_MODEL_DIR = os.path.join(PROJECT_ROOT, "cn-predictor-model")
-sys.path.append(CN_MODEL_DIR)
+sys.path.append(PROJECT_ROOT)
 # import feature selector and features from correct modules
-from train import FeatureSelector, featurize_df
+from cn_predictor_model.train import FeatureSelector, featurize_df
 
 
 class CetanePredictor:
