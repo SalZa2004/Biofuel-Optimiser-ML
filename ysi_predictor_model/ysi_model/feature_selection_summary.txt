@@ -1,0 +1,106 @@
+======================================================================
+FEATURE SELECTION SUMMARY
+======================================================================
+
+Pipeline:
+  Original features: 2256
+  After correlation filter: 2214
+  Final selected: 300
+
+Selected features by type:
+  Morgan fingerprint bits: 208
+  RDKit descriptors: 92
+
+Selected RDKit Descriptors:
+    1. Chi3n
+    2. MolLogP
+    3. Chi2n
+    4. Chi4n
+    5. VSA_EState7
+    6. BertzCT
+    7. PEOE_VSA6
+    8. SMR_VSA5
+    9. MinPartialCharge
+   10. MolWt
+   11. SMR_VSA7
+   12. SlogP_VSA2
+   13. Kappa2
+   14. BCUT2D_MRLOW
+   15. Kappa3
+   16. SMR_VSA1
+   17. BCUT2D_MWHI
+   18. VSA_EState5
+   19. SMR_VSA9
+   20. BCUT2D_MWLOW
+   21. Ipc
+   22. MaxPartialCharge
+   23. SlogP_VSA4
+   24. FractionCSP3
+   25. BCUT2D_LOGPHI
+   26. EState_VSA8
+   27. BCUT2D_MRHI
+   28. PEOE_VSA7
+   29. RingCount
+   30. FpDensityMorgan1
+   31. qed
+   32. NumAromaticRings
+   33. NumAromaticCarbocycles
+   34. BalabanJ
+   35. SlogP_VSA3
+   36. fr_allylic_oxid
+   37. HallKierAlpha
+   38. MinEStateIndex
+   39. VSA_EState6
+   40. VSA_EState8
+   41. BCUT2D_CHGHI
+   42. PEOE_VSA10
+   43. FpDensityMorgan2
+   44. BCUT2D_CHGLO
+   45. EState_VSA5
+   46. MaxEStateIndex
+   47. fr_aryl_methyl
+   48. FpDensityMorgan3
+   49. EState_VSA4
+   50. SlogP_VSA11
+   51. PEOE_VSA8
+   52. VSA_EState4
+   53. EState_VSA7
+   54. fr_aldehyde
+   55. PEOE_VSA1
+   56. PEOE_VSA5
+   57. VSA_EState1
+   58. MinAbsEStateIndex
+   59. EState_VSA3
+   60. EState_VSA9
+   61. EState_VSA6
+   62. SlogP_VSA1
+   63. fr_C_O_noCOO
+   64. BCUT2D_LOGPLOW
+   65. SMR_VSA6
+   66. SMR_VSA4
+   67. VSA_EState3
+   68. VSA_EState9
+   69. fr_unbrch_alkane
+   70. SMR_VSA10
+   71. EState_VSA10
+   72. EState_VSA2
+   73. PEOE_VSA9
+   74. EState_VSA1
+   75. PEOE_VSA11
+   76. fr_para_hydroxylation
+   77. NumSaturatedCarbocycles
+   78. fr_ketone
+   79. NumAliphaticHeterocycles
+   80. PEOE_VSA14
+   81. PEOE_VSA2
+   82. PEOE_VSA3
+   83. fr_halogen
+   84. fr_Al_OH
+   85. NumAliphaticRings
+   86. fr_ester
+   87. VSA_EState10
+   88. fr_Al_OH_noTert
+   89. fr_term_acetylene
+   90. NumAliphaticCarbocycles
+   91. NumSaturatedRings
+   92. SlogP_VSA12
