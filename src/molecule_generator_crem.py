@@ -35,7 +35,7 @@ class MetaModel(BaseEstimator, RegressorMixin):
 model_path = os.path.join(PROJECT_ROOT, "cn_predictor_model","cn_model","artifacts", "model.joblib")
 selector_path = os.path.join(PROJECT_ROOT, "cn_predictor_model","cn_model","artifacts", "selector.joblib")
 # Path to CREM database
-CREM_DB_PATH = os.path.join(PROJECT_ROOT, "chembl22_sa2.db")
+CREM_DB_PATH = os.path.join(PROJECT_ROOT, "frag_db", "diesel_fragments.db")
 
 # Verify files exist
 if not os.path.exists(model_path):
@@ -83,7 +83,6 @@ def predict_boiling_points_batch(smiles_list):
     """Predict BP for multiple molecules at once - MUCH FASTER than one-by-one"""
     if not smiles_list:
         return []
-    
     valid_mols = []
     valid_indices = []
     
@@ -275,6 +274,7 @@ def run_evolution(target_cn, generations=20, population_size=50, mutations_per_p
                         continue
                         
                     cn = predictor.predict(child_smi)
+                    cn = float(cn[0])
                     if cn is not None:
                         # Check boiling point if filter is enabled
                         if use_bp_filter:
@@ -342,10 +342,10 @@ if __name__ == "__main__":
     
     # Run the evolution
     print(f"\nStarting evolution to find molecules with CN ≈ {target_cn}")
-    print("Parameters: 15 generations, population size 20, 5 mutations per parent\n")
+    print("Parameters: 20 generations, population size 20, 5 mutations per parent\n")
 
     config = {
-        "generations": 15,
+        "generations": 20,
         "population_size": 20,
         "target_cn": target_cn,
         "model": "ExtraTrees_CN_Predictor",
@@ -364,7 +364,7 @@ if __name__ == "__main__":
     
     df_results = run_evolution(
         target_cn, 
-        generations=15, 
+        generations=20, 
         population_size=20,
         mutations_per_parent=5,
         use_bp_filter=use_bp_filter
@@ -421,3 +421,4 @@ if __name__ == "__main__":
     print(f"Target CN: {target_cn:.2f}")
     print(f"Best error: {df_results.iloc[0]['error']:.2f}")
     print(f"Average error (top 10): {df_results.head(10)['error'].mean():.2f}")
+    

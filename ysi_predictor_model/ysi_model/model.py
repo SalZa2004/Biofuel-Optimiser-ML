@@ -2,18 +2,17 @@ import os
 import joblib
 import pandas as pd
 import sys
-PROJECT_ROOT = os.path.abspath(os.getcwd())
-YSI_MODEL_DIR = os.path.join(PROJECT_ROOT, "ysi-predictor-model")
+PROJECT_ROOT = os.getcwd()
 sys.path.append(PROJECT_ROOT)
 # import feature selector and features from correct modules
-from train import FeatureSelector, featurize_df
+from ysi_predictor_model.train import FeatureSelector, featurize_df
 
 
 class YSIPredictor:
 
 
     def __init__(self):
-        print("Loading Cetane Predictor...")
+        print("Loading YSI Predictor...")
 
         # Path to this file (ysi_model/model.py)
         base_dir = os.path.dirname(os.path.abspath(__file__))

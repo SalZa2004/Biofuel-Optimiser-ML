@@ -13,14 +13,15 @@ import seaborn as sns
 from cn_model.model import CetanePredictor
 import joblib
 from train import FeatureSelector
-
+import sys
 import os
 
 # 1. Location of this file (test.py)
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # 2. Project root: one level up
-PROJECT_ROOT = os.path.dirname(TEST_DIR)
+PROJECT_ROOT = os.getcwd()
+sys.path.append(PROJECT_ROOT)
 
 # 3. Build DB path
 DB_PATH = os.path.join(PROJECT_ROOT, "data", "database", "database_main.db")
@@ -280,11 +281,7 @@ def main():
     print("="*70)
     
     # Check if model exists
-    model_path = MODEL_PATH
-    if not os.path.exists(model_path):
-        print("\n❌ Error: Model not found!")
-        print("Please train the model first: python train.py train")
-        return
+
     
     # Load the trained model
     print("\nLoading trained model...")
@@ -314,7 +311,7 @@ def main():
         print("✓ Model generalization looks good!")
     
     # Create visualizations
-    plot_results(y_true, y_pred, save_path="cn-predictor-model/cn_model/evaluation_plots.png")
+    plot_results(y_true, y_pred, save_path=os.path.join(PROJECT_ROOT,"cn-predictor-model/cn_model/evaluation_plots.png"))
     
     # Error analysis
     analyze_errors(test_df, y_true, y_pred, top_n=10)
