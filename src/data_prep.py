@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 import os
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))   # goes from src/ → project root
-DB_PATH = os.path.join(PROJECT_ROOT, "data", "database", "latest_fuel_database.db")
+DB_PATH = os.path.join(PROJECT_ROOT, "data", "database", "database_main.db")
 
 TARGET_CN = "cn"      # Cetane number
 N_FOLDS = 5

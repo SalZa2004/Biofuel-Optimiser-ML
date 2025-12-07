@@ -12,14 +12,14 @@ import wandb
 
 PROJECT_ROOT = os.path.abspath(os.getcwd())
 SRC_DIR = os.path.join(PROJECT_ROOT, "src")
-if SRC_DIR not in sys.path:
-    sys.path.append(SRC_DIR)
+sys.path.append(PROJECT_ROOT)
 
-from rebuild import CleanCNPredictor
+from cn_predictor_model.cn_model.model import CetanePredictor
+from cn_predictor_model.train import FeatureSelector, featurize_df
 
 # Path to your clean model
-model_path = os.path.join(PROJECT_ROOT, "cn_predictor_clean.pkl")
-
+model_path = os.path.join(PROJECT_ROOT, "cn_predictor_model","cn_model","artifacts", "model.joblib")
+selector_path = os.path.join(PROJECT_ROOT, "cn_predictor_model","cn_model","artifacts", "selector.joblib")
 # Path to CREM database
 CREM_DB_PATH = os.path.join(PROJECT_ROOT, "chembl22_sa2.db")
 
@@ -33,37 +33,7 @@ print("Loading model...")
 model_pkl = joblib.load(model_path)
 print("✓ Model loaded successfully")
 
-def predict_cn(smiles: str) -> float:
-    """
-    Predict cetane number for a given SMILES string.
-    
-    Args:
-        smiles: SMILES string of molecule
-        
-    Returns:
-        Predicted CN value or None if prediction fails
-    """
-    try:
-        if not smiles or "." in smiles:  # Skip invalid or multi-component SMILES
-            return None
-        
-        mol = Chem.MolFromSmiles(smiles)
-        if mol is None: 
-            return None
-        
-        # Use the CleanCNPredictor's predict_single method
-        prediction = model_pkl.predict_single(smiles)
-        
-        if np.isnan(prediction) or np.isinf(prediction): 
-            return None   
-        
-        return float(prediction)
-        
-    except Exception as e:
-        print(f"Error predicting {smiles}: {e}")
-        import traceback
-        traceback.print_exc() 
-        return None
+predictor = CetanePredictor()
 
 def mutate_molecule_crem(mol, db_path=CREM_DB_PATH, max_mutations=None):
 
@@ -106,7 +76,8 @@ def run_evolution(target_cn, generations=20, population_size=50, mutations_per_p
 
     print("Initializing population from dataset...")
     for s in initial_smiles:
-        score = predict_cn(s)
+        score = predictor.predict(s)
+        score = float(score[0])
         if score is not None:
             population.append({
                 'smiles': s, 
@@ -173,7 +144,7 @@ def run_evolution(target_cn, generations=20, population_size=50, mutations_per_p
             # Evaluate each mutation
             for child_smi in child_smiles_list:
                 if child_smi and child_smi not in seen_smiles:
-                    cn = predict_cn(child_smi)
+                    cn = predictor.predict(child_smi)
                     if cn is not None:
                         new_entry = {
                             'smiles': child_smi, 
@@ -202,10 +173,7 @@ def run_evolution(target_cn, generations=20, population_size=50, mutations_per_p
 
 if __name__ == "__main__":
     # Check if model loaded correctly
-    if not isinstance(model_pkl, CleanCNPredictor):
-        print("\n❌ ERROR: Model did not load correctly.")
-        print(f"Expected CleanCNPredictor, got {type(model_pkl)}")
-        sys.exit(1)
+
     
     print("\n" + "="*70)
     print("MOLECULAR EVOLUTION WITH CREM")
