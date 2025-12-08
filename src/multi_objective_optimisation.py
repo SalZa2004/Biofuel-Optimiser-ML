@@ -29,7 +29,7 @@ class EvolutionConfig:
     """Configuration for evolutionary algorithm."""
     target_cn: float
     minimize_ysi: bool = True
-    generations: int = 20
+    generations: int = 10
     population_size: int = 100
     mutations_per_parent: int = 5
     min_bp: float = 60
@@ -312,7 +312,7 @@ class MolecularEvolution:
         all_children = []
         
         attempts = 0
-        max_attempts = target_size * 2
+        max_attempts = target_size * 10
         
         while len(new_molecules) < target_size - len(survivors) and attempts < max_attempts:
             attempts += 1
@@ -392,17 +392,17 @@ def main():
     print("="*70)
     
     target = float(input("Enter target CN: ") or "50")
+    while target <= 40:
+        print("⚠️  Target CN is too low, optimization may be challenging.")
+        print("Consider using a higher target CN for better results.\n")
+        print("Re-input target CN.")
+        target = float(input("Enter target CN: ") or "50")
     minimize_ysi_input = input("Minimise YSI (y/n): ").strip().lower()
     minimize_ysi = minimize_ysi_input in ['y', 'yes']
     
     config = EvolutionConfig(
         target_cn=target,
-        minimize_ysi=minimize_ysi,
-        generations=20,
-        population_size=100,
-        mutations_per_parent=5,
-        batch_size=50,
-        use_bp_filter=True
+        minimize_ysi=minimize_ysi
     )
     
     project_name = "cetane-ysi-pareto" if minimize_ysi else "cetane-optimization"
