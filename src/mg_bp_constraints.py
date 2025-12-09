@@ -1,465 +1,411 @@
 import os
 import sys
+from pathlib import Path
+from dataclasses import dataclass
+from typing import List, Dict, Optional, Tuple
 import joblib
 import numpy as np
 import pandas as pd
 import random
 from rdkit import Chem
-from rdkit.Chem import Descriptors, AllChem
-from mordred import Calculator, descriptors
-from crem.crem import mutate_mol  # CREM import
-from data_prep import df  
+from crem.crem import mutate_mol
 import wandb
 from sklearn.base import BaseEstimator, RegressorMixin
+from mordred import Calculator, descriptors
+from meta_model import MetaModel
+# === Project Setup ===
+PROJECT_ROOT = Path.cwd()
+SRC_DIR = PROJECT_ROOT / "src"
+sys.path.append(str(PROJECT_ROOT))
 
-PROJECT_ROOT = os.path.abspath(os.getcwd())
-SRC_DIR = os.path.join(PROJECT_ROOT, "src")
-if SRC_DIR not in sys.path:
-    sys.path.append(SRC_DIR)
+from cn_predictor_model.cn_model.model import CetanePredictor
+from shared_features import FeatureSelector, featurize_df
+from ysi_predictor_model.ysi_model.model import YSIPredictor
+from bp_predictor_model.bp_model.model import BPPredictor
+from data_prep import df
 
-from rebuild import CleanCNPredictor
+@dataclass
+class EvolutionConfig:
+    """Configuration for evolutionary algorithm."""
+    target_cn: float
+    minimize_ysi: bool = True
+    generations: int = 10
+    population_size: int = 100
+    mutations_per_parent: int = 5
+    min_bp: float = 60
+    max_bp: float = 250
+    use_bp_filter: bool = True
+    batch_size: int = 50
 
-
-# 1. Define MetaModel
-class MetaModel(BaseEstimator, RegressorMixin):
-    def __init__(self, models):
-        self.models = models
-
-    def fit(self, X, y):
-        for model in self.models:
-            model.fit(X, y)
-        return self
-
-    def predict(self, X):
-        predictions = [model.predict(X) for model in self.models]
-        return sum(predictions) / len(self.models)
-
-# Path to your clean model
-model_path = os.path.join(PROJECT_ROOT, "cn_predictor_clean.pkl")
-
-# Path to boiling point model
-bp_model_path = os.path.join(PROJECT_ROOT, "boiling_point", "1_bounaceur_2025","example", "04_modele_final_NBP.joblib")
-bp_descriptor_path = os.path.join(PROJECT_ROOT, "boiling_point", "1_bounaceur_2025", "example", "noms_colonnes_247_TC.txt")
-
-# Path to CREM database
-CREM_DB_PATH = os.path.join(PROJECT_ROOT, "chembl22_sa2.db")
-
-# Verify files exist
-if not os.path.exists(model_path):
-    raise FileNotFoundError(f"Model file not found: {model_path}")
-
-if not os.path.exists(bp_model_path):
-    raise FileNotFoundError(f"BP model file not found: {bp_model_path}")
-
-if not os.path.exists(bp_descriptor_path):
-    raise FileNotFoundError(f"BP descriptor file not found: {bp_descriptor_path}")
-
-# Load the clean model
-print("Loading CN model...")
-model_pkl = joblib.load(model_path)
-print("✓ CN Model loaded successfully")
-
-# Load boiling point model
-print("Loading BP model...")
-bp_model = joblib.load(bp_model_path)
-print("✓ BP Model loaded successfully")
-
-# Load BP descriptors
-with open(bp_descriptor_path, 'r') as f:
-    bp_descriptor_list = [line.strip() for line in f]
-bp_descriptor_list = bp_descriptor_list[1:]  # remove header if present
-
-# Initialize Mordred calculator (do this once globally for efficiency)
-mordred_calc = Calculator(descriptors, ignore_3D=False)
-
-def predict_boiling_points_batch(smiles_list):
-    """Predict BP for multiple molecules at once - MUCH FASTER than one-by-one"""
-    if not smiles_list:
-        return []
+@dataclass
+class Molecule:
+    """Represents a molecule with its properties."""
+    smiles: str
+    cn: float
+    cn_error: float
+    bp: Optional[float] = None
+    ysi: Optional[float] = None
     
-    valid_mols = []
-    valid_indices = []
+    def dominates(self, other: 'Molecule') -> bool:
+        """Check if this molecule Pareto-dominates another."""
+        better_cn = self.cn_error <= other.cn_error
+        better_ysi = self.ysi <= other.ysi if self.ysi is not None else True
+        strictly_better = self.cn_error < other.cn_error or (self.ysi is not None and self.ysi < other.ysi)
+        return better_cn and better_ysi and strictly_better
     
-    for i, smi in enumerate(smiles_list):
-        if smi and "." not in smi:
-            mol = Chem.MolFromSmiles(smi)
-            if mol is not None:
-                valid_mols.append(mol)
-                valid_indices.append(i)
-    
-    if not valid_mols:
-        return [None] * len(smiles_list)
-    
-    # Calculate all descriptors at once (this is where the speedup happens!)
-    df_desc = mordred_calc.pandas(valid_mols)
-    X = df_desc[bp_descriptor_list]
-    X = X.apply(pd.to_numeric, errors="coerce").fillna(0).astype(float)
-    
-    # Predict all at once
-    bp_preds = bp_model.predict(X) - 273.15
-    
-    # Map back to original order
-    results = [None] * len(smiles_list)
-    for i, bp in zip(valid_indices, bp_preds):
-        if not (np.isnan(bp) or np.isinf(bp)):
-            results[i] = float(bp)
-    
-    return results
-
-def is_valid_boiling_point(bp: float, min_bp=180, max_bp=360) -> bool:
-    """
-    Check if boiling point is within acceptable range.
-    
-    Args:
-        bp: Boiling point in Celsius
-        min_bp: Minimum acceptable BP (default 180°C)
-        max_bp: Maximum acceptable BP (default 360°C)
-        
-    Returns:
-        True if BP is within range, False otherwise
-    """
-    if bp is None:
-        return False
-    return min_bp <= bp <= max_bp
-
-def predict_cn(smiles: str) -> float:
-    """
-    Predict cetane number for a given SMILES string.
-    
-    Args:
-        smiles: SMILES string of molecule
-        
-    Returns:
-        Predicted CN value or None if prediction fails
-    """
-    try:
-        if not smiles or "." in smiles:  # Skip invalid or multi-component SMILES
-            return None
-        
-        mol = Chem.MolFromSmiles(smiles)
-        if mol is None: 
-            return None
-        
-        # Use the CleanCNPredictor's predict_single method
-        prediction = model_pkl.predict_single(smiles)
-        
-        if np.isnan(prediction) or np.isinf(prediction): 
-            return None   
-        
-        return float(prediction)
-        
-    except Exception as e:
-        print(f"Error predicting CN for {smiles}: {e}")
-        return None
-
-def mutate_molecule_crem(mol, db_path=CREM_DB_PATH, max_mutations=None):
-    try:
-        # CREM mutate_mol is a generator that yields SMILES strings
-        mutants = list(mutate_mol(
-            mol, 
-            db_name=db_path,
-            max_size=1,         # Maximum change in heavy atom count 
-            return_mol=False    # Return SMILES strings instead of mol objects
-        ))
-        
-        return mutants if mutants else []
-        
-    except Exception as e:
-        # CREM can fail for various reasons (molecule too large, no matches, etc.)
-        # This is expected behavior, just return empty list
-        return []
-
-
-def run_evolution(target_cn, generations=20, population_size=50, mutations_per_parent=5, 
-                  min_bp=180, max_bp=360, use_bp_filter=True):
-    """
-    Run evolutionary algorithm using CREM for mutations with boiling point screening.
-    
-    Args:
-        target_cn: Target cetane number to optimize for
-        generations: Number of evolutionary generations
-        population_size: Size of population to maintain
-        mutations_per_parent: Number of mutations to try per parent molecule
-        min_bp: Minimum acceptable boiling point (°C)
-        max_bp: Maximum acceptable boiling point (°C)
-        use_bp_filter: Whether to filter by boiling point
-        
-    Returns:
-        DataFrame with evolved molecules sorted by fitness
-    """
-    print(f"🧬 STARTING EVOLUTION (Target CN: {target_cn})")
-    print(f"Using CREM database: {CREM_DB_PATH}")
-    if use_bp_filter:
-        print(f"BP Filter: {min_bp}°C - {max_bp}°C")
-    
-    # Initialize variables BEFORE the loop
-    population = []
-    seen_smiles = set()
-    bp_filtered_count = 0
-    
-    # Get initial SMILES list
-    initial_smiles_list = df["SMILES"].tolist()
-    
-    print("Initializing population from dataset...")
-    if use_bp_filter:
-        print("Calculating boiling points in batch (much faster!)...")
-        bp_predictions = predict_boiling_points_batch(initial_smiles_list)
-    else:
-        bp_predictions = [None] * len(initial_smiles_list)
-
-    # Build initial population
-    for s, bp in zip(initial_smiles_list, bp_predictions):
-        cn_score = predict_cn(s)
-        if cn_score is not None:
-            # Check BP filter if enabled
-            if use_bp_filter:
-                if is_valid_boiling_point(bp, min_bp, max_bp):
-                    population.append({
-                        'smiles': s, 
-                        'cn': cn_score, 
-                        'bp': bp,
-                        'error': abs(cn_score - target_cn)
-                    })
-                    seen_smiles.add(s)
-                else:
-                    bp_filtered_count += 1
-            else:
-                # No BP filter
-                population.append({
-                    'smiles': s, 
-                    'cn': cn_score,
-                    'bp': None,
-                    'error': abs(cn_score - target_cn)
-                })
-                seen_smiles.add(s)
-
-    # Safety check
-    if len(population) == 0:
-        print("\n❌ CRITICAL ERROR: No valid molecules could be initialized.")
-        print("Check that the model and data_prep.df are working correctly.")
-        return pd.DataFrame()
-
-    print(f"✓ Initialized with {len(population)} valid molecules")
-    if use_bp_filter:
-        print(f"  (Filtered out {bp_filtered_count} molecules due to BP constraints)\n")
-
-    # Evolution loop
-    for gen in range(generations):
-        # Sort by fitness (lowest error = best)
-        population.sort(key=lambda x: x['error'])
-        
-        best = population[0]
-        avg_error = np.mean([p['error'] for p in population])
-        
-        bp_status = f"BP: {best['bp']:.1f}°C | " if use_bp_filter else ""
-        print(f"  Gen {gen+1:2d}/{generations} | Pop: {len(population):3d} | "
-              f"{bp_status}Best CN: {best['cn']:5.1f} (err: {best['error']:4.1f}) | "
-              f"Avg err: {avg_error:4.1f}")
-        
-        log_dict = {
-            "generation": gen+1,
-            "best_cn": best["cn"],
-            "best_error": best["error"],
-            "best_smiles": best["smiles"],
-            "population_size": len(population)
+    def to_dict(self) -> Dict:
+        """Convert to dictionary for DataFrame creation."""
+        d = {
+            "smiles": self.smiles,
+            "cn": self.cn,
+            "cn_error": self.cn_error,
+            "bp": self.bp,
         }
-        if use_bp_filter:
-            log_dict["best_bp"] = best["bp"]
-        
-        wandb.log(log_dict)
+        if self.ysi is not None:
+            d["ysi"] = self.ysi
+        return d
 
-        # Select top 50% as survivors (elitism)
-        survivors = population[:population_size // 2]
-        new_population = survivors[:]  # Keep the best performers
+
+class PropertyPredictor:
+    """Handles batch prediction for all molecular properties."""
+    
+    def __init__(self, config: EvolutionConfig):
+        self.config = config
+        self.cn_predictor = CetanePredictor()
+        self.ysi_predictor = YSIPredictor() if config.minimize_ysi else None
+        self.bp_predictor = BPPredictor()
+       
+    def _safe_predict(self, predictions: List, name: str) -> List[Optional[float]]:
+        """Safely convert predictions, handling None/NaN/inf values."""
+        results = []
+        for pred in predictions:
+            if pred is None or np.isnan(pred) or np.isinf(pred):
+                results.append(None)
+            else:
+                results.append(float(pred))
+        return results
+    
+    def predict_cn_batch(self, smiles_list: List[str]) -> List[Optional[float]]:
+        """Predict cetane number for a batch of SMILES."""
+        if not smiles_list:
+            return []
+        try:
+            predictions = self.cn_predictor.predict(smiles_list)
+            return self._safe_predict(predictions, "CN")
+        except Exception as e:
+            print(f"Warning: Batch CN prediction failed: {e}")
+            return [None] * len(smiles_list)
+    
+    def predict_ysi_batch(self, smiles_list: List[str]) -> List[Optional[float]]:
+        """Predict YSI for a batch of SMILES."""
+        if not smiles_list or not self.ysi_predictor:
+            return [None] * len(smiles_list)
+        try:
+            predictions = self.ysi_predictor.predict(smiles_list)
+            return self._safe_predict(predictions, "YSI")
+        except Exception as e:
+            print(f"Warning: Batch YSI prediction failed: {e}")
+            return [None] * len(smiles_list)
+    
+    def predict_bp_batch(self, smiles_list: List[str]) -> List[Optional[float]]:
+        """Predict boiling point for a batch of SMILES."""
+        if not smiles_list or not self.bp_predictor:
+            return [None] * len(smiles_list)
+        try:
+            predictions = self.bp_predictor.predict(smiles_list)
+            return self._safe_predict(predictions, "BP")
+        except Exception as e:
+            print(f"Warning: Batch BP prediction failed: {e}")
+            return [None] * len(smiles_list)
+
+    
+    def is_valid_bp(self, bp: Optional[float]) -> bool:
+        """Check if boiling point is within valid range."""
+        if bp is None or not self.config.use_bp_filter:
+            return True
+        return self.config.min_bp <= bp <= self.config.max_bp
+
+
+class Population:
+    """Manages the population of molecules."""
+    
+    def __init__(self, config: EvolutionConfig):
+        self.config = config
+        self.molecules: List[Molecule] = []
+        self.seen_smiles: set = set()
+    
+    def add_molecule(self, mol: Molecule) -> bool:
+        """Add a molecule if it's not already in the population."""
+        if mol.smiles in self.seen_smiles:
+            return False
+        self.molecules.append(mol)
+        self.seen_smiles.add(mol.smiles)
+        return True
+    
+    def pareto_front(self) -> List[Molecule]:
+        """Extract the Pareto front from the population."""
+        if not self.config.minimize_ysi:
+            return []
         
-        # Generate offspring using CREM mutations
-        attempts = 0
-        max_attempts = population_size * 10  # Prevent infinite loops
-        bp_rejected_this_gen = 0
+        front = []
+        for mol in self.molecules:
+            dominated = any(other.dominates(mol) for other in self.molecules if other is not mol)
+            if not dominated:
+                front.append(mol)
+        return front
+    
+    def get_survivors(self) -> List[Molecule]:
+        """Select survivors for the next generation."""
+        target_size = self.config.population_size // 2
         
-        # Collect all children for batch processing
-        children_batch = []
+        if self.config.minimize_ysi:
+            survivors = self.pareto_front()
+            if len(survivors) > target_size:
+                survivors = sorted(survivors, key=lambda m: m.cn_error + m.ysi)[:target_size]
+            elif len(survivors) < target_size:
+                remainder = [m for m in self.molecules if m not in survivors]
+                remainder = sorted(remainder, key=lambda m: m.cn_error + m.ysi)
+                survivors += remainder[:target_size - len(survivors)]
+        else:
+            survivors = sorted(self.molecules, key=lambda m: m.cn_error)[:target_size]
         
-        while len(new_population) < population_size and attempts < max_attempts:
-            attempts += 1
-            
-            # Select parent (random from survivors)
-            parent_data = random.choice(survivors)
-            parent_mol = Chem.MolFromSmiles(parent_data['smiles'])
-            
-            if parent_mol is None:
+        return survivors
+    
+    def to_dataframe(self) -> pd.DataFrame:
+        """Convert population to DataFrame."""
+        df = pd.DataFrame([m.to_dict() for m in self.molecules])
+        if self.config.minimize_ysi:
+            df = df.sort_values(["cn_error", "ysi"], ascending=[True, True])
+        else:
+            df = df.sort_values("cn_error", ascending=True)
+        df.insert(0, 'rank', range(1, len(df) + 1))
+        return df
+
+
+class MolecularEvolution:
+    """Main evolutionary algorithm coordinator."""
+    
+    REP_DB_PATH = PROJECT_ROOT / "frag_db" / "diesel_fragments.db"
+    
+    def __init__(self, config: EvolutionConfig):
+        self.config = config
+        self.predictor = PropertyPredictor(config)
+        self.population = Population(config)
+    
+    def _mutate_molecule(self, mol: Chem.Mol) -> List[str]:
+        """Generate mutations for a molecule using CREM."""
+        try:
+            mutants = list(mutate_mol(
+                mol,
+                db_name=str(self.REP_DB_PATH),
+                max_size=2,
+                return_mol=False
+            ))
+            return [m for m in mutants if m and m not in self.population.seen_smiles]
+        except Exception:
+            return []
+    
+    def _create_molecules(self, smiles_list: List[str]) -> List[Molecule]:
+        """Create Molecule objects from SMILES with predictions."""
+        cn_preds = self.predictor.predict_cn_batch(smiles_list)
+        ysi_preds = self.predictor.predict_ysi_batch(smiles_list)
+        bp_preds = self.predictor.predict_bp_batch(smiles_list)
+        
+        molecules = []
+        for s, cn, ysi, bp in zip(smiles_list, cn_preds, ysi_preds, bp_preds):
+            if cn is None:
+                continue
+            if self.config.minimize_ysi and ysi is None:
+                continue
+            if not self.predictor.is_valid_bp(bp):
                 continue
             
-            # Generate mutations using CREM
-            child_smiles_list = mutate_molecule_crem(
-                parent_mol, 
-                db_path=CREM_DB_PATH, 
-                max_mutations=mutations_per_parent
-            )
+            molecules.append(Molecule(
+                smiles=s,
+                cn=cn,
+                cn_error=abs(cn - self.config.target_cn),
+                bp=bp,
+                ysi=ysi
+            ))
+        
+        return molecules
+    
+    def initialize_population(self, initial_smiles: List[str]) -> int:
+        """Initialize the population from initial SMILES."""
+        print("Predicting properties for initial population...")
+        molecules = self._create_molecules(initial_smiles)
+        
+        for mol in molecules:
+            self.population.add_molecule(mol)
+        
+        return len(molecules)
+    
+    def _log_generation_stats(self, generation: int):
+        """Log statistics for the current generation."""
+        mols = self.population.molecules
+        best_cn = min(mols, key=lambda m: m.cn_error)
+        avg_cn_err = np.mean([m.cn_error for m in mols])
+        
+        log_dict = {
+            "generation": generation,
+            "best_cn_error": best_cn.cn_error,
+            "population_size": len(mols),
+            "avg_cn_error": avg_cn_err,
+        }
+        
+        print_msg = (f"Gen {generation}/{self.config.generations} | "
+                    f"Pop {len(mols)} | "
+                    f"Best CN err: {best_cn.cn_error:.3f} | "
+                    f"Avg CN err: {avg_cn_err:.3f}")
+        
+        if self.config.minimize_ysi:
+            front = self.population.pareto_front()
+            best_ysi = min(mols, key=lambda m: m.ysi)
+            avg_ysi = np.mean([m.ysi for m in mols])
             
-            # Filter out already seen molecules
-            new_children = [s for s in child_smiles_list if s and s not in seen_smiles]
-            children_batch.extend(new_children)
+            log_dict.update({
+                "best_ysi": best_ysi.ysi,
+                "pareto_size": len(front),
+                "avg_ysi": avg_ysi,
+            })
             
-            # Process batch when we have enough children or need to fill population
-            if len(children_batch) >= 20 or len(new_population) + len(children_batch) >= population_size:
-                # Batch predict BP if filter enabled
-                if use_bp_filter and children_batch:
-                    bp_batch = predict_boiling_points_batch(children_batch)
-                else:
-                    bp_batch = [None] * len(children_batch)
+            print_msg += (f" | Best YSI: {best_ysi.ysi:.3f} | "
+                         f"Avg YSI: {avg_ysi:.3f} | "
+                         f"Pareto size: {len(front)}")
+        
+        print(print_msg)
+        wandb.log(log_dict)
+    
+    def _generate_offspring(self, survivors: List[Molecule]) -> List[Molecule]:
+        """Generate offspring from survivors."""
+        target_size = self.config.population_size
+        new_molecules = []
+        all_children = []
+        
+        attempts = 0
+        max_attempts = target_size * 10
+        
+        while len(new_molecules) < target_size - len(survivors) and attempts < max_attempts:
+            attempts += 1
+            parent = random.choice(survivors)
+            mol = Chem.MolFromSmiles(parent.smiles)
+            
+            if mol is None:
+                continue
+            
+            children = self._mutate_molecule(mol)
+            all_children.extend(children[:self.config.mutations_per_parent])
+            
+            # Process in batches
+            if len(all_children) >= self.config.batch_size:
+                print(f"  → Evaluating batch of {len(all_children)} offspring...")
+                batch_mols = self._create_molecules(all_children)
+                new_molecules.extend(batch_mols)
+                all_children = []
                 
-                # Evaluate each child
-                for child_smi, bp in zip(children_batch, bp_batch):
-                    if child_smi in seen_smiles:
-                        continue
-                        
-                    cn = predict_cn(child_smi)
-                    if cn is not None:
-                        # Check boiling point if filter is enabled
-                        if use_bp_filter:
-                            if not is_valid_boiling_point(bp, min_bp, max_bp):
-                                bp_rejected_this_gen += 1
-                                continue
-                            
-                            new_entry = {
-                                'smiles': child_smi, 
-                                'cn': cn,
-                                'bp': bp,
-                                'error': abs(cn - target_cn)
-                            }
-                        else:
-                            new_entry = {
-                                'smiles': child_smi, 
-                                'cn': cn,
-                                'bp': None,
-                                'error': abs(cn - target_cn)
-                            }
-                        
-                        new_population.append(new_entry)
-                        seen_smiles.add(child_smi)
-                        
-                        # Stop if we've reached population size
-                        if len(new_population) >= population_size:
-                            break
-                
-                # Clear batch for next round
-                children_batch = []
-                
-                # Break if we've filled the population
-                if len(new_population) >= population_size:
+                if len(new_molecules) >= target_size - len(survivors):
                     break
         
-        population = new_population
+        # Process remaining children
+        if all_children and len(new_molecules) < target_size - len(survivors):
+            print(f"  → Evaluating final batch of {len(all_children)} offspring...")
+            batch_mols = self._create_molecules(all_children)
+            new_molecules.extend(batch_mols)
         
-        if use_bp_filter and bp_rejected_this_gen > 0:
-            print(f"    (Rejected {bp_rejected_this_gen} molecules due to BP constraints)")
+        return new_molecules
+    
+    def evolve(self) -> Tuple[pd.DataFrame, pd.DataFrame]:
+        """Run the evolutionary algorithm."""
+        # Initialize
+        init_count = self.initialize_population(df["SMILES"].tolist())
+        if init_count == 0:
+            print("❌ No valid initial molecules")
+            return pd.DataFrame(), pd.DataFrame()
         
-        if attempts >= max_attempts:
-            print(f"  ⚠ Warning: Reached max attempts, population size: {len(population)}")
+        print(f"✓ Initial population size: {init_count}")
+        
+        # Evolution loop
+        for gen in range(1, self.config.generations + 1):
+            self._log_generation_stats(gen)
+            
+            survivors = self.population.get_survivors()
+            offspring = self._generate_offspring(survivors)
+            
+            # Create new population
+            new_pop = Population(self.config)
+            for mol in survivors + offspring:
+                new_pop.add_molecule(mol)
+            
+            self.population = new_pop
+        
+        # Generate results
+        final_df = self.population.to_dataframe()
+        
+        if self.config.minimize_ysi:
+            pareto_mols = self.population.pareto_front()
+            pareto_df = pd.DataFrame([m.to_dict() for m in pareto_mols])
+            if not pareto_df.empty:
+                pareto_df = pareto_df[
+                    (pareto_df['cn_error'] < 5) & (pareto_df['ysi'] < 50)
+                ]
+                pareto_df = pareto_df.sort_values(["cn_error", "ysi"], ascending=[True, True])
+                pareto_df.insert(0, 'rank', range(1, len(pareto_df) + 1))
+        else:
+            pareto_df = pd.DataFrame()
+        
+        return final_df, pareto_df
 
+
+def main():
+    """Main execution function."""
     print("\n" + "="*70)
-    return pd.DataFrame(population).sort_values('error')
+    print("MOLECULAR EVOLUTION WITH GENETIC ALGORITHM")
+    print("="*70)
+    
+    target = float(input("Enter target CN: ") or "50")
+    while target <= 40:
+        print("⚠️  Target CN is too low, optimization may be challenging.")
+        print("Consider using a higher target CN for better results.\n")
+        print("Re-input target CN.")
+        target = float(input("Enter target CN: ") or "50")
+    minimize_ysi_input = input("Minimise YSI (y/n): ").strip().lower()
+    minimize_ysi = minimize_ysi_input in ['y', 'yes']
+    
+    config = EvolutionConfig(
+        target_cn=target,
+        minimize_ysi=minimize_ysi
+    )
+    
+    project_name = "cetane-ysi-pareto" if minimize_ysi else "cetane-optimization"
+    wandb.init(project=project_name, config=config.__dict__)
+    
+    evolution = MolecularEvolution(config)
+    final_df, pareto_df = evolution.evolve()
+    
+    # Log to wandb
+    wandb.log({"final": wandb.Table(dataframe=final_df)})
+    if minimize_ysi and not pareto_df.empty:
+        wandb.log({"pareto": wandb.Table(dataframe=pareto_df)})
+    wandb.finish()
+    
+    # Display results
+    print("\n=== TOP 10 (sorted) ===")
+    cols = ["rank", "smiles", "cn", "cn_error", "ysi", "bp"] if minimize_ysi else ["rank", "smiles", "cn", "cn_error", "bp"]
+    print(final_df.head(10)[cols].to_string(index=False))
+    
+    if minimize_ysi and not pareto_df.empty:
+        print("\n=== PARETO FRONT (ranked) ===")
+        print(pareto_df[["rank", "smiles", "cn", "cn_error", "ysi", "bp"]].head(20).to_string(index=False))
+    
+    # Save results
+    results_dir = Path("results")
+    results_dir.mkdir(exist_ok=True)
+    final_df.to_csv(results_dir / "final_population.csv", index=False)
+    if minimize_ysi and not pareto_df.empty:
+        pareto_df.to_csv(results_dir / "pareto_front.csv", index=False)
+    
+    print("\nSaved to results/")
 
 
 if __name__ == "__main__":
-    # Check if model loaded correctly
-    if not isinstance(model_pkl, CleanCNPredictor):
-        print("\n❌ ERROR: Model did not load correctly.")
-        print(f"Expected CleanCNPredictor, got {type(model_pkl)}")
-        sys.exit(1)
-    
-    print("\n" + "="*70)
-    print("MOLECULAR EVOLUTION WITH CREM + BP SCREENING")
-    print("="*70)
-    
-    # Get target CN from user
-    try:
-        target_cn = float(input("Enter target CN value: "))
-    except ValueError:
-        print("Invalid input. Using default target CN = 50")
-        target_cn = 50
-    
-    # Ask about BP filtering
-    use_bp = input("Use boiling point filter (180-360°C)? [Y/n]: ").strip().lower()
-    use_bp_filter = use_bp != 'n'
-    
-    # Run the evolution
-    print(f"\nStarting evolution to find molecules with CN ≈ {target_cn}")
-    print("Parameters: 15 generations, population size 20, 5 mutations per parent\n")
-
-    config = {
-        "generations": 15,
-        "population_size": 20,
-        "target_cn": target_cn,
-        "model": "ExtraTrees_CN_Predictor",
-        "mutation": "CREM",
-        "bp_filter": use_bp_filter
-    }
-    
-    if use_bp_filter:
-        config["min_bp"] = 180
-        config["max_bp"] = 360
-
-    wandb.init(
-        project="cetane-number-optimization",
-        config=config
-    )
-    
-    df_results = run_evolution(
-        target_cn, 
-        generations=15, 
-        population_size=20,
-        mutations_per_parent=5,
-        use_bp_filter=use_bp_filter
-    )
-    
-    # Log final table
-    wandb.log({
-        "final_results": wandb.Table(dataframe=df_results)
-    })
-
-    # Save best molecule CN
-    if len(df_results) > 0:
-        best = df_results.iloc[0]
-        best_log = {
-            "best_smiles": best["smiles"],
-            "best_cn": best["cn"],
-            "best_error": best["error"],
-        }
-        if use_bp_filter:
-            best_log["best_bp"] = best["bp"]
-        
-        wandb.log(best_log)
-
-    wandb.finish()
-    
-    if len(df_results) == 0:
-        print("\n❌ Evolution failed - no valid molecules generated")
-        sys.exit(1)
-    
-    print("\n" + "="*70)
-    print(f"TOP 10 GENERATED MOLECULES (Closest to CN={target_cn})")
-    print("="*70)
-    
-    output_cols = ['smiles', 'cn', 'error']
-    if use_bp_filter:
-        output_cols.insert(2, 'bp')
-    
-    print(df_results.head(10)[output_cols].to_string(index=False))
-    
-    # Save results
-    output_file = "top_generated_molecules_crem_bp.csv"
-    df_results.to_csv(output_file, index=False)
-    print(f"\n✓ Saved all results to '{output_file}'")
-    print(f"✓ Total unique molecules explored: {len(df_results)}")
-    
-    # Show some statistics
-    print("\n" + "="*70)
-    print("EVOLUTION STATISTICS")
-    print("="*70)
-    print(f"Best CN achieved: {df_results.iloc[0]['cn']:.2f}")
-    print(f"Target CN: {target_cn:.2f}")
-    print(f"Best error: {df_results.iloc[0]['error']:.2f}")
-    print(f"Average error (top 10): {df_results.head(10)['error'].mean():.2f}")
-    
+    main()

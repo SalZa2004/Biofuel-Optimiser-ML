@@ -23,7 +23,6 @@ from shared_features import FeatureSelector, featurize_df
 from ysi_predictor_model.ysi_model.model import YSIPredictor
 from data_prep import df
 
-
 @dataclass
 class EvolutionConfig:
     """Configuration for evolutionary algorithm."""
@@ -36,7 +35,6 @@ class EvolutionConfig:
     max_bp: float = 250
     use_bp_filter: bool = True
     batch_size: int = 50
-
 
 @dataclass
 class Molecule:
