@@ -8,14 +8,11 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
+
 def load_raw_data():
-    """Load raw data from database."""
-
-    df = pd.read_csv("bp_data.csv")
-
-    
+    df = pd.read_csv("density.csv")
     # Clean data
-    df.dropna(subset=["bp", "SMILES"], inplace=True)
+    df.dropna(subset=["density", "SMILES"], inplace=True)
     
     return df
 
@@ -231,13 +228,12 @@ def prepare_training_data():
     
     # Featurize
     X, df_valid = featurize_df(df, return_df=True)
-    y = df_valid["bp"].values
+    y = df_valid["density"].values
     
     # Remove any remaining NaN in target
     nan_mask = ~np.isnan(y)
     X = X[nan_mask]
     y = y[nan_mask]
-
     
     
     print(f"Valid samples after cleaning: {len(y)}")
@@ -277,7 +273,7 @@ def objective(trial, X_train, y_train):
     return rmse
 
 def train_and_save_model(n_trials=100, 
-                         output_dir='bp_model/artifacts'):
+                         output_dir='density_model/artifacts'):
     """
     Complete training pipeline:
     1. Load and featurize data
@@ -316,7 +312,7 @@ def train_and_save_model(n_trials=100,
     study = optuna.create_study(
         direction="minimize",
         sampler=TPESampler(seed=42),
-        study_name="extratrees_bp_tuning"
+        study_name="extratrees_density_tuning"
     )
     
     print(f"Running {n_trials} trials...")
@@ -375,32 +371,32 @@ def train_and_save_model(n_trials=100,
 # 5. PREDICTION CLASS
 # ============================================================================
 
-class BPPredictor:
+class DensityPredictor:
     """
-    Simple predictor class for cetane number prediction.
+    Simple predictor class for density number prediction.
     
     Usage:
-        predictor = CetanePredictor()
-        bp_values = predictor.predict(["CCCCCCCC", "CC(C)C"])
+        predictor = densityPredictor()
+        density_values = predictor.predict(["CCCCCCCC", "CC(C)C"])
     """
     
-    def __init__(self, model_path="bp_model/artifacts/model.joblib", 
-                 selector_path="bp_model/artifacts/selector.joblib"):
+    def __init__(self, model_path="density_model/artifacts/model.joblib", 
+                 selector_path="density_model/artifacts/selector.joblib"):
         """Load the trained model and feature selector."""
-        print("Loading BP Predictor...")
+        print("Loading Density Predictor...")
         self.model = joblib.load(model_path)
         self.selector = FeatureSelector.load(selector_path)
         print("✓ Predictor ready!\n")
     
     def predict(self, smiles_list):
         """
-        Predict BP for SMILES strings.
+        Predict Density numbers for SMILES strings.
         
         Args:
             smiles_list: Single SMILES string, list of SMILES, or pandas Series
         
         Returns:
-            List of predicted BP values
+            List of predicted Density values
         """
         # Handle single SMILES
         if isinstance(smiles_list, str):
@@ -437,7 +433,7 @@ class BPPredictor:
         
         if X_full is None:
             print("⚠ Warning: No valid molecules found!")
-            return pd.DataFrame(columns=["SMILES", "Predicted_BP", "Valid"])
+            return pd.DataFrame(columns=["SMILES", "Predicted_Density", "Valid"])
         
         # Apply feature selection
         X_selected = self.selector.transform(X_full)
@@ -446,12 +442,12 @@ class BPPredictor:
         predictions = self.model.predict(X_selected)
         
         # Create results dataframe
-        df_valid["Predicted_BP"] = predictions
+        df_valid["Predicted_Density"] = predictions
         df_valid["Valid"] = True
         
         # Mark invalid molecules
         all_results = pd.DataFrame({"SMILES": smiles_list})
-        all_results = all_results.merge(df_valid[["SMILES", "Predicted_BP", "Valid"]], 
+        all_results = all_results.merge(df_valid[["SMILES", "Predicted_Density", "Valid"]], 
                                         on="SMILES", how="left")
         all_results["Valid"] = all_results["Valid"].fillna(False)
         
@@ -473,13 +469,13 @@ if __name__ == "__main__":
         
         model, selector, study = train_and_save_model(
             n_trials=100,
-            output_dir='bp_model/artifacts'
+            output_dir='density_model/artifacts'
         )
         
     else:
         # Prediction mode - check if model exists
-        model_path = "bp_model/artifacts/model.joblib"
-        selector_path = "bp_model/artifacts/selector.joblib"
+        model_path = "density_model/artifacts/model.joblib"
+        selector_path = "density_model/artifacts/selector.joblib"
         
         if not os.path.exists(model_path) or not os.path.exists(selector_path):
             print("="*70)
@@ -488,8 +484,8 @@ if __name__ == "__main__":
             print("\nNo trained model found. Please train first:")
             print("  python train.py train")
             print("\nThis will create:")
-            print("  - bp_model/artifacts/model.joblib")
-            print("  - bp_model/artifacts/selector.joblib")
+            print("  - density_model/artifacts/model.joblib")
+            print("  - density_model/artifacts/selector.joblib")
             sys.exit(1)
         
         # Prediction example
@@ -498,7 +494,7 @@ if __name__ == "__main__":
         print("="*70)
         
         # Create predictor
-        predictor = CetanePredictor()
+        predictor = DensityPredictor()
         
         # Example SMILES
         test_smiles = [
@@ -515,15 +511,15 @@ if __name__ == "__main__":
         print("\n" + "="*70)
         print("Simple prediction:")
         predictions = predictor.predict(["CCCCCCCC", "CC(C)C"])
-        print(f"Octane bp: {predictions[0]:.2f}")
-        print(f"Isobutane bp: {predictions[1]:.2f}")
+        print(f"Octane density: {predictions[0]:.2f}")
+        print(f"Isobutane density: {predictions[1]:.2f}")
         
         print("\n" + "="*70)
         print("Usage:")
         print("  Training:   python train.py train")
         print("  Prediction: python train.py")
         print("\nIn your code:")
-        print("  from train import CetanePredictor")
-        print("  predictor = CetanePredictor()")
+        print("  from train import DensityPredictor")
+        print("  predictor = DensityPredictor()")
         print("  predictions = predictor.predict(['CCCCCCCC'])")
         print("="*70)

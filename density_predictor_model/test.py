@@ -1,5 +1,5 @@
 """
-Test the trained BP prediction model on a held-out test set.
+Test the trained density prediction model on a held-out test set.
 """
 
 import os
@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import matplotlib.pyplot as plt
 import seaborn as sns
-from train import BPPredictor
+from density_model.model import DensityPredictor
 import joblib
 from train import FeatureSelector
 import sys
@@ -20,27 +20,27 @@ import os
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # 2. Project root: one level up
-PROJECT_ROOT = os.path.dirname(TEST_DIR)
+PROJECT_ROOT = os.getcwd()
 sys.path.append(PROJECT_ROOT)
+
 # 3. Build DB path
-
-
-
 FILE_DIR = os.path.dirname(os.path.abspath(__file__))
-ARTIFACT_DIR = os.path.join(PROJECT_ROOT,"bp-predictor-model", "bp_model", "artifacts")
+ARTIFACT_DIR = os.path.join(PROJECT_ROOT,"density-predictor-model", "density_model", "artifacts")
 MODEL_PATH = os.path.join(ARTIFACT_DIR, "model.joblib")
 
 def load_and_split_data(test_size=0.2, random_state=42):
-    
-    df = pd.read_csv("bp_data.csv")
-
+    """
+    Load data from database and split into train/test.
+    Returns the test set for evaluation.
+    """
+    df = pd.read_csv('density.csv')
     
     # Clean data
-    df.dropna(subset=["bp", "SMILES"], inplace=True)
-    
-    # Remove outliers (same as training)
+    df.dropna(subset=["density", "SMILES"], inplace=True)
+
     
     print(f"Total samples: {len(df)}")
+
     
     # Split
     train_df, test_df = train_test_split(
@@ -72,13 +72,13 @@ def evaluate_model(predictor, test_df):
         print(f"⚠ Warning: {len(test_df) - len(predictions)} molecules failed featurization")
         # Get valid predictions with details
         results = predictor.predict_with_details(test_df["SMILES"].tolist())
-        results = results.merge(test_df[["SMILES", "bp"]], on="SMILES", how="left")
+        results = results.merge(test_df[["SMILES", "density"]], on="SMILES", how="left")
         results = results[results["Valid"] == True]
         
-        y_true = results["bp"].values
-        y_pred = results["Predicted_BP"].values
+        y_true = results["density"].values
+        y_pred = results["Predicted_Density"].values
     else:
-        y_true = test_df["bp"].values
+        y_true = test_df["density"].values
         y_pred = np.array(predictions)
     
     # Calculate metrics
@@ -115,13 +115,13 @@ def evaluate_training_set(predictor, train_df):
     # Handle cases where some molecules might be invalid
     if len(predictions) != len(train_df):
         results = predictor.predict_with_details(train_df["SMILES"].tolist())
-        results = results.merge(train_df[["SMILES", "bp"]], on="SMILES", how="left")
+        results = results.merge(train_df[["SMILES", "density"]], on="SMILES", how="left")
         results = results[results["Valid"] == True]
         
-        y_true = results["bp"].values
-        y_pred = results["Predicted_bp"].values
+        y_true = results["density"].values
+        y_pred = results["Predicted_Density"].values
     else:
-        y_true = train_df["bp"].values
+        y_true = train_df["density"].values
         y_pred = np.array(predictions)
     
     # Calculate metrics
@@ -160,9 +160,9 @@ def plot_results(y_true, y_pred, save_path="evaluation_plots.png"):
     max_val = max(y_true.max(), y_pred.max())
     ax1.plot([min_val, max_val], [min_val, max_val], 'r--', lw=2, label='Perfect prediction')
     
-    ax1.set_xlabel('Actual BP', fontsize=12)
-    ax1.set_ylabel('Predicted BPBP', fontsize=12)
-    ax1.set_title('Predicted vs Actual BP Number', fontsize=14, fontweight='bold')
+    ax1.set_xlabel('Actual Density', fontsize=12)
+    ax1.set_ylabel('Predicted Density', fontsize=12)
+    ax1.set_title('Predicted vs Actual Density Number', fontsize=14, fontweight='bold')
     ax1.legend()
     ax1.grid(True, alpha=0.3)
     
@@ -177,7 +177,7 @@ def plot_results(y_true, y_pred, save_path="evaluation_plots.png"):
     residuals = y_true - y_pred
     ax2.scatter(y_pred, residuals, alpha=0.5, s=30)
     ax2.axhline(y=0, color='r', linestyle='--', lw=2)
-    ax2.set_xlabel('Predicted BP', fontsize=12)
+    ax2.set_xlabel('Predicted Density', fontsize=12)
     ax2.set_ylabel('Residuals (Actual - Predicted)', fontsize=12)
     ax2.set_title('Residual Plot', fontsize=14, fontweight='bold')
     ax2.grid(True, alpha=0.3)
@@ -241,8 +241,8 @@ def save_predictions(test_df, y_true, y_pred, save_path="test_predictions.csv"):
     """
     results_df = test_df.copy()
     results_df = results_df.reset_index(drop=True)
-    results_df["Actual_BP"] = y_true
-    results_df["Predicted_BP"] = y_pred
+    results_df["Actual_Density"] = y_true
+    results_df["Predicted_Density"] = y_pred
     results_df["Absolute_Error"] = np.abs(y_true - y_pred)
     results_df["Relative_Error_%"] = np.abs((y_true - y_pred) / y_true) * 100
     
@@ -255,15 +255,16 @@ def main():
     Main evaluation pipeline.
     """
     print("="*70)
-    print("BP MODEL EVALUATION")
+    print("Density MODEL EVALUATION")
     print("="*70)
     
+    # Check if model exists
 
     
     # Load the trained model
     print("\nLoading trained model...")
 
-    predictor = BPPredictor()
+    predictor = DensityPredictor()
     
     # Load and split data
     train_df, test_df = load_and_split_data(test_size=0.2, random_state=42)
@@ -288,20 +289,20 @@ def main():
         print("✓ Model generalization looks good!")
     
     # Create visualizations
-    plot_results(y_true, y_pred, save_path="bp_model/evaluation_plots.png")
+    plot_results(y_true, y_pred, save_path=os.path.join(PROJECT_ROOT,"density_model/evaluation_plots.png"))
     
     # Error analysis
     analyze_errors(test_df, y_true, y_pred, top_n=10)
     
     # Save predictions
-    save_predictions(test_df, y_true, y_pred, save_path="bp_model/test_predictions.csv")
+    save_predictions(test_df, y_true, y_pred, save_path="density_model/test_predictions.csv")
     
     print("\n" + "="*70)
     print("EVALUATION COMPLETE!")
     print("="*70)
     print("\nGenerated files:")
-    print("  - bp_model/evaluation_plots.png")
-    print("  - bp_model/test_predictions.csv")
+    print("  - density_model/evaluation_plots.png")
+    print("  - density_model/test_predictions.csv")
     print("="*70)
 
 
