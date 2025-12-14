@@ -1,0 +1,609 @@
+Name,SMILES,lhv,Source
+Vinyl propanoate,CCC(=O)OC=C,25.4702,Chen 2024.xlsx
+vinyl Acetate,CC(=O)OC=C,22.65071,Chen 2024.xlsx
+Hendecanoic acid,CCCCCCCCCCC(=O)O,33.56648,Chen 2024.xlsx
+Undecanal,CCCCCCCCCCC=O,38.57988,Chen 2024.xlsx
+Triethylene glycol dimethyl ether,COCCOCCOCCOC,25.69742,Chen 2024.xlsx
+n-Tridecanoic acid,CCCCCCCCCCCCC(=O)O,34.76999,Chen 2024.xlsx
+trans-Crotonaldehyde,CC=CC=O,30.83415,Chen 2024.xlsx
+Trans-4-Octene,CCCC=CCCC,44.12708,Chen 2024.xlsx
+toluene,CC1=CC=CC=C1,40.52485,Chen 2024.xlsx
+tetrahydrofuran,C1CCOC1,32.24375,Chen 2024.xlsx
+Tetradecanoic acid,CCCCCCCCCCCCCC(=O)O,35.29492,Chen 2024.xlsx
+tert-Butylcyclohexane,CC(C)(C)C1CCCCC1,43.60319,Chen 2024.xlsx
+tert-butyl ethyl ether,CCOC(C)(C)C,36.28018,Chen 2024.xlsx
+tert-butyl acetate,CC(=O)OC(C)(C)C,27.98726,Chen 2024.xlsx
+Tert-Amyl methyl ether,CCC(C)(C)OC,36.33205,Chen 2024.xlsx
+"1,4-Benzenedicarboxylic acid",C1=CC(=CC=C1C(=O)O)C(=O)O,18.40486,Chen 2024.xlsx
+succinic acid,C(CC(=O)O)C(=O)O,11.50902,Chen 2024.xlsx
+styrene,C=CC1=CC=CC=C1,40.5081,Chen 2024.xlsx
+Sec-Butylcyclohexane,CCC(C)C1CCCCC1,43.41627,Chen 2024.xlsx
+sec-Butyl formate,CCC(C)OC=O,26.37815,Chen 2024.xlsx
+sec-butyl acetate,CCC(C)OC(=O)C,28.13361,Chen 2024.xlsx
+sebacic acid,C(CCCCC(=O)O)CCCC(=O)O,24.86527,Chen 2024.xlsx
+pyrene,C1=CC2=C3C(=C1)C=CC4=CC=CC(=C43)C=C2,37.72892,Chen 2024.xlsx
+Propyne,CC#C,46.14828,Chen 2024.xlsx
+propylcyclohexane,CCCC1CCCCC1,43.40597,Chen 2024.xlsx
+propylbenzene,CCCC1=CC=CC=C1,41.21802,Chen 2024.xlsx
+propyl propionate,CCCOC(=O)CC,28.23691,Chen 2024.xlsx
+propyl formate,CCCOC=O,23.16423,Chen 2024.xlsx
+Propyl ethanoate,CCCOC(=O)C,26.16273,Chen 2024.xlsx
+Propyl butanoate,CCCC(=O)OCCC,29.90314,Chen 2024.xlsx
+propyl 2-methylpropanoate,CCCOC(=O)C(C)C,29.82633,Chen 2024.xlsx
+Propionic Acid,CCC(=O)O,18.83099,Chen 2024.xlsx
+Propene,CC=C,45.77363,Chen 2024.xlsx
+propenal,C=CC=O,27.59187,Chen 2024.xlsx
+Propane,CCC,46.33195,Chen 2024.xlsx
+Propanal,CCC=O,29.02376,Chen 2024.xlsx
+2-Propenoic acid,C=CC(=O)O,18.41799,Chen 2024.xlsx
+phenylacetylene,C#CC1=CC=CC=C1,40.67953,Chen 2024.xlsx
+Pentylcyclopentane,CCCCCC1CCCC1,43.58694,Chen 2024.xlsx
+pentyl formate,CCCCCOC=O,28.52961,Chen 2024.xlsx
+pentyl acetate,CCCCCOC(=O)C,29.91159,Chen 2024.xlsx
+Pentanoic acid,CCCCC(=O)O,25.61931,Chen 2024.xlsx
+Pentanedioic acid,C(CC(=O)O)CC(=O)O,14.94966,Chen 2024.xlsx
+Pentanal,CCCCC=O,33.78457,Chen 2024.xlsx
+pentadecanoic?acid,CCCCCCCCCCCCCCC(=O)O,35.76279,Chen 2024.xlsx
+Oleic acid,CCCCCCCCC=CCCCCCCCC(=O)O,36.81833,Chen 2024.xlsx
+octanoic?acid,CCCCCCCC(=O)O,30.84599,Chen 2024.xlsx
+octanedioic?acid,C(CCCC(=O)O)CCC(=O)O,21.83306,Chen 2024.xlsx
+Octanal,CCCCCCCC=O,36.96915,Chen 2024.xlsx
+Octadecanoic Acid,CCCCCCCCCCCCCCCCCC(=O)O,36.90685,Chen 2024.xlsx
+n-undecylbenzene,CCCCCCCCCCCC1=CC=CC=C1,42.30437,Chen 2024.xlsx
+n-undecane,CCCCCCCCCCC,44.16523,Chen 2024.xlsx
+n-tridecylbenzene,CCCCCCCCCCCCCC1=CC=CC=C1,42.61609,Chen 2024.xlsx
+N-tridecane,CCCCCCCCCCCCC,44.05832,Chen 2024.xlsx
+n-tetradecylbenzene,CCCCCCCCCCCCCCC1=CC=CC=C1,42.62419,Chen 2024.xlsx
+N-tetradecane,CCCCCCCCCCCCCC,44.01746,Chen 2024.xlsx
+N-propylcyclopentane,CCCC1CCCC1,43.60875,Chen 2024.xlsx
+n-pentylbenzene,CCCCCC1=CC=CC=C1,41.64615,Chen 2024.xlsx
+n-pentane,CCCCC,44.97374,Chen 2024.xlsx
+N-pentadecane,CCCCCCCCCCCCCCC,43.98059,Chen 2024.xlsx
+Nonyl aldehyde,CCCCCCCCC=O,37.61196,Chen 2024.xlsx
+nonanoic?acid,CCCCCCCCC(=O)O,31.98054,Chen 2024.xlsx
+nonadecanoic?acid,CCCCCCCCCCCCCCCCCCC(=O)O,37.18593,Chen 2024.xlsx
+n-octylbenzene,CCCCCCCCC1=CC=CC=C1,42.04802,Chen 2024.xlsx
+N-Octyl?Formate,CCCCCCCCOC=O,32.58974,Chen 2024.xlsx
+N-Octyl?Acetate,CCCCCCCCOC(=O)C,33.23465,Chen 2024.xlsx
+n-octane,CCCCCCCC,44.42013,Chen 2024.xlsx
+N-octadecane,CCCCCCCCCCCCCCCCCC,44.00751,Chen 2024.xlsx
+n-nonylbenzene,CCCCCCCCCC1=CC=CC=C1,42.14536,Chen 2024.xlsx
+N-Nonyl?Formate,CCCCCCCCCOC=O,33.46105,Chen 2024.xlsx
+N-Nonyl?Acetate,CCCCCCCCCOC(=O)C,34.00612,Chen 2024.xlsx
+n-nonane,CCCCCCCCC,44.32126,Chen 2024.xlsx
+N-nonadecane,CCCCCCCCCCCCCCCCCCC,43.94311,Chen 2024.xlsx
+n-hexylbenzene,CCCCCCC1=CC=CC=C1,41.80347,Chen 2024.xlsx
+n-hexane,CCCCCC,44.73415,Chen 2024.xlsx
+N-hexadecylbenzene,CCCCCCCCCCCCCCCCC1=CC=CC=C1,42.63814,Chen 2024.xlsx
+N-hexadecane,CCCCCCCCCCCCCCCC,43.94607,Chen 2024.xlsx
+n-heptylbenzene,CCCCCCCC1=CC=CC=C1,41.93576,Chen 2024.xlsx
+n-heptane,CCCCCCC,44.55566,Chen 2024.xlsx
+N-heptadecane,CCCCCCCCCCCCCCCCC,44.07943,Chen 2024.xlsx
+N-heneicosane,CCCCCCCCCCCCCCCCCCCCC,43.83259,Chen 2024.xlsx
+Neopentanoic?Acid,CC(C)(C)C(=O)O,25.15422,Chen 2024.xlsx
+N-eicosane,CCCCCCCCCCCCCCCCCCCC,43.88511,Chen 2024.xlsx
+N-Dodecylbenzene,CCCCCCCCCCCCC1=CC=CC=C1,42.20128,Chen 2024.xlsx
+n-dodecane,CCCCCCCCCCCC,44.11002,Chen 2024.xlsx
+N-docosane,CCCCCCCCCCCCCCCCCCCCCC,43.78481,Chen 2024.xlsx
+n-decylbenzene,CCCCCCCCCCC1=CC=CC=C1,42.22974,Chen 2024.xlsx
+n-decane,CCCCCCCCCC,44.23626,Chen 2024.xlsx
+n-Butyric Acid,CCCC(=O)O,22.78629,Chen 2024.xlsx
+N-butylcyclopentane,CCCCC1CCCC1,43.59608,Chen 2024.xlsx
+N-Butylcyclohexane,CCCCC1CCCCC1,43.41769,Chen 2024.xlsx
+n-butylbenzene,CCCCC1=CC=CC=C1,41.45669,Chen 2024.xlsx
+N-Butyl?Vinyl?Ether,CCCCOC=C,35.85663,Chen 2024.xlsx
+naphthalene,C1=CC=C2C=CC=CC2=C1,38.86046,Chen 2024.xlsx
+Methylcyclopropane,CC1CC1,45.72215,Chen 2024.xlsx
+methylcyclopentane,CC1CCCC1,43.65509,Chen 2024.xlsx
+methylcyclohexane,CC1CCCCC1,43.35618,Chen 2024.xlsx
+Methylcyclobutane,CC1CCC1,45.25695,Chen 2024.xlsx
+methyl-2-propenoate,COC(=O)C=C,22.42188,Chen 2024.xlsx
+Methyl vinyl ether,COC=C,30.54924,Chen 2024.xlsx
+methyl tert-butyl ether,CC(C)(C)OC,35.22292,Chen 2024.xlsx
+Methyl propyl ether,CCCOC,33.96247,Chen 2024.xlsx
+Methyl propanoate,CCC(=O)OC,23.58523,Chen 2024.xlsx
+methyl isobutyrate,CC(C)C(=O)OC,26.19211,Chen 2024.xlsx
+Methyl Formate,COC=O,14.86095,Chen 2024.xlsx
+methyl elaidate,CCCCCCCCC=CCCCCCCCC(=O)OC,37.43739,Chen 2024.xlsx
+methyl dodecanoate,CCCCCCCCCCCC(=O)OC,35.30131,Chen 2024.xlsx
+methyl decanoate,CCCCCCCCCC(=O)OC,34.07767,Chen 2024.xlsx
+methyl butyl ether,CCCCOC,35.48724,Chen 2024.xlsx
+Methyl butanoate,CCCC(=O)OC,24.96744,Chen 2024.xlsx
+Methyl benzoate,COC(=O)C1=CC=CC=C1,27.70474,Chen 2024.xlsx
+methyl acetate,CC(=O)OC,19.72219,Chen 2024.xlsx
+methoxybenzene,COC1=CC=CC=C1,33.35676,Chen 2024.xlsx
+Methoxyacetone,CC(=O)COC,24.49211,Chen 2024.xlsx
+methanol,CO,19.91761,Chen 2024.xlsx
+Methane,C,50.0293,Chen 2024.xlsx
+Linolenic Acid,CCC=CCC=CCC=CCCCCCCCC(=O)O,36.63319,Chen 2024.xlsx
+Linoleic acid,CCCCCC=CCC=CCCCCCCCC(=O)O,36.72643,Chen 2024.xlsx
+limonene,CC1=CCC(CC1)C(=C)C,42.68559,Chen 2024.xlsx
+Isopropylcyclopentane,CC(C)C1CCCC1,43.61588,Chen 2024.xlsx
+isopropylcyclohexane,CC(C)C1CCCCC1,43.3925,Chen 2024.xlsx
+isopropylbenzene,CC(C)C1=CC=CC=C1,41.1914,Chen 2024.xlsx
+Isopropyl?Acrylate,CC(C)OC(=O)C=C,27.60645,Chen 2024.xlsx
+Isopropyl ethanoate,CC(C)OC(=O)C,26.02565,Chen 2024.xlsx
+Isopropenyl?Acetate,CC(=C)OC(=O)C,25.4195,Chen 2024.xlsx
+Isobutyl?2-Propenoate,CC(C)COC(=O)C=C,29.41429,Chen 2024.xlsx
+isobutyl formate,CC(C)COC=O,26.44473,Chen 2024.xlsx
+isobutyl acetate,CC(C)COC(=O)C,28.20248,Chen 2024.xlsx
+indene,C1C=CC2=CC=CC=C21,39.7674,Chen 2024.xlsx
+Indane,C1CC2=CC=CC=C2C1,40.29988,Chen 2024.xlsx
+Hexylcyclopentane,CCCCCCC1CCCC1,43.58047,Chen 2024.xlsx
+hexyl acetate,CCCCCCOC(=O)C,31.2383,Chen 2024.xlsx
+Hexanoic acid,CCCCCC(=O)O,27.81078,Chen 2024.xlsx
+"Hexanal, 2-ethyl-",CCCCC(CC)C=O,36.92548,Chen 2024.xlsx
+Hexanal,CCCCCC=O,35.14342,Chen 2024.xlsx
+hexamethylbenzene,CC1=C(C(=C(C(=C1C)C)C)C)C,41.51969,Chen 2024.xlsx
+hex-3-yne,CCC#CCC,44.31458,Chen 2024.xlsx
+hex-2-yne,CCCC#CC,44.31458,Chen 2024.xlsx
+heptylcyclopentane,CCCCCCCC1CCCC1,43.56832,Chen 2024.xlsx
+heptanoic?acid,CCCCCCC(=O)O,29.48994,Chen 2024.xlsx
+heptanedioic?acid,C(CCC(=O)O)CCC(=O)O,19.9563,Chen 2024.xlsx
+Heptanal,CCCCCCC=O,36.22097,Chen 2024.xlsx
+Heptadecylbenzene,CCCCCCCCCCCCCCCCCC1=CC=CC=C1,42.96008,Chen 2024.xlsx
+guaiacol,COC1=CC=CC=C1O,27.4531,Chen 2024.xlsx
+gamma-Valerolactone,CC1CCC(=O)O1,24.89912,Chen 2024.xlsx
+Furfural,C1=COC(=C1)C=O,23.41468,Chen 2024.xlsx
+furan,C1=COC=C1,29.31913,Chen 2024.xlsx
+Formic Acid,C(=O)O,4.595329,Chen 2024.xlsx
+fluorene,C1C2=CC=CC=C2C3=CC=CC=C31,38.6535,Chen 2024.xlsx
+Ethylcyclopropane,CCC1CC1,45.34536,Chen 2024.xlsx
+ethylcyclopentane,CCC1CCCC1,43.62912,Chen 2024.xlsx
+ethylcyclohexane,CCC1CCCCC1,43.4029,Chen 2024.xlsx
+Ethylcyclobutane,CCC1CCC1,45.01628,Chen 2024.xlsx
+ethylbenzene,CCC1=CC=CC=C1,40.92382,Chen 2024.xlsx
+Ethyl-3-ethoxypropionate,CCOCCC(=O)OCC,25.74224,Chen 2024.xlsx
+Ethyl vinyl ether,CCOC=C,32.90943,Chen 2024.xlsx
+Ethyl propanoate,CCC(=O)OCC,26.18155,Chen 2024.xlsx
+Ethyl methyl ether,CCOC,32.13858,Chen 2024.xlsx
+ethyl isopentanoate,CCOC(=O)CC(C)C,29.778,Chen 2024.xlsx
+ethyl isobutyrate,CCOC(=O)C(C)C,28.15083,Chen 2024.xlsx
+Ethyl Formate,CCOC=O,20.34287,Chen 2024.xlsx
+Ethyl ethanoate,CCOC(=O)C,23.39228,Chen 2024.xlsx
+Ethyl butanoate,CCCC(=O)OCC,28.27135,Chen 2024.xlsx
+Ethyl benzoate,CCOC(=O)C1=CC=CC=C1,29.36535,Chen 2024.xlsx
+ethyl acetoacetate,CCOC(=O)CC(=O)C,22.74421,Chen 2024.xlsx
+ethoxybenzene,CCOC1=CC=CC=C1,34.42043,Chen 2024.xlsx
+Ethene,C=C,47.15905,Chen 2024.xlsx
+ethanol,CCO,26.80761,Chen 2024.xlsx
+Ethane,CC,47.50915,Chen 2024.xlsx
+dodecanoic?acid,CCCCCCCCCCCC(=O)O,34.19479,Chen 2024.xlsx
+Dodecanal,CCCCCCCCCCCC=O,38.94793,Chen 2024.xlsx
+Divinyl Ether,C=COC=C,32.2438,Chen 2024.xlsx
+dipropyl ether,CCCOCCC,36.45635,Chen 2024.xlsx
+diphenylmethane,C1=CC=C(C=C1)CC2=CC=CC=C2,39.56574,Chen 2024.xlsx
+diphenyl ether,C1=CC=C(C=C1)OC2=CC=CC=C2,34.62702,Chen 2024.xlsx
+Dipentyl ether,CCCCCOCCCCC,38.98032,Chen 2024.xlsx
+Dioctyl adipate,CCCCCCCCOC(=O)CCCCC(=O)OCCCCCCCC,33.73145,Chen 2024.xlsx
+Dimethyl phthalate,COC(=O)C1=CC=CC=C1C(=O)OC,22.9996,Chen 2024.xlsx
+Dimethyl malonate,COC(=O)CC(=O)OC,16.2737,Chen 2024.xlsx
+Dimethyl ether,COC,28.83501,Chen 2024.xlsx
+Dimethoxymethane,COCOC,23.65201,Chen 2024.xlsx
+diisopropyl ether,CC(C)OC(C)C,36.23712,Chen 2024.xlsx
+Diisobutylene,CC(=C)CC(C)(C)C,44.00053,Chen 2024.xlsx
+diisobutyl ether,CC(C)COCC(C)C,37.90956,Chen 2024.xlsx
+Dihexyl phthalate,CCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCC,31.39426,Chen 2024.xlsx
+Dihexyl ether,CCCCCCOCCCCCC,39.62563,Chen 2024.xlsx
+Diethylene?Glycol?Monoethyl?Ether?Acetate,CCOCCOCCOC(=O)C,24.0622,Chen 2024.xlsx
+Diethylene glycol monomethyl ether,COCCOCCO,17.93513,Chen 2024.xlsx
+Diethylene glycol dimethyl ether,COCCOCCOC,26.01826,Chen 2024.xlsx
+Diethylene glycol diethyl ether,CCOCCOCCOCC,28.90975,Chen 2024.xlsx
+Diethylene glycol dibutyl ether,CCCCOCCOCCOCCCC,32.70174,Chen 2024.xlsx
+Diethyl succinate,CCOC(=O)CCC(=O)OCC,22.54931,Chen 2024.xlsx
+Diethyl oxalate,CCOC(=O)C(=O)OCC,18.9138,Chen 2024.xlsx
+diethyl ether,CCOCC,33.77494,Chen 2024.xlsx
+diethoxymethane,CCOCOCC,28.50051,Chen 2024.xlsx
+Dibutyl Phthalate,CCCCOC(=O)C1=CC=CC=C1C(=O)OCCCC,29.15056,Chen 2024.xlsx
+Dibutyl fumarate,CCCCOC(=O)C=CC(=O)OCCCC,27.85955,Chen 2024.xlsx
+dibutyl ether,CCCCOCCCC,37.98558,Chen 2024.xlsx
+Dibenzyl ether,C1=CC=C(C=C1)COCC2=CC=CC=C2,36.03864,Chen 2024.xlsx
+decylcyclopentane,CCCCCCCCCCC1CCCC1,43.54868,Chen 2024.xlsx
+Decyl acetate,CCCCCCCCCCOC(=O)C,34.66918,Chen 2024.xlsx
+Decanoic Acid,CCCCCCCCCC(=O)O,33.20562,Chen 2024.xlsx
+Decanal,CCCCCCCCCC=O,38.13296,Chen 2024.xlsx
+cyclopropanecarboxylic?acid,C1CC1C(=O)O,22.10477,Chen 2024.xlsx
+Cyclopropane,C1CC1,46.56131,Chen 2024.xlsx
+cyclopentene,C1CC=CC1,43.14949,Chen 2024.xlsx
+Cyclopentanone,C1CCC(=O)C1,32.07399,Chen 2024.xlsx
+cyclopentane,C1CCCC1,43.78556,Chen 2024.xlsx
+cyclooctane,C1CCCCCCC1,43.78342,Chen 2024.xlsx
+cyclohexylbenzene,C1CCC(CC1)C2=CC=CC=C2,41.04455,Chen 2024.xlsx
+cyclohexene,C1CCC=CC1,42.99662,Chen 2024.xlsx
+Cyclohexanone,C1CCC(=O)CC1,33.61353,Chen 2024.xlsx
+cyclohexanol,C1CCC(CC1)O,34.58332,Chen 2024.xlsx
+cyclohexane,C1CCCCC1,43.44003,Chen 2024.xlsx
+cycloheptene,C1CCC=CCC1,43.24499,Chen 2024.xlsx
+cycloheptane,C1CCCCCC1,43.68819,Chen 2024.xlsx
+Cyclobutane,C1CCC1,45.76368,Chen 2024.xlsx
+Cis-decalin,C1CCC2CCCCC2C1,42.61794,Chen 2024.xlsx
+cis-4-Methylcyclohexanol,CC1CCC(CC1)O,35.33121,Chen 2024.xlsx
+cis-3-octene,CCCCC=CCC,44.12472,Chen 2024.xlsx
+cis-3-Methylcyclohexanol,CC1CCCC(C1)O,35.30494,Chen 2024.xlsx
+cis-2-Methylcyclohexanol,CC1CCCCC1O,35.53263,Chen 2024.xlsx
+cis-2-hexene,CCCC=CC,44.29553,Chen 2024.xlsx
+butyl valerate,CCCCC(=O)OCCCC,32.26092,Chen 2024.xlsx
+Butyl stearate,CCCCCCCCCCCCCCCCCC(=O)OCCCC,38.75605,Chen 2024.xlsx
+Butyl propanoate,CCCCOC(=O)CC,29.95691,Chen 2024.xlsx
+butyl formate,CCCCOC=O,26.53383,Chen 2024.xlsx
+Butyl ethyl ether,CCCCOCC,36.45635,Chen 2024.xlsx
+butyl butanoate,CCCCOC(=O)CCC,31.25217,Chen 2024.xlsx
+Butyl benzoate,CCCCOC(=O)C1=CC=CC=C1,31.36379,Chen 2024.xlsx
+Butyl Acetate,CCCCOC(=O)C,28.23691,Chen 2024.xlsx
+Butyl 2-propenoate,CCCCOC(=O)C=C,29.41429,Chen 2024.xlsx
+Butane,CCCC,45.71778,Chen 2024.xlsx
+Butanal,CCCC=O,31.94558,Chen 2024.xlsx
+biphenyl,C1=CC=C(C=C1)C2=CC=CC=C2,40.51565,Chen 2024.xlsx
+bicyclohexyl,C1CCC(CC1)C2CCCCC2,42.40926,Chen 2024.xlsx
+bibenzyl,C1=CC=C(C=C1)CCC2=CC=CC=C2,39.94272,Chen 2024.xlsx
+Benzyl alcohol,C1=CC=C(C=C1)CO,32.93231,Chen 2024.xlsx
+benzoic?acid,C1=CC=C(C=C1)C(=O)O,25.34474,Chen 2024.xlsx
+Benzeneethanol,C1=CC=C(C=C1)CCO,34.21546,Chen 2024.xlsx
+benzene,C1=CC=CC=C1,40.14645,Chen 2024.xlsx
+Benzaldehyde,C1=CC=C(C=C1)C=O,31.97298,Chen 2024.xlsx
+Azelaic?Acid,C(CCCC(=O)O)CCCC(=O)O,23.49591,Chen 2024.xlsx
+anthracene,C1=CC=C2C=C3C=CC=CC3=CC2=C1,38.41803,Chen 2024.xlsx
+Allyl acetate,CC(=O)OCC=C,25.45445,Chen 2024.xlsx
+Adipic?Acid,C(CCC(=O)O)CC(=O)O,17.6543,Chen 2024.xlsx
+Acetylene,C#C,48.27189,Chen 2024.xlsx
+Acetic Acid,CC(=O)O,13.09908,Chen 2024.xlsx
+Acetaldehyde,CC=O,25.07207,Chen 2024.xlsx
+7-Methyl-1-Octene,CC(C)CCCCC=C,44.07082,Chen 2024.xlsx
+6-Undecanone,CCCCCC(=O)CCCCC,38.41546,Chen 2024.xlsx
+6-Methyl-1-heptene,CC(C)CCCC=C,44.13987,Chen 2024.xlsx
+5-Nonanone,CCCCC(=O)CCCC,37.41722,Chen 2024.xlsx
+5-Methylnonane,CCCCC(C)CCCC,43.60272,Chen 2024.xlsx
+5-Methyl-2-hexene,CC=CCC(C)C,44.5224,Chen 2024.xlsx
+5-Methyl-2-hexanone,CC(C)CCC(=O)C,35.9057,Chen 2024.xlsx
+5-Methyl-1-hexene,CC(C)CCC=C,42.03017,Chen 2024.xlsx
+5-Methyl-1-hexanol,CC(C)CCCCO,36.91783,Chen 2024.xlsx
+5-Hexen-2-One,CC(=O)CCC=C,34.36927,Chen 2024.xlsx
+4-Vinyl-1-Cyclohexene,C=CC1CCC=CC1,42.76048,Chen 2024.xlsx
+4-Octanone,CCCCC(=O)CCC,36.72737,Chen 2024.xlsx
+4-nonanone,CCCCCC(=O)CCC,37.40105,Chen 2024.xlsx
+4-Methylpent-3-en-2-one,CC(=CC(=O)C)C,33.94977,Chen 2024.xlsx
+4-Methyloctane,CCCCC(C)CCC,44.29006,Chen 2024.xlsx
+4-Methylnonane,CCCCCC(C)CCC,43.90704,Chen 2024.xlsx
+4-methylheptane,CCCC(C)CCC,44.40787,Chen 2024.xlsx
+4-Methylcyclopent-1-Ene,CC1CC=CC1,42.73274,Chen 2024.xlsx
+4-Methyl-cis-2-pentene,CC=CC(C)C,44.25988,Chen 2024.xlsx
+4-methylbiphenyl,CC1=CC=C(C=C1)C2=CC=CC=C2,39.90721,Chen 2024.xlsx
+4-Methylbenzaldehyde,CC1=CC=C(C=C1)C=O,33.20821,Chen 2024.xlsx
+4-Methyl-2-pentanone,CC(C)CC(=O)C,34.70612,Chen 2024.xlsx
+4-methyl-2-pentanol,CC(C)CC(C)O,35.81432,Chen 2024.xlsx
+4-Methyl-2-hexene,CCC(C)C=CC,44.55031,Chen 2024.xlsx
+4-methyl-1-pentene,CC(C)CC=C,44.34305,Chen 2024.xlsx
+4-methyl-1-hexene,CCC(C)CC=C,44.30231,Chen 2024.xlsx
+4-Heptanone,CCCC(=O)CCC,35.81812,Chen 2024.xlsx
+"4,4-Dimethyl-2-pentene",CC=CC(C)(C)C,44.40844,Chen 2024.xlsx
+"4,4-Dimethyl-1-pentene",CC(C)(C)CC=C,44.47586,Chen 2024.xlsx
+3-Pentanone,CCC(=O)CC,33.44092,Chen 2024.xlsx
+3-pentanol,CCC(CC)O,34.57742,Chen 2024.xlsx
+3-Octanone,CCCCCC(=O)CC,36.74297,Chen 2024.xlsx
+3-nonanone,CCCCCCC(=O)CC,37.40861,Chen 2024.xlsx
+3-Methylundecane,CCCCCCCCC(C)CC,43.83937,Chen 2024.xlsx
+3-methylpentane,CCC(C)CC,44.69122,Chen 2024.xlsx
+3-Methyloctane,CCCCCC(C)CC,44.29786,Chen 2024.xlsx
+3-Methylnonane,CCCCCCC(C)CC,44.21563,Chen 2024.xlsx
+3-methylhexane,CCCC(C)CC,44.5357,Chen 2024.xlsx
+3-methylhexanal,CCCC(C)CC=O,36.16842,Chen 2024.xlsx
+3-methylheptane,CCCCC(C)CC,44.40174,Chen 2024.xlsx
+3-Methylcyclopent-1-Ene,CC1CCC=C1,43.17507,Chen 2024.xlsx
+3-Methylbutyl ethanoate,CC(C)CCOC(=O)C,29.87241,Chen 2024.xlsx
+3-methylbutanal,CC(C)CC=O,33.71491,Chen 2024.xlsx
+3-methylbut-1-yne,CC(C)C#C,44.71521,Chen 2024.xlsx
+3-methylbiphenyl,CC1=CC(=CC=C1)C2=CC=CC=C2,39.90721,Chen 2024.xlsx
+3-Methyl-3-hexene,CCC=C(C)CC,44.4782,Chen 2024.xlsx
+3-Methyl-3-ethylpentane,CCC(C)(CC)CC,44.39737,Chen 2024.xlsx
+3-Methyl-3-Buten-2-One,CC(=C)C(=O)C,32.33476,Chen 2024.xlsx
+3-methyl-2-pentene,CCC(=CC)C,44.17671,Chen 2024.xlsx
+3-Methyl-2-hexene,CCCC(=CC)C,44.4782,Chen 2024.xlsx
+3-methyl-2-butanone,CC(C)C(=O)C,33.403,Chen 2024.xlsx
+3-methyl-2-butanol,CC(C)C(C)O,34.6228,Chen 2024.xlsx
+3-methyl-1-hexene,CCCC(C)C=C,44.26158,Chen 2024.xlsx
+3-Methyl-1-butene,CC(C)C=C,44.5612,Chen 2024.xlsx
+3-Methyl-1-butanol,CC(C)CCO,34.73965,Chen 2024.xlsx
+3-Hexene,CCC=CCC,44.35493,Chen 2024.xlsx
+3-hexanone,CCCC(=O)CC,34.86387,Chen 2024.xlsx
+3-Heptene,CCCC=CCC,44.23408,Chen 2024.xlsx
+3-Heptanone,CCCCC(=O)CC,35.88818,Chen 2024.xlsx
+3-ethylpentane,CCC(CC)CC,44.55466,Chen 2024.xlsx
+3-Ethylhexane,CCCC(CC)CC,44.41925,Chen 2024.xlsx
+3-Ethylheptane,CCCCC(CC)CC,44.31813,Chen 2024.xlsx
+3-Ethyl-2-pentene,CCC(=CC)CC,44.50376,Chen 2024.xlsx
+"3-Ethyl-2,4-dimethylpentane",CCC(C(C)C)C(C)C,44.36336,Chen 2024.xlsx
+3-Ethyl-1-pentene,CCC(CC)C=C,44.29213,Chen 2024.xlsx
+3-cyclohexene-1-carboxaldehyde,C1CC(CC=C1)C=O,34.51469,Chen 2024.xlsx
+"3,4-dimethylhexane",CCC(C)C(C)CC,44.40787,Chen 2024.xlsx
+"3,4-Dimethyl-1-pentene",CC(C)C(C)C=C,44.54796,Chen 2024.xlsx
+"3,3-dimethylpentane",CCC(C)(C)CC,44.47183,Chen 2024.xlsx
+"3,3-dimethylhexane",CCCC(C)(C)CC,44.35622,Chen 2024.xlsx
+"3,3-Dimethyl-2-butanone",CC(=O)C(C)(C)C,34.781,Chen 2024.xlsx
+"3,3-Dimethyl-1-pentene",CCC(C)(C)C=C,44.52474,Chen 2024.xlsx
+"3,3-dimethyl-1-butene",CC(C)(C)C=C,44.25988,Chen 2024.xlsx
+"3,3-Diethylpentane",CCC(CC)(CC)CC,44.3197,Chen 2024.xlsx
+"3,3,5-Trimethylheptane",CCC(C)CC(C)(C)CC,44.20885,Chen 2024.xlsx
+"3,3,4-Trimethylhexane",CCC(C)C(C)(C)CC,43.62641,Chen 2024.xlsx
+2-Propenyl Alcohol,C=CCO,29.81921,Chen 2024.xlsx
+2-propanone,CC(=O)C,28.56405,Chen 2024.xlsx
+2-propanol,CC(C)O,30.45128,Chen 2024.xlsx
+2-pentyne,CCC#CC,44.46712,Chen 2024.xlsx
+2-pentene,CCC=CC,44.52841,Chen 2024.xlsx
+2-pentanone,CCCC(=O)C,33.43163,Chen 2024.xlsx
+2-pentanol,CCCC(C)O,34.61713,Chen 2024.xlsx
+2-octene,CCCCCC=CC,44.08462,Chen 2024.xlsx
+2-Octanone,CCCCCCC(=O)C,36.6447,Chen 2024.xlsx
+2-Nonanone,CCCCCCCC(=O)C,37.40949,Chen 2024.xlsx
+2-nonanol,CCCCCCCC(C)O,38.05681,Chen 2024.xlsx
+2-Methylpropionic Acid,CC(C)C(=O)O,22.70344,Chen 2024.xlsx
+2-Methylpropene,CC(=C)C,44.98824,Chen 2024.xlsx
+2-Methylpropane,CC(C)C,45.57498,Chen 2024.xlsx
+2-methylprop-2-enoic?acid,CC(=C)C(=O)O,22.4184,Chen 2024.xlsx
+2-methylpentane,CCCC(C)C,44.66569,Chen 2024.xlsx
+2-Methyloctanoic?Acid,CCCCCCC(C)C(=O)O,31.95147,Chen 2024.xlsx
+2-methyloctane,CCCCCCC(C)C,44.27837,Chen 2024.xlsx
+2-methylnonane,CCCCCCCC(C)C,44.19971,Chen 2024.xlsx
+2-methylnaphthalene,CC1=CC2=CC=CC=C2C=C1,39.26062,Chen 2024.xlsx
+2-Methylhexanoicacid,CCCCC(C)C(=O)O,29.44385,Chen 2024.xlsx
+2-methylhexane,CCCCC(C)C,44.50477,Chen 2024.xlsx
+2-methylhexanal,CCCCC(C)C=O,36.16842,Chen 2024.xlsx
+2-methylheptane,CCCCCC(C)C,44.37811,Chen 2024.xlsx
+2-methylbutane,CCC(C)C,44.89889,Chen 2024.xlsx
+2-methylbiphenyl,CC1=CC=CC=C1C2=CC=CC=C2,39.90508,Chen 2024.xlsx
+2-Methylbenzoic?Acid,CC1=CC=CC=C1C(=O)O,27.16856,Chen 2024.xlsx
+2-methyl-3-pentanone,CCC(=O)C(C)C,34.80731,Chen 2024.xlsx
+2-Methyl-3-hexene,CCC=CC(C)C,44.5224,Chen 2024.xlsx
+2-Methyl-3-ethylpentane,CCC(CC)C(C)C,44.4105,Chen 2024.xlsx
+2-Methyl-2-propanol,CC(C)(C)O,32.70105,Chen 2024.xlsx
+2-methyl-2-pentene,CCC=C(C)C,44.12324,Chen 2024.xlsx
+2-Methyl-2-hexene,CCCC=C(C)C,44.45029,Chen 2024.xlsx
+2-methyl-2-butene,CC=C(C)C,44.32594,Chen 2024.xlsx
+2-methyl-2-butanol,CCC(C)(C)O,34.47646,Chen 2024.xlsx
+"2-Methyl-2,4-pentanediol",CC(CC(C)(C)O)O,29.20221,Chen 2024.xlsx
+2-Methyl-1-propanol,CC(C)CO,33.03968,Chen 2024.xlsx
+2-methyl-1-pentene,CCCC(=C)C,44.22542,Chen 2024.xlsx
+2-methyl-1-pentanol,CCCC(C)CO,35.92052,Chen 2024.xlsx
+2-Methyl-1-octene,CCCCCCC(=C)C,43.80441,Chen 2024.xlsx
+2-methyl-1-hexene,CCCCC(=C)C,44.14955,Chen 2024.xlsx
+2-methyl-1-heptene,CCCCCC(=C)C,44.09353,Chen 2024.xlsx
+2-Methyl-1-butene,CCC(=C)C,44.42718,Chen 2024.xlsx
+2-Methyl-1-butanol,CCC(C)CO,34.73625,Chen 2024.xlsx
+"2-Methyl-1,5-hexadiene",CC(=C)CCC=C,37.84513,Chen 2024.xlsx
+"2-methyl-1,3-butadiene",CC(=C)C=C,43.80863,Chen 2024.xlsx
+2-Hydroxypropyl?Prop-2-Enoate,CC(COC(=O)C=C)O,22.96007,Chen 2024.xlsx
+2-Hydroxypropyl?Methacrylate,CC(COC(=O)C(=C)C)O,24.80544,Chen 2024.xlsx
+2-hexanone,CCCCC(=O)C,34.8439,Chen 2024.xlsx
+2-Heptene,CCCCC=CC,44.22084,Chen 2024.xlsx
+2-Heptanone,CCCCCC(=O)C,35.90132,Chen 2024.xlsx
+2-heptanol,CCCCCC(C)O,37.26206,Chen 2024.xlsx
+2-ethylnaphthalene,CCC1=CC2=CC=CC=C2C=C1,39.72911,Chen 2024.xlsx
+2-ethylhexanoic?acid,CCCCC(CC)C(=O)O,30.84391,Chen 2024.xlsx
+2-Ethylbutanoic?Acid,CCC(CC)C(=O)O,27.65152,Chen 2024.xlsx
+2-Ethyl-3-methylbut-1-ene,CCC(=C)C(C)C,45.26424,Chen 2024.xlsx
+2-ethyl-1-pentene,CCCC(=C)CC,44.16992,Chen 2024.xlsx
+2-ethyl-1-hexanol,CCCCC(CC)CO,37.56479,Chen 2024.xlsx
+2-ethyl-1-butene,CCC(=C)CC,44.25869,Chen 2024.xlsx
+2-ethyl-1-butanol,CCC(CC)CO,35.93177,Chen 2024.xlsx
+"2-ethyl-1,4-dimethylBenzene",CCC1=C(C=CC(=C1)C)C,41.29725,Chen 2024.xlsx
+"2-ethyl-1,3-dimethylbenzene",CCC1=C(C=CC=C1C)C,41.33451,Chen 2024.xlsx
+2-Ethoxypropane,CCOC(C)C,35.20136,Chen 2024.xlsx
+2-Ethoxyethyl acetate,CCOCCOC(=O)C,23.83493,Chen 2024.xlsx
+2-Ethoxy-2-methylbutane,CCC(C)(C)OCC,37.176,Chen 2024.xlsx
+2-cyclopentylacetic?acid,C1CCC(C1)CC(=O)O,28.50923,Chen 2024.xlsx
+2-Butyne,CC#CC,44.71991,Chen 2024.xlsx
+2-Butyl-1-octanol,CCCCCCC(CCCC)CO,40.27606,Chen 2024.xlsx
+2-Butoxyethyl?Acetate,CCCCOCCOC(=O)C,27.28918,Chen 2024.xlsx
+2-Butene,CC=CC,45.16112,Chen 2024.xlsx
+2-butanone,CCC(=O)C,31.45326,Chen 2024.xlsx
+2-butanol,CCC(C)O,32.92905,Chen 2024.xlsx
+"2,7-Dimethyloctane",CC(C)CCCCC(C)C,43.55157,Chen 2024.xlsx
+"2,6-dimethyloctane",CCC(C)CCCC(C)C,44.18003,Chen 2024.xlsx
+"2,6-dimethylnaphthalene",CC1=CC2=C(C=C1)C=C(C=C2)C,39.4782,Chen 2024.xlsx
+"2,6-dimethylheptane",CC(C)CCCC(C)C,44.23705,Chen 2024.xlsx
+"2,6-Dimethyl-4-heptanone",CC(C)CC(=O)CC(C)C,37.33075,Chen 2024.xlsx
+"2,5-DIMETHYLOCTANE",CCCC(C)CCC(C)C,44.18471,Chen 2024.xlsx
+"2,5-dimethylhexane",CC(C)CCC(C)C,44.33171,Chen 2024.xlsx
+"2,5-Dimethylhexa-2,4-Diene",CC(=CC=C(C)C)C,43.35572,Chen 2024.xlsx
+"2,4-Pentanedione",CC(=O)CC(=O)C,25.08066,Chen 2024.xlsx
+"2,4-dimethylpentane",CC(C)CC(C)C,44.45886,Chen 2024.xlsx
+"2,4-dimethyloctane",CCCCC(C)CC(C)C,44.18425,Chen 2024.xlsx
+"2,4-dimethylhexane",CCC(C)CC(C)C,44.35972,Chen 2024.xlsx
+"2,4-Dimethyl-3-pentanone",CC(C)C(=O)C(C)C,35.86191,Chen 2024.xlsx
+"2,4-Dimethyl-3-Isopropylpentane",CC(C)C(C(C)C)C(C)C,44.35915,Chen 2024.xlsx
+"2,4-Dimethyl-2-pentene",CC(C)C=C(C)C,44.37819,Chen 2024.xlsx
+"2,4-Dimethyl-1-pentene",CC(C)CC(=C)C,44.43634,Chen 2024.xlsx
+"2,4,4-trimethylhexane",CCC(C)(C)CC(C)C,44.28227,Chen 2024.xlsx
+"2,4,4-trimethyl-2-pentene",CC(=CC(C)(C)C)C,44.0267,Chen 2024.xlsx
+"2,3-dimethylpentane",CCC(C)C(C)C,44.51674,Chen 2024.xlsx
+"2,3-dimethyloctane",CCCCCC(C)C(C)C,43.60133,Chen 2024.xlsx
+"2,3-Dimethylhexane",CCCC(C)C(C)C,44.39999,Chen 2024.xlsx
+"2,3-dimethylbutane",CC(C)C(C)C,44.64713,Chen 2024.xlsx
+"2,3-Dimethyl-2-pentene",CCC(=C(C)C)C,44.39917,Chen 2024.xlsx
+"2,3-Dimethyl-2-Hexene",CCCC(=C(C)C)C,44.1986,Chen 2024.xlsx
+"2,3-dimethyl-2-butene",CC(=C(C)C)C,44.07928,Chen 2024.xlsx
+"2,3-Dimethyl-1-pentene",CCC(C)C(=C)C,44.46659,Chen 2024.xlsx
+"2,3-Dimethyl-1-Hexene",CCCC(C)C(=C)C,44.08462,Chen 2024.xlsx
+"2,3-dimethyl-1-butene",CC(C)C(=C)C,44.17552,Chen 2024.xlsx
+"2,3-dihydrofuran",C1COC=C1,31.33926,Chen 2024.xlsx
+"2,3,5-Trimethylhexane",CC(C)CC(C)C(C)C,43.91319,Chen 2024.xlsx
+"2,3,4-trimethylpentane",CC(C)C(C)C(C)C,44.37811,Chen 2024.xlsx
+"2,3,3-trimethylpentane",CCC(C)(C)C(C)C,44.37286,Chen 2024.xlsx
+"2,3,3-trimethylhexane",CCCC(C)(C)C(C)C,44.27572,Chen 2024.xlsx
+"2,3,3-Trimethyl-1-pentene",CCC(C)(C)C(=C)C,44.2428,Chen 2024.xlsx
+"2,3,3-trimethyl-1-butene",CC(=C)C(C)(C)C,44.09761,Chen 2024.xlsx
+"2,3,3,4-tetramethylpentane",CC(C)C(C)(C)C(C)C,44.30254,Chen 2024.xlsx
+"2,2-Dimethylpropane",CC(C)(C)C,45.04996,Chen 2024.xlsx
+"2,2-dimethylpentane",CCCC(C)(C)C,44.41695,Chen 2024.xlsx
+"2,2-Dimethyloctane",CCCCCCC(C)(C)C,44.14349,Chen 2024.xlsx
+"2,2-dimethylhexane",CCCCC(C)(C)C,44.31858,Chen 2024.xlsx
+"2,2-dimethylheptane",CCCCCC(C)(C)C,44.22302,Chen 2024.xlsx
+"2,2-Dimethylbutanoic?Acid",CCC(C)(C)C(=O)O,27.79787,Chen 2024.xlsx
+"2,2-dimethylbutane",CCC(C)(C)C,44.5717,Chen 2024.xlsx
+"2,2-Dimethyl-3-Hexene",CCC=CC(C)(C)C,44.31258,Chen 2024.xlsx
+"2,2-dimethyl-3-ethylpentane",CCC(CC)C(C)(C)C,44.34075,Chen 2024.xlsx
+"2,2-Dimethyl-1-propanol",CC(C)(C)CO,35.16166,Chen 2024.xlsx
+"2,2,5-Trimethylhexane",CC(C)CCC(C)(C)C,44.17936,Chen 2024.xlsx
+"2,2,5,5-tetramethylhexane",CC(C)(C)CCC(C)(C)C,44.05001,Chen 2024.xlsx
+"2,2,4-trimethylpentane",CC(C)CC(C)(C)C,44.34222,Chen 2024.xlsx
+"2,2,4-Trimethylhexane",CCC(C)CC(C)(C)C,44.26487,Chen 2024.xlsx
+"2,2,4,4-tetramethylpentane",CC(C)(C)CC(C)(C)C,44.28383,Chen 2024.xlsx
+"2,2,4,4,6,8,8-heptamethylnonane",CC(CC(C)(C)C)CC(C)(C)CC(C)(C)C,43.85201,Chen 2024.xlsx
+"2,2,3-Trimethylpentane",CCC(C)C(C)(C)C,44.36147,Chen 2024.xlsx
+"2,2,3-trimethylhexane",CCCC(C)C(C)(C)C,44.26411,Chen 2024.xlsx
+"2,2,3-trimethylbutane",CC(C)C(C)(C)C,44.43491,Chen 2024.xlsx
+"2,2,3,4-tetramethylpentane",CC(C)C(C)C(C)(C)C,44.31658,Chen 2024.xlsx
+"2,2,3,3-tetramethylpentane",CCC(C)(C)C(C)(C)C,44.29709,Chen 2024.xlsx
+"2,2,3,3-tetramethylhexane",CCCC(C)(C)C(C)(C)C,44.21798,Chen 2024.xlsx
+2-(2-Propoxyethoxy)Ethanol,CCCOCCOCCO,27.26788,Chen 2024.xlsx
+1-Undecene,CCCCCCCCCC=C,43.99178,Chen 2024.xlsx
+1-undecanol,CCCCCCCCCCCO,39.03443,Chen 2024.xlsx
+1-Tetradecene,CCCCCCCCCCCCC=C,43.86438,Chen 2024.xlsx
+1-tetradecanol,CCCCCCCCCCCCCCO,39.6067,Chen 2024.xlsx
+1-propoxy-2-propanol,CCCOCC(C)O,30.02454,Chen 2024.xlsx
+1-propanol,CCCO,30.68091,Chen 2024.xlsx
+1-pentyne,CCCC#C,44.78861,Chen 2024.xlsx
+1-Pentene-3-Yne,CC#CC=C,44.02421,Chen 2024.xlsx
+1-Pentene,CCCC=C,44.63392,Chen 2024.xlsx
+1-pentanol,CCCCCO,34.71923,Chen 2024.xlsx
+1-octyne,CCCCCCC#C,44.29673,Chen 2024.xlsx
+1-octene,CCCCCCC=C,44.20938,Chen 2024.xlsx
+1-octanol,CCCCCCCCO,37.6124,Chen 2024.xlsx
+1-Nonyne,CCCCCCCC#C,44.21993,Chen 2024.xlsx
+1-nonene,CCCCCCCC=C,44.13393,Chen 2024.xlsx
+1-nonanol,CCCCCCCCCO,38.13099,Chen 2024.xlsx
+1-methylnaphthalene,CC1=CC=CC2=CC=CC=C12,39.35134,Chen 2024.xlsx
+1-methylcyclopentene,CC1=CCCC1,43.02096,Chen 2024.xlsx
+1-methyl-4-propylbenzene,CCCC1=CC=C(C=C1)C,41.37027,Chen 2024.xlsx
+1-methyl-3-propylBenzene,CCCC1=CC=CC(=C1)C,41.36133,Chen 2024.xlsx
+1-Methyl-3-(1-methylethyl)benzene,CC1=CC(=CC=C1)C(C)C,41.34568,Chen 2024.xlsx
+1-methyl-2-propylBenzene,CCCC1=CC=CC=C1C,41.38964,Chen 2024.xlsx
+1-methyl-2-(1-methylethyl)-Benzene,CC1=CC=CC=C1C(C)C,41.38517,Chen 2024.xlsx
+1-Methyl-1-Ethylcyclopentane,CCC1(CCCC1)C,43.57187,Chen 2024.xlsx
+1-methyl-1-cyclohexene,CC1=CCCCC1,42.88543,Chen 2024.xlsx
+1-Methoxypentane,CCCCCOC,36.59587,Chen 2024.xlsx
+1-methoxy-2-propanol,CC(COC)O,25.90932,Chen 2024.xlsx
+1-isopropyl-4-methylbenzene,CC1=CC=C(C=C1)C(C)C,41.34792,Chen 2024.xlsx
+1-Hexyne,CCCCC#C,44.57025,Chen 2024.xlsx
+1-hexene,CCCCC=C,44.43454,Chen 2024.xlsx
+1-hexanol,CCCCCCO,35.98266,Chen 2024.xlsx
+1-hexadecene,CCCCCCCCCCCCCCC=C,43.82931,Chen 2024.xlsx
+1-Heptyne,CCCCCC#C,44.41822,Chen 2024.xlsx
+1-heptene,CCCCCC=C,44.3013,Chen 2024.xlsx
+1-heptanol,CCCCCCCO,36.88341,Chen 2024.xlsx
+1-ethylnaphthalene,CCC1=CC=CC2=CC=CC=C21,39.50198,Chen 2024.xlsx
+1-ethylcyclohexene,CCC1=CCCCC1,42.96352,Chen 2024.xlsx
+1-ethyl-4-methylBenzene,CCC1=CC=C(C=C1)C,41.12234,Chen 2024.xlsx
+1-ethyl-3-methylBenzene,CCC1=CC=CC(=C1)C,41.13149,Chen 2024.xlsx
+1-ethyl-2-methylbenzene,CCC1=CC=CC=C1C,41.15063,Chen 2024.xlsx
+"1-ethyl-2,4-dimethylBenzene",CCC1=C(C=C(C=C1)C)C,41.3047,Chen 2024.xlsx
+"1-ethyl-2,3-dimethylBenzene",CCC1=CC=CC(=C1C)C,41.32929,Chen 2024.xlsx
+1-Ethyl-1-cyclopentene,CCC1=CCCC1,43.12499,Chen 2024.xlsx
+1-Ethoxypropane,CCCOCC,35.39421,Chen 2024.xlsx
+1-Ethoxyhexane,CCCCCCOCC,37.95622,Chen 2024.xlsx
+1-ethenyl-4-methylbenzene,CC1=CC=C(C=C1)C=C,40.80978,Chen 2024.xlsx
+1-ethenyl-3-methylbenzene,CC1=CC(=CC=C1)C=C,40.76832,Chen 2024.xlsx
+1-ethenyl-3-ethylBenzene,CCC1=CC(=CC=C1)C=C,41.05714,Chen 2024.xlsx
+1-ethenyl-2-methylbenzene,CC1=CC=CC=C1C=C,40.78524,Chen 2024.xlsx
+1-ethenyl-2-ethylBenzene,CCC1=CC=CC=C1C=C,41.07983,Chen 2024.xlsx
+1-dodecene,CCCCCCCCCCC=C,43.95095,Chen 2024.xlsx
+1-Dodecanol,CCCCCCCCCCCCO,39.37984,Chen 2024.xlsx
+1-Decyne,CCCCCCCCC#C,44.14973,Chen 2024.xlsx
+1-decene,CCCCCCCCC=C,44.0643,Chen 2024.xlsx
+1-Decanol,CCCCCCCCCCO,38.63853,Chen 2024.xlsx
+1-butyne,CCC#C,45.56665,Chen 2024.xlsx
+1-Butene,CCC=C,45.28409,Chen 2024.xlsx
+1-Buten-3-yne,C=CC#C,45.36201,Chen 2024.xlsx
+1-butanol,CCCCO,33.13411,Chen 2024.xlsx
+"1,9-decadiene",C=CCCCCCCC=C,43.84683,Chen 2024.xlsx
+"1,5-cyclooctadiene",C1CC=CCCC=C1,43.07476,Chen 2024.xlsx
+"1,4-dimethylnaphthalene",CC1=CC=C(C2=CC=CC=C12)C,41.52892,Chen 2024.xlsx
+"1,4-dimethylcyclohexane",CC1CCC(CC1)C,43.37171,Chen 2024.xlsx
+"1,4-dimethylbenzene",CC1=CC=C(C=C1)C,40.81575,Chen 2024.xlsx
+"1,4-diethyl-Benzene",CCC1=CC=C(C=C1)CC,41.38889,Chen 2024.xlsx
+"1,4-cyclohexadiene",C1C=CCC=C1,42.48097,Chen 2024.xlsx
+"1,3-Dimethylcyclopentane",CC1CCC(C1)C,43.55987,Chen 2024.xlsx
+"1,3-dimethylcyclohexane",CC1CCCC(C1)C,43.30666,Chen 2024.xlsx
+"1,3-dimethylbenzene",CC1=CC(=CC=C1)C,40.80445,Chen 2024.xlsx
+"1,3-Dimethyl-5-Ethylbenzene",CCC1=CC(=CC(=C1)C)C,41.2749,Chen 2024.xlsx
+"1,3-diisopropylbenzene",CC(C)C1=CC(=CC=C1)C(C)C,41.71905,Chen 2024.xlsx
+"1,3-diethylbenzene",CCC1=CC(=CC=C1)CC,41.38144,Chen 2024.xlsx
+"1,3-cyclohexadiene",C1CC=CC=C1,42.4298,Chen 2024.xlsx
+"1,3,5-trimethylcyclohexane",CC1CC(CC(C1)C)C,44.00244,Chen 2024.xlsx
+"1,3,5-trimethylbenzene",CC1=CC(=CC(=C1)C)C,41.00919,Chen 2024.xlsx
+"1,3,5-triethylbenzene",CCC1=CC(=CC(=C1)CC)CC,41.67591,Chen 2024.xlsx
+"1,2-propanediol",CC(CO)O,21.65188,Chen 2024.xlsx
+"1,2-ethanediol",C(CO)O,16.96043,Chen 2024.xlsx
+"1,2-epoxybutane",CCC1CO1,33.21037,Chen 2024.xlsx
+"1,2-dimethylnaphthalene",CC1=C(C2=CC=CC=C2C=C1)C,41.52892,Chen 2024.xlsx
+"1,2-Dimethylcyclopentane",CC1CCCC1C,43.60977,Chen 2024.xlsx
+"1,2-dimethylcyclohexane",CC1CCCCC1C,43.40557,Chen 2024.xlsx
+"1,2-dimethylbenzene",CC1=CC=CC=C1C,40.81575,Chen 2024.xlsx
+"1,2-dimethoxyethane",COCCOC,26.65165,Chen 2024.xlsx
+"1,2-diethylbenzene",CCC1=CC=CC=C1CC,41.41869,Chen 2024.xlsx
+"1,2-diethoxyethane",CCOCCOCC,30.48589,Chen 2024.xlsx
+"1,2,4-trimethylbenzene",CC1=CC(=C(C=C1)C)C,41.02251,Chen 2024.xlsx
+"1,2,4,5-tetramethylbenzene",CC1=CC(=C(C=C1C)C)C,41.02457,Chen 2024.xlsx
+"1,2,3-trimethylbenzene",CC1=C(C(=CC=C1)C)C,41.04996,Chen 2024.xlsx
+"1,2,3,5-tetramethylbenzene",CC1=CC(=C(C(=C1)C)C)C,41.2153,Chen 2024.xlsx
+"1,2,3,4-tetramethylbenzene",CC1=C(C(=C(C=C1)C)C)C,41.25702,Chen 2024.xlsx
+"1,2,3,4-tetrahydronaphthalene",C1CCC2=CC=CC=C2C1,20.26194,Chen 2024.xlsx
+"1,2,3,4,5-pentamethylbenzene",CC1=CC(=C(C(=C1C)C)C)C,40.97768,Chen 2024.xlsx
+"1,1-Dimethylethyl Ester",CC(C)(C)OC=O,26.21169,Chen 2024.xlsx
+"1,1-Dimethylcyclopentane",CC1(CCCC1)C,43.54052,Chen 2024.xlsx
+"1,1-dimethylcyclohexane",CC1(CCCCC1)C,43.34409,Chen 2024.xlsx
+"1,1-dimethoxyethane",CC(OC)OC,26.56399,Chen 2024.xlsx
+"1,1-diethoxyethane",CCOC(C)OCC,30.14741,Chen 2024.xlsx
+"1,1,3-Trimethylcyclopentane",CC1CCC(C1)(C)C,43.79393,Chen 2024.xlsx
+"1,1,2-Trimethylcyclopentane",CC1CCCC1(C)C,43.89858,Chen 2024.xlsx
+"(E)-3,4-Dimethylpent-2-ene",CC=C(C)C(C)C,44.40609,Chen 2024.xlsx
+(2-methylpropyl)cyclopentane,CC(C)CC1CCCC1,43.79989,Chen 2024.xlsx
+"2,4,6-Trioxaheptane",COCOCOC,20.3,Chen 2024.xlsx
+"2,4,6,8-Tetraoxanonane",COCOCOCOC,19.1,Chen 2024.xlsx
+"2,4,6,8,10-Pentaoxaundecane",COCOCOCOCOC,18.4,Chen 2024.xlsx
+"2,4,6,8,10,12-Hexaoxatridecane",COCOCOCOCOCOC,17.9,Chen 2024.xlsx
+"2,4,6,8,10,12,14-Heptaoxapentadecane",COCOCOCOCOCOCOC,17.5,Chen 2024.xlsx
+1-Octadecanol,CCCCCCCCCCCCCCCCCCO,40.2956,Chen 2024.xlsx
+1-Octadecene,CCCCCCCCCCCCCCCCC=C,43.96283,Chen 2024.xlsx
+1-hexadecanol,CCCCCCCCCCCCCCCCO,40.10773,Chen 2024.xlsx
+2-butyltetrahydrofuran,CCCCC1CCCO1,18.13524,Chen 2024.xlsx
+Ethylcycloheptane,CCC1CCCCCC1,43.96268,Chen 2024.xlsx
+cis-Propenylbenzene,CC=CC1=CC=CC=C1,40.81097,Chen 2024.xlsx
+Isopropenylbenzene,CC(=C)C1=CC=CC=C1,40.79743,Chen 2024.xlsx
+4-methyl-1-heptene,CCCC(C)CC=C,44.16482,Chen 2024.xlsx
+6-Methyl-2-heptene,CC=CCCC(C)C,44.32425,Chen 2024.xlsx
+3-Methyl-1-Heptene,CCCCC(C)C=C,44.48944,Chen 2024.xlsx
+cyclooctene,C1CCCC=CCC1,43.30309,Chen 2024.xlsx
+2-hexanol,CCCCC(C)O,35.87892,Chen 2024.xlsx
+"2-Methyl-2,4-hexadiene",CC=CC=C(C)C,36.40076,Chen 2024.xlsx
+3-methyl-1-pentene,CCC(C)C=C,44.36682,Chen 2024.xlsx
+Methacrolein,CC(=C)C=O,30.67485,Chen 2024.xlsx
+sec-butyl ether,CCC(C)OC(C)CC,37.80494,Chen 2024.xlsx
+3-methyl-2-pentanone,CCC(C)C(=O)C,34.4998,Chen 2024.xlsx
+methyl sec-butyl ether,CCC(C)OC,35.28077,Chen 2024.xlsx
+1-Methoxy-2-Methylpropane,CC(C)COC,35.4169,Chen 2024.xlsx
+2-methoxypropane,CC(C)OC,34.14868,Chen 2024.xlsx
+2-Methyloxirane,CC1CO1,30.74208,Chen 2024.xlsx
+"1,3-Propylene?Oxide",C1COC1,31.01067,Chen 2024.xlsx
+Oxirane,C1CO1,27.6504,Chen 2024.xlsx
+heptadecanoic?acid,CCCCCCCCCCCCCCCCC(=O)O,36.51054,Chen 2024.xlsx
+hexadecanoic?acid,CCCCCCCCCCCCCCCC(=O)O,36.16996,Chen 2024.xlsx
+2-(Hexyloxy)Ethanol,CCCCCCOCCO,32.57881,Chen 2024.xlsx
+"3,3,4-Trimethylheptane",CCCC(C)C(C)(C)CC,44.21725,Chen 2024.xlsx
+2-Methyloctanal,CCCCCCC(C)C=O,37.59843,Chen 2024.xlsx
+8-Methyl-1-nonene,CC(C)CCCCCC=C,44.0087,Chen 2024.xlsx
+1-tert-butoxy-2-propanol,CC(COC(C)(C)C)O,30.85477,Chen 2024.xlsx
+2-Pentoxyethanol,CCCCCOCCO,31.47504,Chen 2024.xlsx
+2-octanol,CCCCCCC(C)O,37.47188,Chen 2024.xlsx
+Sec-Butyl?Acrylate,CCC(C)OC(=O)C=C,29.39868,Chen 2024.xlsx
+Vinyl pivalate,CC(C)(C)C(=O)OC=C,29.75759,Chen 2024.xlsx
+"1,1-Diethylcyclopentane",CCC1(CCCC1)CC,43.86835,Chen 2024.xlsx
+2-methylhexan-1-ol,CCCCC(C)CO,36.87481,Chen 2024.xlsx
+"1,2,4-Trimethylcyclopentane",CC1CC(C(C1)C)C,43.81951,Chen 2024.xlsx
+3-ethyl-1-hexene,CCCC(CC)C=C,44.18265,Chen 2024.xlsx
+1-Ethoxy-2-Propanol,CCOCC(C)O,28.54537,Chen 2024.xlsx
+"1,2-dimethoxypropane",CC(COC)OC,28.76648,Chen 2024.xlsx
+3-methyl-1-pentanol,CCC(C)CCO,35.94989,Chen 2024.xlsx
+1-Ethoxy-2-Methylpropane,CCOCC(C)C,36.43927,Chen 2024.xlsx
+3-Ethylcyclopentene,CCC1CCC=C1,43.21805,Chen 2024.xlsx
+2-Methylbutyraldehyde,CCC(C)C=O,33.72652,Chen 2024.xlsx
+"2,5-dihydrofuran",C1C=CCO1,30.81708,Chen 2024.xlsx

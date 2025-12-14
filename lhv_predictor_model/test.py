@@ -1,5 +1,5 @@
 """
-Test the trained density prediction model on a held-out test set.
+Test the trained lhv prediction model on a held-out test set.
 """
 
 import os
@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import matplotlib.pyplot as plt
 import seaborn as sns
-from density_model.model import DensityPredictor
+from train import LHVPredictor
 import joblib
 from train import FeatureSelector
 import sys
@@ -25,7 +25,7 @@ sys.path.append(PROJECT_ROOT)
 
 # 3. Build DB path
 FILE_DIR = os.path.dirname(os.path.abspath(__file__))
-ARTIFACT_DIR = os.path.join(PROJECT_ROOT,"density-predictor-model", "density_model", "artifacts")
+ARTIFACT_DIR = os.path.join(PROJECT_ROOT,"lhv-predictor-model", "lhv_model", "artifacts")
 MODEL_PATH = os.path.join(ARTIFACT_DIR, "model.joblib")
 
 def load_and_split_data(test_size=0.2, random_state=42):
@@ -33,10 +33,10 @@ def load_and_split_data(test_size=0.2, random_state=42):
     Load data from database and split into train/test.
     Returns the test set for evaluation.
     """
-    df = pd.read_csv('density.csv')
+    df = pd.read_csv('lhv.csv')
     
     # Clean data
-    df.dropna(subset=["density", "SMILES"], inplace=True)
+    df.dropna(subset=["lhv", "SMILES"], inplace=True)
 
     
     print(f"Total samples: {len(df)}")
@@ -72,13 +72,13 @@ def evaluate_model(predictor, test_df):
         print(f"⚠ Warning: {len(test_df) - len(predictions)} molecules failed featurization")
         # Get valid predictions with details
         results = predictor.predict_with_details(test_df["SMILES"].tolist())
-        results = results.merge(test_df[["SMILES", "density"]], on="SMILES", how="left")
+        results = results.merge(test_df[["SMILES", "lhv"]], on="SMILES", how="left")
         results = results[results["Valid"] == True]
         
-        y_true = results["density"].values
-        y_pred = results["Predicted_Density"].values
+        y_true = results["lhv"].values
+        y_pred = results["Predicted_lhv"].values
     else:
-        y_true = test_df["density"].values
+        y_true = test_df["lhv"].values
         y_pred = np.array(predictions)
     
     # Calculate metrics
@@ -115,13 +115,13 @@ def evaluate_training_set(predictor, train_df):
     # Handle cases where some molecules might be invalid
     if len(predictions) != len(train_df):
         results = predictor.predict_with_details(train_df["SMILES"].tolist())
-        results = results.merge(train_df[["SMILES", "density"]], on="SMILES", how="left")
+        results = results.merge(train_df[["SMILES", "lhv"]], on="SMILES", how="left")
         results = results[results["Valid"] == True]
         
-        y_true = results["density"].values
-        y_pred = results["Predicted_Density"].values
+        y_true = results["lhv"].values
+        y_pred = results["Predicted_lhv"].values
     else:
-        y_true = train_df["density"].values
+        y_true = train_df["lhv"].values
         y_pred = np.array(predictions)
     
     # Calculate metrics
@@ -160,9 +160,9 @@ def plot_results(y_true, y_pred, save_path="evaluation_plots.png"):
     max_val = max(y_true.max(), y_pred.max())
     ax1.plot([min_val, max_val], [min_val, max_val], 'r--', lw=2, label='Perfect prediction')
     
-    ax1.set_xlabel('Actual Density', fontsize=12)
-    ax1.set_ylabel('Predicted Density', fontsize=12)
-    ax1.set_title('Predicted vs Actual Liquid Density', fontsize=14, fontweight='bold')
+    ax1.set_xlabel('Actual lhv', fontsize=12)
+    ax1.set_ylabel('Predicted lhv', fontsize=12)
+    ax1.set_title('Predicted vs Actual Liquid lhv', fontsize=14, fontweight='bold')
     ax1.legend()
     ax1.grid(True, alpha=0.3)
     
@@ -177,7 +177,7 @@ def plot_results(y_true, y_pred, save_path="evaluation_plots.png"):
     residuals = y_true - y_pred
     ax2.scatter(y_pred, residuals, alpha=0.5, s=30)
     ax2.axhline(y=0, color='r', linestyle='--', lw=2)
-    ax2.set_xlabel('Predicted Density', fontsize=12)
+    ax2.set_xlabel('Predicted lhv', fontsize=12)
     ax2.set_ylabel('Residuals (Actual - Predicted)', fontsize=12)
     ax2.set_title('Residual Plot', fontsize=14, fontweight='bold')
     ax2.grid(True, alpha=0.3)
@@ -241,8 +241,8 @@ def save_predictions(test_df, y_true, y_pred, save_path="test_predictions.csv"):
     """
     results_df = test_df.copy()
     results_df = results_df.reset_index(drop=True)
-    results_df["Actual_Density"] = y_true
-    results_df["Predicted_Density"] = y_pred
+    results_df["Actual_lhv"] = y_true
+    results_df["Predicted_lhv"] = y_pred
     results_df["Absolute_Error"] = np.abs(y_true - y_pred)
     results_df["Relative_Error_%"] = np.abs((y_true - y_pred) / y_true) * 100
     
@@ -255,7 +255,7 @@ def main():
     Main evaluation pipeline.
     """
     print("="*70)
-    print("Density MODEL EVALUATION")
+    print("lhv MODEL EVALUATION")
     print("="*70)
     
     # Check if model exists
@@ -264,7 +264,7 @@ def main():
     # Load the trained model
     print("\nLoading trained model...")
 
-    predictor = DensityPredictor()
+    predictor = LHVPredictor()
     
     # Load and split data
     train_df, test_df = load_and_split_data(test_size=0.2, random_state=42)
@@ -289,20 +289,20 @@ def main():
         print("✓ Model generalization looks good!")
     
     # Create visualizations
-    plot_results(y_true, y_pred, save_path=os.path.join(PROJECT_ROOT,"density_model/evaluation_plots.png"))
+    plot_results(y_true, y_pred, save_path=os.path.join(PROJECT_ROOT,"lhv_model/evaluation_plots.png"))
     
     # Error analysis
     analyze_errors(test_df, y_true, y_pred, top_n=10)
     
     # Save predictions
-    save_predictions(test_df, y_true, y_pred, save_path="density_model/test_predictions.csv")
+    save_predictions(test_df, y_true, y_pred, save_path="lhv_model/test_predictions.csv")
     
     print("\n" + "="*70)
     print("EVALUATION COMPLETE!")
     print("="*70)
     print("\nGenerated files:")
-    print("  - density_model/evaluation_plots.png")
-    print("  - density_model/test_predictions.csv")
+    print("  - lhv_model/evaluation_plots.png")
+    print("  - lhv_model/test_predictions.csv")
     print("="*70)
 
 

@@ -1,0 +1,654 @@
+Name,SMILES,dynamic_viscosity,Source
+"1 2,3,4,5,6,7,8,13,14,15,16-Dodecahydrochrysene",c12c(c3c(cc1)CCCC3)CC[C@@H]1[C@H]2CCCC1,14900,Panwar 2024_filtered
+1(5-Perhydro-acenaphthyl-pentadecane,[C@@H]12[C@H]3[C@@H]([C@@H](CC1)CCCCCCCCCCCCCCC)CCC[C@H]3CC2,61.64,Panwar 2024_filtered
+"1(ar),4-Dimethyl-5-octyltetralin",c1(c2c(c(cc1)C)[C@H](CCC2)CCCCCCCC)C,34.36,Panwar 2024_filtered
+"1, 1-Diphenyl-1-heptene",c1ccc(cc1)C(=CCCCCC)c1ccccc1,18.97,Panwar 2024_filtered
+"1, 1-Diphenyl-heptene",c1ccc(cc1)C(c1ccccc1)CCCCCC,16.73,Panwar 2024_filtered
+"1,1,-diphenylethylene",c1ccc(cc1)/C=C/c1ccccc1,7.36,Panwar 2024_filtered
+"1,1-Di(4-methylcyclohexyl)dodecane",[C@H]1(CC[C@@H](CC1)[C@@H](CCCCCCCCCCC)[C@H]1CCC[C@H](C1)C)C,125.5,Panwar 2024_filtered
+"1,1-Di-p-tolyldo-decane",c1(ccc(cc1)C(c1ccc(cc1)C)CCCCCCCCCCC)C,55.82,Panwar 2024_filtered
+"1,1-Dicyclohexylethane",C1CCC(CC1)C(C)C1CCCCC1,8.494,Panwar 2024_filtered
+"1,1-Dicyclohexylheptane",C1CCC(CC1)C(CCCCCC)C1CCCCC1,44.29,Panwar 2024_filtered
+"1,1-Dicyclopentylethane",C1CC(CC1)C(C)C1CCCC1,2.334,Panwar 2024_filtered
+"1,1-Dicyclopentylhexadecane",CCCCCCCCCCCCCCCC(C1CCCC1)C1CCCC1,30.69,Panwar 2024_filtered
+"1,1-Diphenlytetradecane",c1ccc(cc1)C(c1ccccc1)CCCCCCCCCCCCC,37.83,Panwar 2024_filtered
+"1,1-Diphenyl-ethane",c1ccc(cc1)C(c1ccccc1)C,4.484,Panwar 2024_filtered
+"1,1-Diphenyll-tetradecene",c1ccc(cc1)C(=CCCCCCCCCCCCC)c1ccccc1,38.48,Panwar 2024_filtered
+"1,10-Di(alphadecalyl)decane",C1[C@H]2[C@@H]([C@@H](CC1)CCCCCCCCCC[C@@H]1CCC[C@@H]3[C@@H]1CCCC3)CCCC2,540.6,Panwar 2024_filtered
+"1,2,3,4,4a,9,10,10a-Octahydro-3-hexly-6-butylphenanthrene*",c1c2c(cc(c1)CCCC)[C@H]1[C@H](CC2)CC[C@@H](C1)CCCCCC,84.24,Panwar 2024_filtered
+"1,2,3,4,5,6,7,8-Octahydrophenanthrene",c1cc2c(c3c1CCCC3)CCCC2,17.34,Panwar 2024_filtered
+"1,2,3,4-Tetrahydronaphthalene",c1ccc2c(c1)CCCC2,2.202,Chew 2024_filtered
+"1,2,3,4-tetrahydronaphthalene",C1CCC2=CC=CC=C2C1,2.202,Chen 2024.xlsx
+"1,2,4-trimethylbenzene",CC1=CC(=C(C=C1)C)C,1.116,Chen 2024.xlsx
+"1,2-Di(alphadecalyl)ethane",C1[C@@H]2[C@@H]([C@@H](CC1)CC[C@@H]1[C@H]3[C@@H](CCC1)CCCC3)CCCC2,3387,Panwar 2024_filtered
+"1,2-Dicyclohexylcyclohexane",C1C[C@@H]([C@@H](CC1)C1CCCCC1)C1CCCCC1,186.8,Panwar 2024_filtered
+"1,2-Dicyclohexylethane",C1CCC(CC1)CCC1CCCCC1,7.951,Panwar 2024_filtered
+"1,2-Propylene oxide",CC1CO1,0.327,Chew 2024_filtered
+"1,2-butanediol",CCC(O)CO,8.95,Chew 2024_filtered
+"1,2-diethoxyethane",CCOCCOCC,0.65,Chen 2024.xlsx
+"1,2-dimethylbenzene",CC1=CC=CC=C1C,0.81,Chen 2024.xlsx
+"1,2-epoxybutane",CCC1CO1,0.41,Chen 2024.xlsx
+"1,3,5,7-cyclooctatetraene",C1=CC=CC=CC=C1,1.37,Chew 2024_filtered
+"1,3,5-trimethylbenzene",CC1=CC(=CC(=C1)C)C,1.154,Chen 2024.xlsx
+"1,3,5-trimethylcyclohexane",CC1CC(CC(C1)C)C,0.632,Chen 2024.xlsx
+"1,3-Di-n-decylbenzene",c1cc(cc(c1)CCCCCCCCCC)CCCCCCCCCC,17.75,Panwar 2024_filtered
+"1,3-Dicyclopentyl-2-dodecylcyclopentane",[C@H]1([C@@H](CC[C@@H]1C1CCCC1)C1CCCC1)CCCCCCCCCCCC,62.68,Panwar 2024_filtered
+"1,3-Dicyclopentylcyclopentane",C1CCC(C1)[C@H]1CC[C@@H](C1)C1CCCC1,4.273,Panwar 2024_filtered
+"1,3-butadiene",C=CC=C,0.47,Chew 2024_filtered
+"1,3-dimethylbenzene",CC1=CC(=CC=C1)C,0.62,Chen 2024.xlsx
+"1,4,5-Trimethyl-n-octadecylcyclohexane",[C@H]1(C[C@@H]([C@@H]([C@@H](C1)C)CCCCCCCCCCCCCCCCCC)C)C,29.28,Panwar 2024_filtered
+"1,4-Dimethyl-2-(3,7-Dimethyl-octyl) benzene",c1cc(c(cc1C)CC[C@@H](CCCC(C)C)C)C,7.981,Panwar 2024_filtered
+"1,4-Dimethyl-5-octyldecalin",C1[C@H]2[C@@H]([C@@H](CC1)CCCCCCCC)[C@@H](CC[C@H]2C)C,19.03,Panwar 2024_filtered
+"1,4-Dimethyl-5-octylnaphthalene",c1(c2c(c(cc1)C)c(ccc2)CCCCCCCC)C,31.42,Panwar 2024_filtered
+"1,4-dimethylbenzene",CC1=CC=C(C=C1)C,0.648,Chen 2024.xlsx
+"1,5-Dicyclohexyl-3(3-cyclopentylpropyl)pentane",C1CCC(CC1)CCC(CCCC1CCCC1)CCC1CCCCC1,213.4,Panwar 2024_filtered
+"1,5-Dicyclopentyl-3(2-cyclopentylethyl) 2-pentene",C1CCC(CC1)CCC(=CCC1CCCCC1)CCC1CCCCC1,326.6,Panwar 2024_filtered
+"1,5-Diphenyl-3(2-pheoylethyl)pentane",c1ccc(cc1)CCC(CCc1ccccc1)CCc1ccccc1,74.24,Panwar 2024_filtered
+"1,5-Diphenyl-3(3-cyclopentylpropyl)pentane",c1ccc(cc1)CCC(CCCC1CCCC1)CCc1ccccc1,44.72,Panwar 2024_filtered
+"1,5-Dipthenyl-3(2-Phenylethyl-2-pentene",c1ccc(cc1)CCC(=CCc1ccccc1)CCc1ccccc1,47.54,Panwar 2024_filtered
+"1,7-Dicyclopentyl-4(2-phenylethyl)heptane",c1(ccccc1)CCC(CCCC1CCCC1)CCCC1CCCC1,40.4,Panwar 2024_filtered
+"1,7-Dicyclopentyl-4(3-cyclopentylpropyl)3-heptene",C1CCC(C1)CCCC(=CCCC1CCCC1)CCCC1CCCC1,38.59,Panwar 2024_filtered
+"1,7-Dicyclopentyl-4(3-cyclopentylpropyl)heptane",C(CCCC1CCCC1)(CCCC1CCCC1)CCCC1CCCC1,51.41,Panwar 2024_filtered
+"1,7-Diphenyl-4(3-phenylpropyl)3-heptane",c1ccc(cc1)CCCC(=CCCc1ccccc1)CCCc1ccccc1,63.76,Panwar 2024_filtered
+"1,7-Diphenyl-4(3-phenylpropyl)heptane",c1ccc(cc1)CCCC(CCCc1ccccc1)CCCc1ccccc1,91.61,Panwar 2024_filtered
+1-Butanol,CCCCO,2.948,Chew 2024_filtered
+"1-Butanol, 2-methyl-, acetate",CCC(C)COC(=O)C,0.872,Chen 2024.xlsx
+1-Cyclohexyl-2(cyclohexyl-methyl)pentadecane,C1CCC(CC1)CC(CCCCCCCCCCCCC)CC1CCCCC1,92.1,Panwar 2024_filtered
+1-Cyclohexyl-3(2-cyclohexylethyl)hendecane,C1CCC(CC1)CCC(CCCCCCCC)CCC1CCCCC1,72.84,Panwar 2024_filtered
+1-Cyclohexyl-3-cyclopentylpropane,C1CCC(CC1)CCCC1CCCC1,4.977,Panwar 2024_filtered
+1-Cyclohexyl-4(alpha-de-calyl)tetradecane,C1[C@H]2[C@@H](CCC1)[C@@H](CCC2)[C@H](CCCCCCCCCC)CCCC1CCCCC1,406.7,Panwar 2024_filtered
+1-Cyclohexyldecane,C1CCC(CC1)CCCCCCCCCC,5.331,Panwar 2024_filtered
+1-Cyclopentyl-2-hexadecylcyclopentane,[C@H]1(CCC[C@@H]1CCCCCCCCCCCCCCCC)C1CCCC1,24.8,Panwar 2024_filtered
+1-Cyclopentyl-4(3-cyclopentylpropyl)dodecane,C1(CCCC1)CCCC(CCCC1CCCC1)CCCCCCCC,27.84,Panwar 2024_filtered
+1-Cyclopentyldecane,C1CCC(C1)CCCCCCCCCC,3.59,Panwar 2024_filtered
+1-Decene,C=CCCCCCCCC,0.805,Chew 2024_filtered
+1-Dodecene,C=CCCCCCCCCCC,1.329,Panwar 2024_filtered
+1-Ethoxypropane,CCCOCC,0.323,Chen 2024.xlsx
+1-Heptadecene,C=CCCCCCCCCCCCCCCC,3.729,Panwar 2024_filtered
+1-Hexadecene,C=CCCCCCCCCCCCCCC,3.082,Panwar 2024_filtered
+1-Methylnaphthalene,c1cc2c(cc1)c(ccc2)C,3.351,Panwar 2024_filtered
+1-Nonanol,CCCCCCCCCO,14.3,Chew 2024_filtered
+1-Nonene,C=CCCCCCCC,0.62,Chew 2024_filtered
+1-Octadecene,CCCCCCCCCCCCCCCCC=C,4.31,Chen 2024.xlsx
+1-Octene,C=CCCCCCC,0.47,Chew 2024_filtered
+1-Pentadecene,C=CCCCCCCCCCCCCC,2.519,Panwar 2024_filtered
+1-Pentene,CCCC=C,0.197,Chen 2024.xlsx
+1-Phenyl-1-cyclohexylethane,c1ccc(cc1)[C@@H](C1CCCCC1)C,6.87,Panwar 2024_filtered
+1-Phenyl-2-cyclohexylethane,c1ccc(cc1)CCC1CCCCC1,4.709,Panwar 2024_filtered
+1-Phenyl-3(2-Pheoylethyl)-hendecane,c1ccc(cc1)CCC(CCc1ccccc1)CCCCCCCC,24.13,Panwar 2024_filtered
+1-Phenyl-3(2-cyclohexylethyl)-6-cyclopentylhexane,c1ccc(cc1)CC[C@H](CCC1CCCCC1)CCCC1CCCC1,75.45,Panwar 2024_filtered
+1-Phenyl-3-cyclopentylpropane,c1ccc(cc1)CCCC1CCCC1,3.606,Panwar 2024_filtered
+1-Phenyldecane,c1ccc(cc1)CCCCCCCCCC,3.81,Panwar 2024_filtered
+1-Phenyloctane,c1ccc(cc1)CCCCCCCC,2.575,Panwar 2024_filtered
+1-Tetradecene,CCCCCCCCCCCCC=C,2,Chen 2024.xlsx
+1-Tridecene,C=CCCCCCCCCCCC,1.663,Panwar 2024_filtered
+1-Undecene,CCCCCCCCCC=C,1.03,Chen 2024.xlsx
+1-alpha-Decalylhendecane,C1[C@H]2[C@@H]([C@@H](CC1)CCCCCCCCCCC)CCCC2,21,Panwar 2024_filtered
+1-alpha-Decalylpentadecane,C1[C@H]2[C@@H](CCC1)[C@@H](CCC2)CCCCCCCCCCCCCCC,36.13,Panwar 2024_filtered
+1-alpha-Napthylbendecane,c1c2c(ccc1)c(ccc2)CCCCCCCCCCC,23.18,Panwar 2024_filtered
+1-butanol,CCCCO,2.948,Chen 2024.xlsx
+1-cyclohexyloctane,C1CCC(CC1)CCCCCCCC,3.515,Panwar 2024_filtered
+1-decene,CCCCCCCCC=C,0.805,Chen 2024.xlsx
+1-dodecanol,CCCCCCCCCCCCO,18.8,Chew 2024_filtered
+1-dodecene,CCCCCCCCCCC=C,1.3,Chen 2024.xlsx
+1-heptanol,CCCCCCCO,7.014,Chen 2024.xlsx
+1-heptene,CCCCCC=C,0.35,Chen 2024.xlsx
+1-hexadecene,CCCCCCCCCCCCCCC=C,2.99,Chen 2024.xlsx
+1-hexanol,CCCCCCO,5.04,Chen 2024.xlsx
+1-hexene,CCCCC=C,0.26,Chen 2024.xlsx
+1-isopropyl-4-methylbenzene,CC1=CC=C(C=C1)C(C)C,3.402,Chen 2024.xlsx
+1-methoxy-2-hydroxypropane,COCC(C)O,1.81,Chew 2024_filtered
+1-methylnaphthalene,CC1=CC=CC2=CC=CC=C12,3.629,Chen 2024.xlsx
+1-n-hexylnaphthalene,CCCCCCc1cccc2ccccc12,8.84,Saldana 2012_filtered
+1-nonene,CCCCCCCC=C,0.62,Chen 2024.xlsx
+1-octanol,CCCCCCCCO,8.925,Chen 2024.xlsx
+1-octene,CCCCCCC=C,0.47,Chen 2024.xlsx
+1-pentanol,CCCCCO,4,Chen 2024.xlsx
+1-propanol,CCCO,2.234,Chen 2024.xlsx
+1-t-Butyldecahydronaphthalene*,C1[C@H]2[C@@H](CCC1)[C@@H](CCC2)C(C)(C)C,7.634,Panwar 2024_filtered
+1-t-Butylnaphthalene,c1cc2c(cc1)c(ccc2)C(C)(C)C,14.76,Panwar 2024_filtered
+1-undecanol,CCCCCCCCCCCO,17.2,Chew 2024_filtered
+10-methyleicosane,CCCCCCCCC[C@@H](CCCCCCCCCC)C,7.89,Panwar 2024_filtered
+10-n-heptyl-10-n-octyleicosane,CCCCCCCCC[C@](CCCCCCCCCC)(CCCCCCC)CCCCCCCC,53.75,Panwar 2024_filtered
+"11(2,4-Dimethyleyclopentylmethyl)beneicosane",[C@H]1(C[C@H](C[C@@H]1C)C)CC(CCCCCCCCCC)CCCCCCCCCC,24.34,Panwar 2024_filtered
+"11(2,5-Dimethylcyclohexyl)heneicosane",[C@H]1(CC[C@@H]([C@@H](C1)C(CCCCCCCCCC)CCCCCCCCCC)C)C,48.12,Panwar 2024_filtered
+"11(2,5-Dimethylphenyl)10-heneicosene",c1cc(c(cc1C)/C(=C/CCCCCCCCC)/CCCCCCCCCC)C,35.08,Panwar 2024_filtered
+"11(2,5-Dimethylphenyl)heneicosane",c1cc(c(cc1C)C(CCCCCCCCCC)CCCCCCCCCC)C,49.87,Panwar 2024_filtered
+11(3-pentyl)heneicosane,CCCCCCCCCCC(CCCCCCCCCC)C(CC)CC,15.53,Panwar 2024_filtered
+11-Benzylheneicosane,c1ccccc1CC(CCCCCCCCCC)CCCCCCCCCC,21.58,Panwar 2024_filtered
+11-Cyclohexylheneicosane,C1CCCC(C1)C(CCCCCCCCCC)CCCCCCCCCC,30.14,Panwar 2024_filtered
+11-Cyclohexylmethylheneicosane,C1CCCC(C1)CC(CCCCCCCCCC)CCCCCCCCCC,32.17,Panwar 2024_filtered
+11-Cyclopentyl-heneicosane,C1(CCCC1)C(CCCCCCCCCC)CCCCCCCCCC,20.23,Panwar 2024_filtered
+11-Cyclopentylmethylheneicosane,C1(CCCC1)CC(CCCCCCCCCC)CCCCCCCCCC,22.04,Panwar 2024_filtered
+11-Phenyl-10-heneicosene,c1ccccc1/C(=C\CCCCCCCCC)/CCCCCCCCCC,20.75,Panwar 2024_filtered
+11-Phenyl-heneicosane,c1cccc(c1)C(CCCCCCCCCC)CCCCCCCCCC,26.34,Panwar 2024_filtered
+11-alpha-De-calylheneicosane,C1[C@H]2[C@@H]([C@@H](CC1)C(CCCCCCCCCC)CCCCCCCCCC)CCCC2,101.5,Panwar 2024_filtered
+11-alpha-Naphthyl-10-heneicosene,c1c2c(c(cc1)/C(=C/CCCCCCCCC)/CCCCCCCCCC)cccc2,76.36,Panwar 2024_filtered
+11-alpha-ar-Tetralylheneicosane,c1c2c(c(cc1)C(CCCCCCCCCC)CCCCCCCCCC)CCCC2,100.7,Panwar 2024_filtered
+11-n-amylheneicosane,CCCCCCCCCCC(CCCCCCCCCC)CCCCC,14.86,Panwar 2024_filtered
+11-n-butyldocosane,CCCCCCCCCC[C@H](CCCCCCCCCCC)CCCC,15.24,Panwar 2024_filtered
+11-n-decyldocosane,CCCCCCCCCCC(CCCCCCCCCCC)CCCCCCCCCC,25.81,Panwar 2024_filtered
+11-n-decylheneicosane,CCCCCCCCCCC(CCCCCCCCCC)CCCCCCCCCC,23.53,Panwar 2024_filtered
+11-n-decyltetracosane,CCCCCCCCCCC(CCCCCCCCCCCCC)CCCCCCCCCC,31.18,Panwar 2024_filtered
+11-neopentylheneicosane,CCCCCCCCCCC(CCCCCCCCCC)CC(C)(C)C,18.12,Panwar 2024_filtered
+13-Cyclohexylpentacosane,C1CCCC(C1)C(CCCCCCCCCCCC)CCCCCCCCCCCC,43.21,Panwar 2024_filtered
+13-n-dodecylhexacosane,CCCCCCCCCCCCC(CCCCCCCCCCCCC)CCCCCCCCCCCC,42.42,Panwar 2024_filtered
+13-n-undecylhexacosane,CCCCCCCCCCCCC(CCCCCCCCCCCC)CCCCCCCCCCC,36.24,Panwar 2024_filtered
+15-Cyclohexylnomacosane,C1CCCC(C1)C(CCCCCCCCCCCCCC)CCCCCCCCCCCCCC,63.22,Panwar 2024_filtered
+"2(ar),6-Dimethyl-3-octyltetralin",c1c2c(cc(c1C)CCCCCCCC)C[C@H](CC2)C,25.42,Panwar 2024_filtered
+2(ar)-Butyltetralin,c1cc2c(cc1CCCC)CCCC2,4.793,Panwar 2024_filtered
+2(ar)-Decylitetralin,c1c2c(cc(c1)CCCCCCCCCC)CCCC2,15.76,Panwar 2024_filtered
+2(ar)-n-Butyl-3(ar)-n-hexyltetralin,c1c2c(cc(c1CCCC)CCCCCC)CCCC2,29.21,Panwar 2024_filtered
+"2,2,3,3,5,6,6-heptamethylheptane",CC([C@H](CC(C(C)(C)C)(C)C)C)(C)C,4.584,Panwar 2024_filtered
+"2,2,3,5,5,6,6-heptamethyl-3-heptene",CC(/C(=C/C(C(C)(C)C)(C)C)/C)(C)C,3.045,Panwar 2024_filtered
+"2,2,3-Trimethylbutane",CC(C)C(C)(C)C,0.579,Chew 2024_filtered
+"2,2,3-Trimethylpentane",CCC(C)C(C)(C)C,0.598,Chen 2024.xlsx
+"2,2,3-trimethylbutane",CC(C)C(C)(C)C,0.579,Chen 2024.xlsx
+"2,2,4,10,12,12-hexamethyl-7(3,5,5-trimethylhexyl)-6-tridecene",C(=C\C[C@@H](CC(C)(C)C)C)(\CC[C@@H](CC(C)(C)C)C)/CC[C@H](CC(C)(C)C)C,33.24,Panwar 2024_filtered
+"2,2,4,10,12,12-hexamethyl-7(3,5,5-trimethylhexyl)tridecane",C(CC[C@H](CC(C)(C)C)C)(CC[C@H](CC(C)(C)C)C)CC[C@H](CC(C)(C)C)C,49.77,Panwar 2024_filtered
+"2,2,4,15,17,17-hexamethyl-7,12-di(3,5,5-trimethylhexyl)octadecane",[C@H](CCCC[C@@H](CC[C@H](CC(C)(C)C)C)CC[C@H](CC(C)(C)C)C)(CC[C@H](CC(C)(C)C)C)CC[C@@H](CC(C)(C)C)C,369.8,Panwar 2024_filtered
+"2,2,4-Trimethylpentane",CCCC(C)(C)C,0.502,Chew 2024_filtered
+"2,2,4-trimethylpentane",CC(C)CC(C)(C)C,0.502,Chen 2024.xlsx
+"2,2-dimethylbutane",CCC(C)(C)C,0.365,Chen 2024.xlsx
+"2,2-dimethylhexane",CCCCC(C)(C)C,0.38,Chew 2024_filtered
+"2,2-dimethylpentane",CCCC(C)(C)C,0.38,Chen 2024.xlsx
+"2,3,3-trimethylpentane",CCC(C)(C)C(C)C,0.45,Chew 2024_filtered
+"2,3-Dimethylpentane",CCC(C)C(C)C,0.406,Chew 2024_filtered
+"2,3-dimethylbutane",CC(C)C(C)C,0.376,Chen 2024.xlsx
+"2,3-dimethylpentane",CCC(C)C(C)C,0.406,Chen 2024.xlsx
+"2,4-Dimethylpentane",CC(C)CC(C)C,0.361,Chew 2024_filtered
+"2,4-Pentanedione",CC(=O)CC(=O)C,0.6,Chen 2024.xlsx
+"2,4-dimethylpentane",CC(C)CC(C)C,0.361,Chen 2024.xlsx
+"2,5-Dimethyl-n-octadecylcyclohexane",C1C[C@@H]([C@@H](C[C@@H]1C)CCCCCCCCCCCCCCCCCC)C,24.66,Panwar 2024_filtered
+"2,5-dimethylhexane",CC(C)CCC(C)C,0.3,Chew 2024_filtered
+"2,6,10,14-tetramethylpentadecane",CC(CCC[C@@H](CCC[C@@H](CCCC(C)C)C)C)C,6.207,Panwar 2024_filtered
+"2,6,10,15,19,23-hexamethyltetracosane",CC(CCC[C@@H](CCC[C@@H](CCCC[C@H](CCC[C@H](CCCC(C)C)C)C)C)C)C,36.36,Panwar 2024_filtered
+"2,6,11,15-tetramethylhexadecane",CC(CCC[C@@H](CCCC[C@H](CCCC(C)C)C)C)C,7.525,Panwar 2024_filtered
+"2,6-Dimethyl-3-octyldecalin",C1[C@H]2[C@@H](C[C@@H]([C@@H]1C)CCCCCCCC)C[C@H](CC2)C,20.78,Panwar 2024_filtered
+"2,6-Dimethyl-4-heptanone",CC(C)CC(=O)CC(C)C,1.03,Chen 2024.xlsx
+2-Butanone,CCC(C)=O,0.428,Chew 2024_filtered
+2-Butyl-1-hexylindan,c1cc2c(cc1)[C@@H]([C@H](C2)CCCC)CCCCCC,20.843,Panwar 2024_filtered
+2-Butyl-5-hexylhydrindan,C1[C@H]2[C@@H](C[C@@H](C1)CCCCCC)C[C@@H](C2)CCCC,13.32,Panwar 2024_filtered
+2-Butyl-5-hexylindan,c1cc2c(cc1CCCCCC)C[C@H](C2)CCCC,10.81,Panwar 2024_filtered
+2-Butyl-l-hexylhydrindan,C1[C@H]2[C@@H](CCC1)[C@H]([C@H](C2)CCCC)CCCCCC,21.151,Panwar 2024_filtered
+2-Butyl-lhexylindene,c1cc2c(cc1)C(=C(C2)CCCC)CCCCCC,18.48,Panwar 2024_filtered
+2-Cyclohexyleicosane,C1CCCC(C1)[C@H](CCCCCCCCCCCCCCCCCC)C,27.87,Panwar 2024_filtered
+2-Decyldacalin,C1[C@H]2[C@@H](C[C@@H](C1)CCCCCCCCCC)CCCC2,18.04,Panwar 2024_filtered
+2-Decylhydrindan,C1[C@@H]2[C@@H](CCC1)C[C@H](C2)CCCCCCCCCC,13.572,Panwar 2024_filtered
+2-Decylindan,c1cc2c(cc1)CC(C2)CCCCCCCCCC,9.192,Panwar 2024_filtered
+2-Decylperhydroindeno(2.1-a)-indene*,C1[C@H]2[C@@H](CCC1)C[C@@H]1[C@@H]2C[C@@H]2CC[C@@H](C[C@H]12)CCCCCCCCCC,127.8,Panwar 2024_filtered
+2-Ethoxyethanol,CCOCCO,2.04,Chew 2024_filtered
+2-Ethylbutanoic acid,CCC(CC)C(=O)O,3.3,Chew 2024_filtered
+2-Ethylbutanoic?Acid,CCC(CC)C(=O)O,3.3,Chen 2024.xlsx
+2-Methoxyethanol,COCCO,1.72,Chen 2024.xlsx
+2-Methyl butanol,CCC(C)CO,5.11,Chew 2024_filtered
+2-Methyl-1-butanol,CCC(C)CO,5.5,Chen 2024.xlsx
+2-Methyl-1-butene,CCC(=C)C,0.224,Chen 2024.xlsx
+2-Methyl-1-propanol,CC(C)CO,4.034,Chen 2024.xlsx
+2-Methyl-2-butene,CC=C(C)C,0.21,Chew 2024_filtered
+2-Methylbutyl acetate,CCC(C)COC(C)=O,0.872,Chew 2024_filtered
+2-Methylhexane,CCCCC(C)C,0.378,Chew 2024_filtered
+2-Methyloxirane,CC1CO1,0.327,Chen 2024.xlsx
+2-Methylpropionic Acid,CC(C)C(=O)O,1.311,Chen 2024.xlsx
+2-Octylperhydrochrysene,C1[C@H]2[C@@H](CCC1)[C@H]1[C@H](CC2)[C@@H]2[C@@H]([C@@H](C1)CCCCCCCC)CCCC2,815.9,Panwar 2024_filtered
+2-Octylperhydrotriphenylene*,C1[C@H]2[C@@H](CCC1)[C@H]1[C@H]([C@@H]3[C@H]2CC[C@@H](C3)CCCCCCCC)CCCC1,434.1,Panwar 2024_filtered
+2-Phenyloctane,c1cccc(c1)[C@H](CCCCCC)C,2.64,Panwar 2024_filtered
+2-Propen-1-ol (allyl alcohol),C=CCO,1.363,Chew 2024_filtered
+2-Propenoic acid,C=CC(=O)O,1.3,Chen 2024.xlsx
+2-Propenyl Alcohol,C=CCO,1.363,Chen 2024.xlsx
+2-Propyn-1-ol,C#CCO,1.68,Chew 2024_filtered
+2-butanol,CCC(C)O,3.907,Chen 2024.xlsx
+2-butanone,CCC(=O)C,0.428,Chen 2024.xlsx
+2-cyclohexyloctane,C1CCC(CC1)[C@@H](C)CCCCCC,3.677,Panwar 2024_filtered
+2-ethoxyethanol,CCOCCO,2.04,Chen 2024.xlsx
+2-ethyl-1-hexanol,CCCCC(CC)CO,9.8,Chen 2024.xlsx
+2-ethylhexanoic?acid,CCCCC(CC)C(=O)O,7.7,Chen 2024.xlsx
+2-heptanol,CCCCCC(C)O,6.53,Chen 2024.xlsx
+2-methoxyethanol,COCCO,18.06666667,Saldana 2012_filtered
+"2-methyl-1,3-butadiene",CC(=C)C=C,0.223,Chen 2024.xlsx
+2-methyl-2-butanol,CCC(C)(C)O,4.634,Chen 2024.xlsx
+2-methyl-2-butene,CC=C(C)C,0.2114,Chew 2024_filtered
+2-methylbutane,CCC(C)C,0.225,Chen 2024.xlsx
+2-methyldecane,CC(CCCCCCCC)C,1.124,Panwar 2024_filtered
+2-methylheptadecane,CC(CCCCCCCCCCCCCCC)C,5.061,Panwar 2024_filtered
+2-methylheptane,CCCCCC(C)C,0.521,Chen 2024.xlsx
+2-methylhexane,CCCCC(C)C,0.378,Chen 2024.xlsx
+2-methylpentadecane,CC(CCCCCCCCCCCCC)C,3.437,Panwar 2024_filtered
+2-methylpentaldehyde,CCCC(C)C=O,0.56,Chew 2024_filtered
+2-methylpentane,CCCC(C)C,0.31,Chen 2024.xlsx
+2-methylprop-2-enoic?acid,CC(=C)C(=O)O,1.32,Chen 2024.xlsx
+2-methyltridecane,CCCCCCCCCCCC(C)C,1.11,Chew 2024_filtered
+2-methylundecane,CCCCCCCCCC(C)C,1.79,Chew 2024_filtered
+2-n-Butyl-3-n-hexyldecalin,C1[C@H]2[C@@H](CCC1)C[C@H]([C@H](C2)CCCCCC)CCCC,30.76,Panwar 2024_filtered
+2-n-Butyl-3-n-hexyloaphthalene,c1c2c(ccc1)cc(c(c2)CCCCCC)CCCC,24.89,Panwar 2024_filtered
+2-n-Butyldecalin,C1[C@H]2[C@@H](CCC1)C[C@H](CC2)CCCC,5.444,Panwar 2024_filtered
+2-n-Butylnaphthalene,c1cc2c(cc1CCCC)cccc2,4.66,Panwar 2024_filtered
+2-n-Dodecylperhydrophenanthrene,C1[C@H]2[C@@H]([C@H]3[C@@H](C1)C[C@H](CC3)CCCCCCCCCCCC)CCCC2,77.75,Panwar 2024_filtered
+2-pentanone,CCCC(=O)C,0.506,Chen 2024.xlsx
+2-pentene,CCC=CC,0.214,Chen 2024.xlsx
+2-propanol,CC(C)O,2.432,Chen 2024.xlsx
+2-propanone,CC(=O)C,0.318,Chen 2024.xlsx
+2-t-Butylnaphthalene,c1cc2c(cc1)cc(cc2)C(C)(C)C,6.57,Panwar 2024_filtered
+"3,3-dimethylhexane",CCCC(C)(C)CC,0.5,Chen 2024.xlsx
+"3,3-dimethylpentane",CCC(C)(C)CC,0.8,Chew 2024_filtered
+"3,5,5-trimethylhexanal",CC(CC=O)CC(C)(C)C,1.4,Chew 2024_filtered
+3-Cyclohexyleicosane,C1CCCC(C1)[C@H](CC)CCCCCCCCCCCCCCCCC,26.22,Panwar 2024_filtered
+3-Ethylhexane,CCCC(CC)CC,0.454,Chen 2024.xlsx
+3-Hexene,CCC=CCC,0.273,Chen 2024.xlsx
+3-Methyl-1-butanol,CC(C)CCO,5.11,Chen 2024.xlsx
+3-Methylbutyl ethanoate,CC(C)CCOC(=O)C,0.872,Chen 2024.xlsx
+3-Methylhexane,CCCC(C)CC,0.372,Chew 2024_filtered
+3-Pentanone,CCC(=O)CC,0.478,Chen 2024.xlsx
+3-ethyl-5(2-ethylbutyl)octadecane,C(CCCCCCCCCCCCC)(CC(CC)CC)CC(CC)CC,18.7,Panwar 2024_filtered
+3-heptanone,CCCCC(=O)CC,0.84,Chew 2024_filtered
+3-methylbutanal,CC(C)CC=O,0.58,Chew 2024_filtered
+3-methyleicosane,CC[C@H](CCCCCCCCCCCCCCCCC)C,8.302,Panwar 2024_filtered
+3-methylhexane,CCCC(C)CC,0.372,Chen 2024.xlsx
+3-methylpentane,CCC(C)CC,0.3,Chen 2024.xlsx
+3-phenyl-1-propanol,OCCCc1ccccc1,19.67,Saldana 2012_filtered
+"4,5-Dimethylperhydrophenanthrene",C1C[C@H]2[C@@H]([C@@H](C1)C)[C@H]1[C@@H](CCC[C@@H]1C)CC2,25.56,Panwar 2024_filtered
+4-9-di-n-propyldodecane,CCCC(CCCCC(CCC)CCC)CCC,4.524,Panwar 2024_filtered
+4-Cyclohexyleicosane,C1CCCCC1[C@@H](CCC)CCCCCCCCCCCCCCCC,29.01,Panwar 2024_filtered
+4-Decylperhydropyrene*,[C@H]12[C@H]3[C@H]4[C@H](CC1)CCC[C@@H]4[C@H](C[C@@H]3CCC2)CCCCCCCCCC,157.1,Panwar 2024_filtered
+4-Heptanone,CCCC(=O)CCC,0.736,Chen 2024.xlsx
+4-Methyl-2-pentanone,CC(C)CC(=O)C,0.585,Chen 2024.xlsx
+4-hydroxy-4-methyl-2-pentanone,CC(=O)CC(C)(C)O,2.9,Chen 2024.xlsx
+4-methyl-2-pentyl acetate,CC(=O)OC(C)CC(C)C,0.93,Chew 2024_filtered
+4-n-propyl-3-heptene,CCC=C(CCC)CCC,0.6842,Panwar 2024_filtered
+4-n-propylheptadecane,CCCC(CCCCCCCCCCCCC)CCC,6.552,Panwar 2024_filtered
+4-n-propylheptane,CCCC(CCC)CCC,0.6822,Panwar 2024_filtered
+"5,14-di-n-butyloctadecane",CCCCC(CCCCCCCCC(CCCC)CCCC)CCCC,19.72,Panwar 2024_filtered
+5-Butyl-6-hexylindan,c1(cc2c(cc1CCCC)CCC2)CCCCCC,15.365,Panwar 2024_filtered
+5-Cyclohexyleicosane,C1CCCCC1[C@@H](CCCC)CCCCCCCCCCCCCCC,30.35,Panwar 2024_filtered
+5-Decylhydrindan,C1[C@@H]2[C@@H](C[C@@H](C1)CCCCCCCCCC)CCC2,12.746,Panwar 2024_filtered
+5-Decylindan,c1cc2c(cc1CCCCCCCCCC)CCC2,10.599,Panwar 2024_filtered
+5-methyl-2-hexanone,CC(=O)CCC(C)C,0.77,Chew 2024_filtered
+5-n-butyl-4-nonene,CCC/C(=C/CCCC)/CCCC,1.456,Panwar 2024_filtered
+5-n-butyldocosane,CCCCC(CCCCCCCCCCCCCCCCC)CCCC,17.11,Panwar 2024_filtered
+5-n-butylhexadecane,CCCCC(CCCCCCCCCCC)CCCC,6.832,Panwar 2024_filtered
+5-n-butylnonane,CCCCC(CCCC)CCCC,1.64,Panwar 2024_filtered
+"6,11-di-n-amylhexadecane",CCCCCC(CCCCC(CCCCC)CCCCC)CCCCC,19.13,Panwar 2024_filtered
+6-n-Octylperhydrobenz(de)-anthracene,C1[C@H]2[C@@H](CCC1)C[C@H]1[C@H](CC[C@@H]3[C@H]1[C@@H]2CCC3)CCCCCCCC,327,Panwar 2024_filtered
+7(ar)-n-Butyl-1-n-hexyltetralin,c1c2c(cc(c1)CCCC)[C@H](CCC2)CCCCCC,20.81,Panwar 2024_filtered
+7-Cyclohexyleicosane,C1CCCCC1[C@@H](CCCCCC)CCCCCCCCCCCCC,29.4,Panwar 2024_filtered
+7-Cyclohexyltridecane,C1CCC(CC1)C(CCCCCC)CCCCCC,11.6,Panwar 2024_filtered
+7-Cyclopentylmethyltridecane,C1CCC(C1)CC(CCCCCC)CCCCCC,7.752,Panwar 2024_filtered
+"7-Hexadecylspiro(4,5)decane",C1CCC2(C[C@@H]1CCCCCCCCCCCCCCCC)CCCC2,29.46,Panwar 2024_filtered
+7-Phenyl-6-tridecene,c1ccc(cc1)/C(=C/CCCCC)/CCCCCC,7.428,Panwar 2024_filtered
+7-Phenyleicosane,c1cccc(c1)[C@H](CCCCCCCCCCCCC)CCCCCC,24.62,Panwar 2024_filtered
+7-Phenyltri-decane,c1ccc(cc1)C(CCCCCC)CCCCCC,9.155,Panwar 2024_filtered
+7-methyltridecane,CCCCCCC(CCCCCC)C,2.184,Panwar 2024_filtered
+7-n-Butyl-l-n-hexydecalin,C1[C@H]2[C@@H]([C@@H](CC1)CCCCCC)C[C@H](CC2)CCCC,24.03,Panwar 2024_filtered
+7-n-Butyl-l-n-hexyloaphthalene,c1c2c(c(cc1)CCCCCC)cc(cc2)CCCC,22.03,Panwar 2024_filtered
+7-n-butyldocosane,CCCCCC[C@@H](CCCCCCCCCCCCCCC)CCCC,16.44,Panwar 2024_filtered
+7-n-hexyldocosane,CCCCCCC(CCCCCCCCCCCCCCC)CCCCCC,20.11,Panwar 2024_filtered
+7-n-hexyleicosane,CCCCCCC(CCCCCCCCCCCCC)CCCCCC,15.73,Panwar 2024_filtered
+7-n-hexyltridecane,CCCCCCC(CCCCCC)CCCCCC,5.854,Panwar 2024_filtered
+7-n-propyltridecane,CCCCCCC(CCCCCC)CCC,3.178,Panwar 2024_filtered
+8(4-Methylcyclohexyl)nonadecane,[C@H]1(CC[C@@H](CC1)[C@@H](CCCCCCC)CCCCCCCCCCC)C,31.15,Panwar 2024_filtered
+8-n-hexylpentadecane,CCCCCCCC(CCCCCCC)CCCCCC,7.846,Panwar 2024_filtered
+8-p-Tolylnonadecane,c1cc(ccc1[C@H](CCCCCCCCCCC)CCCCCCC)C,29.07,Panwar 2024_filtered
+9(2-Cyclohexylethyl)heptadecane,C1CCCC(C1)CCC(CCCCCCCC)CCCCCCCC,24.78,Panwar 2024_filtered
+9(2-Phenylethyl)heptadecane,c1cccc(c1)CCC(CCCCCCCC)CCCCCCCC,14.84,Panwar 2024_filtered
+9(3-Cyclopentylpropyl-heptadecane,C1(CCCC1)CCCC(CCCCCCCC)CCCCCCCC,17.95,Panwar 2024_filtered
+9(4-as-perhydroindacenyl)heptadecane,[C@@H]12[C@H]3[C@@H]([C@@H](C[C@@H]1CCC2)C(CCCCCCCC)CCCCCCCC)CCC3,132.2,Panwar 2024_filtered
+"9(5-Exo-perhydro-4,7-methanoindenylmethyl)-heptadecane",[C@@H]12[C@@H]3[C@H]([C@@H]([C@@H](C1)CC(CCCCCCCC)CCCCCCCC)C2)CCC3,69.09,Panwar 2024_filtered
+"9(alpha(cis-0,3,3-Bi-cyclooctyl-methyllheptadecane",[C@H]1([C@H]2[C@@H](CC1)CCC2)CC(CCCCCCCC)CCCCCCCC,34.68,Panwar 2024_filtered
+9-Cyclohexyl-heptadecane,C1CCC(CC1)C(CCCCCCCC)CCCCCCCC,19.09,Panwar 2024_filtered
+9-Cyclohexyleicosane,C1CCCCC1[C@@H](CCCCCCCC)CCCCCCCCCCC,27.83,Panwar 2024_filtered
+9-Phenyleicosane,c1cccc(c1)[C@H](CCCCCCCCCCC)CCCCCCCC,23.7,Panwar 2024_filtered
+9-ethyl-9-n-heptyloctadecane,CCCCCCCC[C@](CCCCCCCCC)(CC)CCCCCCC,26.68,Panwar 2024_filtered
+9-n-Dodecylperhydrophenanthrene,C1[C@H]2[C@@H]([C@H]3[C@@H]([C@@H]1CCCCCCCCCCCC)CCCC3)CCCC2,108,Panwar 2024_filtered
+"9-n-Octyl(1,2,3,4-tetrahydro)naphthacene",c1c2c(cc3c1CCCC3)c(c1c(c2)cccc1)CCCCCCCC,7830,Panwar 2024_filtered
+9-n-butyldocosane,CCCCCCCC[C@@H](CCCCCCCCCCCCC)CCCC,15.6,Panwar 2024_filtered
+9-n-hexylheptadecane,CCCCCCCCC(CCCCCCCC)CCCCCC,10.24,Panwar 2024_filtered
+9-n-octyl-8-heptadecene,CCCCCCCC=C(CCCCCCCC)CCCCCCCC,10.65,Panwar 2024_filtered
+9-n-octyldocosane,CCCCCCCCC(CCCCCCCCCCCCC)CCCCCCCC,22.19,Panwar 2024_filtered
+9-n-octyleicosane,CCCCCCCCC(CCCCCCCCCCC)CCCCCCCC,18.03,Panwar 2024_filtered
+9-n-octylheptadecane,CCCCCCCCC(CCCCCCCC)CCCCCCCC,12.81,Panwar 2024_filtered
+9-n-octyltetracosane,CCCCCCCCC(CCCCCCCCCCCCCCC)CCCCCCCC,27.57,Panwar 2024_filtered
+9-p-Tolyloctadecane,c1(ccc(cc1)[C@@H](CCCCCCCC)CCCCCCCCC)C,26.15,Panwar 2024_filtered
+Acetaldehyde,CC=O,0.244,Chen 2024.xlsx
+Acetic Acid,CC(=O)O,1.232,Chen 2024.xlsx
+"Acetic acid, allyl ester",C=CCOC(C)=O,0.52,Chew 2024_filtered
+Acrolein,C=CC=O,0.35,Chew 2024_filtered
+Alpha-methyl styrene,C=C(C)c1ccccc1,0.94,Chew 2024_filtered
+Benzaldehyde,C1=CC=C(C=C1)C=O,1.45,Chen 2024.xlsx
+Benzene,c1ccccc1,0.649,Chew 2024_filtered
+Benzyl alcohol,C1=CC=C(C=C1)CO,5.58,Chen 2024.xlsx
+Bicyclohexyl,C1C(CCCC1)C1CCCCC1,4.073,Panwar 2024_filtered
+Bicyclopentyl,C1C(CCC1)C1CCCC1,1.434,Panwar 2024_filtered
+Bis(2-ethylhexyl) adipate,CCCCC(CC)COC(=O)CCCCC(=O)OCC(CC)CCCC,13.7,Chew 2024_filtered
+Butanal,CCCC=O,0.455,Chen 2024.xlsx
+Butyl Acetate,CCCCOC(=O)C,0.732,Chen 2024.xlsx
+Butyl acetate,CCCCOC(C)=O,0.73,Chew 2024_filtered
+Butyl ethyl ether,CCCCOCC,0.421,Chen 2024.xlsx
+Butyraldehyde,CCCC=O,0.45,Chew 2024_filtered
+Butyric acid,CCCC(=O)O,1.54,Chew 2024_filtered
+Butyric anhydride,CCCC(=O)OC(=O)CCC,1.59,Chew 2024_filtered
+Caproic acid,CCCCCC(=O)O,3.23,Chew 2024_filtered
+Cis-decalin,C1CCC2CCCCC2C1,3.381,Chen 2024.xlsx
+Citronellol,CC(C)=CCCC(C)CCO,11.1,Chew 2024_filtered
+Cyclohexanone,C1CCC(=O)CC1,2.224,Chen 2024.xlsx
+Cyclopentanol,OC1CCCC1,11.883,Chew 2024_filtered
+Cyclopentanone,C1CCC(=O)C1,1.168,Chen 2024.xlsx
+Di(alpha -decalyl)-methane,C1[C@H]2[C@@H](CCC1)[C@@H](CCC2)C[C@@H]1CCC[C@H]2[C@@H]1CCCC2,6918,Panwar 2024_filtered
+Diallyl phthalate,C=CCOC(=O)c1ccccc1C(=O)OCC=C,13,Chew 2024_filtered
+Dibenzyl ether,C1=CC=C(C=C1)COCC2=CC=CC=C2,5.33,Chen 2024.xlsx
+Dibutyl ether,CCCCOCCCC,0.69,Chew 2024_filtered
+Dibutyl fumarate,CCCCOC(=O)C=CC(=O)OCCCC,5.62,Chen 2024.xlsx
+Dibutyl maleate,CCCCOC(=O)/C=C\C(=O)OCCCC,5.62,Chew 2024_filtered
+Dibutyl o-phthalate,CCCCOC(=O)c1ccccc1C(=O)OCCCC,19.91,Chew 2024_filtered
+Dicyclohexylmethane,C1CCC(CC1)CC1CCCCC1,5.685,Panwar 2024_filtered
+Diethyl ether,CCOCC,0.23,Chew 2024_filtered
+Diethyl maleate,CCOC(=O)/C=C\C(=O)OCC,3.57,Chew 2024_filtered
+Diethylene glycol dimethyl ether,COCCOCCOC,1.99,Chen 2024.xlsx
+Diethylene glycol hexyl ether,CCCCCCOCCOCCO,8.6,Chew 2024_filtered
+Diethylene glycol mono-n-butyl ether,CCCCOCCOCCO,5.9,Chew 2024_filtered
+Diethylene glycol monobutyl ether acetate,CCCCOCCOCCOC(C)=O,5.6,Chew 2024_filtered
+Diethylene glycol monoethyl ether,CCOCCOCCO,3.85,Chen 2024.xlsx
+Diisopentyl ether,CC(C)CCOCCC(C)C,1.012,Chew 2024_filtered
+Dimethoxymethane,COCOC,0.325,Chen 2024.xlsx
+Dimethyl carbonate,COC(=O)OC,0.664,Chew 2024_filtered
+Dimethyl hexahydroterephthalate,COC(=O)C1CCC(C(=O)OC)CC1,8,Chew 2024_filtered
+Dimethyl hexanedioate,COC(=O)CCCCC(=O)OC,14,Chew 2024_filtered
+Dimethyl maleate,COC(=O)/C=C\C(=O)OC,3.54,Chew 2024_filtered
+Ethanol (anhydrous),CCO,1.074,Chew 2024_filtered
+Ethyl Formate,CCOC=O,0.402,Chen 2024.xlsx
+Ethyl acetate,CCOC(C)=O,0.46,Chew 2024_filtered
+Ethyl benzoate,CCOC(=O)C1=CC=CC=C1,2.24,Chen 2024.xlsx
+Ethyl butanoate,CCCC(=O)OCC,0.672,Chen 2024.xlsx
+Ethyl butyrate,CCCC(=O)OCC,0.69,Chew 2024_filtered
+Ethyl ethanoate,CCOC(=O)C,0.455,Chen 2024.xlsx
+Ethyl propanoate,CCC(=O)OCC,0.537,Chen 2024.xlsx
+Ethyl propionate,CCOC(=O)CC,0.535,Chew 2024_filtered
+Ethyl propyl ether,CCCOCC,0.32,Chew 2024_filtered
+Ethyl trans-cinnamate,CCOC(=O)/C=C/c1ccccc1,8.7,Chew 2024_filtered
+Ethyl valerate,CCCCC(=O)OCC,0.84,Chew 2024_filtered
+Ethyl vinyl ether,CCOC=C,0.2,Chen 2024.xlsx
+Ethylene glycol,OCCO,19.9,Chew 2024_filtered
+Ethylene glycol monoethyl ether acetate,CCOCCOC(C)=O,1.32,Chew 2024_filtered
+Formic Acid,C(=O)O,1.804,Chen 2024.xlsx
+Formic acid,O=CO,1.8,Chew 2024_filtered
+Furan,c1ccoc1,0.38,Chew 2024_filtered
+Heptane,CCCCCCC,0.416,Chew 2024_filtered
+Heptanoic acid,CCCCCCC(=O)O,4.34,Chew 2024_filtered
+"Hexadiene-1,5",C=CCCC=C,0.275,Chew 2024_filtered
+Hexane,CCCCCC,0.313,Chew 2024_filtered
+Hexanoic acid,CCCCCC(=O)O,3.2,Chen 2024.xlsx
+Hexylcyclopentane,CCCCCCC1CCCC1,1.88,Chen 2024.xlsx
+Hydrogen peroxide,OO,1.249,Chew 2024_filtered
+Isoamyl acetate,CC(=O)OCCC(C)C,0.872,Chew 2024_filtered
+Isobutyl acetate,CC(=O)OCC(C)C,0.73,Chew 2024_filtered
+Isopentane,CCC(C)C,0.214,Chew 2024_filtered
+Isopentyl acetate,CC(=O)OCCC(C)C,0.872,Chew 2024_filtered
+Isophorone,CC1=CC(=O)CC(C)(C)C1,2.62,Chew 2024_filtered
+Isopropyl ethanoate,CC(C)OC(=O)C,0.559,Chen 2024.xlsx
+L-Pinene,CC1=CCC2CC1C2(C)C,1.7,Chew 2024_filtered
+Methacrolein,C=C(C)C=O,0.49,Chew 2024_filtered
+Methacrylic acid,C=C(C)C(=O)O,1.32,Chew 2024_filtered
+Methyl 2-methyl-2-propenoate,CC(=C)C(=O)OC,0.632,Chen 2024.xlsx
+Methyl Formate,COC=O,0.348,Chen 2024.xlsx
+Methyl acetate,COC(C)=O,0.38,Chew 2024_filtered
+Methyl benzoate,COC(=O)C1=CC=CC=C1,2.044,Chen 2024.xlsx
+Methyl butanoate,CCCC(=O)OC,0.58,Chen 2024.xlsx
+Methyl butyl ketone,CCCCC(C)=O,0.63,Chew 2024_filtered
+Methyl formate,COC=O,0.35,Chew 2024_filtered
+Methyl lactate,COC(=O)C(C)O,2.94,Chew 2024_filtered
+Methyl methacrylate,C=C(C)C(=O)OC,0.632,Chew 2024_filtered
+Methyl oleate,CCCCCCCC/C=C\CCCCCCCC(=O)OC,4.88,Chew 2024_filtered
+Methyl pentanoate,CCCCC(=O)OC,0.713,Chen 2024.xlsx
+Methyl propanoate,CCC(=O)OC,0.477,Chen 2024.xlsx
+Methyl propyl ether,CCCOC,0.25,Chew 2024_filtered
+N-Butyl?Vinyl?Ether,CCCCOC=C,0.5,Chen 2024.xlsx
+N-Butylcyclohexane,CCCCC1CCCCC1,1.31,Chen 2024.xlsx
+N-Dodecylbenzene,CCCCCCCCCCCCC1=CC=CC=C1,5.45,Chen 2024.xlsx
+N-butylcyclopentane,CCCCC1CCCC1,0.887,Chen 2024.xlsx
+N-heptadecane,CCCCCCCCCCCCCCCCC,3.74,Chen 2024.xlsx
+N-hexadecane,CCCCCCCCCCCCCCCC,3.34,Chen 2024.xlsx
+N-pentadecane,CCCCCCCCCCCCCCC,2.863,Chen 2024.xlsx
+N-propylcyclopentane,CCCC1CCCC1,0.68,Chen 2024.xlsx
+N-tetradecane,CCCCCCCCCCCCCC,2.18,Chen 2024.xlsx
+N-tridecane,CCCCCCCCCCCCC,1.883,Chen 2024.xlsx
+Neopentyl alcohol,CC(C)(C)CO,2.5,Chew 2024_filtered
+Nonanoic acid,CCCCCCCCC(=O)O,8.08,Chew 2024_filtered
+Octane,CCCCCCCC,0.546,Chew 2024_filtered
+Octanoic acid,CCCCCCCC(=O)O,5.75,Chew 2024_filtered
+Pentanal,CCCCC=O,0.513,Chen 2024.xlsx
+Pentanoic acid,CCCCC(=O)O,2.24,Chen 2024.xlsx
+Pentyl acetate,CCCCCOC(C)=O,0.924,Chew 2024_filtered
+Pentylcyclopentane,CCCCCC1CCCC1,1.152,Chen 2024.xlsx
+"Perhydro-1,2,5,6-dibenzcyclo-octane*",C1[C@H]2[C@@H](CCC1)CC[C@H]1CCCC[C@H]1CC2,22.26,Panwar 2024_filtered
+Perhydro-9-n-dodecylfluorene*,C1[C@@H]2[C@@H](CCC1)[C@H]([C@H]1CCCC[C@@H]21)CCCCCCCCCCCC,55.38,Panwar 2024_filtered
+Perhydrochrysene,C1[C@H]2[C@@H]([C@H]3[C@@H](C1)CC[C@@H]1[C@@H]3CCCC1)CCCC2,75.06,Panwar 2024_filtered
+"Perhydrodibenzo-(a,i)fluorene",C1[C@@H]2[C@@H]([C@H]3[C@@H](C1)CCCC3)C[C@H]1[C@@H]3[C@H](CC[C@@H]21)CCCC3,4512,Panwar 2024_filtered
+Perhydrofluoranthene,C1[C@H]2[C@H]3[C@@H](CC1)[C@@H]1[C@H]([C@@H]3CCC2)CCCC1,17.81,Panwar 2024_filtered
+Perhydrofluorene,C1[C@@H]2[C@@H](CCC1)C[C@H]1CCCC[C@@H]21,6.559,Panwar 2024_filtered
+"Perhydroindeno(2,1-a)indene*",C1C[C@@H]2[C@@H](CC1)C[C@H]1[C@H]2C[C@H]2CCCC[C@H]12,18.37,Panwar 2024_filtered
+Perhydrophenanthren,C1[C@H]2[C@@H](CCC1)[C@H]1[C@H](CC2)CCCC1,7.591,Panwar 2024_filtered
+Perhydropyrene,C1C[C@H]2[C@H]3[C@@H](C1)CC[C@@H]1[C@@H]3[C@@H](CCC1)CC2,24.4,Panwar 2024_filtered
+Propanal,CCC=O,0.404,Chen 2024.xlsx
+Propanoic anhydride,CCC(=O)OC(=O)CC,1.144,Chew 2024_filtered
+Propionic Acid,CCC(=O)O,1.102,Chen 2024.xlsx
+Propionic acid,CCC(=O)O,1.1,Chew 2024_filtered
+Propyl butanoate,CCCC(=O)OCCC,0.831,Chen 2024.xlsx
+Propyl butyrate,CCCOC(=O)CCC,0.83,Chew 2024_filtered
+Propyl ethanoate,CCCOC(=O)C,0.585,Chen 2024.xlsx
+"Spiro(4,5)decane",C12(CCCC1)CCCCC2,2.208,Panwar 2024_filtered
+"Spiro(5,5)undecane",C1CCC2(CC1)CCCCC2,3.144,Panwar 2024_filtered
+"Spiro(5,6)dodecane",C1CCC2(CC1)CCCCCC2,4.507,Panwar 2024_filtered
+"Styrene-7,8-oxide",c1ccc(C2CO2)cc1,1.99,Chew 2024_filtered
+Tetrahydro-2-furanmethanol,OCC1CCCO1,6.24,Chew 2024_filtered
+Tetrahydrofuran,C1CCOC1,0.53,Chew 2024_filtered
+Tetrahydropyran-2-methanol,OCC1CCCCO1,11,Chew 2024_filtered
+Thiophene,c1ccsc1,0.662,Chew 2024_filtered
+Tricyclopentylmethane,C1CCC(C1)C(C1CCCC1)C1CCCC1,10.11,Panwar 2024_filtered
+Triethylene glycol bis(2-ethylbutyrate),CCC(CC)C(=O)OCCOCCOCCOC(=O)C(CC)CC,10.3,Chew 2024_filtered
+Triethylene glycol monoethyl ether,CCOCCOCCOCCO,7.8,Chew 2024_filtered
+Valeric acid,CCCCC(=O)O,2.3,Chew 2024_filtered
+Vinyl acetate,C=COC(C)=O,0.421,Chew 2024_filtered
+Vinylcyclohexene dioxide,C1CC2OC2CC1C1CO1,7.77,Chew 2024_filtered
+acetic acid,CC(=O)O,1.234,Chew 2024_filtered
+acetone,CC(C)=O,0.331,Chew 2024_filtered
+allyl alcohol,C=CCO,1.37,Chew 2024_filtered
+alpha-methylbenzyl alcohol,C[C@@H](O)c1ccccc1,10.9,Chew 2024_filtered
+alpha-terpineol,CC1=CCC(CC1)C(C)(C)O,38,Saldana 2012_filtered
+benzene,C1=CC=CC=C1,0.652,Chen 2024.xlsx
+bicyclohexyl,C1CCC(CC1)C2CCCCC2,3.75,Chen 2024.xlsx
+butan-2-ylbenzene,CCC(C)C1=CC=CC=C1,1.045,Chen 2024.xlsx
+butyl ethanoate,CCCCOC(C)=O,0.73,Chew 2024_filtered
+butyl formate,CCCCOC=O,0.691,Chen 2024.xlsx
+butyl methanoate,CCCCOC=O,0.7,Chew 2024_filtered
+butyl pentanoate,CCCCOC(=O)CCCC,1.23,Chew 2024_filtered
+"cis(0,3,3)Bicyclo-octane",C1[C@H]2[C@@H](CC1)CCC2,1.853,Panwar 2024_filtered
+"cis-1,2-dimethylcyclohexane",C[C@@H]1CCCC[C@@H]1C,1.11,Chew 2024_filtered
+"cis-1,3-dimethylcyclohexane",C[C@@H]1CCC[C@H](C)C1,0.87,Chew 2024_filtered
+"cis-1,4-dimethylcyclohexane",C[C@H]1CC[C@@H](C)CC1,0.88,Chew 2024_filtered
+cis-2-pentene,C/C=C\CC,0.21,Chew 2024_filtered
+cis-3-octene,CCCCC=CCC,0.479,Chen 2024.xlsx
+cis-Decahydro-naphthalene,C1[C@@H]2[C@@H](CCC1)CCCC2,3.349,Panwar 2024_filtered
+cis-decahydronaphthalene,C1CC[C@H]2CCCC[C@H]2C1,3.37,Chew 2024_filtered
+cyclohexane,C1CCCCC1,0.98,Chen 2024.xlsx
+cyclohexene,C1CCC=CC1,0.65,Chen 2024.xlsx
+cyclooctane,C1CCCCCCC1,2.56,Chew 2024_filtered
+cyclopentane,C1CCCC1,0.439,Chen 2024.xlsx
+cyclopentene,C1CC=CC1,0.346,Chen 2024.xlsx
+decyl ethanoate,CCCCCCCCCCOC(C)=O,2.73,Chew 2024_filtered
+decylcyclopentane,CCCCCCCCCCC1CCCC1,3.55,Chen 2024.xlsx
+di-n-butyl phthalate,CCCCOC(=O)c1ccccc1C(=O)OCCCC,19.91,Chew 2024_filtered
+di-n-decyl phthalate,CCCCCCCCCCOC(=O)c1ccccc1C(=O)OCCCCCCCCCC,51,Saldana 2012_filtered
+di-n-undecyl phthalate,CCCCCCCCCCCOC(=O)c1ccccc1C(=O)OCCCCCCCCCCC,70,Saldana 2012_filtered
+diacetone alcohol,CC(=O)CC(C)(C)O,3.38,Chew 2024_filtered
+diallyl maleate,C=CCOC(=O)/C=C\C(=O)OCC=C,4.5,Chew 2024_filtered
+dibutyl ether,CCCCOCCCC,0.691,Chen 2024.xlsx
+dibutyl maleate,CCCCOC(=O)/C=C\C(=O)OCCCC,5.63,Chew 2024_filtered
+dibutyl sebacate,CCCCOC(=O)CCCCCCCCC(=O)OCCCC,9.36,Chew 2024_filtered
+"diethyl 1,2-propanedioate",CCOC(=O)CC(=O)OCC,2.15,Chew 2024_filtered
+diethyl ether,CCOCC,0.245,Chen 2024.xlsx
+diethyl ketone,CCC(=O)CC,0.4799,Chew 2024_filtered
+diethyl malonate,CCOC(=O)CC(=O)OCC,2.15,Chew 2024_filtered
+diethyl oxalate,CCOC(=O)C(=O)OCC,2.02,Chew 2024_filtered
+diethyl phthalate,CCOC(=O)c1ccccc1C(=O)OCC,12.76,Chew 2024_filtered
+diethyl succinate,CCOC(=O)CCC(=O)OCC,2.81,Chew 2024_filtered
+diethylene glycol,OCCOCCO,2.326,Saldana 2012_filtered
+dihexyl adipate,CCCCCCOC(=O)CCCCC(=O)OCCCCCC,9.14,Chew 2024_filtered
+diisoamyl ether,CC(C)CCOCCC(C)C,1.012,Chen 2024.xlsx
+diisononyl phthalate,CC(C)CCCCCCOC(=O)c1ccccc1C(=O)OCCCCCCC(C)C,80,Saldana 2012_filtered
+diisopropenyl,C=C(C)C(=C)C,0.2733,Chew 2024_filtered
+diisopropyl,CC(C)C(C)C,0.385,Chew 2024_filtered
+diisopropyl ether,CC(C)OC(C)C,0.341,Chen 2024.xlsx
+dimethyl maleate,COC(=O)/C=C\C(=O)OC,3.54,Chew 2024_filtered
+dioctyl adipate,CCCCCCCCOC(=O)CCCCC(=O)OCCCCCCCC,12.9,Chew 2024_filtered
+dipropylacetic acid,CCCC(CCC)C(=O)O,7.642,Chew 2024_filtered
+dipropylene glycol,CC(O)COCC(C)O,107,Saldana 2012_filtered
+ethanol,CCO,1.2,Chen 2024.xlsx
+ethoxybenzene,CCOC1=CC=CC=C1,1.239,Chen 2024.xlsx
+ethyl (9Z)-octadec-9-enoate,CCCCCCCC/C=C\CCCCCCCC(=O)OCC,0.601,Saldana 2012_filtered
+ethyl acetoacetate,CCOC(=O)CC(=O)C,1.419,Chen 2024.xlsx
+ethyl benzoate,CCOC(=O)c1ccccc1,2.23,Chew 2024_filtered
+ethyl diethylacetoacetate,CCOC(=O)C(CC)(CC)C(C)=O,3.502,Chew 2024_filtered
+ethyl dodecanoate,CCCCCCCCCCCC(=O)OCC,3.33,Chew 2024_filtered
+ethyl ethanoate,CCOC(=O)C,2.9,Saldana 2012_filtered
+ethyl formate,CCOC=O,0.4132,Chew 2024_filtered
+ethyl isobutyrate,CCOC(=O)C(C)C,0.588,Chew 2024_filtered
+ethyl lactate,CCOC(=O)C(C)O,1.26,Chew 2024_filtered
+ethyl propanoate,CCOC(=O)CC,1.58,Saldana 2012_filtered
+ethyl propionate,CCOC(=O)CC,0.531,Chew 2024_filtered
+ethyl propyl ether,CCCOCC,0.3165,Chew 2024_filtered
+ethyl propylacetoacetate,CCCC(C(C)=O)C(=O)OCC,2.264,Chew 2024_filtered
+ethyl valerate,CCCCC(=O)OCC,0.847,Chen 2024.xlsx
+ethyl-3-ethoxypropionate,CCOCCC(=O)OCC,2.65,Chew 2024_filtered
+ethylbenzene,CCC1=CC=CC=C1,0.678,Chen 2024.xlsx
+ethylcyclohexane,CCC1CCCCC1,0.843,Chen 2024.xlsx
+ethylcyclopentane,CCC1CCCC1,0.57,Chew 2024_filtered
+furan,C1=COC=C1,0.38,Chen 2024.xlsx
+furfural,O=Cc1ccco1,1.6173,Saldana 2012_filtered
+gamma-butyrolactone,O=C1CCCO1,1.88,Chew 2024_filtered
+glycerol,OCC(O)CO,1412,Saldana 2012_filtered
+heptanoic?acid,CCCCCCC(=O)O,4.36,Chen 2024.xlsx
+heptyl ethanoate,CCCCCCCOC(C)=O,1.52,Chew 2024_filtered
+heptylcyclopentane,CCCCCCCC1CCCC1,2.36,Chen 2024.xlsx
+hexyl ethanoate,CCCCCCOC(C)=O,1.17,Chew 2024_filtered
+indane,c1ccc2c(c1)CCC2,1.49,Chew 2024_filtered
+indene,c1ccc2CC=Cc2c1,1.82,Saldana 2012_filtered
+isoamyl formate,CC(C)CCOC=O,0.794,Chew 2024_filtered
+isobutyl acetate,CC(C)COC(=O)C,0.697,Chen 2024.xlsx
+isobutyl ether,CC(C)COCC(C)C,0.7491,Chew 2024_filtered
+isobutyl formate,CC(C)COC=O,0.68,Chen 2024.xlsx
+isobutyl methacrylate,C=C(C)C(=O)OCC(C)C,1,Chew 2024_filtered
+isohexane,CCCC(C)C,0.31,Chew 2024_filtered
+isoprene,C=CC(=C)C,0.22,Chew 2024_filtered
+isopropyl acetate,CC(=O)OC(C)C,0.52,Chew 2024_filtered
+isopropyl alcohol,CC(C)O,2.431,Chew 2024_filtered
+isopropyl formate,CC(C)OC=O,0.512,Chen 2024.xlsx
+isopropyl myristate,CCCCCCCCCCCCCC(=O)OC(C)C,5.6,Chew 2024_filtered
+isopropylbenzene,CC(C)C1=CC=CC=C1,0.791,Chen 2024.xlsx
+isopropylcyclopentane,CC(C)C1CCCC1,0.71,Chew 2024_filtered
+isovaleric acid,CC(C)CC(=O)O,2.411,Chew 2024_filtered
+m-cresol,Cc1cccc(O)c1,16.4,Saldana 2012_filtered
+methanol,CO,0.597,Chen 2024.xlsx
+methoxybenzene,COC1=CC=CC=C1,1.32,Chen 2024.xlsx
+methyl acetate,CC(=O)OC,0.381,Chen 2024.xlsx
+methyl acetoacetate,COC(=O)CC(C)=O,1.7,Chew 2024_filtered
+methyl benzoate,COC(=O)c1ccccc1,2.06,Chew 2024_filtered
+methyl butanoate,CCCC(=O)OC,0.58,Chew 2024_filtered
+methyl dodecanoate,CCCCCCCCCCCC(=O)OC,2.19,Chew 2024_filtered
+methyl elaidate,CCCCCCCCC=CCCCCCCCC(=O)OC,4.88,Chen 2024.xlsx
+methyl ethanoate,COC(C)=O,0.38,Chew 2024_filtered
+methyl formate,COC=O,0.3467,Chew 2024_filtered
+methyl isobutyl ketone,CC(=O)CC(C)C,0.5799,Chew 2024_filtered
+methyl isobutyrate,CC(C)C(=O)OC,0.523,Chen 2024.xlsx
+methyl methanoate,COC=O,0.6322,Saldana 2012_filtered
+methyl n-butyrate,CCCC(=O)OC,0.5727,Chew 2024_filtered
+methyl n-valerate,CCCCC(=O)OC,0.7119,Chew 2024_filtered
+methyl propionate,CCC(=O)OC,0.461,Chew 2024_filtered
+methyl propyl ether,CCCOC,0.2513,Chew 2024_filtered
+methyl-2-propenoate,COC(=O)C=C,1.398,Chen 2024.xlsx
+methylcyclohexane,CC1CCCCC1,0.734,Chen 2024.xlsx
+methylcyclohexanone,CC1CCCCC1=O,1.76,Chew 2024_filtered
+methylcyclopentane,CC1CCCC1,0.507,Chen 2024.xlsx
+methylethylacetic acid,CCC(C)C(=O)O,2.055,Chew 2024_filtered
+methylpropylacetic acid,CCCC(C)C(=O)O,2.867,Chew 2024_filtered
+n-Butyric Acid,CCCC(=O)O,1.54,Chen 2024.xlsx
+n-Dodecane,CCCCCCCCCCCC,1.492,Panwar 2024_filtered
+n-Hexadecane,CCCCCCCCCCCCCCCC,3.453,Panwar 2024_filtered
+n-Pentadecane,CCCCCCCCCCCCCCC,2.842,Panwar 2024_filtered
+n-Pentanol,CCCCCO,4.4,Chew 2024_filtered
+n-Tetradecane,CCCCCCCCCCCCCC,2.323,Panwar 2024_filtered
+n-Tridecane,CCCCCCCCCCCCC,1.864,Panwar 2024_filtered
+n-butyl formate,CCCCOC=O,0.5627,Chew 2024_filtered
+n-butyl methacrylate,C=C(C)C(=O)OCCCC,1.09,Chew 2024_filtered
+n-butylbenzene,CCCCC1=CC=CC=C1,1.035,Chen 2024.xlsx
+n-butylcyclohexane,CCCCC1CCCCC1,1.31,Chew 2024_filtered
+n-decane,CCCCCCCCCC,0.928,Chen 2024.xlsx
+n-decylbenzene,CCCCCCCCCCC1=CC=CC=C1,3.79,Chen 2024.xlsx
+n-dodecane,CCCCCCCCCCCC,1.508,Chen 2024.xlsx
+n-heptane,CCCCCCC,0.418,Chen 2024.xlsx
+n-heptyl alcohol,CCCCCCCO,7.009,Chew 2024_filtered
+n-heptylbenzene,CCCCCCCC1=CC=CC=C1,2.07,Chen 2024.xlsx
+n-hexadecane,CCCCCCCCCCCCCCCC,3.49,Chew 2024_filtered
+n-hexane,CCCCCC,0.326,Chen 2024.xlsx
+n-hexylbenzene,CCCCCCC1=CC=CC=C1,1.67,Chen 2024.xlsx
+n-nonane,CCCCCCCCC,0.711,Chen 2024.xlsx
+n-nonylbenzene,CCCCCCCCCC1=CC=CC=C1,3.13,Chen 2024.xlsx
+n-octane,CCCCCCCC,0.542,Chen 2024.xlsx
+n-octyl alcohol,CCCCCCCCO,8.925,Chew 2024_filtered
+n-octylbenzene,CCCCCCCCC1=CC=CC=C1,2.56,Chen 2024.xlsx
+n-pentadecane,CCCCCCCCCCCCCCC,2.84,Chew 2024_filtered
+n-pentane,CCCCC,0.24,Chen 2024.xlsx
+n-pentylbenzene,CCCCCC1=CC=CC=C1,1.33,Chen 2024.xlsx
+n-propyl acetate,CCCOC(C)=O,0.5762,Chew 2024_filtered
+n-propyl alcohol,CCCO,2.23,Chew 2024_filtered
+n-propyl n-valerate,CCCCC(=O)OCCC,1.038,Chew 2024_filtered
+n-propyl propionate,CCCOC(=O)CC,0.6722,Chew 2024_filtered
+n-propylcyclohexane,CCCC1CCCCC1,1.01,Chew 2024_filtered
+n-tetradecane,CCCCCCCCCCCCCC,2.32,Chew 2024_filtered
+n-tetradecylbenzene,CCCCCCCCCCCCCCC1=CC=CC=C1,7.66,Chen 2024.xlsx
+n-tridecane,CCCCCCCCCCCCC,1.87,Chew 2024_filtered
+n-tridecylbenzene,CCCCCCCCCCCCCC1=CC=CC=C1,6.48,Chen 2024.xlsx
+n-undecane,CCCCCCCCCCC,1.17,Chen 2024.xlsx
+n-undecylbenzene,CCCCCCCCCCCC1=CC=CC=C1,4.59,Chen 2024.xlsx
+nonanoic?acid,CCCCCCCCC(=O)O,8.32,Chen 2024.xlsx
+nonyl ethanoate,CCCCCCCCCOC(C)=O,1.75,Chew 2024_filtered
+nonylphenol,CCCCCCCCCc1ccccc1O,1559.5,Saldana 2012_filtered
+o-cresol,Cc1ccccc1O,9.8,Saldana 2012_filtered
+o-hexahydrocresol,CC1CCCCC1O,21.8,Chew 2024_filtered
+o-xylene,Cc1ccccc1C,4.171,Saldana 2012_filtered
+octanoic?acid,CCCCCCCC(=O)O,5.828,Chen 2024.xlsx
+octyl ethanoate,CCCCCCCCOC(C)=O,1.85,Chew 2024_filtered
+p-cresol,Cc1ccc(O)cc1,18.95,Saldana 2012_filtered
+p-ethyltoluene,CCc1ccc(C)cc1,0.703,Saldana 2012_filtered
+paraldehyde,CC1OC(C)OC(C)O1,1.17,Chew 2024_filtered
+pentyl acetate,CCCCCOC(=O)C,0.924,Chen 2024.xlsx
+pentyl ethanoate,CCCCCOC(C)=O,0.92,Chew 2024_filtered
+propenal,C=CC=O,0.344,Chen 2024.xlsx
+propyl 2-methylpropanoate,CCCOC(=O)C(C)C,0.831,Chen 2024.xlsx
+propyl butanoate,CCCOC(=O)CCC,0.9384,Saldana 2012_filtered
+propyl ethanoate,CCCOC(C)=O,0.59,Chew 2024_filtered
+propyl formate,CCCOC=O,0.574,Chen 2024.xlsx
+propyl isobutyrate,CCCOC(=O)C(C)C,0.7389,Chew 2024_filtered
+propyl methanoate,CCCOC=O,0.52,Chew 2024_filtered
+propyl propanoate,CCCOC(=O)CC,0.67,Chew 2024_filtered
+propyl propionate,CCCOC(=O)CC,0.673,Chen 2024.xlsx
+propyl valerate,CCCCC(=O)OCCC,1.053,Chen 2024.xlsx
+propylbenzene,CCCC1=CC=CC=C1,0.855,Chen 2024.xlsx
+propylcyclohexane,CCCC1CCCCC1,1.003,Chen 2024.xlsx
+propylene,CC=C,0.0846,Saldana 2012_filtered
+propylene glycol n-propyl ether,CCCOCC(C)O,11.39,Saldana 2012_filtered
+pyridine,c1ccncc1,0.945,Chew 2024_filtered
+quinoline,c1ccc2ncccc2c1,3.64,Chew 2024_filtered
+styrene,C=CC1=CC=CC=C1,0.751,Chen 2024.xlsx
+tetraethylene glycol,OCCOCCOCCOCCO,61.9,Saldana 2012_filtered
+tetraethylene glycol monomethyl ether,COCCOCCOCCOCCO,3.26,Chew 2024_filtered
+tetrahydrofuran,C1CCOC1,0.55,Chen 2024.xlsx
+tetrahydrofurfuryl alcohol,OCC1CCCO1,6.24,Chew 2024_filtered
+tetrahydropyran,C1CCOCC1,0.826,Chen 2024.xlsx
+toluene,CC1=CC=CC=C1,0.59,Chen 2024.xlsx
+"trans-1,2-dimethylcyclohexane",C[C@@H]1CCCC[C@H]1C,0.82,Chew 2024_filtered
+"trans-1,3-dimethylcyclohexane",C[C@@H]1CCC[C@@H](C)C1,0.63,Chew 2024_filtered
+"trans-1,4-dimethylcyclohexane",C[C@H]1CC[C@H](C)CC1,0.71,Chew 2024_filtered
+trans-Decahydro-naphthalene,C1[C@@H]2[C@@H](CCC1)CCCC2,2.109,Panwar 2024_filtered
+trans-decahydronaphthalene,C1CC[C@H]2CCCC[C@@H]2C1,2.12,Chew 2024_filtered
+triethylene glycol,OCCOCCOCCO,8.19,Saldana 2012_filtered
+triethylene glycol monomethyl ether,COCCOCCOCCO,7.27,Chew 2024_filtered
+vinyl Acetate,CC(=O)OC=C,0.421,Chen 2024.xlsx

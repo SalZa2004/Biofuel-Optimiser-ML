@@ -1,799 +1,703 @@
-Number,SMILES,Name,density
-1,CCC(=O)OC=C,Vinyl propanoate,
-2,C=CC1CCCCC1,Vinyl cyclohexane,
-3,CCCC(=O)OC=C,Vinyl butanoate,
-4,CC(=O)OC=C,vinyl Acetate,
-5,CCCCCCCCCCC(=O)O,Hendecanoic acid,
-6,CCCCCCCCCCC=O,Undecanal,
-7,COC(OC)OC,trimethoxymethane,
-8,COCCOCCOCCO,triethylene glycol monomethyl ether,
-9,COCCOCCOCCOC,Triethylene glycol dimethyl ether,
-10,CCCCCCCCCCCCC(=O)O,n-Tridecanoic acid,
-11,CC=CC=O,trans-Crotonaldehyde,869
-12,CCCC=CCCC,Trans-4-Octene,718.4
-13,CC1=CC=CC=C1,toluene,862.3
-14,COC(OC)(OC)OC,tetramethoxymethane,
-15,C1CCOCC1,tetrahydropyran,878.8
-16,C1CC(OC1)CO,tetrahydrofurfuryl alcohol,1058.7
-17,CC(=O)OCC1CCCO1,tetrahydrofurfuryl acetate,
-18,C1CCOC1,tetrahydrofuran,902
-19,CCCCCCCCCCCCCCOC(=O)C,Tetradecyl acetate,
-20,CCCCCCCCCCCCCC(=O)O,Tetradecanoic acid,
-21,CC(C)(C)C1CCCCC1,tert-Butylcyclohexane,
-22,CCOC(C)(C)C,tert-butyl ethyl ether,735.3
-23,CC(=O)OC(C)(C)C,tert-butyl acetate,862
-24,CCC(C)(C)OC,Tert-Amyl methyl ether,770.3
-25,C1=CC(=CC=C1C(=O)O)C(=O)O,"1,4-Benzenedicarboxylic acid",
-26,C(CC(=O)O)C(=O)O,succinic acid,
-27,C=CC1=CC=CC=C1,styrene,909
-28,CCCC(C)OC(=O)C,sec-Pentyl acetate,
-29,CCC(C)C1CCCCC1,Sec-Butylcyclohexane,
-30,CCC(C)OC=O,sec-Butyl formate,887
-31,CCC(C)OC(=O)C,sec-butyl acetate,
-32,C(CCCCC(=O)O)CCCC(=O)O,sebacic acid,
-33,C1=CC2=C3C(=C1)C=CC4=CC=CC(=C43)C=C2,pyrene,
-34,CC#C,Propyne,
-35,CC(COC)OC(=O)C,propylene glycol monomethyl ether acetate,
-36,CCCC1CCCCC1,propylcyclohexane,
-37,CCCC1=CC=CC=C1,propylbenzene,858.1
-38,CCCCC(=O)OCCC,propyl valerate,
-39,CCCOC(=O)CC,propyl propionate,875.53
-40,CCCOC=O,propyl formate,903
-41,CCCOC(=O)C,Propyl ethanoate,
-42,CCCC(=O)OCCC,Propyl butanoate,
-43,CCCOC(=O)C(C)C,propyl 2-methylpropanoate,879
-44,CCC(=O)O,Propionic Acid,
-45,CC=C,Propene,575
-46,C=CC=O,propenal,838.9
-47,CCC,Propane,493
-48,CCC=O,Propanal,805.8
-49,CCCC(=O)OC(C)C,propan-2-yl butanoate,876
-50,C=CC(=O)O,2-Propenoic acid,
-51,C#CC1=CC=CC=C1,phenylacetylene,
-52,C1CCC2C(C1)CCC3C2CCCC3,perhydrophenanthrene ,
-53,CCCCCC1CCCC1,Pentylcyclopentane,
-54,CCCCCOC(=O)CCCC,pentyl valerate,
-55,CCCCCOC(=O)CC,Pentyl propanoate,
-56,CCCCCOC=O,pentyl formate,885
-57,CCCCCOC(=O)CCC,Pentyl butanoate,
-58,CCCCCOC(=O)C,pentyl acetate,
-59,CCCCC(=O)O,Pentanoic acid,
-60,C(CC(=O)O)CC(=O)O,Pentanedioic acid,
-61,CCCCC=O,Pentanal,
-62,CCCCCCCCCCCCCCC(=O)O,pentadecanoic?acid,
-63,CCCCCCCCC=CCCCCCCCC(=O)O,Oleic acid,
-64,CCCCCCCC(=O)O,octanoic?acid,
-65,C(CCCC(=O)O)CCC(=O)O,octanedioic?acid,
-66,CCCCCCCC=O,Octanal,
-67,CCCCCCCCCCCCCCCCCCOC(=O)C,Octadecyl acetate,
-68,CCCCCCCCCCCCCCCCCC(=O)O,Octadecanoic Acid,
-69,CCCCCCCCCCCC1=CC=CC=C1,n-undecylbenzene,
-70,CCCCCCCCCCC,n-undecane,
-71,CCCCCCCCCCCCCC1=CC=CC=C1,n-tridecylbenzene,
-72,CCCCCCCCCCCCC,N-tridecane,
-73,CCCCCCCCCCCCCCC1=CC=CC=C1,n-tetradecylbenzene,
-74,CCCCCCCCCCCCCC,N-tetradecane,
-75,CCCC1CCCC1,N-propylcyclopentane,775.25
-76,CCCCCC1=CC=CC=C1,n-pentylbenzene,860.2
-77,CCCCC,n-pentane,685.95
-78,CCCCCCCCCCCCCCC,N-pentadecane,
-79,CCCCCCCCC=O,Nonyl aldehyde,
-80,CCCCCCCCC(=O)O,nonanoic?acid,
-81,CCCCCCCCCCCCCCCCCCC(=O)O,nonadecanoic?acid,
-82,CCCCCCCCC1=CC=CC=C1,n-octylbenzene,
-83,CCCCCCCCOC=O,N-Octyl?Formate,
-84,CCCCCCCCOC(=O)C,N-Octyl?Acetate,
-85,CCCCCCCC,n-octane,698.6
-86,CCCCCCCCCCCCCCCCCC,N-octadecane,
-87,CCCCCCCCCC1=CC=CC=C1,n-nonylbenzene,
-88,CCCCCCCCCOC=O,N-Nonyl?Formate,
-89,CCCCCCCCCOC(=O)C,N-Nonyl?Acetate,
-90,CCCCCCCCC,n-nonane,
-91,CCCCCCCCCCCCCCCCCCC,N-nonadecane,
-92,CCCCCCC1=CC=CC=C1,n-hexylbenzene,
-93,CCCCCC,n-hexane,654.7
-94,CCCCCCCCCCCCCCCCC1=CC=CC=C1,N-hexadecylbenzene,
-95,CCCCCCCCCCCCCCCC,N-hexadecane,
-96,CCCCCCCC1=CC=CC=C1,n-heptylbenzene,
-97,CCCCCCC,n-heptane,679.56
-98,CCCCCCCCCCCCCCCCC,N-heptadecane,
-99,CCCCCCCCCCCCCCCCCCCCC,N-heneicosane,
-100,CC(C)(C)C(=O)O,Neopentanoic?Acid,
-101,CCCCCCCCCCCCCCCCCCCC,N-eicosane,
-102,CCCCCCCCCCCCC1=CC=CC=C1,N-Dodecylbenzene,
-103,CCCCCCCCCCCC,n-dodecane,
-104,CCCCCCCCCCCCCCCCCCCCCC,N-docosane,
-105,CCCCCCCCCCC1=CC=CC=C1,n-decylbenzene,851.89
-106,CCCCCCCCCC,n-decane,
-107,CCCC(=O)O,n-Butyric Acid,
-108,CCCCC1CCCC1,N-butylcyclopentane,
-109,CCCCC1CCCCC1,N-Butylcyclohexane,
-110,CCCCC1=CC=CC=C1,n-butylbenzene,855.9
-111,CCCCOC=C,N-Butyl?Vinyl?Ether,
-112,C1=CC=C2C=CC=CC2=C1,naphthalene,1037
-113,CC1CC1,Methylcyclopropane,
-114,CC1CCCC1,methylcyclopentane,743.3
-115,CC1CCCCC1,methylcyclohexane,765.1
-116,CC1CCC1,Methylcyclobutane,
-117,CCC=CCC(=O)OC,methyl-3-hexenoate,
-118,COC(=O)C=C,methyl-2-propenoate,
-119,COC=C,Methyl vinyl ether,
-120,CC(C)(C)C(=O)OC,Methyl trimethylacetate,
-121,CCCCCCCCCCCCCC(=O)OC,methyl tetradecanoate,
-122,CC(C)(C)OC,methyl tert-butyl ether,
-123,CCCCCCCCCCCCCCCCCC(=O)OC,methyl stearate,
-124,CC=CC=CC(=O)OC,methyl sorbate ,
-125,CCCOC,Methyl propyl ether,727
-126,CCC(=O)OC,Methyl propanoate,913
-127,CCCCC(=O)OC,Methyl pentanoate,885
-128,CCCCCCCCCCCCCCCC(=O)OC,methyl palmitate,
-129,CCCCCCCC(=O)OC,methyl octanoate,
-130,CCC=CCC=CCC=CCCCCCCCC(=O)OC,methyl linolenate,
-131,CC(=O)CCC(=O)OC,methyl levulinate,
-132,CC(C)C(=O)OC,methyl isobutyrate,
-133,CCCCCC(=O)OC,Methyl hexanoate,879
-134,CCCCCCC(=O)OC,methyl heptanoate,
-135,COC=O,Methyl Formate,1185
-136,CCCCCCCCC=CCCCCCCCCCCCC(=O)OC,Methyl erucate,
-137,CCCCCCCCC=CCCCCCCCC(=O)OC,methyl elaidate ,
-138,CCCCCCCCCCCC(=O)OC,methyl dodecanoate,
-139,CCCCCCCCCC(=O)OC,methyl decanoate,
-140,CCCCOC,methyl butyl ether,
-141,CCCC(=O)OC,Methyl butanoate,898
-142,COC(=O)C1=CC=CC=C1,Methyl benzoate,
-143,CCCCCCCCCCCCCCCCCCCC(=O)OC,Methyl arachidate,
-144,CC(=O)OC,methyl acetate,
-145,CC(C)CC(=O)OC,methyl 3-methylbutanoate,
-146,CC(=CC(=O)OC)C,methyl 3-methylbut-2-enoate,
-147,COC1=CC=CC=C1,methoxybenzene,989.17
-148,CC(=O)COC,Methoxyacetone,
-149,CO,methanol,787
-150,C,Methane,717.46
-151,CC1CCC(C(=O)C1)C(C)C,menthone,
-152,CCC=CCC=CCC=CCCCCCCCC(=O)O,Linolenic Acid,
-153,CCCCCC=CCC=CCCCCCCCC(=O)O,Linoleic acid,
-154,CC(=CCCC(C)(C=C)O)C,linalol,853.1
-155,CC1=CCC(CC1)C(=C)C,limonene ,839
-156,CC(C)CC(=O)O,Isovaleric acid,
-157,CC(C)C1CCCC1,Isopropylcyclopentane,776.56
-158,CC(C)C1CCCCC1,isopropylcyclohexane,
-159,CC(C)C1=CC=CC=C1,isopropylbenzene,856.6
-160,CC(C)OC(=O)C=C,Isopropyl?Acrylate,
-161,CC(C)OC=O,isopropyl formate,872.8
-162,CC(C)OC(=O)C,Isopropyl ethanoate,
-163,CC(C)OC(=O)C1=CC=CC=C1,Isopropyl benzoate,
-164,CC(=C)OC(=O)C,Isopropenyl?Acetate,
-165,CC(C)CCOC=O,isopentyl formate,882
-166,CC(C)CC1CCCCC1,isoButylcyclohexane,
-167,CC(C)COC(=O)C=C,Isobutyl?2-Propenoate,
-168,CC(C)COC=C,Isobutyl vinyl ether,
-169,CCC(=O)OCC(C)C,isobutyl propionate,879
-170,CC(C)COC=O,isobutyl formate,876
-171,CCCC(=O)OCC(C)C,Isobutyl butanoate,
-172,CC(C)COC(=O)C,isobutyl acetate,
-173,CC(C)C=O,iso-Butanal,
-174,C1C=CC2=CC=CC=C21,indene,998
-175,C1CC2=CC=CC=C2C1,Indane,946
-176,CCCCCCC1CCCC1,Hexylcyclopentane,
-177,CCCCCCOC(=O)CCCCC,hexyl hexanoate,
-178,CCCCCCOC(=O)CCC,hexyl butyrate,
-179,CCCCCCOC(=O)C,hexyl acetate,
-180,CCCCCC(=O)O,Hexanoic acid,
-181,CCCCC(CC)C=O,"Hexanal, 2-ethyl-",
-182,CCCCCC=O,Hexanal,
-183,CC1=C(C(=C(C(=C1C)C)C)C)C,hexamethylbenzene,
-184,CCCCCCCCCCCCCCCCOC(=O)C,hexadecyl acetate,
-185,CCC#CCC,hex-3-yne,
-186,CCCC#CC,hex-2-yne,
-187,CCCCCCCC1CCCC1,heptylcyclopentane,
-188,CCCCCCC(=O)O,heptanoic?acid,
-189,C(CCC(=O)O)CCC(=O)O,heptanedioic?acid,
-190,CCCCCCC=O,Heptanal,
-191,CCCCCCCCCCCCCCCCCC1=CC=CC=C1,Heptadecylbenzene,
-192,COC1=CC=CC=C1O,guaiacol ,1129.3
-193,CC(=CCCC(=CCO)C)C,geraniol,
-194,CC1CCC(=O)O1,gamma-Valerolactone,1050
-195,CCCCCCC1CCC(=O)O1,gamma-Decalactone,
-196,C1=COC(=C1)C=O,Furfural,
-197,C1=COC=C1,furan ,
-198,C(=O)O,Formic Acid,
-199,C1C2=CC=CC=C2C3=CC=CC=C31,fluorene,
-200,CCC1CC1,Ethylcyclopropane,
-201,CCC1CCCC1,ethylcyclopentane,767.2
-202,CCC1CCCCC1,ethylcyclohexane,787.92
-203,CCC1CCC1,Ethylcyclobutane,
-204,CCC1=CC=CC=C1,ethylbenzene,862.6
-205,CCOCCC(=O)OCC,Ethyl-3-ethoxypropionate,
-206,CCOC(=O)C(=CC)C,ethyl-2-methyl-2-butenoate,
-207,CCOC=C,Ethyl vinyl ether,
-208,CCCCC(=O)OCC,ethyl valerate,874
-209,CCCCCCCCCCCCCCCCCC(=O)OCC,ethyl stearate,
-210,CCC(=O)OCC,Ethyl propanoate,
-211,CCCCCCCCCCCCCCCC(=O)OCC,ethyl palmitate,
-212,CCCCCCCC(=O)OCC,Ethyl octanoate,
-213,CCCCCCCCCCCCCC(=O)OCC,ethyl myristate,
-214,CCOC,Ethyl methyl ether,711
-215,CCC=CCC=CCC=CCCCCCCCC(=O)OCC,Ethyl linolenate,
-216,CCOC(=O)CCC(=O)C,ethyl levulinate,1013.46
-217,CCCCCCCCCCCC(=O)OCC,Ethyl Laurate,
-218,CCOC(=O)CC(C)C,ethyl isopentanoate,864
-219,CCOC(=O)C(C)C,ethyl isobutyrate,869
-220,CCCCCC(=O)OCC,Ethyl hexanoate,
-221,CCOC=O,Ethyl Formate,917
-222,CCOC(=O)C,Ethyl ethanoate,
-223,CCCCCCCCCC(=O)OCC,ethyl decanoate,
-224,CCCC(=O)OCC,Ethyl butanoate,866
-225,CCOC(=O)C1=CC=CC=C1,Ethyl benzoate,
-226,CCOC(=O)CC(=O)C,ethyl acetoacetate,
-227,CCOC1=CC=CC=C1,ethoxybenzene,967
-228,C=C,Ethene,482
-229,CCO,ethanol,785.3
-230,CC,Ethane,499.1
-231,CCCCCCCCCCCCOC(=O)C,Dodecyl acetate,
-232,CCCCCCCCCCCC(=O)O,dodecanoic?acid,
-233,CCCCCCCCCCCC=O,Dodecanal,
-234,C=COC=C,Divinyl Ether,
-235,CCCOCCC,dipropyl ether,
-236,C1=CC=C(C=C1)CC2=CC=CC=C2,diphenylmethane,
-237,C1=CC=C(C=C1)OC2=CC=CC=C2,diphenyl ether,
-238,CCCCCOCCCCC,Dipentyl ether,
-239,CCCCCCCCOC(=O)CCCCC(=O)OCCCCCCCC,Dioctyl adipate,
-240,COC(=O)C1=CC=CC=C1C(=O)OC,Dimethyl phthalate,
-241,COC(=O)CC(=O)OC,Dimethyl malonate,
-242,COC,Dimethyl ether,947.7
-243,COC(=O)CCCCCCCC(=O)OC,Dimethyl Azelate,
-244,COC(=O)CCCCC(=O)OC,Dimethyl adipate,
-245,COCOC,Dimethoxymethane,
-246,CC(C)OC(C)C,diisopropyl ether,725.8
-247,CC(=C)CC(C)(C)C,Diisobutylene,715.1
-248,CC(C)COCC(C)C,diisobutyl ether,
-249,CC(C)CCOCCC(C)C,diisoamyl ether,
-250,CCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCC,Dihexyl phthalate,
-251,CCCCCCOCCCCCC,Dihexyl ether,
-252,CCOCCOCCOC(=O)C,Diethylene?Glycol?Monoethyl?Ether?Acetate,
-253,COCCOCCO,Diethylene glycol monomethyl ether,
-254,CCOCCOCCO,Diethylene glycol monoethyl ether,
-255,COCCOCCOC,Diethylene glycol dimethyl ether,
-256,CCOCCOCCOCC,Diethylene glycol diethyl ether,
-257,CCCCOCCOCCOCCCC,Diethylene glycol dibutyl ether,
-258,CCOC(=O)CCC(=O)OCC,Diethyl succinate,
-259,CCOC(=O)CCCCCCCCC(=O)OCC,Diethyl sebacate,
-260,CCOC(=O)C(=O)OCC,Diethyl oxalate,
-261,CCOCC,diethyl ether,704.8
-262,CCOC(=O)CCCCCCCC(=O)OCC,Diethyl Azelate,
-263,CCOC(=O)CCCCC(=O)OCC,Diethyl Adipate,
-264,CCOCOCC,diethoxymethane,
-265,CCCCOC(=O)CCC(=O)OCCCC,Dibutyl succinate,
-266,CCCCOC(=O)C1=CC=CC=C1C(=O)OCCCC,Dibutyl Phthalate,
-267,CCCCOC(=O)CC(=O)OCCCC,Dibutyl Malonate,
-268,CCCCOC(=O)C=CC(=O)OCCCC,Dibutyl fumarate,
-269,CCCCOCCCC,dibutyl ether,768.4
-270,CCCCOC(=O)CCCCC(=O)OCCCC,Dibutyl Adipate,
-271,CCCCOCOCCCC,Dibutoxymethane,
-272,C1=CC=C(C=C1)COCC2=CC=CC=C2,Dibenzyl ether,
-273,C=CCOCC=C,Diallyl ether,
-274,CCCCCCCCCCC1CCCC1,decylcyclopentane,
-275,CCCCCCCCCCOC(=O)CCCCCCCCC,Decyl decanoate,
-276,CCCCCCCCCCOC(=O)C,Decyl acetate,
-277,CCCCCCCCCC(=O)O,Decanoic Acid,
-278,CCCCCCCCCC=O,Decanal,
-279,C1CC1C2=CC=CC=C2,cyclopropylbenzene,
-280,C1CC1C(=O)O,cyclopropanecarboxylic?acid,
-281,C1CC1,Cyclopropane,790
-282,C1CC=CC1,cyclopentene,772
-283,C1CCC(=O)C1,Cyclopentanone,948.7
-284,C1CCC(C1)O,Cyclopentanol,948.8
-285,C1CCCC1,cyclopentane,740.45
-286,C1CCCCCCC1,cyclooctane,831.5
-287,C1CCC(CC1)C2=CC=CC=C2,cyclohexylbenzene,
-288,C1CCC=CC1,cyclohexene,803.4
-289,C1CCC(=O)CC1,Cyclohexanone,945.5
-290,C1CCC(CC1)O,cyclohexanol,
-291,C1CCCCC1,cyclohexane,779
-292,C1CCC=CCC1,cycloheptene,826.1
-293,C1CCCC(=O)CC1,Cycloheptanone,
-294,C1CCCCCC1,cycloheptane,809.8
-295,C1CCC1,Cyclobutane,703
-296,C1CCC2CCCCC2C1,Cis-decalin,
-297,CC1CCC(CC1)O,cis-4-Methylcyclohexanol,
-298,CCCCC=CCC,cis-3-octene ,724.8
-299,CC1CCCC(C1)O,cis-3-Methylcyclohexanol,
-300,CC1CCCCC1O,cis-2-Methylcyclohexanol,
-301,CCCC=CC,cis-2-hexene,681.3
-302,CCCCC(=O)OCCCC,butyl valerate,
-303,CCCCCCCCCCCCCCCCCC(=O)OCCCC,Butyl stearate,
-304,CCCCOC(=O)CC,Butyl propanoate,882
-305,CCCCOC1=CC=CC=C1,Butyl phenyl ether,
-306,CCCCCCCC(=O)OCCCC,butyl octanoate ,
-307,CCCCOC(=O)CCC(=O)C,butyl levulinate,973.5
-308,CCCCCCCCCCCC(=O)OCCCC,butyl laurate,
-309,CCCCCC(=O)OCCCC,butyl hexanoate,
-310,CCCCOC=O,butyl formate,889
-311,CCCCOCC,Butyl ethyl ether,
-312,CCCCOC(=O)CCC,butyl butanoate,
-313,CCCCOC(=O)C1=CC=CC=C1,Butyl benzoate,
-314,CCCCOC(=O)C,Butyl Acetate,
-315,CCCCOC(=O)C=C,Butyl 2-propenoate,
-316,CC(=O)C=C,Butenone,842
-317,CCCC,Butane,573
-318,CCCC=O,Butanal,817
-319,C1=CC=C(C=C1)C2=CC=CC=C2,biphenyl,
-320,C1CCC(CC1)C2CCCCC2,bicyclohexyl,
-321,C1=CC=C(C=C1)CCC2=CC=CC=C2,bibenzyl,
-322,C1=CC=C(C=C1)CO,Benzyl alcohol ,1042
-323,C1=CC=C(C=C1)C(=O)O,benzoic?acid,
-324,C1=CC=C(C=C1)CCO,Benzeneethanol,1016
-325,C1=CC=C(C=C1)CC(=O)O,Benzeneacetic acid,
-326,C1=CC=C(C=C1)CC=O,Benzeneacetaldehyde,
-327,C1=CC=CC=C1,benzene,873.6
-328,C1=CC=C(C=C1)C=O,Benzaldehyde,1043.4
-329,C(CCCC(=O)O)CCCC(=O)O,Azelaic?Acid,
-330,C1=CC=C2C=C3C=CC=CC3=CC2=C1,anthracene,
-331,CC(=O)OCC=C,Allyl acetate,
-332,C(CCC(=O)O)CC(=O)O,Adipic?Acid,
-333,C#C,Acetylene,
-334,CC(=O)O,Acetic Acid,
-335,CC=O,Acetaldehyde,
-336,CC(C)CCCCC=C,7-Methyl-1-Octene,
-337,CCCCCC(=O)CCCCC,6-Undecanone,
-338,CC(C)CCCC=C,6-Methyl-1-heptene,712.5
-339,CCCCC(=O)CCCC,5-Nonanone,
-340,CCCCC(C)CCCC,5-Methylnonane,
-341,CCC(C)CC(=O)CC,5-methyl-3-heptanone,
-342,CC=CCC(C)C,5-Methyl-2-hexene,702
-343,CC(C)CCC(=O)C,5-Methyl-2-hexanone,
-344,CC(C)CCC(C)O,5-Methyl-2-hexanol,
-345,CC(C)CCC=C,5-Methyl-1-hexene,713.6
-346,CC(C)CCCCO,5-Methyl-1-hexanol,
-347,CC(=O)CCC=C,5-Hexen-2-One,
-348,C=CC1CCC=CC1,4-Vinyl-1-Cyclohexene,
-349,CCCC1=CC(=C(C=C1)O)OC,4-propylguaiacol ,
-350,CCCC1=CC=C(C=C1)OC,4-propylanisole,931.2
-351,CCCC1=CC=C(C=C1)O,4-propyl phenol ,
-352,CCCC#CCCC,4-octyne,
-353,CCCCC(=O)CCC,4-Octanone,
-354,CCCCC(CCC)O,4-octanol,
-355,CCCCCC(=O)CCC,4-nonanone ,
-356,CCCCCC(CCC)O,4-nonanol,
-357,CC(=CC(=O)C)C,4-Methylpent-3-en-2-one,
-358,CCCCC(C)CCC,4-Methyloctane,720.17
-359,CCCCCC(C)CCC,4-Methylnonane,
-360,CCCC(C)CCC,4-methylheptane,700.55
-361,CC1CC=CC1,4-Methylcyclopent-1-Ene,
-362,CC1CCC=CC1,4-Methylcyclohexene,
-363,CC=CC(C)C,4-Methyl-cis-2-pentene,670.2
-364,CC1=CC=C(C=C1)C2=CC=CC=C2,4-methylbiphenyl,
-365,CC1=CC=C(C=C1)C=O,4-Methylbenzaldehyde,
-366,CC(C)CC(=O)C,4-Methyl-2-pentanone,
-367,CC(C)CC(C)O,4-methyl-2-pentanol,802.45
-368,CCC(C)C=CC,4-Methyl-2-hexene,700.7
-369,CC(C)CC=C,4-methyl-1-pentene,671.8
-370,CC(C)CCCO,4-methyl-1-pentanol,
-371,CCC(C)CC=C,4-methyl-1-hexene,696.9
-372,CC(=CC=C)C,"4-Methyl-1,3-pentadiene",
-373,CC1=CC(=C(C=C1)O)OC,4-methyl guaiacol ,1091.9
-374,CC1=CC=C(C=C1)OC,4-methyl anisole,969
-375,COC1=CC=C(C=C1)C=O,4-Methoxybenzaldehyde,
-376,CC(=O)CC(C)(C)O,4-hydroxy-4-methyl-2-pentanone,
-377,CCCC(=O)CCC,4-Heptanone,818.5
-378,CCCC(CCC)O,4-heptanol,
-379,CCCCC(CC)CCC,4-Ethyloctane,
-380,CCC(CC)CC(C)C,4-Ethyl-2-methylhexane,721
-381,CCC1=CC(=C(C=C1)O)OC,4-ethyl guaiacol ,1051
-382,CCCCCCC(=O)CCC,4-Decanone,
-383,CC=CC(C)(C)C,"4,4-Dimethyl-2-pentene",712
-384,CC(=O)CC(C)(C)C,"4,4-dimethyl-2-pentanone",816.5
-385,CC(C)(C)CC=C,"4,4-Dimethyl-1-pentene",680.2
-386,CCC(=O)CC,3-Pentanone,810.09
-387,CCC(CC)O,3-pentanol,
-388,CCCCC#CCC,3-octyne,
-389,CCCCCC(=O)CC,3-Octanone,
-390,CCCCCC(CC)O,3-octanol,
-391,CCCCCCC(=O)CC,3-nonanone,
-392,CCCCCCCCC(C)CC,3-Methylundecane,
-393,CCC(C)CC,3-methylpentane,659.76
-394,CCCCCC(C)CC,3-Methyloctane,720.5
-395,CCCCCCC(C)CC,3-Methylnonane,
-396,CCCC(C)CC,3-methylhexane,687
-397,CCCC(C)CC=O,3-methylhexanal,
-398,CCCCC(C)CC,3-methylheptane,701.75
-399,CC1=COC=C1,3-Methylfuran,923
-400,CC1CCC=C1,3-Methylcyclopent-1-Ene,
-401,CC(C)CCOC(=O)C,3-Methylbutyl ethanoate,
-402,CC(C)CC=O,3-methylbutanal,
-403,CC(C)C#C,3-methylbut-1-yne,
-404,CC1=CC(=CC=C1)C2=CC=CC=C2,3-methylbiphenyl,
-405,CCC=C(C)CC,3-Methyl-3-hexene,714
-406,CCC(C)(CC)CC,3-Methyl-3-ethylpentane,723.54
-407,CC(=C)C(=O)C,3-Methyl-3-Buten-2-One,
-408,CCC(=CC)C,3-methyl-2-pentene,
-409,CCC(C)C(C)O,3-methyl-2-pentanol,811
-410,CCCC(=CC)C,3-Methyl-2-hexene,
-411,CC(C)C(=O)C,3-methyl-2-butanone,
-412,CC(C)C(C)O,3-methyl-2-butanol,812.31
-413,CCCC(C)C=C,3-methyl-1-hexene,694.5
-414,CC(C)C=C,3-Methyl-1-butene,621.3
-415,CC(C)CCO,3-Methyl-1-butanol,806.31
-416,CCC=CCC,3-Hexene,678.8
-417,CCCC(=O)CC,3-hexanone,821.6
-418,CCCC#CCC,3-Heptyne,
-419,CCCC=CCC,3-Heptene,701.6
-420,CCCCC(=O)CC,3-Heptanone,812.8
-421,CCCCC(CC)O,3-heptanol,
-422,CCC(CC)CC,3-ethylpentane,693.77
-423,CCC(CC)(CC)O,3-ethylpentan-3-ol,
-424,CCCCCC(CC)CC,3-Ethyloctane,
-425,CCCC(CC)CC,3-Ethylhexane,709.48
-426,CCCCC(CC)CC,3-Ethylheptane,725.1
-427,CCC(C)C(CC)CC,3-Ethyl-4-methylhexane,738
-428,CCC(=CC)CC,3-Ethyl-2-pentene,
-429,CCC(CC)C(=C)C,3-Ethyl-2-methyl-1-pentene,
-430,CCC(C(C)C)C(C)C,"3-Ethyl-2,4-dimethylpentane",736.5
-431,CCC(CC)C=C,3-Ethyl-1-pentene,694.8
-432,CCOCCC=O,3-Ethoxypropanal,
-433,CCCCCCCC(=O)CC,3-decanone,
-434,C1CC(CC=C1)C=O,3-cyclohexene-1-carboxaldehyde,
-435,CC(C)CCCC(C)CCO,"3,7-dimethyl-1-octanol ",
-436,CCC(C)C(C)CC,"3,4-dimethylhexane",715.16
-437,CC(C)C(C)C=C,"3,4-Dimethyl-1-pentene",701
-438,C1CC=COC1,"3,4-dihydro-2H-pyran",
-439,CCC(C)(C)CC,"3,3-dimethylpentane",689.09
-440,CCCC(C)(C)CC,"3,3-dimethylhexane",705.96
-441,CCCCC(C)(C)CC,"3,3-DIMETHYLHEPTANE",727
-442,CC(=O)C(C)(C)C,"3,3-Dimethyl-2-butanone",722.9
-443,CCC(C)(C)C=C,"3,3-Dimethyl-1-pentene",696.1
-444,CC(C)(C)C=C,"3,3-dimethyl-1-butene",647.86
-445,CCC(CC)(CC)CC,"3,3-Diethylpentane",748.68
-446,CCC(C)CC(C)(C)CC,"3,3,5-Trimethylheptane",
-447,CC1CC(=O)CC(C1)(C)C,"3,3,5-trimethylcyclohexanone",
-448,CCC(C)C(C)(C)CC,"3,3,4-Trimethylhexane",722
-449,CCCCCCCCCC(=O)C,2-Undecanone,
-450,CCCCCC(=O)OCC=C,2-Propenyl n-hexanoate,
-451,C=CCO,2-Propenyl Alcohol,
-452,CC(=O)C,2-propanone,
-453,CC(C)O,2-propanol,780.98
-454,CCC#CC,2-pentyne,
-455,CCC=CC,2-pentene,650.6
-456,CCCC(=O)C,2-pentanone,
-457,CCCC(C)O,2-pentanol,805.24
-458,CCCCCC#CC,2-octyne,
-459,CCCCCC=CC,2-octene,725
-460,CCCCCCC(=O)C,2-Octanone,
-461,CCCCCCCC(=O)C,2-Nonanone,
-462,CCCCCCCC(C)O,2-nonanol,
-463,CCCCCCCCCC(C)C,2-Methylundecane,
-464,CC(C)C(=O)O,2-Methylpropionic Acid,
-465,CC(=C)C,2-Methylpropene,
-466,CC(C)C(=O)OC(=O)C(C)C,2-methylpropanoyl 2-methylpropanoate,
-467,CC(C)C,2-Methylpropane,550.9
-468,CC(=C)C(=O)O,2-methylprop-2-enoic?acid,
-469,CCCC(C)C(=O)O,2-Methylpentanoic acid,
-470,CCCC(C)C,2-methylpentane,657.02
-471,CCCC(C)C=O,2-Methylpentanal,
-472,CCCCCCC(C)C(=O)O,2-Methyloctanoic?Acid,
-473,CCCCCCC(C)C,2-methyloctane,713.5
-474,CCCCCCCC(C)C,2-methylnonane,
-475,CC1=CC2=CC=CC=C2C=C1,2-methylnaphthalene,1004.4
-476,CCCCC(C)C(=O)O,2-Methylhexanoicacid,
-477,CCCCC(C)C,2-methylhexane,678.9
-478,CCCCC(C)C=O,2-methylhexanal,
-479,CCCCCC(C)C,2-methylheptane,693.92
-480,CC1=CC=CO1,2-methylfuran,916
-481,CCCCCCCCC(C)C,2-Methyldecane,
-482,CCC(C)C,2-methylbutane,619.7
-483,CC1=CC=CC=C1C2=CC=CC=C2,2-methylbiphenyl,
-484,CC1=CC=CC=C1C(=O)O,2-Methylbenzoic?Acid,
-485,CCC(=O)C(C)C,2-methyl-3-pentanone,800
-486,CCC=CC(C)C,2-Methyl-3-hexene,694.2
-487,CCCC(=O)C(C)C,2-methyl-3-hexanone,842.8
-488,CCC(CC)C(C)C,2-Methyl-3-ethylpentane,719.32
-489,CC(C)(C=C)O,2-methyl-3-buten-2-ol,820
-490,CC(C)(C)O,2-Methyl-2-propanol,781
-491,CCC=C(C)C,2-methyl-2-pentene,690.4
-492,CCCC(C)(C)O,2-methyl-2-pentanol,809.5
-493,CCCC=C(C)C,2-Methyl-2-hexene,704.1
-494,CCCCC(C)(C)O,2-Methyl-2-hexanol,809.4
-495,CCCCC=C(C)C,2-methyl-2-heptene,720.5
-496,CC=C(C)C,2-methyl-2-butene,656.94
-497,CCC(C)(C)O,2-methyl-2-butanol,804.01
-498,CC(CC(C)(C)O)O,"2-Methyl-2,4-pentanediol",
-499,CC(C)CO,2-Methyl-1-propanol,798.03
-500,CCCC(=C)C,2-methyl-1-pentene,
-501,CCCC(C)CO,2-methyl-1-pentanol,820.6
-502,CCCCCCC(=C)C,2-Methyl-1-octene,
-503,CCCCC(=C)C,2-methyl-1-hexene,
-504,CCCCCC(=C)C,2-methyl-1-heptene,
-505,CCC(=C)C,2-Methyl-1-butene,
-506,CCC(C)CO,2-Methyl-1-butanol,814.78
-507,CC(=C)CCC=C,"2-Methyl-1,5-hexadiene",723
-508,CC(=C)C=C,"2-methyl-1,3-butadiene",681
-509,CC1CCCO1,2-methyl tetrahydrofuran,854
-510,CC(=O)OCCOC,2-Methoxyethyl acetate,
-511,COCCO,2-Methoxyethanol,
-512,COC1=CC=CC=C1C=O,2-Methoxybenzaldehyde,
-513,CC(C)OCCO,2-isopropoxyethanol,
-514,CC(COC(=O)C=C)O,2-Hydroxypropyl?Prop-2-Enoate,
-515,CC(COC(=O)C(=C)C)O,2-Hydroxypropyl?Methacrylate,
-516,CCCCC(=O)C,2-hexanone,
-517,CCCCC#CC,2-Heptyne,
-518,CCCCC=CC,2-Heptene,713
-519,CCCCCC(=O)C,2-Heptanone,
-520,CCCCCC(C)O,2-heptanol,
-521,C1=COC(=C1)CO,2-furfuryl alcohol,1133
-522,CCC1CCCO1,2-ethyltetrahydrofuran,853.9
-523,CCC1=CC2=CC=CC=C2C=C1,2-ethylnaphthalene,
-524,CCCCC(CC)C(=O)O,2-ethylhexanoic?acid,
-525,CCC1=CC=CO1,2-ethylfuran,901.8
-526,CCC(CC)C(=O)O,2-Ethylbutanoic?Acid,
-527,CCC(CC)C=O,2-Ethylbutanal,
-528,CCC(=C)C(C)C,2-Ethyl-3-methylbut-1-ene,718.6
-529,CCCC(=C)CC,2-ethyl-1-pentene,707.9
-530,CCCCC(CC)CO,2-ethyl-1-hexanol,
-531,CCC(=C)CC,2-ethyl-1-butene,691.4
-532,CCC(CC)CO,2-ethyl-1-butanol,
-533,CCC1=C(C=CC(=C1)C)C,"2-ethyl-1,4-dimethylBenzene",877.7
-534,CCCC(C(CC)CO)O,"2-Ethyl-1,3-hexanediol",
-535,CCC1=C(C=CC=C1C)C,"2-ethyl-1,3-dimethylbenzene",
-536,CCOC(C)C,2-Ethoxypropane,721.1
-537,CCOCCOC(=O)C,2-Ethoxyethyl acetate,
-538,CCOCCO,2-ethoxyethanol,
-539,CCC(C)(C)OCC,2-Ethoxy-2-methylbutane,
-540,CCCCCCCCC(=O)C,2-decanone,
-541,C1CCC(C1)CC(=O)O,2-cyclopentylacetic?acid,
-542,CC#CC,2-Butyne,
-543,CCCCCCC(CCCC)CO,2-Butyl-1-octanol,
-544,CCCCOCCOC(=O)C,2-Butoxyethyl?Acetate,
-545,CCCCOCCO,2-butoxyethanol,
-546,CC=CC,2-Butene,636
-547,CC=CCO,2-buten-1-ol,
-548,CCC(=O)C,2-butanone,
-549,CCC(C)O,2-butanol,802.4
-550,CC(C)CCCCC(C)C,"2,7-Dimethyloctane",
-551,CCC(C)CCCC(C)C,"2,6-dimethyloctane",
-552,CC1=CC2=C(C=C1)C=C(C=C2)C,"2,6-dimethylnaphthalene",
-553,CC(C)CCCC(C)C,"2,6-dimethylheptane",709.8
-554,CC(C)CC(=O)CC(C)C,"2,6-Dimethyl-4-heptanone",801.2
-555,COC1=C(C(=CC=C1)OC)O,"2,6-dimethoxyphenol ",
-556,CC(=O)CCC(=O)C,"2,5-Hexanedione",
-557,CC(CCC(C)O)O,"2,5-Hexanediol",
-558,CCCC(C)CCC(C)C,"2,5-DIMETHYLOCTANE",
-559,CC(C)CCC(C)C,"2,5-dimethylhexane",689.34
-560,CC(=CC=C(C)C)C,"2,5-Dimethylhexa-2,4-Diene",764.6
-561,CC1=CC=C(O1)C,"2,5-dimethylfuran",
-562,CC(C)CC=C(C)C,"2,5-Dimethyl-2-Hexene",726.5
-563,CC(=O)CC(=O)C,"2,4-Pentanedione",
-564,CC(C)CC(C)C,"2,4-dimethylpentane",674.5
-565,CCCCC(C)CC(C)C,"2,4-dimethyloctane",
-566,CCC(C)CC(C)C,"2,4-dimethylhexane",696.2
-567,CC(C)C(=O)C(C)C,"2,4-Dimethyl-3-pentanone",803.9
-568,CC(C)C(C(C)C)O,"2,4-dimethyl-3-pentanol",
-569,CC(C)C(C(C)C)C(C)C,"2,4-Dimethyl-3-Isopropylpentane",
-570,CC(C)C=C(C)C,"2,4-Dimethyl-2-pentene",695.5
-571,CC(C)CC(=C)C,"2,4-Dimethyl-1-pentene",
-572,CCC(C)(C)CC(C)C,"2,4,4-trimethylhexane",719.6
-573,CC(=CC(C)(C)C)C,"2,4,4-trimethyl-2-pentene",
-574,CCC(C)C(C)C,"2,3-dimethylpentane",689.6
-575,CCCCCC(C)C(C)C,"2,3-dimethyloctane",
-576,CC1=CC2=CC=CC=C2C=C1C,"2,3-dimethylnaphthalene",
-577,CCCC(C)C(C)C,"2,3-Dimethylhexane",708.09
-578,CCCCC(C)C(C)C,"2,3-dimethylheptane",725.8
-579,CC(C)C(C)C,"2,3-dimethylbutane",656.98
-580,CCC(=C(C)C)C,"2,3-Dimethyl-2-pentene",
-581,CCCC(=C(C)C)C,"2,3-Dimethyl-2-Hexene",
-582,CC(=C(C)C)C,"2,3-dimethyl-2-butene",
-583,CC(C)C(C)(C)O,"2,3-dimethyl-2-butanol",815.5
-584,CCC(C)C(=C)C,"2,3-Dimethyl-1-pentene",
-585,CCCC(C)C(=C)C,"2,3-Dimethyl-1-Hexene",
-586,CC(C)C(=C)C,"2,3-dimethyl-1-butene",
-587,C1COC=C1,"2,3-dihydrofuran ",
-588,CC(=O)C(=O)C,"2,3-Butanedione",990
-589,CC(C)CC(C)C(C)C,"2,3,5-Trimethylhexane",721.9
-590,CC(C)C(C)C(C)C,"2,3,4-trimethylpentane",715.03
-591,CC(C)C(=C(C)C)C,"2,3,4-trimethyl-2-pentene",
-592,CCC(C)(C)C(C)C,"2,3,3-trimethylpentane",722.32
-593,CCCC(C)(C)C(C)C,"2,3,3-trimethylhexane",732.3
-594,CC(C)(C)C(C)(C)O,"2,3,3-trimethylbutan-2-ol",
-595,CCC(C)(C)C(=C)C,"2,3,3-Trimethyl-1-pentene",
-596,CC(=C)C(C)(C)C,"2,3,3-trimethyl-1-butene",700.54
-597,CC(C)C(C)(C)C(C)C,"2,3,3,4-tetramethylpentane",720
-598,CC(C)(C)C,"2,2-Dimethylpropane",649
-599,CC(C)(C)C=O,"2,2-dimethylpropanal",
-600,CCCC(C)(C)C,"2,2-dimethylpentane",669.58
-601,CCC(C(C)(C)C)O,"2,2-dimethylpentan-3-ol",
-602,CCCCCCC(C)(C)C,"2,2-Dimethyloctane",
-603,CCCCC(C)(C)C,"2,2-dimethylhexane",691.12
-604,CCCCCC(C)(C)C,"2,2-dimethylheptane",715.7
-605,CCC(C)(C)C(=O)O,"2,2-Dimethylbutanoic?Acid",
-606,CCC(C)(C)C,"2,2-dimethylbutane",644.63
-607,CCC=CC(C)(C)C,"2,2-Dimethyl-3-Hexene",704.8
-608,CCC(CC)C(C)(C)C,"2,2-dimethyl-3-ethylpentane",722
-609,CC(C)(C)CO,"2,2-Dimethyl-1-propanol",812
-610,CC(C)(OC)OC,"2,2-dimethoxypropane",
-611,CC(C)CCC(C)(C)C,"2,2,5-Trimethylhexane",707.5
-612,CC(C)(C)CCC(C)(C)C,"2,2,5,5-tetramethylhexane",
-613,CC(C)CC(C)(C)C,"2,2,4-trimethylpentane",687.77
-614,CCC(C)CC(C)(C)C,"2,2,4-Trimethylhexane",711
-615,CC(CC(C)(C)C)CC(C)(C)C,"2,2,4,6,6-pentamethylheptane",
-616,CC(C)(C)CC(C)(C)C,"2,2,4,4-tetramethylpentane",719.8
-617,CC(C)(C)C(=O)C(C)(C)C,"2,2,4,4-tetramethyl-3-pentanone",
-618,CC(CC(C)(C)C)CC(C)(C)CC(C)(C)C,"2,2,4,4,6,8,8-heptamethylnonane",
-619,CCC(C)C(C)(C)C,"2,2,3-Trimethylpentane",712.07
-620,CCCC(C)C(C)(C)C,"2,2,3-trimethylhexane",729.2
-621,CC(C)C(C)(C)C,"2,2,3-trimethylbutane",685.76
-622,CC(C)C(C)C(C)(C)C,"2,2,3,4-tetramethylpentane",720
-623,CCC(C)(C)C(C)(C)C,"2,2,3,3-tetramethylpentane",723
-624,CCCC(C)(C)C(C)(C)C,"2,2,3,3-tetramethylhexane",
-625,CC(C)(C)C(C)(C)C,"2,2,3,3-tetramethylbutane",710
-626,C=COCCO,2-(Vinyloxy)Ethanol,
-627,CCCOCCOCCO,2-(2-Propoxyethoxy)Ethanol,
-628,CCCCCCCCCC=C,1-Undecene,
-629,CCCCCCCCCCCO,1-undecanol,
-630,CCCCCCCCCCCCC=C,1-Tetradecene,
-631,CCCCCCCCCCCCCCO,1-tetradecanol,
-632,CCCOCC(C)O,1-propoxy-2-propanol,
-633,CCCO,1-propanol,799.6
-634,CCC(=O)C1=CC=CC=C1,1-Phenyl-1-propanone,
-635,CCCC#C,1-pentyne,
-636,CC#CC=C,1-Pentene-3-Yne,
-637,CCCC=C,1-Pentene,645.8
-638,CCCCCO,1-pentanol,810.91
-639,CCCCCCC#C,1-octyne,
-640,CCCCCCC=C,1-octene,711
-641,CCCCCCCCO,1-octanol,826.2
-642,CCCCCCCC#C,1-Nonyne,
-643,CCCCCCCC=C,1-nonene,725.3
-644,CCCCCCCCCO,1-nonanol,
-645,CC1=CC=CC2=CC=CC=C12,1-methylnaphthalene,
-646,CC1=CCCC1,1-methylcyclopentene,776.5
-647,CCCC1=CC=C(C=C1)C,1-methyl-4-propylbenzene,858
-648,CCCC1=CC=CC(=C1)C,1-methyl-3-propylBenzene,861
-649,CC1=CC(=CC=C1)C(C)C,1-Methyl-3-(1-methylethyl)benzene,861
-650,CCCC1=CC=CC=C1C,1-methyl-2-propylBenzene,874.4
-651,CC1=CC=CC=C1C(C)C,1-methyl-2-(1-methylethyl)-Benzene,876.6
-652,CCC1(CCCC1)C,1-Methyl-1-Ethylcyclopentane,
-653,CC1=CCCCC1,1-methyl-1-cyclohexene,809.9
-654,CCCCCOC,1-Methoxypentane,
-655,CCCCCCOC,1-methoxyhexane,
-656,CC(COC)O,1-methoxy-2-propanol,
-657,CC1=CC=C(C=C1)C(C)C,1-isopropyl-4-methylbenzene,862
-658,CCCCC#C,1-Hexyne,
-659,CCCCC=C,1-hexene,668.9
-660,CCCCCCO,1-hexanol,
-661,CCCCCCCCCCCCCCC=C,1-hexadecene,
-662,CCCCCC#C,1-Heptyne,
-663,CCCCCC=C,1-heptene,692.9
-664,CCCCCCCO,1-heptanol,
-665,CCC1=CC=CC2=CC=CC=C21,1-ethylnaphthalene,
-666,CCC1=CCCCC1,1-ethylcyclohexene,
-667,CCC1=CC=C(C=C1)C,1-ethyl-4-methylBenzene,860.9
-668,CCC1=CC=CC(=C1)C,1-ethyl-3-methylBenzene,862.3
-669,CCC1=CC=CC=C1C,1-ethyl-2-methylbenzene,880.8
-670,CCC1=C(C=C(C=C1)C)C,"1-ethyl-2,4-dimethylBenzene",
-671,CCC1=CC=CC(=C1C)C,"1-ethyl-2,3-dimethylBenzene",892
-672,CCC1=CCCC1,1-Ethyl-1-cyclopentene,
-673,CCCOCC,1-Ethoxypropane,
-674,CCCCCCOCC,1-Ethoxyhexane,
-675,CC1=CC=C(C=C1)C=C,1-ethenyl-4-methylbenzene,
-676,CC1=CC(=CC=C1)C=C,1-ethenyl-3-methylbenzene,
-677,CCC1=CC(=CC=C1)C=C,1-ethenyl-3-ethylBenzene,
-678,CC1=CC=CC=C1C=C,1-ethenyl-2-methylbenzene,
-679,CCC1=CC=CC=C1C=C,1-ethenyl-2-ethylBenzene,911.4
-680,CCCCCCCCCCC=C,1-dodecene,
-681,CCCCCCCCCCCCO,1-Dodecanol,
-682,CCCCCCCCC#C,1-Decyne,
-683,CCCCCCCCC=C,1-decene,
-684,CCCCCCCCCCO,1-Decanol,
-685,C1CCC(=CC1)C2=CC=CC=C2,1-cyclohexen-1-ylbenzene,
-686,CCC#C,1-butyne,
-687,CCCCOCC(C)O,1-butoxy-2-propanol,
-688,CCC=C,1-Butene,577
-689,C=CC#C,1-Buten-3-yne,
-690,CCCCO,1-butanol,805.8
-691,C=CCCCCCCC=C,"1,9-decadiene ",
-692,C=CC#CC=C,"1,5-Hexadien-3-yne",
-693,CC1CCCC2=C(C=CC=C12)C,"1,5-dimethyltetralin",
-694,CC1=C2C=CC=C(C2=CC=C1)C,"1,5-dimethylnaphthalene",
-695,C1CC=CCCC=C1,"1,5-cyclooctadiene ",
-696,CC1=CC=C(C2=CC=CC=C12)C,"1,4-dimethylnaphthalene",
-697,CC1CCC(CC1)C,"1,4-dimethylcyclohexane",
-698,CC1=CC=C(C=C1)C,"1,4-dimethylbenzene",
-699,CCC1=CC=C(C=C1)CC,"1,4-diethyl-Benzene",861.9
-700,C1C=CCC=C1,"1,4-cyclohexadiene",857.3
-701,C1COCO1,"1,3-dioxolane",
-702,CC1=CC2=CC=CC=C2C(=C1)C,"1,3-dimethylnaphthalene",
-703,CC1CCC(C1)C,"1,3-Dimethylcyclopentane",740.2
-704,CC1CCCC(C1)C,"1,3-dimethylcyclohexane",
-705,CC1=CC(=CC=C1)C,"1,3-dimethylbenzene",859.9
-706,CCC1=CC(=CC(=C1)C)C,"1,3-Dimethyl-5-Ethylbenzene",864.4
-707,CC(C)C1=CC(=CC=C1)C(C)C,"1,3-diisopropylbenzene",
-708,CCC1=CC(=CC=C1)CC,"1,3-diethylbenzene",859.7
-709,C1CC=CC=C1,"1,3-cyclohexadiene",844
-710,CC1CC(CC(C1)C)C,"1,3,5-trimethylcyclohexane",
-711,CC1=CC(=CC(=C1)C)C,"1,3,5-trimethylbenzene",861.1
-712,CC(C)C1=CC(=CC(=C1)C(C)C)C(C)C,"1,3,5-triisopropylbenzene",
-713,CCC1=CC(=CC(=C1)CC)CC,"1,3,5-triethylbenzene",
-714,CC(CO)O,"1,2-propanediol",
-715,C(CO)O,"1,2-ethanediol",
-716,CCC1CO1,"1,2-epoxybutane",
-717,CC1=C(C2=CC=CC=C2C=C1)C,"1,2-dimethylnaphthalene",
-718,CC1CCCC1C,"1,2-Dimethylcyclopentane",764
-719,CC1CCCCC1C,"1,2-dimethylcyclohexane",783.4
-720,CC1=CC=CC=C1C,"1,2-dimethylbenzene",
-721,COCCOC,"1,2-dimethoxyethane",
-722,COC1=CC=CC=C1OC,"1,2-dimethoxybenzene",
-723,CCC1=CC=CC=C1CC,"1,2-diethylbenzene",
-724,CCOCCOCC,"1,2-diethoxyethane",
-725,CCCCOCCOCCCC,"1,2-Dibutoxyethane",
-726,CC1=CC(=C(C=C1)C)C,"1,2,4-trimethylbenzene",871.71
-727,CC1=CC(=C(C=C1C)C)C,"1,2,4,5-tetramethylbenzene",868
-728,CC1=C(C(=CC=C1)C)C,"1,2,3-trimethylbenzene",890.6
-729,CC1=CC(=C(C(=C1)C)C)C,"1,2,3,5-tetramethylbenzene",890.4
-730,CC1=C(C(=C(C=C1)C)C)C,"1,2,3,4-tetramethylbenzene",904.6
-731,C1CCC2=CC=CC=C2C1,"1,2,3,4-tetrahydronaphthalene",965
-732,CC1=CC(=C(C(=C1C)C)C)C,"1,2,3,4,5-pentamethylbenzene",
-733,CC(C)(C)OC=O,"1,1-Dimethylethyl Ester",889
-734,CC1(CCCC1)C,"1,1-Dimethylcyclopentane",
-735,CC1(CCCCC1)C,"1,1-dimethylcyclohexane",
-736,CC(OC)OC,"1,1-dimethoxyethane",
-737,CCC(OCC)OCC,"1,1-diethoxypropane",
-738,CCOC(C)OCC,"1,1-diethoxyethane",
-739,CC1CCC(C1)(C)C,"1,1,3-Trimethylcyclopentane",
-740,CC1CCCC(C1)(C)C,"1,1,3-Trimethylcyclohexane",
-741,CC1CC1(C)C,"1,1,2-Trimethylcyclopropane",
-742,CC1CCCC1(C)C,"1,1,2-Trimethylcyclopentane",
-743,CC1CCCCC1(C)C,"1,1,2-trimethylcyclohexane",798.6
-744,CC(OC)(OC)OC,"1,1,1-trimethoxyethane",
-745,CC=C(C)C(C)C,"(E)-3,4-Dimethylpent-2-ene",712.6
-746,CC(=CCCC(=CCC=C(C)C=C)C)C,"(3E,6E)-3,7,11-Trimethyl-1,3,6,10-dodecatetraene",
-747,CC(C)CC1CCCC1,(2-methylpropyl)cyclopentane,
-748,CC(C)(C)CC1=CC=CC=C1,"(2,2-dimethylpropyl)-benzene",
-749,COCOCOC,"2,4,6-Trioxaheptane",960
-750,COCOCOCOC,"2,4,6,8-Tetraoxanonane",1020
-751,COCOCOCOCOC,"2,4,6,8,10-Pentaoxaundecane",1060
-752,COCOCOCOCOCOC,"2,4,6,8,10,12-Hexaoxatridecane",1100
-753,COCOCOCOCOCOCOC,"2,4,6,8,10,12,14-Heptaoxapentadecane",1130
-994,CC(C)C(C)C(C)C(C)C,"2,3,4,5-tetramethylhexane",759.3
-995,CC(=CCC=C(C)C=C)C,ocimene ,776
-996,CC(C)(C)C1=CC=CC=C1,tert-butylbenzene,862.3
-997,CC(C)CC1=CC=CC=C1,1-Phenyl-2-methylpropane,849
-998,CCC(C)C1=CC=CC=C1,butan-2-ylbenzene,859.8
-999,CCC1=CC=C(C=C1)C=C,1-ethenyl-4-ethylBenzene,897.6
-1000,CCOC(=O)C(C)(C)C,"ethyl 2,2-dimethylpropanoate",855.5
-1001,CCC(C)OC(=O)CC,butan-2-yl propanoate,863
-1002,CCC(=O)OC(C)(C)C,tert-butyl propionate,865
-1003,CCC(C)CCC(C)C,"2,5-dimethylheptane",714
-1004,CCCC(C)C(C)CC,"3,4-dimethylheptane",731.4
-1005,CCC(C)CC(C)CC,"3,5-dimethylheptane",719.9
-1006,CCC(C)C(C)C(C)C,"2,3,4-trimethylhexane",734.7
-1007,CC(C)C(=O)C(C)(C)C,"2,2,4-Trimethyl-3-pentanone",807.5
-1008,CCC1CCCCCC1,Ethylcycloheptane,814.8
-1009,CC1(CCCCC1=O)C,"2,2-dimethylcyclohexan-1-one",914.7
-1010,CC1(CCCC(=O)C1)C,"3,3-dimethylcyclohexan-1-one",906
-1011,CC1CCCC(C1=O)C,"2,6-dimethylcyclohexan-1-one",915
-1012,CCCCC1=CC=CO1,2-butylfuran,898.3
-1013,CC=CC1=CC=CC=C1,cis-Propenylbenzene,910.7
-1014,C=CCC1=CC=CC=C1,2-Propenylbenzene,923.7
-1015,CC(=C)C1=CC=CC=C1,Isopropenylbenzene,909.5
-1016,CCCC(C)(C)CO,"2,2-Dimethyl-1-pentanol",837.9
-1017,CCC(C)(C)CCO,"3,3-Dimethylpentan-1-ol",832
-1018,CC(C)(C)CCCO,"4,4-Dimethyl-1-pentanol",815
-1019,CC(CO)C(C)(C)C,"2,3,3-Trimethylbutanol",823.8
-1020,CCC(C)C(=O)OC,methyl 2-methylbutyrate,874
-1021,CCC(=O)OC(C)C,propan-2-yl propanoate,883
-1022,CCCC(C)CC=C,4-methyl-1-heptene,719.1
-1023,CC=CCCC(C)C,6-Methyl-2-heptene,725
-1024,CCCC=CC(C)C,2-Methyl-3-heptene,725
-1025,CCC=CCC(C)C,6-Methyl-3-heptene,725.6
-1026,CC(C)C=CC(C)C,"2,5-Dimethyl-3-Hexene",712.2
-1027,CC=C(C)C(C)(C)C,"3,4,4-Trimethyl-2-pentene",735
-1028,CCCCC(C)C=C,3-Methyl-1-Heptene,719
-1029,CC1=CCCCCC1,1-methylcycloheptene,813
-1030,C1CCCC=CCC1,cyclooctene,850
-1031,CCCCC(C)O,2-hexanol,810.14
-1032,CC(C)(C)CCO,"3,3-dimethyl-1-butanol",809.7
-1033,CC=CC=C(C)C,"2-Methyl-2,4-hexadiene",743.9
-1034,CC1=CCC=CC1,"1-Methyl-1,4-cyclohexadiene",837.9
-1035,CC(=CCO)C,Prenol,868
-1036,CCC(C)C=C,3-methyl-1-pentene,670
-1037,CC(=O)C1CC1,Cyclopropyl methyl ketone,893.8
-1038,CC(=C)C=O,Methacrolein,845
+Name,SMILES,density,Source
+"(E)-3,4-Dimethylpent-2-ene",CC=C(C)C(C)C,712.6,Chen 2024.xlsx
+"1,1,2-trimethylcyclohexane",CC1CCCCC1(C)C,798.6,Chen 2024.xlsx
+"1,1,2-trimethylcyclopentane",CC1CCCC1(C)C,769.3173663,Saldana 2012_filtered
+"1,1,3-trimethylcyclohexane",CC1CCCC(C)(C)C1,775.10746,Saldana 2012_filtered
+"1,1,3-trimethylcyclopentane",CC1CCC(C)(C)C1,743.9273048,Saldana 2012_filtered
+"1,1-Dimethylethyl Ester",CC(C)(C)OC=O,889,Chen 2024.xlsx
+"1,1-dimethylcyclohexane",CC1(C)CCCCC1,776.7358941,Saldana 2012_filtered
+"1,1-dimethylcyclopentane",CC1(C)CCCC1,749.8862146,Saldana 2012_filtered
+"1,1-diphenylethane",CC(c1ccccc1)c1ccccc1,995.6733984,Saldana 2012_filtered
+"1,2,3,4-tetrahydronaphthalene",C1CCC2=CC=CC=C2C1,965,Chen 2024.xlsx
+"1,2,3,4-tetramethylbenzene",CC1=C(C(=C(C=C1)C)C)C,904.6,Chen 2024.xlsx
+"1,2,3,5-tetramethylbenzene",CC1=CC(=C(C(=C1)C)C)C,890.4,Chen 2024.xlsx
+"1,2,3,6-tetrahydrobenzyl alcohol",OCC1CCC=CC1,961.005258,Saldana 2012_filtered
+"1,2,3-trimethyl-4-ethylbenzene",CCc1ccc(C)c(C)c1C,897.9802082,Saldana 2012_filtered
+"1,2,3-trimethylbenzene",CC1=C(C(=CC=C1)C)C,890.6,Chen 2024.xlsx
+"1,2,4,5-tetramethylbenzene",CC1=CC(=C(C=C1C)C)C,868,Chen 2024.xlsx
+"1,2,4-trimethyl-3-ethylbenzene",CCc1c(C)ccc(C)c1C,890.9803881,Saldana 2012_filtered
+"1,2,4-trimethyl-5-ethylbenzene",CCc1cc(C)c(C)cc1C,878.9807176,Saldana 2012_filtered
+"1,2,4-trimethylbenzene",CC1=CC(=C(C=C1)C)C,871.71,Chen 2024.xlsx
+"1,2-Dimethylcyclopentane",CC1CCCC1C,764,Chen 2024.xlsx
+"1,2-butanediol",CCC(O)CO,998.8561035,Saldana 2012_filtered
+"1,2-dimethylcyclohexane",CC1CCCCC1C,783.4,Chen 2024.xlsx
+"1,2-hexadiene",CCCC=C=C,710.1807082,Saldana 2012_filtered
+"1,2-pentadiene",CCC=C=C,687.5731999,Saldana 2012_filtered
+"1,2-propylene glycol",OCC(C)O,1032.715421,Saldana 2012_filtered
+"1,3,5,7-cyclooctatetraene",C1=CC=CC=CC=C1,917.0788121,Saldana 2012_filtered
+"1,3,5-triisopropylbenzene",CC(C)c1cc(cc(c1)C(C)C)C(C)C,846.5329408,Saldana 2012_filtered
+"1,3,5-trimethylbenzene",CC1=CC(=CC(=C1)C)C,861.1,Chen 2024.xlsx
+"1,3-Dimethyl-5-Ethylbenzene",CCC1=CC(=CC(=C1)C)C,864.4,Chen 2024.xlsx
+"1,3-Dimethylcyclopentane",CC1CCC(C1)C,740.2,Chen 2024.xlsx
+"1,3-butadiene",C=CC=C,614.791941,Saldana 2012_filtered
+"1,3-butanediol",OCCC(C)O,1000.162858,Saldana 2012_filtered
+"1,3-cyclohexadiene",C1CC=CC=C1,844,Chen 2024.xlsx
+"1,3-diethylbenzene",CCC1=CC(=CC=C1)CC,859.7,Chen 2024.xlsx
+"1,3-dimethyladamantane",CC12CC3CC(C1)CC(C)(C3)C2,901.6081536,Saldana 2012_filtered
+"1,3-dimethylbenzene",CC1=CC(=CC=C1)C,859.9,Chen 2024.xlsx
+"1,3-propylene glycol",OCCCO,1049.456193,Saldana 2012_filtered
+"1,4-butanediol",OCCCCO,1012.869919,Saldana 2012_filtered
+"1,4-cyclohexadiene",C1C=CCC=C1,857.3,Chen 2024.xlsx
+"1,4-diethyl-Benzene",CCC1=CC=C(C=C1)CC,861.9,Chen 2024.xlsx
+"1,4-hexadiene",C=CCC=CC,694.9841422,Saldana 2012_filtered
+"1,4-pentadiene",C=CCC=C,653.1332346,Saldana 2012_filtered
+"1,5,9-cyclododecatriene",C1C=CCCC=CCCC=CC1,889.4740134,Saldana 2012_filtered
+"1,5-hexadiene",C=CCCC=C,688.5851557,Saldana 2012_filtered
+"1,5-pentanediol",OCCCCCO,985.7776742,Saldana 2012_filtered
+"1,9-decadiene",C=CCCCCCCC=C,748.346817,Saldana 2012_filtered
+1-Butene,CCC=C,577,Chen 2024.xlsx
+"1-Methyl-1,4-cyclohexadiene",CC1=CCC=CC1,837.9,Chen 2024.xlsx
+1-Methyl-3-(1-methylethyl)benzene,CC1=CC(=CC=C1)C(C)C,861,Chen 2024.xlsx
+1-Pentene,CCCC=C,645.8,Chen 2024.xlsx
+1-Phenyl-2-methylpropane,CC(C)CC1=CC=CC=C1,849,Chen 2024.xlsx
+1-butanol,CCCCO,805.8,Chen 2024.xlsx
+1-butene,CCC=C,586.9001604,Saldana 2012_filtered
+1-cis-2-trans-3-trimethylcyclopentane,CC1CCC(C)C1C,766.1005936,Saldana 2012_filtered
+1-cis-2-trans-4-trimethylcyclopentane,CC1CC(C)C(C)C1,753.2353732,Saldana 2012_filtered
+1-decene,CCCCCCCCC=C,736.9985929,Saldana 2012_filtered
+1-dodecanol,CCCCCCCCCCCCO,831.1811444,Saldana 2012_filtered
+1-dodecene,CCCCCCCCCCC=C,756.5376189,Saldana 2012_filtered
+1-ethenyl-2-ethylBenzene,CCC1=CC=CC=C1C=C,911.4,Chen 2024.xlsx
+1-ethenyl-4-ethylBenzene,CCC1=CC=C(C=C1)C=C,897.6,Chen 2024.xlsx
+1-ethoxy-2-propanol,CCOCC(C)O,894.9631716,Saldana 2012_filtered
+"1-ethyl-2,3-dimethylBenzene",CCC1=CC=CC(=C1C)C,892,Chen 2024.xlsx
+1-ethyl-2-isopropylbenzene,CCc1ccccc1C(C)C,884.0426825,Saldana 2012_filtered
+1-ethyl-2-methylbenzene,CCC1=CC=CC=C1C,880.8,Chen 2024.xlsx
+1-ethyl-3-methylBenzene,CCC1=CC=CC(=C1)C,862.3,Chen 2024.xlsx
+1-ethyl-4-methylBenzene,CCC1=CC=C(C=C1)C,860.9,Chen 2024.xlsx
+1-ethylcyclohexene,CCC1=CCCCC1,817.6341908,Saldana 2012_filtered
+1-ethylnaphthalene,CCc1cccc2ccccc12,1004.283927,Saldana 2012_filtered
+1-ethyltetralin,CCC1CCCc2ccccc12,950.4483668,Saldana 2012_filtered
+1-heptanol,CCCCCCCO,820.8869362,Saldana 2012_filtered
+1-heptene,CCCCCC=C,692.9,Chen 2024.xlsx
+1-heptyne,CCCCCC#C,728.7519787,Saldana 2012_filtered
+1-hexadecene,CCCCCCCCCCCCCCC=C,778.2171009,Saldana 2012_filtered
+1-hexene,CCCCC=C,668.9,Chen 2024.xlsx
+1-hexyne,CCCCC#C,711.9385812,Saldana 2012_filtered
+1-isopropyl-4-methylbenzene,CC1=CC=C(C=C1)C(C)C,862,Chen 2024.xlsx
+1-methyl-1-cyclohexene,CC1=CCCCC1,809.9,Chen 2024.xlsx
+1-methyl-1-ethylcyclopentane,CCC1(C)CCCC1,776.6797878,Saldana 2012_filtered
+1-methyl-2-(1-methylethyl)-Benzene,CC1=CC=CC=C1C(C)C,876.6,Chen 2024.xlsx
+1-methyl-2-n-propylbenzene,CCCc1ccccc1C,869.6799895,Saldana 2012_filtered
+1-methyl-2-propylBenzene,CCCC1=CC=CC=C1C,874.4,Chen 2024.xlsx
+1-methyl-3-n-propylbenzene,CCCc1cccc(C)c1,856.9471601,Saldana 2012_filtered
+1-methyl-3-propylBenzene,CCCC1=CC=CC(=C1)C,861,Chen 2024.xlsx
+1-methyl-4-n-propylbenzene,CCCc1ccc(C)cc1,854.3791193,Saldana 2012_filtered
+1-methyl-4-propylbenzene,CCCC1=CC=C(C=C1)C,858,Chen 2024.xlsx
+1-methylcycloheptene,CC1=CCCCCC1,813,Chen 2024.xlsx
+1-methylcyclohexanol,CC1(O)CCCCC1,924.8908075,Saldana 2012_filtered
+1-methylcyclopentene,CC1=CCCC1,776.5,Chen 2024.xlsx
+1-methylindene,CC1C=Cc2ccccc12,969.0424684,Saldana 2012_filtered
+1-methylnaphthalene,Cc1cccc2ccccc12,1016.517299,Saldana 2012_filtered
+1-methylvinyl acetate,CC(=C)OC(=O)C,912.4005198,Saldana 2012_filtered
+"1-n-hexyl-1,2,3,4-tetrahydronaphthalene",CCCCCCC1CCCc2ccccc12,917.5902242,Saldana 2012_filtered
+1-n-pentylnaphthalene,CCCCCc1cccc2ccccc12,962.1681938,Saldana 2012_filtered
+1-n-propylnaphthalene,CCCc1cccc2ccccc12,987.3323328,Saldana 2012_filtered
+1-nonanol,CCCCCCCCCO,824.3856166,Saldana 2012_filtered
+1-nonene,CCCCCCCC=C,725.3,Chen 2024.xlsx
+1-nonyne,CCCCCCCC#C,753.7872271,Saldana 2012_filtered
+1-octadecanol,CCCCCCCCCCCCCCCCCCO,855.5716364,Saldana 2012_filtered
+1-octanol,CCCCCCCCO,826.2,Chen 2024.xlsx
+1-octene,CCCCCCC=C,711,Chen 2024.xlsx
+1-octyne,CCCCCCC#C,742.1531392,Saldana 2012_filtered
+1-pentadecene,CCCCCCCCCCCCCC=C,775.0877709,Saldana 2012_filtered
+1-pentanol,CCCCCO,810.91,Chen 2024.xlsx
+1-pentene,CCCC=C,636.1334562,Saldana 2012_filtered
+1-pentene-3-yne,CC#CC=C,733.8548563,Saldana 2012_filtered
+1-pentyne,CCCC#C,689.2761254,Saldana 2012_filtered
+1-phenyl-1-propanol,CCC(O)c1ccccc1,991.4839535,Saldana 2012_filtered
+1-phenylnaphthalene,c1ccc(cc1)c1cccc2ccccc12,1089.986364,Saldana 2012_filtered
+1-propanol,CCCO,799.6,Chen 2024.xlsx
+1-tetradecene,CCCCCCCCCCCCC=C,767.6382543,Saldana 2012_filtered
+1-tridecene,CCCCCCCCCCCC=C,761.6573206,Saldana 2012_filtered
+1-undecanol,CCCCCCCCCCCO,829.8853829,Saldana 2012_filtered
+1-undecene,CCCCCCCCCC=C,746.8908385,Saldana 2012_filtered
+"2,2,3,3-tetramethylbutane",CC(C)(C)C(C)(C)C,710,Chen 2024.xlsx
+"2,2,3,3-tetramethylhexane",CCCC(C)(C)C(C)(C)C,760.8299415,Saldana 2012_filtered
+"2,2,3,3-tetramethylpentane",CCC(C)(C)C(C)(C)C,723,Chen 2024.xlsx
+"2,2,3,4-tetramethylpentane",CC(C)C(C)C(C)(C)C,720,Chen 2024.xlsx
+"2,2,3-Trimethylpentane",CCC(C)C(C)(C)C,712.07,Chen 2024.xlsx
+"2,2,3-trimethylbutane",CC(C)C(C)(C)C,685.76,Chen 2024.xlsx
+"2,2,3-trimethylhexane",CCCC(C)C(C)(C)C,729.2,Chen 2024.xlsx
+"2,2,3-trimethylpentane",CCC(C)C(C)(C)C,712.0434794,Saldana 2012_filtered
+"2,2,4,4,6,8,8-heptamethylnonane",CC(CC(C)(C)C)CC(C)(C)CC(C)(C)C,781.6673363,Saldana 2012_filtered
+"2,2,4,4-tetramethylpentane",CC(C)(C)CC(C)(C)C,719.8,Chen 2024.xlsx
+"2,2,4-Trimethyl-3-pentanone",CC(C)C(=O)C(C)(C)C,807.5,Chen 2024.xlsx
+"2,2,4-Trimethylhexane",CCC(C)CC(C)(C)C,711,Chen 2024.xlsx
+"2,2,4-trimethylpentane",CC(C)CC(C)(C)C,687.77,Chen 2024.xlsx
+"2,2,5,5-tetramethylhexane",CC(C)(C)CCC(C)(C)C,714.7804758,Saldana 2012_filtered
+"2,2,5-Trimethylhexane",CC(C)CCC(C)(C)C,707.5,Chen 2024.xlsx
+"2,2,5-trimethylhexane",CC(C)CCC(C)(C)C,703.2098878,Saldana 2012_filtered
+"2,2-Dimethyl-1-pentanol",CCCC(C)(C)CO,837.9,Chen 2024.xlsx
+"2,2-Dimethyl-1-propanol",CC(C)(C)CO,812,Chen 2024.xlsx
+"2,2-Dimethyl-3-Hexene",CCC=CC(C)(C)C,704.8,Chen 2024.xlsx
+"2,2-Dimethylpropane",CC(C)(C)C,649,Chen 2024.xlsx
+"2,2-dimethyl-3-ethylpentane",CCC(CC)C(C)(C)C,722,Chen 2024.xlsx
+"2,2-dimethylbutane",CCC(C)(C)C,644.63,Chen 2024.xlsx
+"2,2-dimethylcyclohexan-1-one",CC1(CCCCC1=O)C,914.7,Chen 2024.xlsx
+"2,2-dimethylheptane",CCCCCC(C)(C)C,715.7,Chen 2024.xlsx
+"2,2-dimethylhexane",CCCCC(C)(C)C,691.12,Chen 2024.xlsx
+"2,2-dimethyloctane",CCCCCCC(C)(C)C,720.7847627,Saldana 2012_filtered
+"2,2-dimethylpentane",CCCC(C)(C)C,669.58,Chen 2024.xlsx
+"2,3,3,4-tetramethylpentane",CC(C)C(C)(C)C(C)C,720,Chen 2024.xlsx
+"2,3,3-Trimethylbutanol",CC(CO)C(C)(C)C,823.8,Chen 2024.xlsx
+"2,3,3-trimethyl-1-butene",CC(=C)C(C)(C)C,700.54,Chen 2024.xlsx
+"2,3,3-trimethylhexane",CCCC(C)(C)C(C)C,732.3,Chen 2024.xlsx
+"2,3,3-trimethylpentane",CCC(C)(C)C(C)C,722.32,Chen 2024.xlsx
+"2,3,4,5-tetramethylhexane",CC(C)C(C)C(C)C(C)C,759.3,Chen 2024.xlsx
+"2,3,4-trimethylhexane",CCC(C)C(C)C(C)C,734.7,Chen 2024.xlsx
+"2,3,4-trimethylpentane",CC(C)C(C)C(C)C,715.03,Chen 2024.xlsx
+"2,3,5-Trimethylhexane",CC(C)CC(C)C(C)C,721.9,Chen 2024.xlsx
+"2,3-Butanedione",CC(=O)C(=O)C,990,Chen 2024.xlsx
+"2,3-Dimethylhexane",CCCC(C)C(C)C,708.09,Chen 2024.xlsx
+"2,3-butanediol",CC(O)C(C)O,987.095313,Saldana 2012_filtered
+"2,3-dimethyl-1,3-butadiene",CC(=C)C(=C)C,722.1818881,Saldana 2012_filtered
+"2,3-dimethyl-1-butene",CC(=C)C(C)C,673.2169284,Saldana 2012_filtered
+"2,3-dimethyl-1-hexene",CCCC(C)C(=C)C,717.184646,Saldana 2012_filtered
+"2,3-dimethyl-2-butanol",CC(C)C(C)(C)O,815.5,Chen 2024.xlsx
+"2,3-dimethyl-2-butene",CC(=C(C)C)C,703.4385976,Saldana 2012_filtered
+"2,3-dimethylbutane",CC(C)C(C)C,656.98,Chen 2024.xlsx
+"2,3-dimethyldecane",CCCCCCCC(C)C(C)C,752.097159,Saldana 2012_filtered
+"2,3-dimethylheptane",CCCCC(C)C(C)C,725.8,Chen 2024.xlsx
+"2,3-dimethyloctane",CCCCCC(C)C(C)C,734.1324354,Saldana 2012_filtered
+"2,3-dimethylpentane",CCC(C)C(C)C,689.6,Chen 2024.xlsx
+"2,3-dimethylundecane",CCCCCCCCC(C)C(C)C,765.0059695,Saldana 2012_filtered
+"2,3-epoxy-1-propanol",OCC1CO1,1114.289399,Saldana 2012_filtered
+"2,3-pentadiene",CC=C=CC,689.9572956,Saldana 2012_filtered
+"2,4,4-trimethyl-1-pentene",CC(=C)CC(C)(C)C,710.7885256,Saldana 2012_filtered
+"2,4,4-trimethyl-2-pentene",CC(=CC(C)(C)C)C,717.5886115,Saldana 2012_filtered
+"2,4,4-trimethylhexane",CCC(C)(C)CC(C)C,719.6,Chen 2024.xlsx
+"2,4,6,8,10,12,14-Heptaoxapentadecane",COCOCOCOCOCOCOC,1130,Chen 2024.xlsx
+"2,4,6,8,10,12-Hexaoxatridecane",COCOCOCOCOCOC,1100,Chen 2024.xlsx
+"2,4,6,8,10-Pentaoxaundecane",COCOCOCOCOC,1060,Chen 2024.xlsx
+"2,4,6,8-Tetraoxanonane",COCOCOCOC,1020,Chen 2024.xlsx
+"2,4,6-Trioxaheptane",COCOCOC,960,Chen 2024.xlsx
+"2,4-Dimethyl-2-pentene",CC(C)C=C(C)C,695.5,Chen 2024.xlsx
+"2,4-Dimethyl-3-pentanone",CC(C)C(=O)C(C)C,803.9,Chen 2024.xlsx
+"2,4-dimethyl-3-ethylpentane",CCC(C(C)C)C(C)C,734.0808904,Saldana 2012_filtered
+"2,4-dimethylhexane",CCC(C)CC(C)C,696.2,Chen 2024.xlsx
+"2,4-dimethyloctane",CCCCC(C)CC(C)C,722.584626,Saldana 2012_filtered
+"2,4-dimethylpentane",CC(C)CC(C)C,674.5,Chen 2024.xlsx
+"2,4-diphenyl-4-methylpentene-1",C=C(CC(C)(C)c1ccccc1)c1ccccc1,984.9708244,Saldana 2012_filtered
+"2,4-pentanediol",CC(O)CC(C)O,955.9914663,Saldana 2012_filtered
+"2,4-xylenol",Cc1ccc(O)c(C)c1,1015.968016,Saldana 2012_filtered
+"2,5-Dimethyl-2-Hexene",CC(C)CC=C(C)C,726.5,Chen 2024.xlsx
+"2,5-Dimethyl-3-Hexene",CC(C)C=CC(C)C,712.2,Chen 2024.xlsx
+"2,5-Dimethylhexa-2,4-Diene",CC(=CC=C(C)C)C,764.6,Chen 2024.xlsx
+"2,5-dimethylheptane",CCC(C)CCC(C)C,714,Chen 2024.xlsx
+"2,5-dimethylhexane",CC(C)CCC(C)C,689.34,Chen 2024.xlsx
+"2,5-dimethyloctane",CCCC(C)CCC(C)C,726.3835468,Saldana 2012_filtered
+"2,6-Dimethyl-4-heptanone",CC(C)CC(=O)CC(C)C,801.2,Chen 2024.xlsx
+"2,6-dimethylcyclohexan-1-one",CC1CCCC(C1=O)C,915,Chen 2024.xlsx
+"2,6-dimethylheptane",CC(C)CCCC(C)C,709.8,Chen 2024.xlsx
+"2,6-dimethyloctane",CCC(C)CCCC(C)C,723.5877118,Saldana 2012_filtered
+"2,7-dimethyloctane",CC(C)CCCCC(C)C,720.1871797,Saldana 2012_filtered
+2-(2-butoxyethoxy)ethanol,CCCCOCCOCCO,948.061063,Saldana 2012_filtered
+2-(2-ethoxyethoxy)ethanol,OCCOCCOCC,984.2882913,Saldana 2012_filtered
+2-(2-hexoxyethoxy)ethanol,CCCCCCOCCOCCO,926.9864914,Saldana 2012_filtered
+2-(2-methoxyethoxy)ethanol,COCCOCCO,1017.428656,Saldana 2012_filtered
+2-Butene,CC=CC,636,Chen 2024.xlsx
+2-Ethoxypropane,CCOC(C)C,721.1,Chen 2024.xlsx
+2-Ethyl-3-methylbut-1-ene,CCC(=C)C(C)C,718.6,Chen 2024.xlsx
+2-Heptene,CCCCC=CC,713,Chen 2024.xlsx
+"2-Methyl-1,5-hexadiene",CC(=C)CCC=C,723,Chen 2024.xlsx
+2-Methyl-1-butanol,CCC(C)CO,814.78,Chen 2024.xlsx
+2-Methyl-1-propanol,CC(C)CO,798.03,Chen 2024.xlsx
+"2-Methyl-2,4-hexadiene",CC=CC=C(C)C,743.9,Chen 2024.xlsx
+2-Methyl-2-hexanol,CCCCC(C)(C)O,809.4,Chen 2024.xlsx
+2-Methyl-2-hexene,CCCC=C(C)C,704.1,Chen 2024.xlsx
+2-Methyl-2-propanol,CC(C)(C)O,781,Chen 2024.xlsx
+2-Methyl-3-ethylpentane,CCC(CC)C(C)C,719.32,Chen 2024.xlsx
+2-Methyl-3-heptene,CCCC=CC(C)C,725,Chen 2024.xlsx
+2-Methyl-3-hexene,CCC=CC(C)C,694.2,Chen 2024.xlsx
+2-Methylpropane,CC(C)C,550.9,Chen 2024.xlsx
+2-Propenylbenzene,C=CCC1=CC=CC=C1,923.7,Chen 2024.xlsx
+2-acetoacetoxy ethyl methacrylate,CC(=O)CC(=O)OCCOC(=O)C(=C)C,1112.999849,Saldana 2012_filtered
+2-butanol,CCC(C)O,802.4,Chen 2024.xlsx
+2-butoxyethanol,CCCCOCCO,896.7734762,Saldana 2012_filtered
+2-butylfuran,CCCCC1=CC=CO1,898.3,Chen 2024.xlsx
+2-ethoxyethanol,OCCOCC,926.5520252,Saldana 2012_filtered
+"2-ethyl-1,4-dimethylBenzene",CCC1=C(C=CC(=C1)C)C,877.7,Chen 2024.xlsx
+2-ethyl-1-butanol,CCC(CC)CO,829.526129,Saldana 2012_filtered
+2-ethyl-1-butene,CCC(=C)CC,691.4,Chen 2024.xlsx
+2-ethyl-1-hexanol,CCCCC(CC)CO,829.2094263,Saldana 2012_filtered
+2-ethyl-1-hexene,CCCCC(=C)CC,722.7840568,Saldana 2012_filtered
+2-ethyl-1-pentene,CCCC(=C)CC,707.9,Chen 2024.xlsx
+2-ethyl-m-xylene,CCc1c(C)cccc1C,886.3767286,Saldana 2012_filtered
+2-ethyl-p-xylene,CCc1cc(C)ccc1C,873.1830835,Saldana 2012_filtered
+2-ethylfuran,CCC1=CC=CO1,901.8,Chen 2024.xlsx
+2-ethylhexyl acetate,CCCCC(CC)COC(=O)C,869.6864463,Saldana 2012_filtered
+2-ethylhexyl acrylate,CCCCC(CC)COC(=O)C=C,879.9882676,Saldana 2012_filtered
+2-ethylnaphthalene,CCc1ccc2ccccc2c1,988.325678,Saldana 2012_filtered
+2-ethyltetrahydrofuran,CCC1CCCO1,853.9,Chen 2024.xlsx
+2-furfuryl alcohol,C1=COC(=C1)CO,1133,Chen 2024.xlsx
+2-heptanol,CCCCCC(C)O,813.5488216,Saldana 2012_filtered
+2-hexanol,CCCCC(C)O,810.14,Chen 2024.xlsx
+2-hexyne,CCCC#CC,726.7819297,Saldana 2012_filtered
+2-hydroxyethyl methacrylate,CC(=C)C(=O)OCCO,1063.9873,Saldana 2012_filtered
+2-hydroxypropyl methacrylate,CC(O)COC(=O)C(=C)C,1026.983455,Saldana 2012_filtered
+2-methoxy propanol-1,CC(CO)OC,934.014044,Saldana 2012_filtered
+2-methoxyethanol,COCCO,960.2517195,Saldana 2012_filtered
+2-methyl tetrahydrofuran,CC1CCCO1,854,Chen 2024.xlsx
+"2-methyl-1,3-butadiene",CC(=C)C=C,681,Chen 2024.xlsx
+2-methyl-1-butanol,CCC(C)CO,815.2322268,Saldana 2012_filtered
+2-methyl-1-heptanol,CCCCCC(C)CO,798.688324,Saldana 2012_filtered
+2-methyl-1-hexanol,CCCCC(C)CO,822.9843704,Saldana 2012_filtered
+2-methyl-1-pentanol,CCCC(C)CO,820.6,Chen 2024.xlsx
+2-methyl-1-propanol,OCC(C)C,799.401456,Saldana 2012_filtered
+2-methyl-2-butanol,CCC(C)(C)O,804.01,Chen 2024.xlsx
+2-methyl-2-butene,CC=C(C)C,656.94,Chen 2024.xlsx
+2-methyl-2-heptene,CCCCC=C(C)C,720.5,Chen 2024.xlsx
+2-methyl-2-pentanol,CCCC(C)(C)O,809.5,Chen 2024.xlsx
+2-methyl-2-pentene,CCC=C(C)C,690.4,Chen 2024.xlsx
+2-methyl-3-buten-2-ol,CC(C)(C=C)O,820,Chen 2024.xlsx
+2-methyl-3-hexanone,CCCC(=O)C(C)C,842.8,Chen 2024.xlsx
+2-methyl-3-pentanone,CCC(=O)C(C)C,800,Chen 2024.xlsx
+2-methyl-dodecan-1-ol,CCCCCCCCCCC(C)CO,843.9806403,Saldana 2012_filtered
+2-methylbutane,CCC(C)C,619.7,Chen 2024.xlsx
+2-methyldecane,CCCCCCCCC(C)C,733.006366,Saldana 2012_filtered
+2-methylfuran,CC1=CC=CO1,916,Chen 2024.xlsx
+2-methylheptane,CCCCCC(C)C,693.92,Chen 2024.xlsx
+2-methylhexane,CCCCC(C)C,678.9,Chen 2024.xlsx
+2-methylindene,CC1=Cc2ccccc2C1,971.5420473,Saldana 2012_filtered
+2-methylnaphthalene,CC1=CC2=CC=CC=C2C=C1,1004.4,Chen 2024.xlsx
+2-methylnonane,CCCCCCCC(C)C,722.4779147,Saldana 2012_filtered
+2-methyloctane,CCCCCCC(C)C,713.5,Chen 2024.xlsx
+2-methylpentane,CCCC(C)C,657.02,Chen 2024.xlsx
+2-methylpropyl ethanoate,CC(C)COC(=O)C,867.6907358,Saldana 2012_filtered
+2-methylpropyl methanoate,O=COCC(C)C,880.9880442,Saldana 2012_filtered
+2-nonanol,CCCCCCCC(C)O,819.0438263,Saldana 2012_filtered
+2-octanol,CCCCCCC(C)O,815.4109015,Saldana 2012_filtered
+2-octene,CCCCCC=CC,725,Chen 2024.xlsx
+2-pentanol,CCCC(C)O,805.24,Chen 2024.xlsx
+2-pentene,CCC=CC,650.6,Chen 2024.xlsx
+2-pentyne,CCC#CC,705.4198591,Saldana 2012_filtered
+2-phenylbutene-1,CCC(=C)c1ccccc1,886.971537,Saldana 2012_filtered
+2-propanol,CC(C)O,780.98,Chen 2024.xlsx
+"3,3,4-Trimethylhexane",CCC(C)C(C)(C)CC,722,Chen 2024.xlsx
+"3,3,5-trimethylheptane",CCC(C)CC(C)(C)CC,738.8829924,Saldana 2012_filtered
+"3,3-DIMETHYLHEPTANE",CCCCC(C)(C)CC,727,Chen 2024.xlsx
+"3,3-Diethylpentane",CCC(CC)(CC)CC,748.68,Chen 2024.xlsx
+"3,3-Dimethyl-1-pentene",CCC(C)(C)C=C,696.1,Chen 2024.xlsx
+"3,3-Dimethyl-2-butanone",CC(=O)C(C)(C)C,722.9,Chen 2024.xlsx
+"3,3-Dimethylpentan-1-ol",CCC(C)(C)CCO,832,Chen 2024.xlsx
+"3,3-diethylpentane",CCC(CC)(CC)CC,749.9716973,Saldana 2012_filtered
+"3,3-dimethyl-1-butanol",CC(C)(C)CCO,809.7,Chen 2024.xlsx
+"3,3-dimethyl-1-butene",CC(C)(C)C=C,647.86,Chen 2024.xlsx
+"3,3-dimethylcyclohexan-1-one",CC1(CCCC(=O)C1)C,906,Chen 2024.xlsx
+"3,3-dimethylhexane",CCCC(C)(C)CC,705.96,Chen 2024.xlsx
+"3,3-dimethylpentane",CCC(C)(C)CC,689.09,Chen 2024.xlsx
+"3,4,4-Trimethyl-2-pentene",CC=C(C)C(C)(C)C,735,Chen 2024.xlsx
+"3,4-Dimethyl-1-pentene",CC(C)C(C)C=C,701,Chen 2024.xlsx
+"3,4-dimethylheptane",CCCC(C)C(C)CC,731.4,Chen 2024.xlsx
+"3,4-dimethylhexane",CCC(C)C(C)CC,715.16,Chen 2024.xlsx
+"3,5-dimethylheptane",CCC(C)CC(C)CC,719.9,Chen 2024.xlsx
+3-Ethyl-1-pentene,CCC(CC)C=C,694.8,Chen 2024.xlsx
+"3-Ethyl-2,4-dimethylpentane",CCC(C(C)C)C(C)C,736.5,Chen 2024.xlsx
+3-Ethyl-4-methylhexane,CCC(C)C(CC)CC,738,Chen 2024.xlsx
+3-Ethylheptane,CCCCC(CC)CC,725.1,Chen 2024.xlsx
+3-Ethylhexane,CCCC(CC)CC,709.48,Chen 2024.xlsx
+3-Heptanone,CCCCC(=O)CC,812.8,Chen 2024.xlsx
+3-Heptene,CCCC=CCC,701.6,Chen 2024.xlsx
+3-Hexene,CCC=CCC,678.8,Chen 2024.xlsx
+3-Methyl-1-Heptene,CCCCC(C)C=C,719,Chen 2024.xlsx
+3-Methyl-1-butanol,CC(C)CCO,806.31,Chen 2024.xlsx
+3-Methyl-1-butene,CC(C)C=C,621.3,Chen 2024.xlsx
+3-Methyl-3-ethylpentane,CCC(C)(CC)CC,723.54,Chen 2024.xlsx
+3-Methyl-3-hexene,CCC=C(C)CC,714,Chen 2024.xlsx
+3-Methylfuran,CC1=COC=C1,923,Chen 2024.xlsx
+3-Methyloctane,CCCCCC(C)CC,720.5,Chen 2024.xlsx
+3-Pentanone,CCC(=O)CC,810.09,Chen 2024.xlsx
+3-ethyl-1-pentene,CCC(CC)C=C,691.6815183,Saldana 2012_filtered
+3-ethyl-o-xylene,CCc1cccc(C)c1C,888.0812993,Saldana 2012_filtered
+3-ethylheptane,CCCCC(CC)CC,722.4866293,Saldana 2012_filtered
+3-ethylpentane,CCC(CC)CC,693.77,Chen 2024.xlsx
+3-heptanol,CCCCC(O)CC,816.1311775,Saldana 2012_filtered
+3-hexanol,CCCC(O)CC,814.46159,Saldana 2012_filtered
+3-hexanone,CCCC(=O)CC,821.6,Chen 2024.xlsx
+3-hexyne,CCC#CCC,717.7872055,Saldana 2012_filtered
+"3-methyl-1,2-butadiene",C=C=C(C)C,680.6048287,Saldana 2012_filtered
+"3-methyl-1,4-pentadiene",C=CC(C)C=C,690.00624,Saldana 2012_filtered
+3-methyl-1-butanol,OCCC(C)C,806.8208272,Saldana 2012_filtered
+3-methyl-1-butyne,C#CC(C)C,659.9858068,Saldana 2012_filtered
+3-methyl-1-hexene,CCCC(C)C=C,694.5,Chen 2024.xlsx
+3-methyl-1-pentanol,OCCC(C)CC,820.0341888,Saldana 2012_filtered
+3-methyl-1-pentene,CCC(C)C=C,670,Chen 2024.xlsx
+3-methyl-2-butanol,CC(C)C(C)O,812.31,Chen 2024.xlsx
+3-methyl-2-pentanol,CCC(C)C(C)O,811,Chen 2024.xlsx
+3-methyl-3-pentanol,CCC(C)(O)CC,823.3814339,Saldana 2012_filtered
+3-methylbutyl 3-methylbutanoate,CC(C)CCOC(=O)CC(C)C,854.0878868,Saldana 2012_filtered
+3-methylbutyl butanoate,CCCC(=O)OCCC(C)C,859.4380494,Saldana 2012_filtered
+3-methylbutyl ethanoate,CC(C)CCOC(=O)C,868.4632011,Saldana 2012_filtered
+3-methylcyclopentene,CC1CCC=C1,757.8814967,Saldana 2012_filtered
+3-methylheptane,CCCCC(C)CC,701.75,Chen 2024.xlsx
+3-methylhexane,CCCC(C)CC,687,Chen 2024.xlsx
+3-methylnonane,CCCCCCC(C)CC,729.5777705,Saldana 2012_filtered
+3-methyloctane,CCCCCC(C)CC,716.7921029,Saldana 2012_filtered
+3-methylpentane,CCC(C)CC,659.76,Chen 2024.xlsx
+3-methylundecane,CCCCCCCCC(C)CC,748.2383684,Saldana 2012_filtered
+3-pentanol,CCC(O)CC,815.6463131,Saldana 2012_filtered
+3-phenyl-1-propanol,OCCCc1ccccc1,994.9840617,Saldana 2012_filtered
+"4,4-Dimethyl-1-pentanol",CC(C)(C)CCCO,815,Chen 2024.xlsx
+"4,4-Dimethyl-1-pentene",CC(C)(C)CC=C,680.2,Chen 2024.xlsx
+"4,4-Dimethyl-2-pentene",CC=CC(C)(C)C,712,Chen 2024.xlsx
+"4,4-dimethyl-2-pentanone",CC(=O)CC(C)(C)C,816.5,Chen 2024.xlsx
+4-Ethyl-2-methylhexane,CCC(CC)CC(C)C,721,Chen 2024.xlsx
+4-Heptanone,CCCC(=O)CCC,818.5,Chen 2024.xlsx
+4-Methyl-2-hexene,CCC(C)C=CC,700.7,Chen 2024.xlsx
+4-Methyl-cis-2-pentene,CC=CC(C)C,670.2,Chen 2024.xlsx
+4-Methyloctane,CCCCC(C)CCC,720.17,Chen 2024.xlsx
+4-ethyl guaiacol,CCC1=CC(=C(C=C1)O)OC,1051,Chen 2024.xlsx
+4-ethyl-m-xylene,CCc1ccc(C)cc1C,872.2838218,Saldana 2012_filtered
+4-ethyl-o-xylene,CCc1ccc(C)c(C)c1,870.4852985,Saldana 2012_filtered
+4-hydroxybutyraldehyde,OCCCC=O,1080.785507,Saldana 2012_filtered
+4-methyl anisole,CC1=CC=C(C=C1)OC,969,Chen 2024.xlsx
+4-methyl guaiacol,CC1=CC(=C(C=C1)O)OC,1091.9,Chen 2024.xlsx
+4-methyl-1-heptene,CCCC(C)CC=C,719.1,Chen 2024.xlsx
+4-methyl-1-hexene,CCC(C)CC=C,696.9,Chen 2024.xlsx
+4-methyl-1-pentene,CC(C)CC=C,671.8,Chen 2024.xlsx
+4-methyl-2-pentanol,CC(C)CC(C)O,802.45,Chen 2024.xlsx
+4-methylcyclopentene,CC1CC=CC1,763.3358317,Saldana 2012_filtered
+4-methylheptane,CCCC(C)CCC,700.55,Chen 2024.xlsx
+4-methylnonane,CCCCCC(C)CCC,728.2830072,Saldana 2012_filtered
+4-methyloctane,CCCCC(C)CCC,716.1380019,Saldana 2012_filtered
+4-propylanisole,CCCC1=CC=C(C=C1)OC,931.2,Chen 2024.xlsx
+5-Methyl-1-hexene,CC(C)CCC=C,713.6,Chen 2024.xlsx
+5-Methyl-2-hexene,CC=CCC(C)C,702,Chen 2024.xlsx
+5-ethyl-m-xylene,CCc1cc(C)cc(C)c1,860.7813255,Saldana 2012_filtered
+5-ethylidene-2-norbornene,CC=C1CC2CC1C=C2,892.5787306,Saldana 2012_filtered
+5-methylnonane,CCCCC(C)CCCC,728.7809931,Saldana 2012_filtered
+5-o-tolyl-2-pentene,CC=CCCc1ccccc1C,887.0000469,Saldana 2012_filtered
+6-Methyl-1-heptene,CC(C)CCCC=C,712.5,Chen 2024.xlsx
+6-Methyl-2-heptene,CC=CCCC(C)C,725,Chen 2024.xlsx
+6-Methyl-3-heptene,CCC=CCC(C)C,725.6,Chen 2024.xlsx
+8-methyl-1-nonanol,OCCCCCCCC(C)C,840.47211,Saldana 2012_filtered
+Benzaldehyde,C1=CC=C(C=C1)C=O,1043.4,Chen 2024.xlsx
+Benzeneethanol,C1=CC=C(C=C1)CCO,1016,Chen 2024.xlsx
+Benzyl alcohol,C1=CC=C(C=C1)CO,1042,Chen 2024.xlsx
+Butanal,CCCC=O,817,Chen 2024.xlsx
+Butane,CCCC,573,Chen 2024.xlsx
+Butenone,CC(=O)C=C,842,Chen 2024.xlsx
+Butyl propanoate,CCCCOC(=O)CC,882,Chen 2024.xlsx
+Cyclobutane,C1CCC1,703,Chen 2024.xlsx
+Cyclohexanone,C1CCC(=O)CC1,945.5,Chen 2024.xlsx
+Cyclopentanol,C1CCC(C1)O,948.8,Chen 2024.xlsx
+Cyclopentanone,C1CCC(=O)C1,948.7,Chen 2024.xlsx
+Cyclopropane,C1CC1,790,Chen 2024.xlsx
+Cyclopropyl methyl ketone,CC(=O)C1CC1,893.8,Chen 2024.xlsx
+Diisobutylene,CC(=C)CC(C)(C)C,715.1,Chen 2024.xlsx
+Dimethyl ether,COC,947.7,Chen 2024.xlsx
+Ethane,CC,499.1,Chen 2024.xlsx
+Ethene,C=C,482,Chen 2024.xlsx
+Ethyl Formate,CCOC=O,917,Chen 2024.xlsx
+Ethyl butanoate,CCCC(=O)OCC,866,Chen 2024.xlsx
+Ethyl methyl ether,CCOC,711,Chen 2024.xlsx
+Ethylcycloheptane,CCC1CCCCCC1,814.8,Chen 2024.xlsx
+Indane,C1CC2=CC=CC=C2C1,946,Chen 2024.xlsx
+Isopropenylbenzene,CC(=C)C1=CC=CC=C1,909.5,Chen 2024.xlsx
+Isopropylcyclopentane,CC(C)C1CCCC1,776.56,Chen 2024.xlsx
+Methacrolein,CC(=C)C=O,845,Chen 2024.xlsx
+Methane,C,717.46,Chen 2024.xlsx
+Methyl Formate,COC=O,1185,Chen 2024.xlsx
+Methyl butanoate,CCCC(=O)OC,898,Chen 2024.xlsx
+Methyl hexanoate,CCCCCC(=O)OC,879,Chen 2024.xlsx
+Methyl pentanoate,CCCCC(=O)OC,885,Chen 2024.xlsx
+Methyl propanoate,CCC(=O)OC,913,Chen 2024.xlsx
+Methyl propyl ether,CCCOC,727,Chen 2024.xlsx
+N-propylcyclopentane,CCCC1CCCC1,775.25,Chen 2024.xlsx
+Prenol,CC(=CCO)C,868,Chen 2024.xlsx
+Propanal,CCC=O,805.8,Chen 2024.xlsx
+Propane,CCC,493,Chen 2024.xlsx
+Propene,CC=C,575,Chen 2024.xlsx
+Tert-Amyl methyl ether,CCC(C)(C)OC,770.3,Chen 2024.xlsx
+Trans-4-Octene,CCCC=CCCC,718.4,Chen 2024.xlsx
+acetol,CC(=O)CO,1070.657139,Saldana 2012_filtered
+acetomethoxane,CC1OC(C)OC(C1)OC(=O)C,1067.983414,Saldana 2012_filtered
+allyl alcohol,OCC=C,847.7812066,Saldana 2012_filtered
+allylidene diacetate,C=CC(OC(=O)C)OC(=O)C,1056.597029,Saldana 2012_filtered
+alpha-methylbenzyl alcohol,C[C@@H](O)c1ccccc1,1011.836111,Saldana 2012_filtered
+alpha-tocopherol,CC(CCCC(C)CCCC(C)C)CCCC1(C)CCc2c(O1)c(C)c(C)c(O)c2C,947.6332036,Saldana 2012_filtered
+benzene,C1=CC=CC=C1,873.6,Chen 2024.xlsx
+benzyl acetate,CC(=O)OCc1ccccc1,1050.725924,Saldana 2012_filtered
+benzyl alcohol,OCc1ccccc1,1040.489376,Saldana 2012_filtered
+benzyl benzoate,O=C(OCc1ccccc1)c1ccccc1,1113.526904,Saldana 2012_filtered
+bicyclohexyl,C1CCC(CC1)C1CCCCC1,884.3332582,Saldana 2012_filtered
+butan-2-yl propanoate,CCC(C)OC(=O)CC,863,Chen 2024.xlsx
+butan-2-ylbenzene,CCC(C)C1=CC=CC=C1,859.8,Chen 2024.xlsx
+butyl ethanoate,CCCCOC(=O)C,875.6452548,Saldana 2012_filtered
+butyl formate,CCCCOC=O,889,Chen 2024.xlsx
+butyl levulinate,CCCCOC(=O)CCC(=O)C,973.5,Chen 2024.xlsx
+butyl nonanoate,CCCCCCCCC(=O)OCCCC,851.8687105,Saldana 2012_filtered
+butyl octadecanoate,CCCCCCCCCCCCCCCCCC(=O)OCCCC,853.9792183,Saldana 2012_filtered
+butyl propanoate,CCCCOC(=O)CC,871.1059537,Saldana 2012_filtered
+"cis-1,2-dimethylcyclohexane",C[C@H]1CCCC[C@H]1C,792.1875746,Saldana 2012_filtered
+"cis-1,2-dimethylcyclopentane",C[C@@H]1CCC[C@@H]1C,768.0408171,Saldana 2012_filtered
+"cis-1,3-dimethylcyclohexane",C[C@H]1CCC[C@@H](C)C1,761.9238256,Saldana 2012_filtered
+"cis-1,3-dimethylcyclopentane",C[C@H]1CC[C@@H](C)C1,740.2148877,Saldana 2012_filtered
+"cis-1,3-pentadiene",C/C=C\C=C,685.9043329,Saldana 2012_filtered
+"cis-1,4-dimethylcyclohexane",C[C@H]1CC[C@@H](C)CC1,778.6659515,Saldana 2012_filtered
+cis-2-butene,C/C=C\C,616.4962442,Saldana 2012_filtered
+cis-2-heptene,CCCC/C=C\C,703.4660958,Saldana 2012_filtered
+cis-2-hexene,CCCC=CC,681.3,Chen 2024.xlsx
+cis-2-methylcyclohexanol,C[C@H]1CCCC[C@H]1O,931.7876092,Saldana 2012_filtered
+cis-2-octene,CCCCC/C=C\C,720.0797321,Saldana 2012_filtered
+cis-2-phenylbutene-2,C/C=C(/C)\c1ccccc1,919.0834708,Saldana 2012_filtered
+cis-3-heptene,CCC/C=C\CC,698.4858122,Saldana 2012_filtered
+cis-3-hexene,CC/C=C\CC,675.2030921,Saldana 2012_filtered
+cis-3-octene,CCCCC=CCC,724.8,Chen 2024.xlsx
+cis-4-octene,CCC/C=C\CCC,716.9826633,Saldana 2012_filtered
+cis-Propenylbenzene,CC=CC1=CC=CC=C1,910.7,Chen 2024.xlsx
+cis-decahydronaphthalene,C1CC[C@H]2CCCC[C@H]2C1,892.8248959,Saldana 2012_filtered
+cumene,CC(C)c1ccccc1,857.4106742,Saldana 2012_filtered
+cyclobutane,C1CCC1,688.9856096,Saldana 2012_filtered
+cycloheptane,C1CCCCCC1,809.8,Chen 2024.xlsx
+cycloheptene,C1CCC=CCC1,826.1,Chen 2024.xlsx
+cyclohexane,C1CCCCC1,779,Chen 2024.xlsx
+cyclohexanol,OC1CCCCC1,945.4898113,Saldana 2012_filtered
+cyclohexene,C1CCC=CC1,803.4,Chen 2024.xlsx
+cyclohexyl acetate,CC(=O)OC1CCCCC1,958.9810762,Saldana 2012_filtered
+cyclohexylbenzene,C1CCC(CC1)c1ccccc1,938.7282909,Saldana 2012_filtered
+cyclooctane,C1CCCCCCC1,831.5,Chen 2024.xlsx
+cyclooctene,C1CCCC=CCC1,850,Chen 2024.xlsx
+cyclopentadiene,C1C=CC=C1,796.5848381,Saldana 2012_filtered
+cyclopentane,C1CCCC1,740.45,Chen 2024.xlsx
+cyclopentene,C1CC=CC1,772,Chen 2024.xlsx
+di(2-ethylhexyl)adipate,CCCCC(CC)COC(=O)CCCCC(=O)OCC(CC)CCCC,920.1906831,Saldana 2012_filtered
+di-n-butyl phthalate,CCCCOC(=O)c1ccccc1C(=O)OCCCC,1042.591173,Saldana 2012_filtered
+di-n-heptyl phthalate,CCCCCCCOC(=O)c1ccccc1C(=O)OCCCCCCC,982.9630263,Saldana 2012_filtered
+di-n-hexyl phthalate,CCCCCCOC(=O)c1ccccc1C(=O)OCCCCCC,999.2691124,Saldana 2012_filtered
+di-n-nonyl phthalate,CCCCCCCCCOC(=O)c1ccccc1C(=O)OCCCCCCCCC,963.97345,Saldana 2012_filtered
+di-n-undecyl phthalate,CCCCCCCCCCCOC(=O)c1ccccc1C(=O)OCCCCCCCCCCC,953.9884698,Saldana 2012_filtered
+diallyl phthalate,C=CCOC(=O)c1ccccc1C(=O)OCC=C,1121.288642,Saldana 2012_filtered
+dibutyl ether,CCCCOCCCC,768.4,Chen 2024.xlsx
+dibutyl maleate,CCCCOC(=O)/C=C\C(=O)OCCCC,990.6875466,Saldana 2012_filtered
+dibutyl sebacate,CCCCOC(=O)CCCCCCCCC(=O)OCCCC,933.0819098,Saldana 2012_filtered
+diethyl ether,CCOCC,704.8,Chen 2024.xlsx
+diethyl malonate,CCOC(=O)CC(=O)OCC,1049.73963,Saldana 2012_filtered
+diethyl oxalate,CCOC(=O)C(=O)OCC,1072.486424,Saldana 2012_filtered
+diethyl phthalate,CCOC(=O)c1ccccc1C(=O)OCC,1114.82414,Saldana 2012_filtered
+diethyl succinate,CCOC(=O)CCC(=O)OCC,1035.637729,Saldana 2012_filtered
+diethylene glycol,OCCOCCO,1114.051959,Saldana 2012_filtered
+dihexyl adipate,CCCCCCOC(=O)CCCCC(=O)OCCCCCC,933.6793841,Saldana 2012_filtered
+diisopropyl ether,CC(C)OC(C)C,725.8,Chen 2024.xlsx
+dimethyl maleate,COC(=O)/C=C\C(=O)OC,1146.185432,Saldana 2012_filtered
+dimethyl phthalate,COC(=O)c1ccccc1C(=O)OC,1189.124561,Saldana 2012_filtered
+dimethylacetylene,CC#CC,685.596327,Saldana 2012_filtered
+dimethylmalonate,COC(=O)CC(=O)OC,1149.247464,Saldana 2012_filtered
+dioctyl adipate,CCCCCCCCOC(=O)CCCCC(=O)OCCCCCCCC,919.0048704,Saldana 2012_filtered
+dioctyl phthalate,CCCCC(CC)COC(=O)c1ccccc1C(=O)OCC(CC)CCCC,979.9834163,Saldana 2012_filtered
+dipropylene glycol monomethyl ether,OCC(C)OCC(C)OC,950.9854784,Saldana 2012_filtered
+dipropylene glycol monomethyl ether acetate,COCC(C)OCC(C)OC(=O)C,975.9909813,Saldana 2012_filtered
+dipropylene glycol n-butyl ether,CCCCOCC(C)OCC(C)O,908.96756,Saldana 2012_filtered
+epsilon-caprolactone,O=C1CCCCCO1,1070.986725,Saldana 2012_filtered
+ethanol,CCO,785.3,Chen 2024.xlsx
+ethoxybenzene,CCOC1=CC=CC=C1,967,Chen 2024.xlsx
+ethyl (9Z)-octadec-9-enoate,CCCCCCCC/C=C\CCCCCCCC(=O)OCC,868.3576807,Saldana 2012_filtered
+"ethyl (9Z,12Z)-octadec-9,12-dienoate",CCCCC/C=C\C/C=C\CCCCCCCC(=O)OCC,877.5871053,Saldana 2012_filtered
+"ethyl (9Z,12Z,15Z)-octadec-9,12,15-trienoate",CC/C=C\C/C=C\C/C=C\CCCCCCCC(=O)OCC,888.1366535,Saldana 2012_filtered
+"ethyl 2,2-dimethylpropanoate",CCOC(=O)C(C)(C)C,855.5,Chen 2024.xlsx
+ethyl 3-methylbutanoate,CCOC(=O)CC(C)C,861.2900153,Saldana 2012_filtered
+ethyl acetoacetate,CCOC(=O)CC(=O)C,1022.133697,Saldana 2012_filtered
+ethyl benzoate,CCOC(=O)c1ccccc1,1042.196013,Saldana 2012_filtered
+ethyl butanoate,CCCC(=O)OCC,873.2702052,Saldana 2012_filtered
+ethyl decanoate,CCCCCCCCCC(=O)OCC,860.3858418,Saldana 2012_filtered
+ethyl dodecanoate,CCCCCCCCCCCC(=O)OCC,858.4808447,Saldana 2012_filtered
+ethyl ethanoate,CCOC(=O)C,894.6193885,Saldana 2012_filtered
+ethyl hexadecanoate,CCCCCCCCCCCCCCCC(=O)OCC,858.7665242,Saldana 2012_filtered
+ethyl isobutyrate,CCOC(=O)C(C)C,869,Chen 2024.xlsx
+ethyl isopentanoate,CCOC(=O)CC(C)C,864,Chen 2024.xlsx
+ethyl levulinate,CCOC(=O)CCC(=O)C,1013.46,Chen 2024.xlsx
+ethyl octanoate,CCCCCCCC(=O)OCC,862.4085469,Saldana 2012_filtered
+ethyl phenyl acetate,CCOC(=O)Cc1ccccc1,1030.131394,Saldana 2012_filtered
+ethyl tetradecanoate,CCCCCCCCCCCCCC(=O)OCC,857.449803,Saldana 2012_filtered
+ethyl trimethyl acetate,CCOC(=O)C(C)(C)C,857.9740013,Saldana 2012_filtered
+ethyl valerate,CCCCC(=O)OCC,874,Chen 2024.xlsx
+ethyl-3-ethoxypropionate,CCOCCC(=O)OCC,946.0899123,Saldana 2012_filtered
+ethylacetylene,CCC#C,650.0048175,Saldana 2012_filtered
+ethylbenzene,CCC1=CC=CC=C1,862.6,Chen 2024.xlsx
+ethylcyclohexane,CCC1CCCCC1,787.92,Chen 2024.xlsx
+ethylcyclopentane,CCC1CCCC1,767.2,Chen 2024.xlsx
+ethylene glycol,OCCO,1110.021251,Saldana 2012_filtered
+ethylene glycol monopropyl ether,CCCOCCO,907.3857908,Saldana 2012_filtered
+ethylidene diacetate,CC(=O)OC(C)OC(=O)C,1069.636671,Saldana 2012_filtered
+furfural,O=Cc1ccco1,1154.401939,Saldana 2012_filtered
+furfuryl alcohol,OCc1ccco1,1132.073308,Saldana 2012_filtered
+gamma-Valerolactone,CC1CCC(=O)O1,1050,Chen 2024.xlsx
+gamma-butyrolactone,O=C1CCCO1,1124.784617,Saldana 2012_filtered
+gamma-valerolactone,CC1CCC(=O)O1,1046.510666,Saldana 2012_filtered
+glycerol,OCC(O)CO,1258.093675,Saldana 2012_filtered
+guaiacol,COC1=CC=CC=C1O,1129.3,Chen 2024.xlsx
+heptyl ethanoate,CCCCCCCOC(=O)C,866.7012831,Saldana 2012_filtered
+hexyl ethanoate,CCCCCCOC(=O)C,868.0951842,Saldana 2012_filtered
+hexylene glycol,CC(O)CC(C)(C)O,918.5441108,Saldana 2012_filtered
+indane,c1ccc2CCCc2c1,959.7757651,Saldana 2012_filtered
+indene,C1C=CC2=CC=CC=C21,998,Chen 2024.xlsx
+iso-butylcyclohexane,CC(C)CC1CCCCC1,791.4088252,Saldana 2012_filtered
+isobutyl formate,CC(C)COC=O,876,Chen 2024.xlsx
+isobutyl propionate,CCC(=O)OCC(C)C,879,Chen 2024.xlsx
+isobutylbenzene,CC(C)Cc1ccccc1,849.0439474,Saldana 2012_filtered
+isopentane,CCC(C)C,615.1910024,Saldana 2012_filtered
+isopentyl formate,CC(C)CCOC=O,882,Chen 2024.xlsx
+isoprene,C=CC(=C)C,675.8570724,Saldana 2012_filtered
+isopropanol,CC(C)O,780.9838029,Saldana 2012_filtered
+isopropyl acetate,CC(C)OC(=O)C,870.5399713,Saldana 2012_filtered
+isopropyl formate,CC(C)OC=O,872.8,Chen 2024.xlsx
+isopropylbenzene,CC(C)C1=CC=CC=C1,856.6,Chen 2024.xlsx
+isopropylcyclohexane,CC(C)C1CCCCC1,798.3115794,Saldana 2012_filtered
+isopropylcyclopentane,CC(C)C1CCCC1,772.4942563,Saldana 2012_filtered
+limonene,CC1=CCC(CC1)C(=C)C,839,Chen 2024.xlsx
+linalol,CC(=CCCC(C)(C=C)O)C,853.1,Chen 2024.xlsx
+m-cresol,Cc1cccc(O)c1,1030.780514,Saldana 2012_filtered
+m-cymene,Cc1cccc(c1)C(C)C,856.9829516,Saldana 2012_filtered
+m-diethylbenzene,CCc1cccc(CC)c1,859.9021966,Saldana 2012_filtered
+m-divinylbenzene,C=Cc1cccc(C=C)c1,925.3258753,Saldana 2012_filtered
+m-ethylphenol,CCc1cccc(O)c1,1005.620691,Saldana 2012_filtered
+m-ethylstyrene,CCc1cccc(C=C)c1,890.4034421,Saldana 2012_filtered
+m-ethyltoluene,CCc1cccc(C)c1,860.3733967,Saldana 2012_filtered
+m-methylstyrene,C=Cc1cccc(C)c1,907.5775584,Saldana 2012_filtered
+m-xylene,Cc1cccc(C)c1,859.1827285,Saldana 2012_filtered
+mesitylene,Cc1cc(C)cc(C)c1,860.7760385,Saldana 2012_filtered
+methanol,CO,787,Chen 2024.xlsx
+methoxybenzene,COC1=CC=CC=C1,989.17,Chen 2024.xlsx
+methoxydihydropyran,COC1CCC=CO1,993.9862619,Saldana 2012_filtered
+methyl (9Z)-hexadec-9-enoate,CCCCCC/C=C\CCCCCCCC(=O)OC,874.8028215,Saldana 2012_filtered
+methyl (9Z)-octadec-9-enoate,CCCCCCCC/C=C\CCCCCCCC(=O)OC,870.1921039,Saldana 2012_filtered
+"methyl (9Z,12Z)-octadec-9,12-dienoate",CCCCC/C=C\C/C=C\CCCCCCCC(=O)OC,885.3447916,Saldana 2012_filtered
+"methyl (9Z,12Z,15Z)-octadec-9,12,15-trienoate",CC/C=C\C/C=C\C/C=C\CCCCCCCC(=O)OC,896.1144296,Saldana 2012_filtered
+methyl 2-methylbutyrate,CCC(C)C(=O)OC,874,Chen 2024.xlsx
+methyl acetoacetate,COC(=O)CC(=O)C,1070.890034,Saldana 2012_filtered
+methyl acrylate,COC(=O)C=C,949.8225849,Saldana 2012_filtered
+methyl benzoate,COC(=O)c1ccccc1,1083.805517,Saldana 2012_filtered
+methyl butanoate,CCCC(=O)OC,890.8846059,Saldana 2012_filtered
+methyl decanoate,CCCCCCCCCC(=O)OC,868.1719473,Saldana 2012_filtered
+methyl dodecanoate,CCCCCCCCCCCC(=O)OC,865.2638592,Saldana 2012_filtered
+methyl glycolate,COC(=O)CO,1166.96842,Saldana 2012_filtered
+methyl lactate,COC(=O)C(C)O,1085.81515,Saldana 2012_filtered
+methyl methacrylate,COC(=O)C(=C)C,938.6859283,Saldana 2012_filtered
+methyl octanoate,CCCCCCCC(=O)OC,871.9423678,Saldana 2012_filtered
+methyl salicylate,COC(=O)c1ccccc1O,1178.183202,Saldana 2012_filtered
+methyl tetradecanoate,CCCCCCCCCCCCCC(=O)OC,863.2519974,Saldana 2012_filtered
+methylcyclohexane,CC1CCCCC1,765.1,Chen 2024.xlsx
+methylcyclopentane,CC1CCCC1,743.3,Chen 2024.xlsx
+methylnorbornene,CC1=CC2CCC1C2,869.6805184,Saldana 2012_filtered
+n-butyl acrylate,CCCCOC(=O)C=C,893.6902553,Saldana 2012_filtered
+n-butyl benzoate,CCCCOC(=O)c1ccccc1,1003.546485,Saldana 2012_filtered
+n-butyl methacrylate,CCCCOC(=O)C(=C)C,890.8978421,Saldana 2012_filtered
+n-butylbenzene,CCCCC1=CC=CC=C1,855.9,Chen 2024.xlsx
+n-decylbenzene,CCCCCCCCCCC1=CC=CC=C1,851.89,Chen 2024.xlsx
+n-heptadecylbenzene,CCCCCCCCCCCCCCCCCc1ccccc1,851.128992,Saldana 2012_filtered
+n-heptane,CCCCCCC,679.56,Chen 2024.xlsx
+n-hexadecane,CCCCCCCCCCCCCCCC,770.088645,Saldana 2012_filtered
+n-hexane,CCCCCC,654.7,Chen 2024.xlsx
+n-hexylbenzene,CCCCCCc1ccccc1,854.0880476,Saldana 2012_filtered
+n-nonylbenzene,CCCCCCCCCc1ccccc1,852.1847904,Saldana 2012_filtered
+n-octane,CCCCCCCC,698.6,Chen 2024.xlsx
+n-octylbenzene,CCCCCCCCc1ccccc1,853.2817412,Saldana 2012_filtered
+n-pentacosane,CCCCCCCCCCCCCCCCCCCCCCCCC,797.7982876,Saldana 2012_filtered
+n-pentadecane,CCCCCCCCCCCCCCC,764.8624197,Saldana 2012_filtered
+n-pentadecylbenzene,CCCCCCCCCCCCCCCc1ccccc1,851.2359227,Saldana 2012_filtered
+n-pentane,CCCCC,685.95,Chen 2024.xlsx
+n-pentylbenzene,CCCCCC1=CC=CC=C1,860.2,Chen 2024.xlsx
+n-propyl benzoate,CCCOC(=O)c1ccccc1,1017.849655,Saldana 2012_filtered
+n-propylbenzene,CCCc1ccccc1,858.1799004,Saldana 2012_filtered
+n-propylcyclopentane,CCCC1CCCC1,772.2810523,Saldana 2012_filtered
+n-tetradecane,CCCCCCCCCCCCCC,759.7169266,Saldana 2012_filtered
+n-tetradecylbenzene,CCCCCCCCCCCCCCc1ccccc1,851.3394503,Saldana 2012_filtered
+n-tridecane,CCCCCCCCCCCCC,752.7384598,Saldana 2012_filtered
+n-tridecylbenzene,CCCCCCCCCCCCCc1ccccc1,851.4872667,Saldana 2012_filtered
+n-undecylbenzene,CCCCCCCCCCCc1ccccc1,851.691745,Saldana 2012_filtered
+naphthalene,C1=CC=C2C=CC=CC2=C1,1037,Chen 2024.xlsx
+nonylphenol,CCCCCCCCCc1ccccc1O,949.3799569,Saldana 2012_filtered
+o-cymene,CC(C)c1ccccc1C,872.9817563,Saldana 2012_filtered
+o-diethylbenzene,CCc1ccccc1CC,875.8808685,Saldana 2012_filtered
+o-ethylphenol,CCc1ccccc1O,1014.972376,Saldana 2012_filtered
+o-ethylstyrene,C=Cc1ccccc1CC,901.6491188,Saldana 2012_filtered
+o-ethyltoluene,CCc1ccccc1C,876.5331546,Saldana 2012_filtered
+o-methylstyrene,C=Cc1ccccc1C,907.6839166,Saldana 2012_filtered
+o-terphenyl,c1ccc(cc1)c1ccccc1c1ccccc1,1077.360989,Saldana 2012_filtered
+o-xylene,Cc1ccccc1C,875.7444685,Saldana 2012_filtered
+ocimene,CC(=CCC=C(C)C=C)C,776,Chen 2024.xlsx
+octyl ethanoate,CCCCCCCCOC(=O)C,863.7863838,Saldana 2012_filtered
+"p,alpha-dimethylbenzyl alcohol",Cc1ccc(cc1)C(C)O,983.29902,Saldana 2012_filtered
+p-cymene,Cc1ccc(cc1)C(C)C,852.7148141,Saldana 2012_filtered
+p-diethylbenzene,CCc1ccc(CC)cc1,857.9359005,Saldana 2012_filtered
+p-ethylstyrene,CCc1ccc(C=C)cc1,892.5108125,Saldana 2012_filtered
+p-ethyltoluene,CCc1ccc(C)cc1,857.3866359,Saldana 2012_filtered
+p-methylstyrene,C=Cc1ccc(C)cc1,915.2826141,Saldana 2012_filtered
+p-tert-butyl ethylbenzene,CCc1ccc(cc1)C(C)(C)C,862.1799774,Saldana 2012_filtered
+p-xylene,Cc1ccc(C)cc1,856.645385,Saldana 2012_filtered
+pentamethylbenzene,Cc1cc(C)c(C)c(C)c1C,912.9800558,Saldana 2012_filtered
+pentyl butanoate,CCCCCOC(=O)CCC,859.8969396,Saldana 2012_filtered
+pentyl ethanoate,CCCCCOC(=O)C,871.2947218,Saldana 2012_filtered
+pentyl formate,CCCCCOC=O,885,Chen 2024.xlsx
+phenyl acetate,CC(=O)Oc1ccccc1,1073.458906,Saldana 2012_filtered
+propan-2-yl butanoate,CCCC(=O)OC(C)C,876,Chen 2024.xlsx
+propan-2-yl propanoate,CCC(=O)OC(C)C,883,Chen 2024.xlsx
+propargyl alcohol,OCC#C,945.2592875,Saldana 2012_filtered
+propenal,C=CC=O,838.9,Chen 2024.xlsx
+propyl 2-methylpropanoate,CCCOC(=O)C(C)C,879,Chen 2024.xlsx
+propyl butanoate,CCCOC(=O)CCC,867.8773692,Saldana 2012_filtered
+propyl ethanoate,CCCOC(=O)C,882.8876938,Saldana 2012_filtered
+propyl formate,CCCOC=O,903,Chen 2024.xlsx
+propyl propionate,CCCOC(=O)CC,875.53,Chen 2024.xlsx
+propylbenzene,CCCC1=CC=CC=C1,858.1,Chen 2024.xlsx
+propylene,CC=C,506.4296709,Saldana 2012_filtered
+propylene glycol alpha-methylbenzyl ether,CC(O)COC(C)c1ccccc1,1006.600467,Saldana 2012_filtered
+propylene glycol monoallyl ether,C=CCOCC(C)O,917.6482,Saldana 2012_filtered
+propylene glycol monomethyl ether,COCC(C)O,916.9000661,Saldana 2012_filtered
+propylene glycol monomethyl ether acetate,COCC(C)OC(=O)C,965.9933462,Saldana 2012_filtered
+propylene glycol n-butyl ether,CCCCOCC(C)O,874.774017,Saldana 2012_filtered
+sec-Butyl formate,CCC(C)OC=O,887,Chen 2024.xlsx
+sec-butenyl acetate,CC(OC(=O)C)C=C,893.8916588,Saldana 2012_filtered
+sec-butyl acetate,CCC(C)OC(=O)C,864.6822363,Saldana 2012_filtered
+sec-butyl acrylate,CC(CC)OC(=O)C=C,886.9293416,Saldana 2012_filtered
+sec-butylbenzene,CCC(C)c1ccccc1,857.9493224,Saldana 2012_filtered
+sec-butylcyclohexane,CCC(C)C1CCCCC1,804.6671883,Saldana 2012_filtered
+squalane,CC(CCCCC(C)CCCC(C)CCCC(C)C)CCCC(C)CCCC(C)C,803.7680453,Saldana 2012_filtered
+styrene,C=CC1=CC=CC=C1,909,Chen 2024.xlsx
+t-butyl acetoacetate,CC(=O)CC(=O)OC(C)(C)C,963.5666942,Saldana 2012_filtered
+tert-butyl acetate,CC(=O)OC(C)(C)C,862,Chen 2024.xlsx
+tert-butyl ethyl ether,CCOC(C)(C)C,735.3,Chen 2024.xlsx
+tert-butyl formate,O=COC(C)(C)C,871.7519341,Saldana 2012_filtered
+tert-butyl methacrylate,CC(=C)C(=O)OC(C)(C)C,876.9939602,Saldana 2012_filtered
+tert-butyl propionate,CCC(=O)OC(C)(C)C,865,Chen 2024.xlsx
+tert-butylbenzene,CC(C)(C)C1=CC=CC=C1,862.3,Chen 2024.xlsx
+tert-butylcyclohexane,CC(C)(C)C1CCCCC1,808.8999954,Saldana 2012_filtered
+tetrahydrofuran,C1CCOC1,902,Chen 2024.xlsx
+tetrahydrofurfuryl alcohol,C1CC(OC1)CO,1058.7,Chen 2024.xlsx
+tetrahydropyran,C1CCOCC1,878.8,Chen 2024.xlsx
+toluene,CC1=CC=CC=C1,862.3,Chen 2024.xlsx
+"trans,trans-2,4-hexadiene",C/C=C/C=C/C,710.0821358,Saldana 2012_filtered
+"trans-1,2-dimethylcyclohexane",C[C@@H]1CCCC[C@H]1C,772.0117419,Saldana 2012_filtered
+"trans-1,2-dimethylcyclopentane",C[C@@H]1CCC[C@H]1C,746.8326282,Saldana 2012_filtered
+"trans-1,3-dimethylcyclohexane",C[C@@H]1CCC[C@@H](C)C1,780.51746,Saldana 2012_filtered
+"trans-1,3-dimethylcyclopentane",C[C@@H]1CC[C@@H](C)C1,744.319065,Saldana 2012_filtered
+"trans-1,3-hexadiene",CC/C=C/C=C,700.4380459,Saldana 2012_filtered
+"trans-1,3-pentadiene",C/C=C/C=C,671.0071406,Saldana 2012_filtered
+"trans-1,4-dimethylcyclohexane",C[C@@H]1CC[C@@H](C)CC1,758.5798889,Saldana 2012_filtered
+trans-1-propenylbenzene,C/C=C/c1ccccc1,901.8814897,Saldana 2012_filtered
+trans-2-butene,C/C=C/C,599.804614,Saldana 2012_filtered
+trans-2-heptene,CCCC/C=C/C,696.8856634,Saldana 2012_filtered
+trans-2-hexene,CCC/C=C/C,673.3517436,Saldana 2012_filtered
+trans-2-methylcyclohexanol,C[C@@H]1CCCC[C@H]1O,920.7915494,Saldana 2012_filtered
+trans-2-octene,CCCCC/C=C/C,715.6919628,Saldana 2012_filtered
+trans-2-phenylbutene-2,C/C=C(\C)/c1ccccc1,891.7837,Saldana 2012_filtered
+trans-3-heptene,CCC/C=C/CC,693.7827,Saldana 2012_filtered
+trans-3-hexene,CC/C=C/CC,672.6867236,Saldana 2012_filtered
+trans-3-octene,CCCC/C=C/CC,710.9905083,Saldana 2012_filtered
+trans-4-methylcyclohexanol,C[C@H]1CC[C@H](O)CC1,907.9913594,Saldana 2012_filtered
+trans-4-octene,CCC/C=C/CCC,709.8908244,Saldana 2012_filtered
+trans-Crotonaldehyde,CC=CC=O,869,Chen 2024.xlsx
+triethylene glycol,OCCOCCOCCO,1122.993395,Saldana 2012_filtered
+triethylene glycol monoethyl ether,OCCOCCOCCOCC,1016.310834,Saldana 2012_filtered
+triethylene glycol monomethyl ether,COCCOCCOCCO,1043.134822,Saldana 2012_filtered
+triethylene glycol n-butyl ether,CCCCOCCOCCOCCO,986.7585068,Saldana 2012_filtered
+triethylene glycol n-hexyl ether,CCCCCCOCCOCCOCCO,959.6832728,Saldana 2012_filtered
+trioctyl trimellitate,CCCCC(CC)COC(=O)c1cc(ccc1[C](=O)OCC(CC)CCCC)C(=O)OCC(CC)CCCC,985.4393989,Saldana 2012_filtered
+tripropylene glycol,CC(COCC(C)O)OCC(C)O,1015.978618,Saldana 2012_filtered
+tripropylene glycol monomethyl ether,OCC(C)OCC(C)OCC(C)OC,965.9955543,Saldana 2012_filtered
+vinyl acetate,CC(=O)OC=C,921.3270465,Saldana 2012_filtered
+vinyl pivalate,C=COC(=O)C(C)(C)C,867.4476566,Saldana 2012_filtered
+vinylacetylene,C=CC#C,677.9586966,Saldana 2012_filtered
+vinylcyclohexane,C=CC1CCCCC1,805.0001047,Saldana 2012_filtered
+vinylcyclohexene,C=CC1CCC=CC1,825.982655,Saldana 2012_filtered

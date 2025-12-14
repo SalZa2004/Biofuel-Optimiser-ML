@@ -12,7 +12,7 @@ from crem.crem import mutate_mol
 import wandb
 from sklearn.base import BaseEstimator, RegressorMixin
 from mordred import Calculator, descriptors
-from meta_model import MetaModel
+
 
 # === Project Setup ===
 PROJECT_ROOT = Path.cwd()
@@ -103,6 +103,8 @@ PREDICTOR_PATHS = {
     'ysi': PROJECT_ROOT / "ysi_predictor_model" / "ysi_model",
     'bp': PROJECT_ROOT / "bp_predictor_model" / "bp_model",
     'density': PROJECT_ROOT / "density_predictor_model" / "density_model",
+    'lhv': PROJECT_ROOT / "lhv_predictor_model" / "lhv_model",
+    'dynamic_viscosity': PROJECT_ROOT / "dynamic_viscosity_predictor_model" / "dynamic_viscosity_model"
 }
 
 @dataclass
@@ -110,17 +112,22 @@ class EvolutionConfig:
     """Configuration for evolutionary algorithm."""
     target_cn: float
     minimize_ysi: bool = True
-    generations: int = 5
-    population_size: int = 100
+    generations: int = 6
+    population_size: int = 50
     mutations_per_parent: int = 5
-    survivor_fraction: float = 0.5  # New: configurable survivor ratio
+    survivor_fraction: float = 0.5  
     min_bp: float = 60
     max_bp: float = 250
+    min_dynamic_viscosity: float = 0.0
+    max_dynamic_viscosity: float = 2.0
     min_density: float = 720
+    min_lhv: float = 30
     use_bp_filter: bool = True
     use_density_filter: bool = True
+    use_lhv_filter: bool = True
+    use_dynamic_viscosity_filter: bool = True
     batch_size: int = 50
-    max_offspring_attempts: int = 10  # New: multiplier for attempt limit
+    max_offspring_attempts: int = 10  
 
 @dataclass
 class Molecule:
@@ -131,6 +138,8 @@ class Molecule:
     bp: Optional[float] = None
     ysi: Optional[float] = None
     density: Optional[float] = None
+    lhv: Optional[float] = None
+    dynamic_viscosity: Optional[float] = None
     
     def dominates(self, other: 'Molecule') -> bool:
         """Check if this molecule Pareto-dominates another."""
@@ -179,10 +188,24 @@ class PropertyPredictor:
                 'Density'
             )
         
+        if config.use_lhv_filter:
+            self.predictors['lhv'] = GenericPredictor(
+                PREDICTOR_PATHS['lhv'], 
+                'Lower Heating Value'
+            )
+        
+        if config.use_dynamic_viscosity_filter:
+            self.predictors['dynamic_viscosity'] = GenericPredictor(
+                PREDICTOR_PATHS['dynamic_viscosity'], 
+                'Dynamic Viscosity'
+            )
+        
         # Define validation rules
         self.validators = {
             'bp': lambda v: self.config.min_bp <= v <= self.config.max_bp,
             'density': lambda v: v > self.config.min_density,
+            'lhv': lambda v: v > self.config.min_lhv,
+            'dynamic_viscosity': lambda v:  self.config.min_dynamic_viscosity < v <= self.config.max_dynamic_viscosity
         }
     
     def _safe_predict(self, predictions: List) -> List[Optional[float]]:
@@ -209,7 +232,7 @@ class PropertyPredictor:
         """Predict all properties for a batch of SMILES."""
         return {
             prop: self._predict_batch(prop, smiles_list)
-            for prop in ['cn', 'ysi', 'bp', 'density']  # Check all possible properties
+            for prop in ['cn', 'ysi', 'bp', 'density', 'lhv', 'dynamic_viscosity']  # Check all possible properties
             if prop in self.predictors  # Only predict if predictor exists
         }
     
@@ -325,7 +348,7 @@ class MolecularEvolution:
                 continue
             
             # Validate filtered properties
-            if not all(self.predictor.is_valid(k, props[k]) for k in ['bp', 'density']):
+            if not all(self.predictor.is_valid(k, props[k]) for k in ['bp', 'density', 'lhv', 'dynamic_viscosity']):
                 continue
             
             molecules.append(Molecule(
@@ -334,7 +357,9 @@ class MolecularEvolution:
                 cn_error=abs(props['cn'] - self.config.target_cn),
                 bp=props['bp'],
                 ysi=props['ysi'],
-                density=props['density']
+                density=props['density'],
+                lhv=props['lhv'],
+                dynamic_viscosity=props['dynamic_viscosity']
             ))
         
         return molecules
@@ -431,6 +456,15 @@ class MolecularEvolution:
     def _generate_results(self) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """Generate final results DataFrames."""
         final_df = self.population.to_dataframe()
+
+        if self.config.minimize_ysi and "ysi" in final_df.columns:
+            final_df = final_df[
+                (final_df["cn_error"] < 5) &
+                (final_df["ysi"] < 50)
+            ].sort_values(["cn_error", "ysi"], ascending=True)
+    
+            # overwrite rank safely
+            final_df["rank"] = range(1, len(final_df) + 1)
         
         if self.config.minimize_ysi:
             pareto_mols = self.population.pareto_front()
@@ -495,15 +529,14 @@ def save_results(final_df: pd.DataFrame, pareto_df: pd.DataFrame, minimize_ysi: 
 
 def display_results(final_df: pd.DataFrame, pareto_df: pd.DataFrame, minimize_ysi: bool):
     """Display results to console."""
-    cols = (["rank", "smiles", "cn", "cn_error", "ysi", "bp", "density"] 
-            if minimize_ysi else ["rank", "smiles", "cn", "cn_error", "bp", "density"])
+    cols = (["rank", "smiles", "cn", "cn_error", "ysi", "bp", "density", "lhv", "dynamic_viscosity"])
     
     print("\n=== TOP 10 (sorted) ===")
     print(final_df.head(10)[cols].to_string(index=False))
     
     if minimize_ysi and not pareto_df.empty:
         print("\n=== PARETO FRONT (ranked) ===")
-        print(pareto_df[["rank", "smiles", "cn", "cn_error", "ysi", "bp", "density"]]
+        print(pareto_df[["rank", "smiles", "cn", "cn_error", "ysi", "bp", "density", "lhv", "dynamic_viscosity"]]
               .head(20).to_string(index=False))
 
 
