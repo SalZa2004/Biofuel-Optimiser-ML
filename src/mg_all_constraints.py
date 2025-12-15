@@ -11,8 +11,6 @@ from rdkit import Chem
 from crem.crem import mutate_mol
 import wandb
 from sklearn.base import BaseEstimator, RegressorMixin
-from mordred import Calculator, descriptors
-
 
 # === Project Setup ===
 PROJECT_ROOT = Path.cwd()
@@ -21,7 +19,6 @@ sys.path.append(str(PROJECT_ROOT))
 
 from shared_features import FeatureSelector, featurize_df
 from data_prep import df
-
 
 class GenericPredictor:
     """Generic predictor that works for any property model."""
@@ -113,7 +110,7 @@ class EvolutionConfig:
     target_cn: float
     minimize_ysi: bool = True
     generations: int = 6
-    population_size: int = 50
+    population_size: int = 100
     mutations_per_parent: int = 5
     survivor_fraction: float = 0.5  
     min_bp: float = 60
@@ -483,7 +480,15 @@ class MolecularEvolution:
     def evolve(self) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """Run the evolutionary algorithm."""
         # Initialize
-        init_count = self.initialize_population(df["SMILES"].tolist())
+        df_bins = pd.qcut(df["cn"], q=30)
+        initial_smiles = (
+            df.groupby(df_bins)
+            .apply(lambda x: x.sample(20, random_state=42))
+            .reset_index(drop=True)["SMILES"]
+            .tolist()
+        )
+        init_count = self.initialize_population(initial_smiles)
+
         if init_count == 0:
             print("❌ No valid initial molecules")
             return pd.DataFrame(), pd.DataFrame()
@@ -531,14 +536,13 @@ def display_results(final_df: pd.DataFrame, pareto_df: pd.DataFrame, minimize_ys
     """Display results to console."""
     cols = (["rank", "smiles", "cn", "cn_error", "ysi", "bp", "density", "lhv", "dynamic_viscosity"])
     
-    print("\n=== TOP 10 (sorted) ===")
+    print("\n=== Best Candidates ===")
     print(final_df.head(10)[cols].to_string(index=False))
     
     if minimize_ysi and not pareto_df.empty:
         print("\n=== PARETO FRONT (ranked) ===")
         print(pareto_df[["rank", "smiles", "cn", "cn_error", "ysi", "bp", "density", "lhv", "dynamic_viscosity"]]
               .head(20).to_string(index=False))
-
 
 def main():
     """Main execution function."""
