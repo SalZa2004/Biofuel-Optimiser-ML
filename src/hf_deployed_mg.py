@@ -14,7 +14,6 @@ import pandas as pd
 import random
 from rdkit import Chem
 from crem.crem import mutate_mol
-from sklearn.base import BaseEstimator, RegressorMixin
 from huggingface_hub import snapshot_download
 
 # === Project Setup ===
