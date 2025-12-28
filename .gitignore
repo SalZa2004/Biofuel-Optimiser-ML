@@ -1,7 +1,3 @@
-# Large database files
-*.db
-data/database/
-data/replacement_db/
 
 # Model files
 *.pt
