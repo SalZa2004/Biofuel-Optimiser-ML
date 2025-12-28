@@ -26,8 +26,8 @@ conn.close()
 df.dropna(subset=[TARGET_CN, "SMILES"], inplace=True)
 
 train_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
-#print(df.head())
-#print(df.columns)
+print(df.head())
+print(df.columns)
 
 def load_data():
     return df
