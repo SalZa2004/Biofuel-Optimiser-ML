@@ -9,11 +9,13 @@ import numpy as np
 import random
 from typing import List, Tuple
 from data_prep import df  # Initial dataset for sampling
-
+from pathlib import Path
 class MolecularEvolution:
     """Main evolutionary algorithm coordinator."""
     
-    REP_DB_PATH = "frag_db/diesel_fragments.db"  # Path to CREM fragment database
+        
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    REP_DB_PATH = BASE_DIR / "frag_db" / "diesel_fragments.db"
     
     def __init__(self, config: EvolutionConfig):
         self.config = config
