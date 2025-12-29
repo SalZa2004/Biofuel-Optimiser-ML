@@ -5,7 +5,6 @@ import pandas as pd
 
 class Population:
     """Manages the population of molecules."""
-    
     def __init__(self, config: EvolutionConfig):
         self.config = config
         self.molecules: List[Molecule] = []
@@ -33,7 +32,7 @@ class Population:
             if not any(other.dominates(mol, self.config.maximize_cn) 
                       for other in self.molecules if other is not mol)
         ]
-    
+
     def get_survivors(self) -> List[Molecule]:
         """Select survivors for the next generation."""
         target_size = int(self.config.population_size * self.config.survivor_fraction)
