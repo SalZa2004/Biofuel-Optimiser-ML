@@ -34,10 +34,13 @@ __pycache__/
 
 torchdrug_env/
 
+venv310/
+
 biofuel/
 venv/
 wandb/
 # Python packaging
+biofuel.egg-info/
 *.egg-info/
 dist/
 build/

@@ -15,3 +15,11 @@ profile, ignition delay). The aim is to create a predictive model that can sugge
 compositions for specific constraints or applications, e.g. heavy transport, air transport, power 
 generation. This study has the potential to speed up greener fuel adoption and aid in 
 decarbonisation efforts in different industries.
+
+## Setup
+
+This project uses Git LFS for database files.
+
+After cloning:
+    git lfs install
+    git lfs pull

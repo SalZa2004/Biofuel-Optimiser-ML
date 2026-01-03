@@ -215,7 +215,7 @@ class MolecularEvolution:
         # Initialize
         df_bins = pd.qcut(df["cn"], q=30)
         initial_smiles = (
-            df.groupby(df_bins)
+            df.groupby(df_bins, observed=False)
             .apply(lambda x: x.sample(20, random_state=42))
             .reset_index(drop=True)["SMILES"]
             .tolist()

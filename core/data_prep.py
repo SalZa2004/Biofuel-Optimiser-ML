@@ -20,6 +20,7 @@ SELECT
     T.Standardised_DCN AS cn
 FROM FUEL F
 LEFT JOIN TARGET T ON F.fuel_id = T.fuel_id
+ORDER BY F.fuel_id ASC;
 """
 df = pd.read_sql_query(query, conn)
 conn.close()

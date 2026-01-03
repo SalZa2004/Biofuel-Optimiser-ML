@@ -1,0 +1,22 @@
+services:
+  biofuel-ml:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: biofuel-ml:latest
+    container_name: biofuel-ml
+    tty: true
+    stdin_open: true
+
+    volumes:
+      - ..:/app
+      - ~/.cache/huggingface:/root/.cache/huggingface
+
+    working_dir: /app
+
+    environment:
+      - PYTHONUNBUFFERED=1
+      - HF_HOME=/root/.cache/huggingface
+      - PYTHONHASHSEED=42
+
+    command: bash
