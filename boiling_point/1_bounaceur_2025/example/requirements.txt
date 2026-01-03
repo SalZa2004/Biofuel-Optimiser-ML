@@ -1,7 +1,0 @@
-matplotlib
-mordred
-rdkit
-joblib
-scikit-learn
-plotly.express
-streamlit_ketcher

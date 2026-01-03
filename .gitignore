@@ -37,3 +37,7 @@ torchdrug_env/
 biofuel/
 venv/
 wandb/
+# Python packaging
+*.egg-info/
+dist/
+build/
