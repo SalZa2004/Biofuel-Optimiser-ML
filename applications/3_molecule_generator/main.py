@@ -5,8 +5,8 @@ SEED = 42
 
 import random, numpy as np
 
-from .cli import get_user_config
-from .results import display_results, save_results
+from cli import get_user_config
+from results import display_results, save_results
 from core.evolution.evolution import MolecularEvolution
 from core.shared_features import FeatureSelector
 

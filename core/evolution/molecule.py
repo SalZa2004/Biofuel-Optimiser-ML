@@ -7,7 +7,7 @@ class Molecule:
     smiles: str
     cn: float
     cn_error: float
-    cn_score: float = 0.0  # New: for maximize mode (higher is better)
+    cn_score: float = 0.0  # For maximize mode (higher is better)
     bp: Optional[float] = None
     ysi: Optional[float] = None
     density: Optional[float] = None

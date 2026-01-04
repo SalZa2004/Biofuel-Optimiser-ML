@@ -10,13 +10,12 @@ import random
 from typing import List, Tuple
 from core.data_prep import df  # Initial dataset for sampling
 from pathlib import Path
+
 class MolecularEvolution:
     """Main evolutionary algorithm coordinator."""
-    
-        
     BASE_DIR = Path(__file__).resolve().parent.parent.parent
     REP_DB_PATH = BASE_DIR / "data" / "fragments" / "diesel_fragments.db"
-    
+
     def __init__(self, config: EvolutionConfig):
         self.config = config
         self.predictor = PropertyPredictor(config)
@@ -111,7 +110,7 @@ class MolecularEvolution:
         print(print_msg)
     
     def _generate_offspring(self, survivors: List[Molecule]) -> List[Molecule]:
-        """Generate offspring from survivors (OPTIMIZED batching)."""
+        """Generates offspring from survivors."""
         target_count = self.config.population_size - len(survivors)
         max_attempts = target_count * self.config.max_offspring_attempts
         
@@ -223,7 +222,7 @@ class MolecularEvolution:
         init_count = self.initialize_population(initial_smiles)
 
         if init_count == 0:
-            print("❌ No valid initial molecules")
+            print("No valid initial molecules")
             return pd.DataFrame(), pd.DataFrame()
         
         print(f"✓ Initial population size: {init_count}\n")
