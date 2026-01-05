@@ -19,7 +19,6 @@ def display_results(final_df: pd.DataFrame, pareto_df: pd.DataFrame, config: Evo
     """Display results to console."""
     cols = ["rank", "smiles", "cn", "cn_error", "ysi", "bp", "density", "lhv", "dynamic_viscosity"]
     
-    # Remove cn_error column if maximizing (not relevant)
     if config.maximize_cn:
         cols = [c for c in cols if c != "cn_error"]
     

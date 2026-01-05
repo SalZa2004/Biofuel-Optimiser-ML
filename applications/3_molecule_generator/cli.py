@@ -1,6 +1,5 @@
 from core.config import EvolutionConfig
 
-
 def get_user_config() -> EvolutionConfig:
     """Get configuration from user input."""
     print("\n" + "="*70)

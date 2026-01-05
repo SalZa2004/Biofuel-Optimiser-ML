@@ -7,7 +7,7 @@ from .hf_models import load_models
 
 PREDICTOR_PATHS = load_models()
 class PropertyPredictor:
-    """Handles batch prediction for all molecular properties (OPTIMIZED)."""
+    """Handles batch prediction for all molecular properties."""
     
     def __init__(self, config: EvolutionConfig):
         self.config = config
@@ -46,7 +46,7 @@ class PropertyPredictor:
     
     def predict_all_properties(self, smiles_list: List[str]) -> Dict[str, List[Optional[float]]]:
         """
-        Predict all properties for a batch of SMILES (OPTIMIZED).
+        Predict all properties for a batch of SMILES.
         Featurizes ONCE and reuses features for all predictors.
         """
         if not smiles_list:

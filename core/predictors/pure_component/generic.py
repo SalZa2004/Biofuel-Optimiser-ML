@@ -27,7 +27,7 @@ class GenericPredictor:
         print(f"✓ {property_name} Predictor ready!")
     
     def predict_from_features(self, X_full):
-        """Predict from pre-computed features (OPTIMIZED)."""
+        """Predict from pre-computed features."""
         if X_full is None or len(X_full) == 0:
             return []
         
