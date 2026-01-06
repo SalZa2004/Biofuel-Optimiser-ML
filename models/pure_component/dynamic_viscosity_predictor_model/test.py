@@ -33,6 +33,7 @@ def load_and_split_data(test_size=0.2, random_state=42):
     df.dropna(subset=["dynamic_viscosity", "SMILES"], inplace=True)
 
     print(f"Total samples: {len(df)}")
+    print(f"Train Samples: {int(len(df)*(1-test_size))}     Test Samples: {int(len(df)*test_size)}")
     print(f"Viscosity range: [{df.dynamic_viscosity.min():.3f}, "
           f"{df.dynamic_viscosity.max():.3f}]")
 

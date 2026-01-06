@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from density_model.model import DensityPredictor
 import joblib
-from train import FeatureSelector
+from core.shared_features import FeatureSelector, featurize_df
 import sys
 import os
 

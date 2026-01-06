@@ -6,8 +6,9 @@ import sqlite3
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 
-PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 DB_PATH = os.path.join(PROJECT_ROOT, "data", "database", "database_main.db")
 
 def load_raw_data():

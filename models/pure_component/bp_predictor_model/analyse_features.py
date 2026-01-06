@@ -11,7 +11,7 @@ import joblib
 import os
 
 
-def analyze_selected_features(selector_path='ysi_model/artifacts/selector.joblib'):
+def analyze_selected_features(selector_path='bp_model/artifacts/selector.joblib'):
     """
     Analyze and display the features selected by the FeatureSelector.
     """
@@ -112,7 +112,7 @@ def analyze_selected_features(selector_path='ysi_model/artifacts/selector.joblib
     }
     
     # Save summary
-    summary_path = "ysi_model/feature_selection_summary.txt"
+    summary_path = "bp_model/feature_information/feature_selection_summary.txt"
     with open(summary_path, 'w') as f:
         f.write("="*70 + "\n")
         f.write("FEATURE SELECTION SUMMARY\n")
@@ -136,14 +136,14 @@ def analyze_selected_features(selector_path='ysi_model/artifacts/selector.joblib
     # Save selected descriptors to CSV
     if len(selected_descriptors) > 0:
         desc_df = pd.DataFrame({"Descriptor_Name": selected_descriptors})
-        desc_csv_path = "ysi_model/selected_descriptors.csv"
+        desc_csv_path = "bp_model/feature_information/selected_descriptors.csv"
         desc_df.to_csv(desc_csv_path, index=False)
         print(f"✓ Selected descriptors saved to {desc_csv_path}")
     
     return results
 
 
-def plot_feature_distribution(selector_path='ysi_model/artifacts/selector.joblib'):
+def plot_feature_distribution(selector_path='bp_model/artifacts/selector.joblib'):
     """
     Create visualization of feature selection.
     """
@@ -198,15 +198,15 @@ def plot_feature_distribution(selector_path='ysi_model/artifacts/selector.joblib
     
     plt.tight_layout()
     
-    plot_path = "ysi_model/feature_selection_visualization.png"
+    plot_path = "bp_model/feature_information/feature_selection_visualization.png"
     plt.savefig(plot_path, dpi=300, bbox_inches='tight')
     print(f"✓ Visualization saved to {plot_path}")
     
     return fig
 
 
-def get_feature_importance_from_model(model_path='ysi_model/artifacts/model.joblib',
-                                     selector_path='ysi_model/artifacts/selector.joblib'):
+def get_feature_importance_from_model(model_path='bp_model/artifacts/model.joblib',
+                                     selector_path='bp_model/artifacts/selector.joblib'):
     """
     Get feature importances from the trained model.
     """
@@ -266,7 +266,7 @@ def get_feature_importance_from_model(model_path='ysi_model/artifacts/model.jobl
               f"{row['Feature_Type']:<12} {row['Importance']:.6f}")
     
     # Save full importance list
-    importance_path = "ysi_model/feature_importances.csv"
+    importance_path = "bp_model/feature_information/feature_importances.csv"
     importance_df.to_csv(importance_path, index=False)
     print(f"\n✓ Full feature importance list saved to {importance_path}")
     
@@ -313,7 +313,7 @@ def plot_top_features(importance_df, top_n=20):
     
     plt.tight_layout()
     
-    plot_path = "ysi_model/top_features.png"
+    plot_path = "bp_model/feature_information/top_features.png"
     plt.savefig(plot_path, dpi=300, bbox_inches='tight')
     print(f"✓ Top features plot saved to {plot_path}")
 
@@ -341,11 +341,11 @@ def main():
         print("ANALYSIS COMPLETE!")
         print("="*70)
         print("\nGenerated files:")
-        print("  - ysi_model/feature_selection_summary.txt")
-        print("  - ysi_model/selected_descriptors.csv")
-        print("  - ysi_model/feature_selection_visualization.png")
-        print("  - ysi_model/feature_importances.csv")
-        print("  - ysi_model/top_features.png")
+        print("  - bp_model/feature_information/feature_selection_summary.txt")
+        print("  - bp_model/feature_information/selected_descriptors.csv")
+        print("  - bp_model/feature_information/feature_selection_visualization.png")
+        print("  - bp_model/feature_information/feature_importances.csv")
+        print("  - bp_model/feature_information/top_features.png")
         print("="*70)
 
 

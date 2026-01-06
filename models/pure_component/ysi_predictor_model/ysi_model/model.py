@@ -5,7 +5,7 @@ import sys
 PROJECT_ROOT = os.getcwd()
 sys.path.append(PROJECT_ROOT)
 # import feature selector and features from correct modules
-from ysi_predictor_model.train import FeatureSelector, featurize_df
+from core.shared_features import FeatureSelector, featurize_df
 
 
 class YSIPredictor:

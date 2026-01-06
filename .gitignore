@@ -2,7 +2,6 @@
 # Model files
 *.pt
 *.pth
-*.joblib
 *.pkl
 *.pickle
 *.h5

@@ -11,10 +11,12 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 from cn_model.model import CetanePredictor
+from core.predictors.pure_component.generic import GenericPredictor
 import joblib
 from train import FeatureSelector
 import sys
 import os
+from pathlib import Path
 
 # 1. Location of this file (test.py)
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -22,9 +24,9 @@ TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 # 2. Project root: one level up
 PROJECT_ROOT = os.getcwd()
 sys.path.append(PROJECT_ROOT)
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
+DB_PATH = BASE_DIR / "data" / "database" / "database_main.db"
 
-# 3. Build DB path
-DB_PATH = os.path.join(PROJECT_ROOT, "data", "database", "database_main.db")
 
 print("DB_PATH:", DB_PATH)
 print("DB_EXISTS:", os.path.exists(DB_PATH))
@@ -311,13 +313,13 @@ def main():
         print("✓ Model generalization looks good!")
     
     # Create visualizations
-    plot_results(y_true, y_pred, save_path=os.path.join(PROJECT_ROOT,"cn-predictor-model/cn_model/evaluation_plots.png"))
+    plot_results(y_true, y_pred, save_path=os.path.join(PROJECT_ROOT,"cn_model/evaluation_plots.png"))
     
     # Error analysis
     analyze_errors(test_df, y_true, y_pred, top_n=10)
     
     # Save predictions
-    save_predictions(test_df, y_true, y_pred, save_path="cn-predictor-model/cn_model/test_predictions.csv")
+    save_predictions(test_df, y_true, y_pred, save_path="cn_model/test_predictions.csv")
     
     print("\n" + "="*70)
     print("EVALUATION COMPLETE!")

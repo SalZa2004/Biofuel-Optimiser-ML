@@ -6,7 +6,7 @@ PROJECT_ROOT = os.path.abspath(os.getcwd())
 DENSITY_MODEL_DIR = os.path.join(PROJECT_ROOT, "density-predictor-model")
 sys.path.append(PROJECT_ROOT)
 # import feature selector and features from correct modules
-from density_predictor_model.train import FeatureSelector, featurize_df
+from core.shared_features import FeatureSelector, featurize_df
 
 
 class DensityPredictor:

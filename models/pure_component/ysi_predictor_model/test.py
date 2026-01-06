@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from ysi_model.model import YSIPredictor
 import joblib
-from train import FeatureSelector
+from core.shared_features import FeatureSelector
 import sys
 import os
 
@@ -23,6 +23,9 @@ TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(TEST_DIR)
 sys.path.append(PROJECT_ROOT)
 # 3. Build DB path
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
+
 DB_PATH = os.path.join(PROJECT_ROOT, "data", "database", "database_main.db")
 
 print("DB_PATH:", DB_PATH)
