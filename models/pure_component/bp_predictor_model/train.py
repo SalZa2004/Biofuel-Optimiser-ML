@@ -11,7 +11,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 def load_raw_data():
     """Load raw data from database."""
 
-    df = pd.read_csv("bp_data.csv")
+    df = pd.read_csv("data/bp_data.csv")
 
     
     # Clean data

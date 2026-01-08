@@ -1,7 +1,18 @@
 import joblib
 import numpy as np
-from core.shared_features import FeatureSelector
+
 from pathlib import Path
+
+# Make FeatureSelector discoverable for joblib
+import sys
+from core.shared_features import FeatureSelector
+
+# --- FIX FOR JOBLIB / PICKLE ---
+# Models were trained with FeatureSelector in __main__
+# Ensure pickle can resolve it in all contexts (pytest, HF, Docker)
+main_module = sys.modules.get("__main__")
+if main_module is not None and not hasattr(main_module, "FeatureSelector"):
+    setattr(main_module, "FeatureSelector", FeatureSelector)
 
 class GenericPredictor:
     """Generic predictor that works for any property model."""

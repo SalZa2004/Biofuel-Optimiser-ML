@@ -20,7 +20,7 @@ from train import DynamicViscosityPredictor, FeatureSelector, featurize_df
 
 TEST_SIZE = 0.2
 RANDOM_STATE = 42
-CSV_PATH = "dynamic_viscosity.csv"
+CSV_PATH = "data/dynamic_viscosity.csv"
 PLOT_PATH = "dynamic_viscosity_model/evaluation_plots.png"
 PRED_PATH = "dynamic_viscosity_model/test_predictions.csv"
 
@@ -111,7 +111,7 @@ def evaluate(predictor, df, label="TEST"):
 # =============================================================================
 
 def plot_results(y_true_log, y_pred_log, save_path):
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+    fig, axes = plt.subplots(1, 3, figsize=(18, 5))
 
     # Pred vs actual (log)
     ax = axes[0]
@@ -138,6 +138,28 @@ def plot_results(y_true_log, y_pred_log, save_path):
     ax.set_ylabel("Residual")
     ax.set_title("Residuals (log space)")
     ax.grid(alpha=0.3)
+
+    # 3. Error distribution
+    ax3 = axes[2]
+    ax3.hist(residuals, bins=30, edgecolor='black', alpha=0.7)
+    ax3.axvline(x=0, color='r', linestyle='--', lw=2)
+    ax3.set_xlabel('Residuals (Actual - Predicted)', fontsize=12)
+    ax3.set_ylabel('Frequency', fontsize=12)
+    ax3.set_title('Error Distribution', fontsize=14, fontweight='bold')
+    ax3.grid(True, alpha=0.3)
+    
+    # Add statistics
+    mean_res = np.mean(residuals)
+    std_res = np.std(residuals)
+    ax3.text(0.05, 0.95, f'Mean: {mean_res:.2f}\nStd: {std_res:.2f}', 
+             transform=ax3.transAxes, fontsize=11, verticalalignment='top',
+             bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+    
+    plt.tight_layout()
+    plt.savefig(save_path, dpi=300, bbox_inches='tight')
+    print(f"✓ Plots saved to {save_path}")
+    
+    return fig
     
     
 

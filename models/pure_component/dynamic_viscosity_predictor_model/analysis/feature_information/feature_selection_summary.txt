@@ -1,0 +1,88 @@
+======================================================================
+FEATURE SELECTION SUMMARY
+======================================================================
+
+Pipeline:
+  Original features: 2256
+  After correlation filter: 2197
+  Final selected: 300
+
+Selected features by type:
+  Morgan fingerprint bits: 226
+  RDKit descriptors: 74
+
+Selected RDKit Descriptors:
+    1. MolWt
+    2. BertzCT
+    3. VSA_EState3
+    4. PEOE_VSA7
+    5. RingCount
+    6. PEOE_VSA6
+    7. BCUT2D_LOGPHI
+    8. Ipc
+    9. FpDensityMorgan1
+   10. fr_Al_OH
+   11. BCUT2D_CHGHI
+   12. Kappa2
+   13. BCUT2D_CHGLO
+   14. NumAliphaticCarbocycles
+   15. EState_VSA5
+   16. BCUT2D_MWLOW
+   17. EState_VSA6
+   18. fr_bicyclic
+   19. BalabanJ
+   20. BCUT2D_LOGPLOW
+   21. qed
+   22. PEOE_VSA1
+   23. EState_VSA9
+   24. EState_VSA4
+   25. Kappa3
+   26. VSA_EState5
+   27. VSA_EState8
+   28. EState_VSA1
+   29. HallKierAlpha
+   30. SMR_VSA10
+   31. BCUT2D_MRLOW
+   32. MinEStateIndex
+   33. BCUT2D_MRHI
+   34. SMR_VSA4
+   35. BCUT2D_MWHI
+   36. FpDensityMorgan2
+   37. SMR_VSA1
+   38. MaxEStateIndex
+   39. fr_Ar_OH
+   40. FpDensityMorgan3
+   41. SMR_VSA9
+   42. fr_unbrch_alkane
+   43. FractionCSP3
+   44. MinPartialCharge
+   45. EState_VSA10
+   46. MinAbsEStateIndex
+   47. EState_VSA8
+   48. fr_C_O_noCOO
+   49. EState_VSA3
+   50. SlogP_VSA3
+   51. MaxPartialCharge
+   52. PEOE_VSA9
+   53. EState_VSA7
+   54. SMR_VSA7
+   55. SlogP_VSA11
+   56. fr_para_hydroxylation
+   57. VSA_EState4
+   58. fr_Al_COO
+   59. PEOE_VSA2
+   60. VSA_EState1
+   61. PEOE_VSA8
+   62. SMR_VSA6
+   63. EState_VSA2
+   64. PEOE_VSA10
+   65. SlogP_VSA8
+   66. fr_allylic_oxid
+   67. VSA_EState9
+   68. VSA_EState6
+   69. fr_aryl_methyl
+   70. PEOE_VSA14
+   71. fr_ester
+   72. PEOE_VSA3
+   73. NumAromaticHeterocycles
+   74. PEOE_VSA5

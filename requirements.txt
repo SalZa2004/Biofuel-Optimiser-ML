@@ -14,3 +14,4 @@ crem==0.2.16
 joblib==1.5.2
 tqdm==4.67.1
 huggingface_hub==1.2.1
+pytest==9.0.2

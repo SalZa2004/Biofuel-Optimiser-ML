@@ -1,0 +1,102 @@
+======================================================================
+FEATURE SELECTION SUMMARY
+======================================================================
+
+Pipeline:
+  Original features: 2256
+  After correlation filter: 2211
+  Final selected: 300
+
+Selected features by type:
+  Morgan fingerprint bits: 212
+  RDKit descriptors: 88
+
+Selected RDKit Descriptors:
+    1. MinPartialCharge
+    2. SMR_VSA1
+    3. MaxPartialCharge
+    4. MolLogP
+    5. MaxEStateIndex
+    6. PEOE_VSA6
+    7. SlogP_VSA3
+    8. PEOE_VSA1
+    9. SMR_VSA5
+   10. EState_VSA8
+   11. VSA_EState8
+   12. BCUT2D_MWLOW
+   13. PEOE_VSA7
+   14. MolWt
+   15. VSA_EState7
+   16. SMR_VSA7
+   17. BCUT2D_CHGLO
+   18. MinEStateIndex
+   19. BCUT2D_MRLOW
+   20. EState_VSA9
+   21. BCUT2D_LOGPHI
+   22. HallKierAlpha
+   23. VSA_EState6
+   24. Chi2n
+   25. fr_C_O_noCOO
+   26. BCUT2D_LOGPLOW
+   27. FractionCSP3
+   28. Kappa2
+   29. PEOE_VSA14
+   30. PEOE_VSA13
+   31. EState_VSA5
+   32. SMR_VSA6
+   33. EState_VSA7
+   34. VSA_EState5
+   35. EState_VSA10
+   36. Chi3n
+   37. Chi4n
+   38. RingCount
+   39. EState_VSA4
+   40. Kappa3
+   41. SMR_VSA10
+   42. VSA_EState9
+   43. BCUT2D_CHGHI
+   44. MinAbsEStateIndex
+   45. FpDensityMorgan3
+   46. PEOE_VSA10
+   47. BalabanJ
+   48. EState_VSA6
+   49. BCUT2D_MRHI
+   50. EState_VSA1
+   51. FpDensityMorgan1
+   52. Ipc
+   53. VSA_EState1
+   54. qed
+   55. FpDensityMorgan2
+   56. BertzCT
+   57. NumAliphaticHeterocycles
+   58. fr_term_acetylene
+   59. EState_VSA2
+   60. EState_VSA3
+   61. fr_unbrch_alkane
+   62. VSA_EState3
+   63. NumSaturatedHeterocycles
+   64. PEOE_VSA2
+   65. PEOE_VSA8
+   66. PEOE_VSA11
+   67. fr_Al_COO
+   68. fr_Al_OH
+   69. PEOE_VSA9
+   70. PEOE_VSA3
+   71. NumAliphaticRings
+   72. NumAliphaticCarbocycles
+   73. fr_allylic_oxid
+   74. fr_aryl_methyl
+   75. fr_ester
+   76. VSA_EState4
+   77. SMR_VSA4
+   78. SlogP_VSA1
+   79. fr_aldehyde
+   80. NumSaturatedRings
+   81. NumSaturatedCarbocycles
+   82. fr_Ar_OH
+   83. fr_ketone
+   84. SlogP_VSA4
+   85. SlogP_VSA8
+   86. fr_Ar_COO
+   87. PEOE_VSA5
+   88. fr_bicyclic

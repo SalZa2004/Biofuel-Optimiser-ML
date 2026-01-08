@@ -7,8 +7,8 @@ from core.shared_features import featurize_df, FeatureSelector
 from core.predictors.pure_component.generic import GenericPredictor
 from core.predictors.pure_component.hf_models import load_models
 
-from cli import get_user_config
-from results import display_results
+from .cli import get_user_config
+from .results import display_results
 
 # Load model paths (local or HF)
 PREDICTOR_PATHS = load_models()

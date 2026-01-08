@@ -13,7 +13,7 @@ DB_PATH = os.path.join(PROJECT_ROOT, "data", "database", "database_main.db")
 def load_raw_data():
     """Load raw data from database."""
 
-    df = pd.read_csv('dynamic_viscosity.csv')
+    df = pd.read_csv('data/dynamic_viscosity.csv')
     
     # Clean data
     df.dropna(subset=["dynamic_viscosity", "SMILES"], inplace=True)
