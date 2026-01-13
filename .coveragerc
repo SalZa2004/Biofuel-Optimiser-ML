@@ -1,0 +1,6 @@
+[run]
+omit =
+    core/predictors/mixture/*
+    */train.py
+    */evaluate.py
+    */cli.py
