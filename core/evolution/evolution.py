@@ -35,11 +35,11 @@ class MolecularEvolution:
             return []
     
     def _create_molecules(self, smiles_list: List[str]) -> List[Molecule]:
-        """Create Molecule objects from SMILES with predictions (OPTIMIZED)."""
+        """Create Molecule objects from SMILES with predictions."""
         if not smiles_list:
             return []
         
-        # OPTIMIZATION: Single featurization + all predictions
+        # Single featurization + all predictions
         predictions = self.predictor.predict_all_properties(smiles_list)
         
         molecules = []

@@ -5,12 +5,10 @@ class EvolutionConfig:
     target_cn: float = 50.0
     maximize_cn: bool = False
     minimize_ysi: bool = True
-
     generations: int = 6
     population_size: int = 100
     mutations_per_parent: int = 5
     survivor_fraction: float = 0.5
-
     batch_size: int = 100
     max_offspring_attempts: int = 10
 
