@@ -60,16 +60,16 @@ Biofuel-Optimiser-ML/
 │   └── shared_features.py             # Molecular featurisation (RDKit descriptors)
 │
 ├── applications/                     # User-facing applications
-│   ├── 1_pure_predictor/             # Tab 1: Predict properties of pure molecules
+│   ├── pure_predictor/             # Tab 1: Predict properties of pure molecules
 |   |   ├── main.py                   # Entry point
 │   │   ├── cli.py                    # Command-line interface
 │   │   └── results.py                # Results display & export
-│   ├── 2_mixture_predictor/          # Tab 2: Predict properties of mixtures (future work)
-│   ├── 3_molecule_generator/         # Tab 3: Generate molecules (pure optimization)
+│   ├── mixture_predictor/          # Tab 2: Predict properties of mixtures (future work)
+│   ├── molecule_generator/         # Tab 3: Generate molecules (pure optimization)
 │   │   ├── main.py                   # Entry point
 │   │   ├── cli.py                    # Command-line interface
 │   │   └── results.py                # Results display & export
-│   └── 4_mixture_aware_generator/    # Tab 4: Generate molecules (blend optimisation) (future work)
+│   └── mixture_aware_generator/    # Tab 4: Generate molecules (blend optimisation) (future work)
 │
 ├── data/                              # Data files
 │   ├── database/                      # SQLite databases
@@ -167,8 +167,7 @@ User-facing tools that combine core components.
 
 **Usage:**
 ```bash
-cd applications/1_pure_predictor
-python main.py
+python -m applications.pure_predictor.main
 
 # Interactive prompts:
 # - Single or Batch Prediction: 1 or 2
@@ -177,7 +176,7 @@ python main.py
 
 ```
 
-#### **Application 3: Molecule Generator** (Currently Implemented)
+#### **Application 2: Molecule Generator** (Currently Implemented)
 
 **Purpose:** Generate molecules optimised for target cetane number (with optional YSI minimization)
 
@@ -191,12 +190,11 @@ python main.py
 
 **Usage:**
 ```bash
-cd applications/3_molecule_generator
-python main.py
+python -m applications.molecule_generator.main
 
 # Interactive prompts:
 # - Target CN: 50
-# - Minimize YSI: yes
+# - Minimize YSI: y
 # - Runs 6 generations with 100 molecules
 ```
 
@@ -245,7 +243,7 @@ Six trained ML models, each in its own directory:
 ## 🚀 Installation
 
 ### Prerequisites
-- Python 3.10+
+- Python 3.10
 
 ### Setup
 ```bash
@@ -265,7 +263,28 @@ pip install -e .
 
 ```
 
-OR DOCKER
+## OR DOCKER Setup
+
+### Prerequisites
+- WSL
+- Docker Engine
+
+
+
+### Setup
+```bash
+# 1. Go to docker directory
+cd docker
+
+# 2. Build the docker image
+docker compose build
+
+# 3. Start up docker image
+docker compose up -d
+
+# 4. Execute docker
+docker exec -it biofuel-ml bash
+```
 
 
 ---
@@ -274,11 +293,7 @@ OR DOCKER
 
 ### Quick Start: Generate Molecules
 ```bash
-# Navigate to molecule generator
-cd applications/3_molecule_generator
-
-# Run with default settings
-python main.py
+python -m applications.molecule_generator.main
 ```
 ---
 ## 📊 Current Status
