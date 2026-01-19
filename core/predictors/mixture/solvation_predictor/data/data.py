@@ -8,7 +8,7 @@ from rdkit.Chem.Scaffolds import MurckoScaffold
 from rdkit.Chem import Lipinski
 
 from torch import nn
-from solvation_predictor.features.MolEncoder import MolEncoder
+from core.predictors.mixture.solvation_predictor.features.MolEncoder import MolEncoder
 from torch.utils.data.dataset import Dataset
 
 import random

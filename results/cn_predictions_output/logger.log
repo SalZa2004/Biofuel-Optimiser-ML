@@ -1,0 +1,2328 @@
+Reading data...
+Successfully loaded 128 data points
+
+============================================================
+Processing model 1/10: model0.pt
+============================================================
+Reading data...
+Successfully loaded 128 data points
+
+============================================================
+Processing model 1/10: model0.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 101.89
+
+============================================================
+Processing model 2/10: model1.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 109.78
+
+============================================================
+Processing model 3/10: model2.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 109.04
+
+============================================================
+Processing model 4/10: model3.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 110.82
+
+============================================================
+Processing model 5/10: model4.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 119.99
+
+============================================================
+Processing model 6/10: model5.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 109.97
+
+============================================================
+Processing model 7/10: model6.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 112.28
+
+============================================================
+Processing model 8/10: model7.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 108.87
+
+============================================================
+Processing model 9/10: model8.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 109.96
+
+============================================================
+Processing model 10/10: model9.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 110.22
+
+Compiling results...
+
+============================================================
+Prediction Statistics (n=128):
+  MAE:  7.943
+  RMSE: 19.071
+============================================================
+
+Results saved to results/cn_predictions_output/cn_predictions.csv
+Reading data...
+Successfully loaded 128 data points
+
+============================================================
+Processing model 1/10: model0.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 43.99
+
+============================================================
+Processing model 2/10: model1.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 41.62
+
+============================================================
+Processing model 3/10: model2.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 40.75
+
+============================================================
+Processing model 4/10: model3.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 42.63
+
+============================================================
+Processing model 5/10: model4.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 47.71
+
+============================================================
+Processing model 6/10: model5.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 41.86
+
+============================================================
+Processing model 7/10: model6.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 42.10
+
+============================================================
+Processing model 8/10: model7.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 41.97
+
+============================================================
+Processing model 9/10: model8.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 41.00
+
+============================================================
+Processing model 10/10: model9.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 41.11
+
+Compiling results...
+
+============================================================
+Prediction Statistics (n=128):
+  MAE:  7.943
+  RMSE: 19.071
+============================================================
+
+Results saved to results/cn_predictions_output/cn_predictions.csv
+Reading data...
+Successfully loaded 128 data points
+
+============================================================
+Processing model 1/10: model0.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Predictions complete. Sample: 11.44
+
+============================================================
+Processing model 2/10: model1.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Predictions complete. Sample: 7.70
+
+============================================================
+Processing model 3/10: model2.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Predictions complete. Sample: 7.20
+
+============================================================
+Processing model 4/10: model3.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Predictions complete. Sample: 9.92
+
+============================================================
+Processing model 5/10: model4.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Predictions complete. Sample: 11.90
+
+============================================================
+Processing model 6/10: model5.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Predictions complete. Sample: 7.66
+
+============================================================
+Processing model 7/10: model6.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Predictions complete. Sample: 7.62
+
+============================================================
+Processing model 8/10: model7.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Predictions complete. Sample: 8.47
+
+============================================================
+Processing model 9/10: model8.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Predictions complete. Sample: 7.28
+
+============================================================
+Processing model 10/10: model9.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Predictions complete. Sample: 7.28
+
+Compiling results...
+
+============================================================
+Prediction Statistics (n=128):
+  MAE:  7.943
+  RMSE: 19.071
+============================================================
+
+Results saved to results/cn_predictions_output/cn_predictions.csv
+Reading data...
+Successfully loaded 128 data points
+
+============================================================
+Processing model 1/10: model0.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 28.82
+
+============================================================
+Processing model 2/10: model1.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 27.96
+
+============================================================
+Processing model 3/10: model2.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 26.78
+
+============================================================
+Processing model 4/10: model3.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 27.22
+
+============================================================
+Processing model 5/10: model4.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 29.66
+
+============================================================
+Processing model 6/10: model5.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 28.47
+
+============================================================
+Processing model 7/10: model6.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 28.57
+
+============================================================
+Processing model 8/10: model7.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 28.25
+
+============================================================
+Processing model 9/10: model8.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 28.37
+
+============================================================
+Processing model 10/10: model9.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 28.52
+
+Compiling results...
+
+============================================================
+Prediction Statistics (n=22):
+  MAE:  19.689
+  RMSE: 25.216
+============================================================
+
+Results saved to results/cn_predictions_output/cn_predictions.csv
+Reading data...
+Successfully loaded 128 data points
+
+============================================================
+Processing model 1/10: model0.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 11.44
+
+============================================================
+Processing model 2/10: model1.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 7.70
+
+============================================================
+Processing model 3/10: model2.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 7.20
+
+============================================================
+Processing model 4/10: model3.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 9.92
+
+============================================================
+Processing model 5/10: model4.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 11.90
+
+============================================================
+Processing model 6/10: model5.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 7.66
+
+============================================================
+Processing model 7/10: model6.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 7.62
+
+============================================================
+Processing model 8/10: model7.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 8.47
+
+============================================================
+Processing model 9/10: model8.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 7.28
+
+============================================================
+Processing model 10/10: model9.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 7.28
+
+Compiling results...
+
+============================================================
+Prediction Statistics (n=22):
+  MAE:  27.729
+  RMSE: 40.098
+============================================================
+
+Results saved to results/cn_predictions_output/cn_predictions.csv
+Reading data...
+Successfully loaded 128 data points
+
+============================================================
+Processing model 1/10: model0.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 65.95
+
+============================================================
+Processing model 2/10: model1.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 65.82
+
+============================================================
+Processing model 3/10: model2.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 65.20
+
+============================================================
+Processing model 4/10: model3.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 69.08
+
+============================================================
+Processing model 5/10: model4.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 70.72
+
+============================================================
+Processing model 6/10: model5.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 65.22
+
+============================================================
+Processing model 7/10: model6.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 65.55
+
+============================================================
+Processing model 8/10: model7.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 66.06
+
+============================================================
+Processing model 9/10: model8.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 65.06
+
+============================================================
+Processing model 10/10: model9.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 65.85
+
+Compiling results...
+
+============================================================
+Prediction Statistics (n=128):
+  MAE:  24.593
+  RMSE: 31.778
+============================================================
+
+Results saved to results/cn_predictions_output/cn_predictions.csv
+Reading data...
+Successfully loaded 128 data points
+
+============================================================
+Processing model 1/10: model0.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 47.44
+
+============================================================
+Processing model 2/10: model1.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 47.90
+
+============================================================
+Processing model 3/10: model2.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 47.15
+
+============================================================
+Processing model 4/10: model3.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 49.21
+
+============================================================
+Processing model 5/10: model4.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 48.87
+
+============================================================
+Processing model 6/10: model5.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 48.14
+
+============================================================
+Processing model 7/10: model6.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 47.56
+
+============================================================
+Processing model 8/10: model7.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 47.73
+
+============================================================
+Processing model 9/10: model8.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 47.91
+
+============================================================
+Processing model 10/10: model9.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 48.38
+
+Compiling results...
+
+============================================================
+Prediction Statistics (n=128):
+  MAE:  23.337
+  RMSE: 32.067
+============================================================
+
+Results saved to results/cn_predictions_output/cn_predictions.csv
+Reading data...
+Successfully loaded 128 data points
+
+============================================================
+Processing model 1/10: model0.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 26.89
+
+============================================================
+Processing model 2/10: model1.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 22.94
+
+============================================================
+Processing model 3/10: model2.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 22.76
+
+============================================================
+Processing model 4/10: model3.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 22.69
+
+============================================================
+Processing model 5/10: model4.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 32.56
+
+============================================================
+Processing model 6/10: model5.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 23.38
+
+============================================================
+Processing model 7/10: model6.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 23.59
+
+============================================================
+Processing model 8/10: model7.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 23.90
+
+============================================================
+Processing model 9/10: model8.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 23.21
+
+============================================================
+Processing model 10/10: model9.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 22.86
+
+Compiling results...
+
+============================================================
+Prediction Statistics (n=128):
+  MAE:  26.023
+  RMSE: 32.545
+============================================================
+
+Results saved to results/cn_predictions_output/cn_predictions.csv
+Reading data...
+Successfully loaded 128 data points
+
+============================================================
+Processing model 1/10: model0.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 29.19
+
+============================================================
+Processing model 2/10: model1.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 26.30
+
+============================================================
+Processing model 3/10: model2.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 25.87
+
+============================================================
+Processing model 4/10: model3.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 26.80
+
+============================================================
+Processing model 5/10: model4.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 32.76
+
+============================================================
+Processing model 6/10: model5.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 27.05
+
+============================================================
+Processing model 7/10: model6.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 26.72
+
+============================================================
+Processing model 8/10: model7.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 26.60
+
+============================================================
+Processing model 9/10: model8.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 26.62
+
+============================================================
+Processing model 10/10: model9.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 26.43
+
+Compiling results...
+
+============================================================
+Prediction Statistics (n=128):
+  MAE:  7.943
+  RMSE: 19.071
+============================================================
+
+Results saved to results/cn_predictions_output/cn_predictions.csv
+Reading data...
+Successfully loaded 128 data points
+
+============================================================
+Processing model 1/10: model0.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 35.51
+
+============================================================
+Processing model 2/10: model1.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 33.85
+
+============================================================
+Processing model 3/10: model2.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 33.15
+
+============================================================
+Processing model 4/10: model3.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 32.97
+
+============================================================
+Processing model 5/10: model4.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 40.58
+
+============================================================
+Processing model 6/10: model5.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 34.05
+
+============================================================
+Processing model 7/10: model6.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 34.79
+
+============================================================
+Processing model 8/10: model7.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 34.68
+
+============================================================
+Processing model 9/10: model8.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 33.83
+
+============================================================
+Processing model 10/10: model9.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 34.16
+
+Compiling results...
+
+============================================================
+Prediction Statistics (n=128):
+  MAE:  7.943
+  RMSE: 19.071
+============================================================
+
+Results saved to results/cn_predictions_output/cn_predictions.csv
+Reading data...
+Successfully loaded 128 data points
+
+============================================================
+Processing model 1/10: model0.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 40.91
+
+============================================================
+Processing model 2/10: model1.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 41.55
+
+============================================================
+Processing model 3/10: model2.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 40.87
+
+============================================================
+Processing model 4/10: model3.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 42.06
+
+============================================================
+Processing model 5/10: model4.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 41.40
+
+============================================================
+Processing model 6/10: model5.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 42.08
+
+============================================================
+Processing model 7/10: model6.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 41.43
+
+============================================================
+Processing model 8/10: model7.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 41.31
+
+============================================================
+Processing model 9/10: model8.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 41.81
+
+============================================================
+Processing model 10/10: model9.pt
+============================================================
+Scaled data with standard method
+  Mean: 20.999, Std: 7.373
+Loading pretrained parameter "mpn.cached_zero_vector".
+Loading pretrained parameter "mpn.W_i.weight".
+Loading pretrained parameter "mpn.W_h.weight".
+Loading pretrained parameter "mpn.W_o.weight".
+Loading pretrained parameter "ffn.ffn.1.weight".
+Loading pretrained parameter "ffn.ffn.1.bias".
+Loading pretrained parameter "ffn.ffn.4.weight".
+Loading pretrained parameter "ffn.ffn.4.bias".
+Loading pretrained parameter "ffn.ffn.7.weight".
+Loading pretrained parameter "ffn.ffn.7.bias".
+Loading pretrained parameter "ffn.output_layer.weight".
+Loading pretrained parameter "ffn.output_layer.bias".
+Moving model to mps or cuda
+Predictions complete. Sample: 42.27
+
+Compiling results...
+
+============================================================
+Prediction Statistics (n=128):
+  MAE:  7.943
+  RMSE: 19.071
+============================================================
+
+Results saved to results/cn_predictions_output/cn_predictions.csv

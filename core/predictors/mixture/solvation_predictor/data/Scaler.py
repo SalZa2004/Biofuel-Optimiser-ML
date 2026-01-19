@@ -1,5 +1,5 @@
 import numpy as np
-from solvation_predictor.data.data import DatapointList
+from core.predictors.mixture.solvation_predictor.data.data import DatapointList
 
 
 class Scaler:

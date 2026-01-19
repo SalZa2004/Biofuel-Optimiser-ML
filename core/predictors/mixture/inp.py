@@ -130,7 +130,8 @@ class TrainArgs(CommonArgs):
 class PredictArgs(CommonArgs):
     input_file: str = os.path.join(CommonArgs.base_dir, 'Data', 'UGent/Viscosity_test_ln.csv')
     model_path_root: str = os.path.join(CommonArgs.working_dir, 'trained_models', 'Viscosity')
-    model_path = [f for f in os.listdir(model_path_root) if '.pt' in f]
+    # FIXED: Don't list directory at class definition time - do it lazily
+    model_path = None  # Will be set when needed
     output_dir = os.path.join(CommonArgs.base_dir, "MyOutput")
     get_molecular_embedding = "solvent"  # save the embedding for solvents
 
@@ -148,4 +149,8 @@ class PredictArgs(CommonArgs):
     features_headers: list = []
     molefrac_headers: list = ["frac_fuel1 (molar)", "frac_fuel2 (molar)", "frac_fuel3 (molar)"]
     delimiter: str = ","
-
+    
+    def __post_init__(self):
+        """Set model_path lazily after initialization"""
+        if self.model_path is None and os.path.exists(self.model_path_root):
+            self.model_path = [f for f in os.listdir(self.model_path_root) if '.pt' in f]
