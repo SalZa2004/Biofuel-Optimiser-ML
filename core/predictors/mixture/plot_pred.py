@@ -19,3 +19,22 @@ plt.ylim(0, 120)
 plt.grid()
 plt.show()
 
+def outliers(df, threshold=10):
+    error = df['CN_Measured'] - df['CN_predicted']
+    outlier_indices = error[error.abs() > threshold].index
+    return df.loc[outlier_indices]
+outlier_df = outliers(df)
+print("Outliers:")
+print(outlier_df)
+save_path = 'results/cn_predictions_output/cn_outliers.csv'
+outlier_df.to_csv(save_path, index=False)
+
+residual = df['CN_Measured'] - df['CN_predicted']
+plt.figure(figsize=(8, 6))
+plt.scatter(df['CN_Measured'], residual)
+plt.axhline(0, color='r', linestyle='--')
+plt.xlabel('Measured CN')
+plt.ylabel('Residuals (Measured - Predicted)')
+plt.title('Residuals vs Measured CN')
+plt.grid()
+plt.show()
