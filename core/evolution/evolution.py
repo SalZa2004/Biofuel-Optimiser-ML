@@ -52,6 +52,9 @@ class MolecularEvolution:
                 continue
             if self.config.minimize_ysi and props.get('ysi') is None:
                 continue
+            tanimoto = props.get("tanimoto")
+            if tanimoto is None or tanimoto < 0.7:
+                continue
             
             # Validate filtered properties
             if not all(self.predictor.is_valid(k, props.get(k)) for k in ['bp', 'density', 'lhv', 'dynamic_viscosity']):

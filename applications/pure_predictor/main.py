@@ -5,6 +5,7 @@ os.environ["HF_HUB_DISABLE_TELEMETRY"] = "1"
 
 from core.shared_features import featurize_df, FeatureSelector
 from core.predictors.pure_component.generic import GenericPredictor
+from core.predictors.pure_component.property_predictor import PropertyPredictor
 from core.predictors.pure_component.hf_models import load_models
 
 from .cli import get_user_config
@@ -57,6 +58,12 @@ def run(config):
             PREDICTOR_PATHS["ysi"],
             "YSI"
         )
+    
+    smiles = [config["smiles"]]
+
+    predictor = PropertyPredictor()  # 👈 NO EvolutionConfig
+    results = predictor.predict_all_properties(smiles)
+
        
     # --- Predict ---
     result = {
@@ -66,7 +73,8 @@ def run(config):
         "BOILING POINT": bp_predictor.predict_from_features(X_full)[0],
         "DENSITY": density_predictor.predict_from_features(X_full)[0],
         "LHV": lhv_predictor.predict_from_features(X_full)[0],
-        "DYNAMIC VISCOSITY": dyn_visc_predictor.predict_from_features(X_full)[0]
+        "DYNAMIC VISCOSITY": dyn_visc_predictor.predict_from_features(X_full)[0],
+        "TANIMOTO": results["tanimoto"]
     }
 
     return result

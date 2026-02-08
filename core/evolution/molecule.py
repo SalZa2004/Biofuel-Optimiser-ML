@@ -14,10 +14,20 @@ class Molecule:
     lhv: Optional[float] = None
     dynamic_viscosity: Optional[float] = None
     
+    # NEW: Confidence/quality metrics
+    chemical_valid: bool = True
+    chemical_flags: str = 'OK'
+    ood_warning: bool = False
+    confidence_score: float = 100.0
+    
+    # NEW: Mixture-specific properties
+    mixture_dcn: Optional[float] = None
+    blend_ratio: Optional[float] = None
+    
     def dominates(self, other: 'Molecule', maximize_cn: bool = False) -> bool: 
         """Check if this molecule Pareto-dominates another.""" 
         if maximize_cn: 
-        # For maximize mode: higher CN is better 
+            # For maximize mode: higher CN is better 
             better_cn = self.cn >= other.cn 
             strictly_better_cn = self.cn > other.cn 
         else: 

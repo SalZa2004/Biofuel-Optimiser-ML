@@ -108,16 +108,6 @@ def get_mixture_config() -> EvolutionConfig:
     print("\nBlend Ratio:")
     additive_fraction = float(input("Enter additive fraction (e.g., 0.15 for 15%): ").strip())
     
-    # Optimize blend ratio?
-    optimize_ratio_input = input("Optimize blend ratio for each molecule? (y/n): ").strip().lower()
-    optimize_ratio = (optimize_ratio_input == 'y')
-    
-    if optimize_ratio:
-        min_fraction = float(input("  Min additive fraction (e.g., 0.05): ").strip())
-        max_fraction = float(input("  Max additive fraction (e.g., 0.30): ").strip())
-    else:
-        min_fraction = additive_fraction
-        max_fraction = additive_fraction
     
     # Summary
     print("\n" + "="*70)
@@ -127,12 +117,7 @@ def get_mixture_config() -> EvolutionConfig:
     print(f"  • Base Fuel: {base_fuel_type}")
     print(f"  • Additive Fraction: {additive_fraction * 100:.1f}%")
     print(f"  • Base Fuel Fraction: {(1-additive_fraction) * 100:.1f}%")
-    if optimize_ratio:
-        print(f"  • Optimize Ratio: Yes ({min_fraction*100:.1f}% - {max_fraction*100:.1f}%)")
-    else:
-        print(f"  • Optimize Ratio: No (fixed at {additive_fraction*100:.1f}%)")
-    print("="*70)
-    
+
     # Create mixture config
     mixture_cfg = MixtureConfig(
         additive_fraction=additive_fraction,
@@ -140,10 +125,7 @@ def get_mixture_config() -> EvolutionConfig:
         base_fuel_type=base_fuel_type,
         base_fuel_smiles=base_fuel_smiles,
         base_fuel_mole_fractions=base_fuel_fractions,
-        target_mixture_dcn=target_dcn,
-        optimize_blend_ratio=optimize_ratio,
-        min_additive_fraction=min_fraction,
-        max_additive_fraction=max_fraction
+        target_mixture_dcn=target_dcn
     )
     
     return EvolutionConfig(
