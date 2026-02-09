@@ -1,3 +1,4 @@
+from core import config
 from .evolution import MolecularEvolution
 from .molecule import Molecule
 from core.predictors.mixture.mixture_dcn_predictor import MixtureDCNPredictor, BaseFuelLibrary
@@ -6,6 +7,7 @@ from rdkit import Chem
 from typing import List, Tuple, Dict
 import numpy as np
 from pathlib import Path
+import wandb
 
 class MixtureAwareMolecule(Molecule):
     """Extended Molecule class for mixture optimization."""
@@ -31,6 +33,18 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         super().__init__(config)
         self.mixture_predictor = MixtureDCNPredictor()
         self._load_base_fuel()
+    
+        wandb.init(
+            project="mixture-dcn-evolution",
+            name=f"run_target_{config.mixture_config.target_mixture_dcn}",
+            config={
+                "population_size": config.population_size,
+                "generations": config.generations,
+                "additive_fraction": config.mixture_config.additive_fraction,
+                "target_mixture_dcn": config.mixture_config.target_mixture_dcn,
+                "maximize_cn": config.maximize_cn
+            }
+        )
 
     def _load_base_fuel(self):
         """Load base fuel composition based on config."""
@@ -54,62 +68,81 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         except Exception as e:
             print(f"⚠ Mixture prediction failed for {additive_smiles}: {e}")
             return None
-
+    
     def _create_molecules(self, smiles_list: List[str]) -> List[MixtureAwareMolecule]:
         """Create mixture-aware molecules."""
         if not smiles_list:
             return []
 
 
-        # Get pure component properties
-        pure_predictions = self.predictor.predict_all_properties(smiles_list)
-
         mc = self.config.mixture_config
-        mixture_dcns, blend_ratios = [], []
 
-        for smiles in smiles_list:
-            ratio, dcn = mc.additive_fraction, self._predict_mixture_dcn(smiles)
-            mixture_dcns.append(dcn)
-            blend_ratios.append(ratio)
+        # Mixture DCN predictions (fitness driver)
+        mixture_dcns = self.mixture_predictor.predict_batch_mixtures(
+            additive_smiles_list=smiles_list,
+            base_smiles=self.base_smiles,
+            base_mole_fractions=self.base_fractions,
+            additive_fraction=mc.additive_fraction
+        )
 
         molecules = []
         for i, smiles in enumerate(smiles_list):
-            props = {k: v[i] for k, v in pure_predictions.items()}
-            mixture_dcn, blend_ratio = mixture_dcns[i], blend_ratios[i]
+            mixture_dcn = mixture_dcns[i]
             if mixture_dcn is None:
                 continue
 
-            cn_for_fitness = mixture_dcn
 
+            cn_for_fitness = mixture_dcn
 
             molecules.append(MixtureAwareMolecule(
                 smiles=smiles,
                 cn=cn_for_fitness,
                 cn_error=abs(cn_for_fitness - mc.target_mixture_dcn),
                 cn_score=cn_for_fitness,
-                bp=props.get('bp'),
-                ysi=props.get('ysi'),
-                density=props.get('density'),
-                lhv=props.get('lhv'),
-                dynamic_viscosity=props.get('dynamic_viscosity'),
                 mixture_dcn=mixture_dcn,
-                blend_ratio=blend_ratio
+                blend_ratio=mc.additive_fraction
             ))
 
         return molecules
 
+
+
+
     def _log_generation_stats(self, generation: int):
-        """Log stats for mixture mode."""
         mols = self.population.molecules
-        avg_confidence = np.mean([m.confidence_score for m in mols])
-        n_ood = sum(1 for m in mols if m.ood_warning)
+
         n_invalid = sum(1 for m in mols if not m.chemical_valid)
 
-        best = max(mols, key=lambda m: m.cn) if self.config.maximize_cn else min(mols, key=lambda m: m.cn_error)
-        avg_cn = np.mean([m.cn for m in mols]) if self.config.maximize_cn else np.mean([m.cn_error for m in mols])
+        if self.config.maximize_cn:
+            best = max(mols, key=lambda m: m.cn)
+            avg_metric = np.mean([m.cn for m in mols])
+            best_metric = best.cn
+        else:
+            best = min(mols, key=lambda m: m.cn_error)
+            avg_metric = np.mean([m.cn_error for m in mols])
+            best_metric = best.cn_error
 
         avg_ratio = np.mean([m.blend_ratio for m in mols if m.blend_ratio is not None])
-        print(f"Gen {generation}/{self.config.generations} | Pop {len(mols)} | "
-              f"{'Best Mixture DCN' if self.config.maximize_cn else 'Best DCN err'}: {best.cn if self.config.maximize_cn else best.cn_error:.3f} | "
-              f"Avg: {avg_cn:.3f} | Conf: {avg_confidence:.1f}% | OOD: {n_ood} | Invalid: {n_invalid} | "
-              f"Avg Blend: {avg_ratio*100:.1f}%")
+
+        # 🔹 Console logging (keep this!)
+        print(
+            f"Gen {generation}/{self.config.generations} | "
+            f"Pop {len(mols)} | "
+            f"Best: {best_metric:.3f} | "
+            f"Avg: {avg_metric:.3f} | "
+            f"Invalid: {n_invalid} | "
+            f"Avg Blend: {avg_ratio*100:.1f}%"
+        )
+
+        # 🔹 W&B logging
+        wandb.log({
+            "generation": generation,
+            "population_size": len(mols),
+            "best_mixture_dcn" if self.config.maximize_cn else "best_dcn_error": best_metric,
+            "avg_mixture_dcn" if self.config.maximize_cn else "avg_dcn_error": avg_metric,
+            "invalid_fraction": n_invalid / len(mols),
+            "avg_blend_ratio": avg_ratio,
+        })
+        table_data = [[m.smiles, m.mixture_dcn, m.cn_error, m.blend_ratio, m.chemical_valid] for m in mols]
+        table = wandb.Table(data=table_data, columns=["SMILES", "Mixture DCN", "CN Error", "Blend Ratio", "Valid"])
+        wandb.log({"molecules": table})

@@ -1,3 +1,1 @@
 rank,smiles,cn,cn_error,cn_score,chemical_valid,chemical_flags,ood_warning,confidence_score,mixture_dcn,blend_ratio
-1,OCCCCCCCCO,70.48710520976032,4.4871052097603155,70.48710520976032,True,OK,False,100.0,70.48710520976032,0.15
-2,OCCCCCCCO,70.67155764743018,4.671557647430177,70.67155764743018,True,OK,False,100.0,70.67155764743018,0.15

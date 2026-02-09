@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 df = pd.read_csv('results/cn_predictions_output/cn_predictions.csv')
 error = df['CN_Measured'] - df['CN_predicted']
 rmse = (error ** 2).mean() ** 0.5
@@ -17,7 +18,9 @@ plt.legend([f'RMSE: {rmse:.2f}'])
 plt.xlim(0, 100)
 plt.ylim(0, 120)
 plt.grid()
-plt.show()
+plt.savefig("my_plot.png", dpi=300)
+plt.close()
+
 
 def outliers(df, threshold=10):
     error = df['CN_Measured'] - df['CN_predicted']
@@ -37,4 +40,5 @@ plt.xlabel('Measured CN')
 plt.ylabel('Residuals (Measured - Predicted)')
 plt.title('Residuals vs Measured CN')
 plt.grid()
-plt.show()
+plt.savefig("residuals.png", dpi=300)
+plt.close()

@@ -53,7 +53,7 @@ class MolecularEvolution:
             if self.config.minimize_ysi and props.get('ysi') is None:
                 continue
             tanimoto = props.get("tanimoto")
-            if tanimoto is None or tanimoto < 0.7:
+            if tanimoto is None or tanimoto < 0.8:
                 continue
             
             # Validate filtered properties
