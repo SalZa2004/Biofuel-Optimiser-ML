@@ -11,7 +11,7 @@ class Population:
         self.seen_smiles: set = set()
     
     def add_molecule(self, mol: Molecule) -> bool:
-        """Add a molecule if it's not already in the population."""
+        """Add a molecule if not already in the population."""
         if mol.smiles in self.seen_smiles:
             return False
         self.molecules.append(mol)

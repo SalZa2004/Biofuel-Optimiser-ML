@@ -1,81 +1,21 @@
 """
 Updated CLI with Mixture Optimization Support
 """
-
 from core.config import EvolutionConfig, MixtureConfig
-
 def get_user_config() -> EvolutionConfig:
     """Interactive CLI to get configuration from user."""
     
     print("="*70)
-    print("MOLECULAR EVOLUTION WITH GENETIC ALGORITHM")
+    print("MIXTURE-AWARE MOLECULE GENERATOR")
     print("="*70)
     
-    # Choose mode: pure component or mixture
-    print("\nOptimization Target:")
-    print("1. Pure component properties (original)")
-    print("2. Mixture/blend properties (fuel additive optimization)")
-    mode_choice = input("Select mode (1 or 2): ").strip()
-    
-    mixture_mode = (mode_choice == "2")
-    
-    if not mixture_mode:
-        # Original pure component mode
-        return get_pure_component_config()
-    else:
-        # New mixture mode
-        return get_mixture_config()
-
-
-def get_pure_component_config() -> EvolutionConfig:
-    """Get config for pure component optimization (original)."""
-    
-    print("\n✓ Mode: Pure Component Optimization")
-    
-    print("\nCetane Number Optimization:")
-    print("1. Target a specific CN value (minimize error from target)")
-    print("2. Maximize CN (find highest possible CN)")
-    opt_mode = input("Select mode (1 or 2): ").strip()
-    
-    maximize_cn = (opt_mode == "2")
-    
-    if maximize_cn:
-        print("✓ Mode: Maximize Cetane Number")
-        target_cn = 100.0  # Doesn't matter, but set it anyway
-    else:
-        print("✓ Mode: Target Cetane Number")
-        target_cn = float(input("Enter target CN: ").strip())
-    
-    minimize_ysi_input = input("\nMinimize YSI (y/n): ").strip().lower()
-    minimize_ysi = (minimize_ysi_input == 'y')
-    
-    # Summary
-    print("\n" + "="*70)
-    print("CONFIGURATION SUMMARY:")
-    if maximize_cn:
-        print("  • Mode: Maximize CN")
-    else:
-        print(f"  • Mode: Target CN = {target_cn}")
-    print(f"  • Minimize YSI: {'Yes' if minimize_ysi else 'No'}")
-    if minimize_ysi:
-        print("  • Optimization: Multi-objective (CN + YSI)")
-    else:
-        print("  • Optimization: Single-objective (CN only)")
-    print("="*70)
-    
-    return EvolutionConfig(
-        target_cn=target_cn,
-        maximize_cn=maximize_cn,
-        minimize_ysi=minimize_ysi,
-        mixture_mode=False
-    )
+    return get_mixture_config()
 
 
 def get_mixture_config() -> EvolutionConfig:
     """Get config for mixture optimization."""
     
     print("\n✓ Mode: Mixture/Blend Optimization")
-    
     # Target mixture DCN
     print("\nTarget Mixture Properties:")
     target_dcn = float(input("Enter target mixture DCN: ").strip())
@@ -106,7 +46,7 @@ def get_mixture_config() -> EvolutionConfig:
     
     # Additive fraction
     print("\nBlend Ratio:")
-    additive_fraction = float(input("Enter additive fraction (e.g., 0.15 for 15%): ").strip())
+    additive_fraction = float(input("Enter additive molar fraction").strip())
     
     
     # Summary
@@ -135,7 +75,6 @@ def get_mixture_config() -> EvolutionConfig:
         mixture_mode=True,
         mixture_config=mixture_cfg
     )
-
 
 # ============================================================================
 # EXAMPLE USAGE

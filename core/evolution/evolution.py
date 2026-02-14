@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 import random
 from typing import List, Tuple
-from core.data_prep import df  # Initial dataset for sampling
+from core.data_prep import df  
 from pathlib import Path
 
 class MolecularEvolution:
@@ -27,7 +27,9 @@ class MolecularEvolution:
             mutants = list(mutate_mol(
                 mol,
                 db_name=str(self.REP_DB_PATH),
-                max_size=2,
+                max_size=2,           # Keep your current setting
+                max_replacements=100, # ✓ ADD THIS - Huge speedup!
+                min_freq=3,           # ✓ ADD THIS - Filter weird fragments
                 return_mol=False
             ))
             return [m for m in mutants if m and m not in self.population.seen_smiles]

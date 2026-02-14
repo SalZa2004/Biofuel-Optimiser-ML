@@ -1,25 +1,20 @@
 """
-Mixture DCN Predictor - CSV-based version
+WORKING Direct Datapoint Creation for DCN Prediction
 
-Uses your existing read_data() pipeline instead of direct Datapoint creation.
-This is slower but guaranteed to work with your existing code structure.
+Based on the actual data.py code, creates datapoints without CSV files.
 """
 
-import pandas as pd
 import numpy as np
-import os
-import sys
 import torch
-import tempfile
-from typing import List
+from typing import List, Optional
 from pathlib import Path
+import sys
+import os
 
 
 class MixtureDCNPredictor:
     """
-    Wrapper for your DCN prediction model.
-    
-    Uses CSV-based prediction (slower but compatible with your existing code).
+    Direct datapoint creation - properly handles MolencoderDatabase requirement.
     """
     
     def __init__(self, model_dir=None):
@@ -40,7 +35,7 @@ class MixtureDCNPredictor:
         
         print(f"DCN Predictor initialized with {len(model_files)} models")
         
-        # Initialize models (lazy loading)
+        # Models (lazy loading)
         self.models = None
         self.scalers = None
         self.args = None
@@ -58,7 +53,7 @@ class MixtureDCNPredictor:
         sys.modules['solvation_predictor.inp'] = mixture_inp
         sys.modules['solvation_predictor'] = sp
         
-        # Import functions
+        # Import required classes
         from core.predictors.mixture.solvation_predictor.train.train import load_checkpoint, load_scaler
         
         # Create args
@@ -129,142 +124,239 @@ class MixtureDCNPredictor:
         
         return Args()
     
-    def _create_temp_csv(self, smiles_list: List[str], mole_fractions: List[float]) -> str:
-        """Create temporary CSV file for prediction."""
-        # Create row
-        row = {}
-        
-        # Add SMILES (using 'inchi' column names as your code does)
-        for i, smiles in enumerate(smiles_list):
-            row[f'fuel{i+1}_inchi'] = smiles
-        
-        # Add mole fractions (N-1 fractions)
-        for i in range(len(smiles_list) - 1):
-            row[f'frac_fuel{i+1} (molar)'] = mole_fractions[i]
-        
-        # Dummy target
-        row['DCN'] = 0.0
-        
-        # Create DataFrame
-        df = pd.DataFrame([row])
-        
-        # Save to temp file
-        temp_file = tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False)
-        df.to_csv(temp_file.name, index=False)
-        temp_file.close()
-        
-        return temp_file.name
-    
-    def predict_mixture_dcn(self, 
-                           smiles_list: List[str], 
-                           mole_fractions: List[float]) -> float:
+    def _create_datapoint_direct(self,
+                                mixture_smiles: List[str],
+                                mixture_fractions: List[float]) -> 'DataPoint':
         """
-        Predict DCN for a single mixture.
+        Create DataPoint directly using the actual DataPoint constructor.
+        
+        Key insight from data.py:
+        DataPoint(smiles, targets, features, molefracs, inp, mol_encoders)
+        
+        Where mol_encoders is a MolencoderDatabase instance!
+        """
+        from core.predictors.mixture.solvation_predictor.data.data import DataPoint, MolencoderDatabase
+        from rdkit import Chem
+        
+        # Validate SMILES
+        for i, smiles in enumerate(mixture_smiles):
+            mol = Chem.MolFromSmiles(smiles)
+            if mol is None:
+                raise ValueError(f"Invalid SMILES at index {i}: {smiles}")
+        
+        # Validate fractions
+        if abs(sum(mixture_fractions) - 1.0) > 1e-6:
+            raise ValueError(f"Fractions must sum to 1.0, got {sum(mixture_fractions)}")
+        
+        # Create MolencoderDatabase (THIS IS THE KEY!)
+        mol_encoder_db = MolencoderDatabase()
+        
+        # DataPoint constructor signature from data.py:
+        # __init__(self, smiles, targets, features, molefracs, inp: TrainArgs, mol_encoders: MolencoderDatabase)
+        
+        targets = [0.0]  # Dummy target (not used during prediction)
+        features = []    # No additional features
+        molefracs = mixture_fractions[:-1]  # N-1 fractions (last is implicit)
+        
+        try:
+            datapoint = DataPoint(
+                smiles=mixture_smiles,
+                targets=targets,
+                features=features,
+                molefracs=molefracs,
+                inp=self.args,
+                mol_encoders=mol_encoder_db  # Pass the MolencoderDatabase instance
+            )
+            
+            return datapoint
+        
+        except Exception as e:
+            raise ValueError(f"Failed to create DataPoint: {e}")
+    
+    def predict_mixture_dcn(self,
+                           mixture_smiles: List[str],
+                           mixture_fractions: List[float]) -> float:
+        """
+        Predict DCN for a single mixture using direct datapoint creation.
         
         Args:
-            smiles_list: List of SMILES for each component
-            mole_fractions: Mole fraction for each component (must sum to 1.0)
+            mixture_smiles: List of SMILES strings for each component
+            mixture_fractions: Mole fractions (must sum to 1.0)
         
         Returns:
-            predicted_dcn: Derived cetane number
+            Predicted DCN value
+        """
+        # Initialize models
+        self._initialize_models()
+        
+        # Import required classes
+        from core.predictors.mixture.solvation_predictor.data.data import DatapointList
+        from core.predictors.mixture.solvation_predictor.train.evaluate import predict
+        
+        # Update args for this prediction
+        self.args.num_mols = len(mixture_smiles)
+        self.args.solvent_headers = [f'fuel{i+1}_inchi' for i in range(len(mixture_smiles))]
+        self.args.molefrac_headers = [f'frac_fuel{i+1} (molar)' for i in range(len(mixture_smiles) - 1)]
+        self.args.target_headers = ['DCN']
+        self.args.features_headers = []
+        self.args.solute_headers = []
+        
+        # Create datapoint directly (NO FILE I/O!)
+        datapoint = self._create_datapoint_direct(mixture_smiles, mixture_fractions)
+        
+        # Update f_mol_size from datapoint
+        if not hasattr(self, '_f_mol_size_set'):
+            self.args.f_mol_size = datapoint.get_mol_encoder()[0].get_sizes()[2]
+            self.args.num_features = len(datapoint.features)
+            self._f_mol_size_set = True
+        
+        # Create DatapointList
+        data = DatapointList([datapoint])
+        
+        # Predict with ensemble
+        predictions = []
+        
+        for model, scaler in zip(self.models, self.scalers):
+            if self.args.scale == "standard":
+                scaler.transform_standard(data)
+            
+            preds = predict(model=model, data=data, scaler=scaler, inp=self.args)
+            predictions.append(preds[0][0])
+        
+        # Return ensemble average
+        return float(np.mean(predictions))
+    
+    def predict_batch_mixtures(self,
+                              additive_smiles_list: List[str],
+                              base_smiles: List[str],
+                              base_mole_fractions: List[float],
+                              additive_fraction: float,
+                              verbose: bool = False) -> List[Optional[float]]:
+        """
+        Predict DCN for multiple additives (TRUE BATCH PROCESSING).
+        
+        Args:
+            additive_smiles_list: List of additive SMILES
+            base_smiles: Base fuel SMILES
+            base_mole_fractions: Base fuel mole fractions
+            additive_fraction: Additive fraction
+            verbose: Print progress
+        
+        Returns:
+            List of DCN predictions
         """
         # Validate
-        if len(smiles_list) != len(mole_fractions):
-            raise ValueError(f"Length mismatch")
-        if abs(sum(mole_fractions) - 1.0) > 1e-6:
-            raise ValueError(f"Fractions must sum to 1.0")
+        if abs(sum(base_mole_fractions) - 1.0) > 1e-6:
+            raise ValueError(f"Base fractions must sum to 1.0")
         
         # Initialize
         self._initialize_models()
         
         # Import
-        from core.predictors.mixture.solvation_predictor.data.data import read_data, DatapointList
+        from core.predictors.mixture.solvation_predictor.data.data import DatapointList
         from core.predictors.mixture.solvation_predictor.train.evaluate import predict
         
-        # Create temp CSV
-        temp_csv = self._create_temp_csv(smiles_list, mole_fractions)
-        
-        try:
-            # Update args for this prediction
-            self.args.input_file = temp_csv
-            self.args.num_mols = len(smiles_list)
-            self.args.solvent_headers = [f'fuel{i+1}_inchi' for i in range(len(smiles_list))]
-            self.args.molefrac_headers = [f'frac_fuel{i+1} (molar)' for i in range(len(smiles_list) - 1)]
-            self.args.target_headers = ['DCN']
-            self.args.features_headers = []
-            self.args.solute_headers = []
-            
-            # Read data
-            data = read_data(self.args)
-            
-            if len(data) == 0:
-                raise ValueError(f"Failed to parse SMILES")
-            
-            # Update f_mol_size
-            self.args.f_mol_size = data[0].get_mol_encoder()[0].get_sizes()[2]
-            self.args.num_features = len(data[0].features)
-            
-            data = DatapointList(data)
-            
-            # Predict with all models
-            predictions = []
-            
-            for model, scaler in zip(self.models, self.scalers):
-                if self.args.scale == "standard":
-                    scaler.transform_standard(data)
-                
-                preds = predict(model=model, data=data, scaler=scaler, inp=self.args)
-                predictions.append(preds[0][0])
-            
-            # Return ensemble average
-            return float(np.mean(predictions))
-        
-        finally:
-            # Clean up
-            if os.path.exists(temp_csv):
-                os.remove(temp_csv)
-    
-    def predict_batch_mixtures(self,
-                               additive_smiles_list: List[str],
-                               base_smiles: List[str],
-                               base_mole_fractions: List[float],
-                               additive_fraction: float) -> List[float]:
-        """
-        Predict DCN for multiple additives.
-        
-        Args:
-            additive_smiles_list: List of additive SMILES
-            base_smiles: Base fuel SMILES
-            base_mole_fractions: Base fuel fractions (sum to 1.0)
-            additive_fraction: Additive fraction
-        
-        Returns:
-            List of DCN values (None for failures)
-        """
-        # Validate
-        if abs(sum(base_mole_fractions) - 1.0) > 1e-6:
-            raise ValueError("Base fractions must sum to 1.0")
+        # Setup args
+        num_components = 1 + len(base_smiles)
+        self.args.num_mols = num_components
+        self.args.solvent_headers = [f'fuel{i+1}_inchi' for i in range(num_components)]
+        self.args.molefrac_headers = [f'frac_fuel{i+1} (molar)' for i in range(num_components - 1)]
+        self.args.target_headers = ['DCN']
+        self.args.features_headers = []
+        self.args.solute_headers = []
         
         # Adjust base fractions
-        base_fraction = 1.0 - additive_fraction
-        adjusted_base = [f * base_fraction for f in base_mole_fractions]
+        base_ratio = 1.0 - additive_fraction
+        adjusted_base_fractions = [f * base_ratio for f in base_mole_fractions]
         
-        # Predict each additive
-        results = []
+        # Create all datapoints
+        datapoints = []
+        valid_indices = []
         
-        for additive_smiles in additive_smiles_list:
+        for i, additive_smiles in enumerate(additive_smiles_list):
             try:
                 mixture_smiles = [additive_smiles] + base_smiles
-                mixture_fractions = [additive_fraction] + adjusted_base
+                mixture_fractions = [additive_fraction] + adjusted_base_fractions
                 
-                dcn = self.predict_mixture_dcn(mixture_smiles, mixture_fractions)
-                results.append(dcn)
+                datapoint = self._create_datapoint_direct(mixture_smiles, mixture_fractions)
+                datapoints.append(datapoint)
+                valid_indices.append(i)
+            
             except Exception as e:
-                # Skip failures
-                print(f"⚠ Skipping {additive_smiles[:30]}: {str(e)[:50]}")
-                results.append(None)
+                if verbose:
+                    print(f"⚠ Skipping {additive_smiles[:30]}: {str(e)[:50]}")
+                continue
+        
+        if len(datapoints) == 0:
+            print("❌ No valid datapoints created")
+            return [None] * len(additive_smiles_list)
+        
+        # Update f_mol_size
+        if not hasattr(self, '_f_mol_size_set'):
+            self.args.f_mol_size = datapoints[0].get_mol_encoder()[0].get_sizes()[2]
+            self.args.num_features = len(datapoints[0].features)
+            self._f_mol_size_set = True
+        
+        # Create DatapointList (BATCH!)
+        data = DatapointList(datapoints)
+        
+        if verbose:
+            print(f"  Predicting batch of {len(datapoints)} mixtures...")
+        
+        # Predict with ensemble (BATCHED!)
+        all_predictions = []
+        
+        for model, scaler in zip(self.models, self.scalers):
+            if self.args.scale == "standard":
+                scaler.transform_standard(data)
+            
+            batch_preds = predict(model=model, data=data, scaler=scaler, inp=self.args)
+            preds = [p[0] for p in batch_preds]
+            all_predictions.append(preds)
+        
+        # Ensemble average
+        ensemble_predictions = np.array(all_predictions).mean(axis=0)
+        
+        # Map back to original indices
+        results = [None] * len(additive_smiles_list)
+        for i, valid_idx in enumerate(valid_indices):
+            results[valid_idx] = float(ensemble_predictions[i])
+        
+        if verbose:
+            success_rate = len(valid_indices) / len(additive_smiles_list) * 100
+            print(f"  ✓ Predicted {len(valid_indices)}/{len(additive_smiles_list)} ({success_rate:.1f}%)")
         
         return results
+
+
+# Test if it works
+if __name__ == "__main__":
+    print("="*70)
+    print("TESTING DIRECT DATAPOINT CREATION")
+    print("="*70)
+    
+    # Initialize predictor
+    predictor = MixtureDCNPredictor()
+    
+    # Test with simple molecules
+    test_smiles = ['CCCCCCCC', 'CCCCCCCCCCCCCCCC']
+    test_fractions = [0.5, 0.5]
+    
+    print(f"\nTest mixture: {test_smiles}")
+    print(f"Fractions: {test_fractions}")
+    
+    try:
+        dcn = predictor.predict_mixture_dcn(test_smiles, test_fractions)
+        print(f"\n✓ SUCCESS!")
+        print(f"Predicted DCN: {dcn:.2f}")
+    except Exception as e:
+        print(f"\n❌ FAILED:")
+        print(f"Error: {e}")
+        
+        import traceback
+        traceback.print_exc()
+    
+    print("\n" + "="*70)
 
 
 # Base fuel library
