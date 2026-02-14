@@ -46,7 +46,7 @@ def get_mixture_config() -> EvolutionConfig:
     
     # Additive fraction
     print("\nBlend Ratio:")
-    additive_fraction = float(input("Enter additive molar fraction").strip())
+    additive_fraction = float(input("Enter additive molar fraction: ").strip())
     
     
     # Summary
