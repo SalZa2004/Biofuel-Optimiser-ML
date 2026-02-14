@@ -1,7 +1,8 @@
 from core import config
 from .evolution import MolecularEvolution
 from .molecule import Molecule
-from core.predictors.mixture.mixture_dcn_predictor import MixtureDCNPredictor, BaseFuelLibrary
+from core.predictors.mixture.mixture_dcn_predictor import MixtureDCNPredictor
+from core.base_fuel_library import BaseFuelLibrary
 from core.config import EvolutionConfig
 from rdkit import Chem
 from typing import List, Tuple, Dict

@@ -14,13 +14,12 @@ class Molecule:
     lhv: Optional[float] = None
     dynamic_viscosity: Optional[float] = None
     
-    # NEW: Confidence/quality metrics
     chemical_valid: bool = True
     chemical_flags: str = 'OK'
     ood_warning: bool = False
     confidence_score: float = 100.0
     
-    # NEW: Mixture-specific properties
+
     mixture_dcn: Optional[float] = None
     blend_ratio: Optional[float] = None
     

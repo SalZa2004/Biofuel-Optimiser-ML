@@ -204,7 +204,7 @@ class MolecularEvolution:
                     ].sort_values(["cn", "ysi"], ascending=[False, True])
                 else:
                     pareto_df = pareto_df[
-                        (pareto_df['cn_error'] < 5) & (pareto_df['ysi'] < 50)
+                        (pareto_df['cn_error'] < 15) & (pareto_df['ysi'] < 50)
                     ].sort_values(["cn_error", "ysi"], ascending=True)
                 
                 pareto_df.insert(0, 'rank', range(1, len(pareto_df) + 1))
