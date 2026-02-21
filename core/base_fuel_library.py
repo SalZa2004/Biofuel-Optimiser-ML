@@ -6,17 +6,10 @@ class BaseFuelLibrary:
     def get_fossil_diesel():
         """Get fossil diesel composition."""
         smiles = [
-            "CCCCCCCCCCCCCCCC",
-            "CCCCCCCCCCCCCCCCC",
-            "CCCCCCCCCCCCCCCCCC",
-            "CC(C)CCCCCCCCCCCC",
-            "CCCC(C)CCCCCCCCCC",
-            "c1ccccc1CCCCCCCCCC",
-            "Cc1ccccc1CCCCCCCCC",
-            "C1CCCCC1CCCCCCCCCC",
+            "CCCCCCC",
         ]
         
-        fractions = [0.15, 0.10, 0.10, 0.15, 0.15, 0.15, 0.10, 0.10]
+        fractions = [1.0]
         total = sum(fractions)
         fractions = [f / total for f in fractions]
         

@@ -1,30 +1,22 @@
-from sklearn.ensemble import IsolationForest
-from core.data_prep import df
-class AnomalyDetector:
-    def __init__(self, contamination=0.1):
-        self.model = IsolationForest(contamination=contamination)
-
-    def fit(self, X):
-        self.model.fit(X)
-
-    def predict(self, X):
-        return self.model.predict(X)
+import numpy as np
+class EnsembleUncertaintyFilter:
+    """Filter based on ensemble variance (ExtraTreesRegressor uncertainty)."""
     
-
-    def filter_anomalies(self, df):
-        """Filter out anomalies from the DataFrame."""
-        if df.empty:
-            return df  # Return empty DataFrames if input is empty
+    def __init__(self, percentile_threshold: float = 90):
+        self.percentile_threshold = percentile_threshold
+        self.variance_threshold = None
+        self.is_calibrated = False
+    
+    def calibrate(self, validation_variances: np.ndarray):
+        """Calibrate threshold from validation set variances."""
+        self.variance_threshold = np.percentile(validation_variances, self.percentile_threshold)
+        self.is_calibrated = True
         
-        features = df.select_dtypes  # Use only numeric features
-        if features.empty:
-            return df  # No numeric features to analyze
+        print(f"    Variance threshold ({self.percentile_threshold}th %ile): {self.variance_threshold:.4f}")
+    
+    def is_reliable(self, variances: np.ndarray) -> np.ndarray:
+        """Check which predictions are reliable (low variance)."""
+        if not self.is_calibrated:
+            return np.ones(len(variances), dtype=bool)
         
-        self.fit(features)
-        predictions = self.predict(features)
-        
-        # -1 indicates anomaly, 1 indicates normal
-        normal_df = df[predictions == 1].copy()
-        anomalies_df = df[predictions == -1].copy()
-        
-        return normal_df, anomalies_df
+        return variances <= self.variance_threshold
