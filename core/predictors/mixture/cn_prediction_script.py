@@ -7,7 +7,6 @@ import torch
 # Add the core directory to path if needed
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-# Import after path is set, but we'll need to handle the inp issue differently
 import logging
 from typing import Callable, List, Union
 
@@ -22,37 +21,23 @@ def prepare_mixture_data(input_csv, output_csv, only_with_dcn=True):
         only_with_dcn: If True, only include rows with CN_Measured values
     """
     # Try different encodings
-    encodings = ['utf-8', 'latin-1', 'iso-8859-1', 'cp1252']
-    df = None
-    
-    for encoding in encodings:
-        try:
-            print(f"Trying encoding: {encoding}")
-            df = pd.read_csv(input_csv, encoding=encoding)
-            print(f"✓ Successfully read with {encoding} encoding")
-            break
-        except UnicodeDecodeError:
-            continue
-    
-    if df is None:
-        raise ValueError(f"Could not read CSV with any of these encodings: {encodings}")
+    encoding = 'latin-1'
+    df = pd.read_csv(input_csv, encoding=encoding)
+    print(f"✓ Successfully read with {encoding} encoding")
     
     # Create output dataframe
     output_rows = []
     skipped_no_dcn = 0
-    
+
     for idx, row in df.iterrows():
-        # Check if DCN value exists (if filtering is enabled)
         has_dcn = False
         dcn_value = np.nan
-        
         if 'CN_Measured' in df.columns and pd.notna(row.get('CN_Measured')):
             has_dcn = True
             dcn_value = float(row['CN_Measured'])
         elif 'CN_Regression' in df.columns and pd.notna(row.get('CN_Regression')):
             has_dcn = True
             dcn_value = float(row['CN_Regression'])
-        
         # Skip if filtering enabled and no DCN value
         if only_with_dcn and not has_dcn:
             skipped_no_dcn += 1

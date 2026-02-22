@@ -4,7 +4,6 @@ from rdkit import Chem
 
 from solvation_predictor.data.data import DataTensor
 from solvation_predictor.features.MolEncoder import MolEncoder
-# from memory_profiler import profile
 
 
 class MPN(nn.Module):

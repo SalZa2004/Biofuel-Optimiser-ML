@@ -1,0 +1,254 @@
+"""
+Embedding Extractor for Mixture DCN GNN Model
+
+Extracts the latent embeddings (before the MLP head) from your trained
+mixture DCN predictor. These embeddings represent the molecule in the
+learned latent space.
+"""
+
+import torch
+import numpy as np
+from typing import List, Optional
+from torch_geometric.data import Data, Batch
+
+
+class EmbeddingExtractor:
+    """
+    Extract embeddings from mixture DCN GNN model.
+    
+    The architecture is typically:
+        Graph Conv layers → Pooling → [EMBEDDING] → MLP → DCN prediction
+                                       ^^^^^^^^^^
+                                       Extract this!
+    """
+    
+    def __init__(self, model, device='cpu'):
+        """
+        Args:
+            model: Your trained mixture DCN model
+            device: 'cpu' or 'cuda'
+        """
+        self.model = model
+        self.device = device
+        self.model.to(device)
+        self.model.eval()
+        
+        # Hook to capture embeddings
+        self.embeddings = []
+        self._register_hook()
+    
+    def _register_hook(self):
+        """
+        Register a forward hook to capture embeddings.
+        
+        You'll need to identify which layer is the embedding layer.
+        Common patterns:
+        - model.graph_conv_layers → model.pool → [model.embedding] → model.mlp
+        - model.encoder → [embedding] → model.decoder
+        
+        Adjust based on your actual architecture!
+        """
+        # OPTION 1: If your model has an explicit embedding layer
+        if hasattr(self.model, 'embedding_layer'):
+            self.hook = self.model.embedding_layer.register_forward_hook(
+                self._hook_fn
+            )
+        
+        # OPTION 2: If MLP head is a separate module
+        elif hasattr(self.model, 'mlp_head') or hasattr(self.model, 'fc'):
+            # Hook the layer BEFORE the MLP head
+            # This is usually the pooling layer or the last graph conv
+            if hasattr(self.model, 'pool'):
+                self.hook = self.model.pool.register_forward_hook(
+                    self._hook_fn
+                )
+            else:
+                # Find the last layer before MLP
+                layers = list(self.model.children())
+                self.hook = layers[-2].register_forward_hook(
+                    self._hook_fn
+                )
+        
+        # OPTION 3: Generic - hook the layer before final prediction
+        else:
+            # You may need to manually identify this
+            # Example: if your model is Sequential-like
+            layers = list(self.model.children())
+            # Hook second-to-last layer
+            self.hook = layers[-2].register_forward_hook(
+                self._hook_fn
+            )
+    
+    def _hook_fn(self, module, input, output):
+        """Capture the output of the hooked layer."""
+        # Detach and move to CPU to save memory
+        if isinstance(output, tuple):
+            # Some layers return (output, additional_info)
+            output = output[0]
+        
+        self.embeddings.append(output.detach().cpu())
+    
+    def extract_embeddings_from_graphs(self, graph_list: List[Data]) -> np.ndarray:
+        """
+        Extract embeddings for a list of PyTorch Geometric graphs.
+        
+        Args:
+            graph_list: List of PyG Data objects (molecule graphs)
+        
+        Returns:
+            embeddings: numpy array of shape (n_molecules, embedding_dim)
+        """
+        self.embeddings = []
+        
+        with torch.no_grad():
+            # Batch the graphs
+            batch = Batch.from_data_list(graph_list).to(self.device)
+            
+            # Forward pass (hook will capture embeddings)
+            _ = self.model(batch)
+        
+        # Concatenate all captured embeddings
+        embeddings = torch.cat(self.embeddings, dim=0)
+        
+        return embeddings.numpy()
+    
+    def extract_embeddings_from_smiles(self, 
+                                      smiles_list: List[str],
+                                      featurizer) -> np.ndarray:
+        """
+        Extract embeddings from SMILES strings.
+        
+        Args:
+            smiles_list: List of SMILES
+            featurizer: Function to convert SMILES → PyG Data object
+        
+        Returns:
+            embeddings: numpy array of shape (n_molecules, embedding_dim)
+        """
+        # Convert SMILES to graphs
+        graphs = [featurizer(smiles) for smiles in smiles_list]
+        
+        # Extract embeddings
+        return self.extract_embeddings_from_graphs(graphs)
+    
+    def __del__(self):
+        """Remove hook when done."""
+        if hasattr(self, 'hook'):
+            self.hook.remove()
+
+
+# =============================================================================
+# USAGE EXAMPLE
+# =============================================================================
+
+"""
+STEP 1: Identify your model architecture
+-----------------------------------------
+
+You need to know where the embedding layer is. Common patterns:
+
+Pattern A: Explicit embedding
+    self.graph_conv = GCN(...)
+    self.pool = GlobalMeanPool()
+    self.embedding = Linear(hidden_dim, embedding_dim)  ← Hook here!
+    self.mlp_head = MLP(embedding_dim, 1)
+
+Pattern B: Pooling as embedding
+    self.graph_conv = GCN(...)
+    self.pool = GlobalMeanPool()  ← Hook here! (output IS the embedding)
+    self.mlp_head = MLP(hidden_dim, 1)
+
+Pattern C: Sequential
+    self.layers = Sequential(
+        GCN(...),
+        GlobalMeanPool(),
+        Linear(hidden_dim, embedding_dim),  ← Hook here!
+        ReLU(),
+        Linear(embedding_dim, 1)
+    )
+
+
+STEP 2: Load your model and extract embeddings
+----------------------------------------------
+
+from mixture_dcn_model import load_trained_model
+
+# Load your trained model
+model = load_trained_model('path/to/model.pth')
+
+# Create extractor
+extractor = EmbeddingExtractor(model, device='cuda')
+
+# Extract embeddings for training set
+train_embeddings = extractor.extract_embeddings_from_smiles(
+    train_smiles_list,
+    featurizer=your_featurizer_function
+)
+
+print(f"Embeddings shape: {train_embeddings.shape}")
+# Output: (n_train_samples, embedding_dim)
+
+
+STEP 3: Use these embeddings for One-Class SVM
+----------------------------------------------
+
+See applicability_domain.py for next steps!
+"""
+
+
+# =============================================================================
+# DEBUGGING: Find the right layer to hook
+# =============================================================================
+
+def print_model_structure(model):
+    """
+    Print model structure to help identify embedding layer.
+    
+    Usage:
+        model = load_trained_model(...)
+        print_model_structure(model)
+    """
+    print("Model Structure:")
+    print("="*70)
+    
+    for i, (name, module) in enumerate(model.named_modules()):
+        if name:  # Skip the root module
+            print(f"{i}: {name}")
+            print(f"   Type: {type(module).__name__}")
+            
+            # If it's a Linear layer, show dimensions
+            if hasattr(module, 'in_features') and hasattr(module, 'out_features'):
+                print(f"   Shape: ({module.in_features}, {module.out_features})")
+            
+            print()
+
+
+"""
+EXAMPLE OUTPUT:
+
+Model Structure:
+======================================================================
+1: graph_conv
+   Type: GCN
+   
+2: pool
+   Type: GlobalMeanPool
+   
+3: embedding_layer       ← THIS IS WHAT WE WANT!
+   Type: Linear
+   Shape: (256, 128)     ← 128-dim embeddings
+   
+4: mlp_head
+   Type: Sequential
+   
+5: mlp_head.0
+   Type: Linear
+   Shape: (128, 64)
+   
+6: mlp_head.1
+   Type: ReLU
+   
+7: mlp_head.2
+   Type: Linear
+   Shape: (64, 1)        ← Final prediction
+"""
