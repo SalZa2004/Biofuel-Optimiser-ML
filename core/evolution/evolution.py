@@ -179,9 +179,8 @@ class MolecularEvolution:
             'cn_none': 0,
             'ysi_none': 0,
             'tanimoto_fail': 0,
-            'cn_uncertainty_fail': 0,  # NEW
-            'ysi_uncertainty_fail': 0,  # NEW
-            'property_fail': 0,
+            'cn_uncertainty_fail': 0,
+            'ysi_uncertainty_fail': 0,
             'passed': 0
         }
         
@@ -234,13 +233,7 @@ class MolecularEvolution:
             if tanimoto is None or tanimoto < 0.7:
                 filter_stats['tanimoto_fail'] += 1
                 continue
-            
-            # Validate other properties
-            if not all(self.predictor.is_valid(k, props.get(k)) 
-                      for k in ['bp', 'density', 'lhv', 'dynamic_viscosity']):
-                filter_stats['property_fail'] += 1
-                continue
-            
+
             filter_stats['passed'] += 1
             
             molecules.append(Molecule(
@@ -267,8 +260,7 @@ class MolecularEvolution:
             print(f"\n  Initial filtering: {filter_stats['total']} → {filter_stats['passed']} passed")
             print(f"    Tanimoto: {filter_stats['tanimoto_fail']} | "
                   f"CN Uncertainty: {filter_stats['cn_uncertainty_fail']} | "
-                  f"YSI Uncertainty: {filter_stats['ysi_uncertainty_fail']} | "
-                  f"Properties: {filter_stats['property_fail']}")
+                  f"YSI Uncertainty: {filter_stats['ysi_uncertainty_fail']}")
         
         return self.population.add_molecules(molecules)
     
@@ -322,7 +314,6 @@ class MolecularEvolution:
             'tanimoto_fail': 0,
             'cn_uncertainty_fail': 0,
             'ysi_uncertainty_fail': 0,
-            'property_fail': 0,
             'passed': 0
         }
         
@@ -364,7 +355,8 @@ class MolecularEvolution:
         print(f"    Filtering: {cumulative_stats['total']} → {cumulative_stats['passed']} | "
               f"Tanimoto: {cumulative_stats['tanimoto_fail']} | "
               f"CN Unc: {cumulative_stats['cn_uncertainty_fail']} | "
-              f"YSI Unc: {cumulative_stats['ysi_uncertainty_fail']}")
+              f"YSI Unc: {cumulative_stats['ysi_uncertainty_fail']} "
+              f"(property constraints applied at end)")
         
         return new_molecules, cumulative_stats
     
@@ -381,49 +373,63 @@ class MolecularEvolution:
             new_pop.add_molecules(survivors + offspring)
             self.population = new_pop
     
-    def _generate_results(self) -> Tuple[pd.DataFrame, pd.DataFrame]:
-        """Generate final results DataFrames."""
-        final_df = self.population.to_dataframe()
+    def _apply_property_filters(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Apply bp, density, lhv, dynamic_viscosity constraints to a DataFrame."""
+        mask = pd.Series(True, index=df.index)
+        for prop, (lo, hi) in self.config.filters.items():
+            if prop not in df.columns:
+                continue
+            col = df[prop]
+            if lo is not None:
+                mask &= col >= lo
+            if hi is not None:
+                mask &= col <= hi
+        filtered = df[mask]
+        removed = len(df) - len(filtered)
+        if removed > 0:
+            print(f"  Property filters removed {removed}/{len(df)} molecules")
+        return filtered
 
-        # Apply different filtering based on mode
+    def _sort_df(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Sort a DataFrame by CN/YSI objectives without modifying df in-place."""
         if self.config.maximize_cn:
-            if self.config.minimize_ysi and "ysi" in final_df.columns:
-                final_df = final_df[
-                    (final_df["cn"] > 50) &
-                    (final_df["ysi"] < 50)
+            if self.config.minimize_ysi and "ysi" in df.columns:
+                return df[
+                    (df["cn"] > 50) & (df["ysi"] < 50)
                 ].sort_values(["cn", "ysi"], ascending=[False, True])
             else:
-                final_df = final_df[final_df["cn"] > 50].sort_values("cn", ascending=False)
+                return df[df["cn"] > 50].sort_values("cn", ascending=False)
         else:
-            if self.config.minimize_ysi and "ysi" in final_df.columns:
-                final_df = final_df[
-                    (final_df["cn_error"] < 15) &
-                    (final_df["ysi"] < 50)
+            if self.config.minimize_ysi and "ysi" in df.columns:
+                return df[
+                    (df["cn_error"] < 15) & (df["ysi"] < 50)
                 ].sort_values(["cn_error", "ysi"], ascending=True)
             else:
-                final_df = final_df[final_df["cn_error"] < 5].sort_values("cn_error", ascending=True)
-        
+                return df[df["cn_error"] < 5].sort_values("cn_error", ascending=True)
+
+    def _generate_results(self) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+        """Generate final results DataFrames (filtered, unfiltered, pareto)."""
+        raw_df = self.population.to_dataframe()
+
+        # Unfiltered: only CN/YSI objectives applied, no property constraints
+        unfiltered_df = self._sort_df(raw_df).copy()
+        unfiltered_df["rank"] = range(1, len(unfiltered_df) + 1)
+
+        # Filtered: property constraints (bp, density, lhv, dynamic_viscosity) applied first
+        final_df = self._sort_df(self._apply_property_filters(raw_df)).copy()
         final_df["rank"] = range(1, len(final_df) + 1)
-        
+
         if self.config.minimize_ysi:
             pareto_mols = self.population.pareto_front()
             pareto_df = pd.DataFrame([m.to_dict() for m in pareto_mols])
-            
+
             if not pareto_df.empty:
-                if self.config.maximize_cn:
-                    pareto_df = pareto_df[
-                        (pareto_df['cn'] > 50) & (pareto_df['ysi'] < 50)
-                    ].sort_values(["cn", "ysi"], ascending=[False, True])
-                else:
-                    pareto_df = pareto_df[
-                        (pareto_df['cn_error'] < 15) & (pareto_df['ysi'] < 50)
-                    ].sort_values(["cn_error", "ysi"], ascending=True)
-                
+                pareto_df = self._sort_df(self._apply_property_filters(pareto_df)).copy()
                 pareto_df.insert(0, 'rank', range(1, len(pareto_df) + 1))
         else:
             pareto_df = pd.DataFrame()
-        
-        return final_df, pareto_df
+
+        return final_df, pareto_df, unfiltered_df
     
     def evolve(self) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """Run the evolutionary algorithm."""
@@ -439,12 +445,12 @@ class MolecularEvolution:
 
         if init_count == 0:
             print("No valid initial molecules")
-            return pd.DataFrame(), pd.DataFrame()
-        
+            return pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
+
         print(f"✓ Initial population size: {init_count}\n")
-        
+
         # Evolution
         self._run_evolution_loop()
-        
+
         # Results
         return self._generate_results()

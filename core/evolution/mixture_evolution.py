@@ -3,22 +3,25 @@ from .molecule import Molecule
 from core.predictors.mixture.mixture_dcn_predictor import MixtureDCNPredictor
 from core.base_fuel_library import BaseFuelLibrary
 from core.config import EvolutionConfig
-from typing import List, Tuple, Dict
+from typing import List, Tuple, Dict, Optional
 import numpy as np
 import wandb
 import pickle
 import torch
-
+from pathlib import Path
+import warnings
+warnings.filterwarnings("ignore")
 
 class MixtureAwareMolecule(Molecule):
     """Extended Molecule class for mixture optimization with AD info."""
-    def __init__(self, *args, mixture_dcn=None, blend_ratio=None, 
-                 ad_score=None, in_domain=None, **kwargs):
+    def __init__(self, *args, mixture_dcn=None, blend_ratio=None,
+                 ad_score=None, in_domain=None, mixture_ysi=None, **kwargs):
         super().__init__(*args, **kwargs)
         self.mixture_dcn = mixture_dcn
         self.blend_ratio = blend_ratio
-        self.ad_score = ad_score      # NEW: AD decision score
-        self.in_domain = in_domain    # NEW: Is in domain?
+        self.ad_score = ad_score
+        self.in_domain = in_domain
+        self.mixture_ysi = mixture_ysi
 
     def to_dict(self):
         d = super().to_dict()
@@ -26,8 +29,60 @@ class MixtureAwareMolecule(Molecule):
         d['blend_ratio'] = self.blend_ratio
         d['ad_score'] = self.ad_score
         d['in_domain'] = self.in_domain
+        d['mixture_ysi'] = self.mixture_ysi
         return d
 
+
+class MixturePredictionCache:
+    """Cache DCN predictions for additive+base mixtures."""
+    
+    def __init__(self, cache_file: str = "mixture_dcn_cache.pkl"):
+        self.cache_file = Path(cache_file)
+        self.cache = self._load()
+    
+    def _load(self):
+        if self.cache_file.exists():
+            try:
+                with open(self.cache_file, 'rb') as f:
+                    cache = pickle.load(f)
+                print(f"  ✓ Loaded {len(cache)} cached DCN predictions")
+                return cache
+            except:
+                return {}
+        return {}
+    
+    def _save(self):
+        with open(self.cache_file, 'wb') as f:
+            pickle.dump(self.cache, f)
+    
+    def get(self, additive_smiles: str, base_fuel_type: str, 
+            additive_fraction: float) -> float:
+        """Get cached DCN prediction."""
+        key = f"{additive_smiles}|{base_fuel_type}|{additive_fraction:.3f}"
+        return self.cache.get(key)
+    
+    def set(self, additive_smiles: str, base_fuel_type: str, 
+            additive_fraction: float, dcn: float):
+        """Cache DCN prediction."""
+        key = f"{additive_smiles}|{base_fuel_type}|{additive_fraction:.3f}"
+        self.cache[key] = dcn
+        self._save()
+    
+    def get_batch(self, additive_smiles_list: list, base_fuel_type: str,
+                  additive_fraction: float) -> dict:
+        """Get cached DCN for multiple additives."""
+        cached = {}
+        for smiles in additive_smiles_list:
+            dcn = self.get(smiles, base_fuel_type, additive_fraction)
+            if dcn is not None:
+                cached[smiles] = dcn
+        return cached
+    
+    def set_batch(self, predictions: dict, base_fuel_type: str,
+                  additive_fraction: float):
+        """Cache multiple DCN predictions."""
+        for smiles, dcn in predictions.items():
+            self.set(smiles, base_fuel_type, additive_fraction, dcn)
 
 class MixtureAwareMolecularEvolution(MolecularEvolution):
     """
@@ -47,6 +102,7 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         self.predictor = PropertyPredictor(config)
         self.population = Population(config)
         self.uncertainty_filters = {}
+        self.dcn_cache = MixturePredictionCache()
         
         print("Initializing mixture DCN predictor...")
         self.mixture_predictor = MixtureDCNPredictor()
@@ -211,10 +267,87 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         
         return scores, domain
 
+    def predict_mixture_ysi(self, additive_smiles: str) -> Optional[float]:
+        """
+        Predict mixture YSI using the linear blending law (mass-fraction weighted):
+            ysi_mix = sum(ysi_i * mass_frac_i)
+
+        The additive_fraction in config is treated as a mole fraction; it is
+        converted to a mass fraction together with the base fuel components
+        using RDKit exact molecular weights.
+
+        Args:
+            additive_smiles: SMILES of the additive molecule.
+
+        Returns:
+            ysi_mix: Predicted mixture YSI, or None if any step fails.
+        """
+        from rdkit import Chem
+        from rdkit.Chem import Descriptors
+
+        mc = self.config.mixture_config
+
+        # Build full mole-fraction list: additive + base components
+        base_ratio = 1.0 - mc.additive_fraction
+        all_smiles = [additive_smiles] + self.base_smiles
+        all_mole_fracs = [mc.additive_fraction] + [f * base_ratio for f in self.base_fractions]
+
+        # Compute molecular weights
+        mol_weights = []
+        for smi in all_smiles:
+            mol = Chem.MolFromSmiles(smi)
+            if mol is None:
+                return None
+            mol_weights.append(Descriptors.ExactMolWt(mol))
+
+        # Convert mole fractions -> mass fractions
+        masses = [x * mw for x, mw in zip(all_mole_fracs, mol_weights)]
+        total_mass = sum(masses)
+        if total_mass == 0:
+            return None
+        mass_fracs = [m / total_mass for m in masses]
+
+        # Ensure YSI predictor is loaded
+        if 'ysi' not in self.predictor.predictors:
+            from core.predictors.pure_component.generic import GenericPredictor
+            from core.predictors.pure_component.hf_models import load_models
+            paths = load_models()
+            self.predictor.predictors['ysi'] = GenericPredictor(paths['ysi'], 'YSI')
+
+        # Predict pure-component YSI for all components
+        props = self.predictor.predict_all_properties(all_smiles)
+        ysi_values = props.get('ysi', [])
+
+        if len(ysi_values) != len(all_smiles):
+            return None
+
+        # Apply blending law: ysi_mix = sum(ysi_i * mass_frac_i)
+        ysi_mix = 0.0
+        for ysi_i, mf_i in zip(ysi_values, mass_fracs):
+            if ysi_i is None:
+                return None
+            ysi_mix += ysi_i * mf_i
+
+        return ysi_mix
+
+    def predict_mixture_ysi_batch(self, smiles_list: List[str]) -> List[Optional[float]]:
+        """Predict mixture YSI for a list of additives."""
+        return [self.predict_mixture_ysi(smi) for smi in smiles_list]
+
     def _create_molecules(self, smiles_list: List[str]) -> Tuple[List[MixtureAwareMolecule], Dict]:
-        """Create molecules with AD filtering."""
+
         if not smiles_list:
-            return [], {'total': 0, 'passed': 0, 'ad_filtered': 0}
+            return [], {
+                'total': 0,
+                'cn_none': 0,
+                'ysi_none': 0,
+                'tanimoto_fail': 0,
+                'cn_uncertainty_fail': 0,
+                'ysi_uncertainty_fail': 0,
+                'property_fail': 0,
+                'ad_filtered': 0,
+                'passed': 0
+            }
 
         mc = self.config.mixture_config
         
@@ -226,12 +359,19 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
             'cn_uncertainty_fail': 0,
             'ysi_uncertainty_fail': 0,
             'property_fail': 0,
-            'ad_filtered': 0,      # Your new AD filtering
+            'ad_filtered': 0,
             'passed': 0
-            }
+        }
         
-        # STEP 1: Check AD (if enabled)
-        ad_scores, in_domain = self._check_ad_batch(smiles_list)
+        # STEP 1: Check AD for all molecules (returns numpy arrays)
+        ad_scores_array, in_domain_array = self._check_ad_batch(smiles_list)
+        ad_scores_array, in_domain_array = self._check_ad_batch(smiles_list)
+    
+        # DEBUG: Print AD stats
+        n_in_domain = in_domain_array.sum()
+        n_out_domain = (~in_domain_array).sum()
+        print(f"  → AD Check: {n_in_domain} in-domain, {n_out_domain} out-of-domain")
+        print(f"     Score range: [{ad_scores_array.min():.3f}, {ad_scores_array.max():.3f}]")
         
         # STEP 2: Get DCN predictions (batched)
         mixture_dcns = self.mixture_predictor.predict_batch_mixtures(
@@ -242,24 +382,70 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
             verbose=False
         )
 
-        # STEP 3: Create molecules with both DCN and AD
+        # STEP 3: Predict pure-component YSI for all additives + base in one batch
+        from rdkit import Chem
+        from rdkit.Chem import Descriptors
+
+        # Ensure YSI predictor is loaded
+        if 'ysi' not in self.predictor.predictors:
+            from core.predictors.pure_component.generic import GenericPredictor
+            from core.predictors.pure_component.hf_models import load_models
+            paths = load_models()
+            self.predictor.predictors['ysi'] = GenericPredictor(paths['ysi'], 'YSI')
+
+        # Featurize all additives + base components in one call
+        base_ratio = 1.0 - mc.additive_fraction
+        all_unique_smiles = smiles_list + self.base_smiles
+        props_all = self.predictor.predict_all_properties(all_unique_smiles)
+        ysi_all = props_all.get('ysi', [None] * len(all_unique_smiles))
+
+        # Pre-compute base component YSI and molecular weights (same for every additive)
+        base_ysi = ysi_all[len(smiles_list):]
+        base_mws = []
+        for smi in self.base_smiles:
+            mol = Chem.MolFromSmiles(smi)
+            base_mws.append(Descriptors.ExactMolWt(mol) if mol is not None else None)
+
+        def _blend_ysi(additive_ysi, additive_mw):
+            """Apply mass-fraction blending law for one additive."""
+            if additive_ysi is None or additive_mw is None:
+                return None
+            if any(y is None or mw is None for y, mw in zip(base_ysi, base_mws)):
+                return None
+            mole_fracs = [mc.additive_fraction] + [f * base_ratio for f in self.base_fractions]
+            mol_weights = [additive_mw] + base_mws
+            masses = [x * mw for x, mw in zip(mole_fracs, mol_weights)]
+            total = sum(masses)
+            if total == 0:
+                return None
+            mass_fracs = [m / total for m in masses]
+            ysi_components = [additive_ysi] + list(base_ysi)
+            return sum(y * mf for y, mf in zip(ysi_components, mass_fracs))
+
+        # STEP 4: Create molecules with DCN, AD, and YSI
         molecules = []
-        
+
         for i, smiles in enumerate(smiles_list):
             dcn = mixture_dcns[i]
-            
+
             # Filter: No DCN
             if dcn is None:
                 filter_stats['cn_none'] += 1
                 continue
-            
+
             # Filter: Outside AD
-            if not in_domain[i]:
+            if not in_domain_array[i]:
                 filter_stats['ad_filtered'] += 1
                 continue
-            
+
+            # Compute mixture YSI
+            additive_ysi = ysi_all[i]
+            mol = Chem.MolFromSmiles(smiles)
+            additive_mw = Descriptors.ExactMolWt(mol) if mol is not None else None
+            mixture_ysi = _blend_ysi(additive_ysi, additive_mw)
+
             filter_stats['passed'] += 1
-            
+
             molecules.append(MixtureAwareMolecule(
                 smiles=smiles,
                 cn=dcn,
@@ -267,8 +453,9 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
                 cn_score=dcn,
                 mixture_dcn=dcn,
                 blend_ratio=mc.additive_fraction,
-                ad_score=float(ad_scores[i]),   # NEW
-                in_domain=bool(in_domain[i])    # NEW
+                ad_score=float(ad_scores_array[i]),
+                in_domain=bool(in_domain_array[i]),
+                mixture_ysi=mixture_ysi
             ))
 
         return molecules, filter_stats
@@ -331,19 +518,19 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         wandb.log(log_dict)
 
         # W&B table every 10 gens
-        if generation % 10 == 0:
+        if generation % 6 == 0:
             if self.use_ad_filtering:
                 table_data = [
-                    [m.smiles, m.mixture_dcn, m.cn_error, m.ad_score, m.in_domain]
+                    [m.smiles, m.mixture_dcn, m.cn_error, m.mixture_ysi, m.ad_score, m.in_domain]
                     for m in sorted(mols, key=lambda x: x.cn_error)[:50]
                 ]
-                columns = ["SMILES", "DCN", "Error", "AD Score", "In Domain"]
+                columns = ["SMILES", "DCN", "Error", "YSI", "AD Score", "In Domain"]
             else:
                 table_data = [
-                    [m.smiles, m.mixture_dcn, m.cn_error, m.blend_ratio]
+                    [m.smiles, m.mixture_dcn, m.cn_error, m.mixture_ysi, m.blend_ratio]
                     for m in sorted(mols, key=lambda x: x.cn_error)[:50]
                 ]
-                columns = ["SMILES", "DCN", "Error", "Blend Ratio"]
+                columns = ["SMILES", "DCN", "Error", "YSI", "Blend Ratio"]
             
             table = wandb.Table(data=table_data, columns=columns)
             wandb.log({f"top_molecules_gen_{generation}": table})

@@ -22,13 +22,13 @@ def main():
 
     """Main execution function."""
     config = get_user_config()
-    
+
     evolution = MolecularEvolution(config)
-    final_df, pareto_df = evolution.evolve()
+    final_df, pareto_df, unfiltered_df = evolution.evolve()
 
     # Display and save results
-    display_results(final_df, pareto_df, config)
-    save_results(final_df, pareto_df, config.minimize_ysi)
+    display_results(final_df, pareto_df, unfiltered_df, config)
+    save_results(final_df, pareto_df, unfiltered_df, config.minimize_ysi)
 
 if __name__ == "__main__":
     main()

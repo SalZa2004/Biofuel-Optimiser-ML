@@ -15,10 +15,10 @@ def main():
     else:
         evolution = MolecularEvolution(config)  # Original
     
-    final_df, pareto_df = evolution.evolve()
-    
-    display_results(final_df, pareto_df, config)
-    save_results(final_df, pareto_df, config.minimize_ysi)
+    final_df, pareto_df, unfiltered_df = evolution.evolve()
+
+    display_results(final_df, pareto_df, unfiltered_df, config)
+    save_results(final_df, pareto_df, unfiltered_df, config.minimize_ysi)
 
 if __name__ == "__main__":
     main()

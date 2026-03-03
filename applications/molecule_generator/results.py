@@ -3,32 +3,39 @@ from pathlib import Path
 import pandas as pd
 from core.config import EvolutionConfig
 
-def save_results(final_df: pd.DataFrame, pareto_df: pd.DataFrame, minimize_ysi: bool):
+def save_results(final_df: pd.DataFrame, pareto_df: pd.DataFrame, unfiltered_df: pd.DataFrame, minimize_ysi: bool):
     """Save results to CSV files."""
     results_dir = Path("results")
     results_dir.mkdir(exist_ok=True)
-    
+
     final_df.to_csv(results_dir / "final_population.csv", index=False)
+    unfiltered_df.to_csv(results_dir / "final_population_unfiltered.csv", index=False)
     if minimize_ysi and not pareto_df.empty:
         pareto_df.to_csv(results_dir / "pareto_front.csv", index=False)
-    
+
     print("\n✓ Results saved to results/")
 
 
-def display_results(final_df: pd.DataFrame, pareto_df: pd.DataFrame, config: EvolutionConfig):
+def display_results(final_df: pd.DataFrame, pareto_df: pd.DataFrame, unfiltered_df: pd.DataFrame, config: EvolutionConfig):
     """Display results to console."""
     cols = ["rank", "smiles", "cn", "cn_error", "ysi", "bp", "density", "lhv", "dynamic_viscosity"]
-    
+
     if config.maximize_cn:
         cols = [c for c in cols if c != "cn_error"]
-    
+
     available_cols = [c for c in cols if c in final_df.columns]
-    
+
     print("\n" + "="*70)
-    print("=== BEST CANDIDATES ===")
+    print("=== BEST CANDIDATES (with property constraints) ===")
     print("="*70)
     print(final_df.head(10)[available_cols].to_string(index=False))
-    
+
+    print("\n" + "="*70)
+    print("=== BEST CANDIDATES (without property constraints) ===")
+    print("="*70)
+    unfiltered_cols = [c for c in cols if c in unfiltered_df.columns]
+    print(unfiltered_df.head(10)[unfiltered_cols].to_string(index=False))
+
     if config.minimize_ysi and not pareto_df.empty:
         print("\n" + "="*70)
         print("=== PARETO FRONT (Non-dominated solutions) ===")

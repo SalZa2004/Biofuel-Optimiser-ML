@@ -10,6 +10,6 @@ def test_generator_smoke():
         maximize_cn=False,
         )
 
-    final_df, pareto_df = run(config)
+    final_df, pareto_df, unfiltered_df = run(config)
 
     assert final_df is not None
