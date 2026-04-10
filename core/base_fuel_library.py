@@ -1,7 +1,6 @@
 # Base fuel library
 class BaseFuelLibrary:
     """Library of base fuels."""
-    
     @staticmethod
     def get_fossil_diesel():
         """Get fossil diesel composition."""

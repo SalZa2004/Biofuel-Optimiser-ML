@@ -28,7 +28,7 @@ def main():
 
     # Display and save results
     display_results(final_df, pareto_df, unfiltered_df, config)
-    save_results(final_df, pareto_df, unfiltered_df, config.minimize_ysi)
+    save_results(final_df, pareto_df, unfiltered_df, config)
 
 if __name__ == "__main__":
     main()
