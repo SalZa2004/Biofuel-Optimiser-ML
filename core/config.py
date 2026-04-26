@@ -18,8 +18,7 @@ class EvolutionConfig:
     filters: dict = field(default_factory=lambda: {
         "bp": (60.0, 250.0),
         "density": (720.0, None),
-        "lhv": (30.0, None),
-        "dynamic_viscosity": (0.0, 2.0),
+        "lhv": (30.0, None)
     })
 
     def cn_objective(self, cn: float) -> float:

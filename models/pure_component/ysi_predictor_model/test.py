@@ -14,26 +14,18 @@ from ysi_model.model import YSIPredictor
 import joblib
 from core.shared_features import FeatureSelector
 import sys
-import os
-
-# 1. Location of this file (test.py)
-TEST_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# 2. Project root: one level up
-PROJECT_ROOT = os.path.dirname(TEST_DIR)
-sys.path.append(PROJECT_ROOT)
-# 3. Build DB path
 from pathlib import Path
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 
-DB_PATH = os.path.join(PROJECT_ROOT, "data", "database", "database_main.db")
+# Location of this file (ysi_predictor_model/)
+TEST_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = TEST_DIR.parent.parent.parent  # repo root
+sys.path.insert(0, str(PROJECT_ROOT))
 
-print("DB_PATH:", DB_PATH)
-print("DB_EXISTS:", os.path.exists(DB_PATH))
-
-FILE_DIR = os.path.dirname(os.path.abspath(__file__))
-ARTIFACT_DIR = os.path.join(PROJECT_ROOT,"ysi-predictor-model", "ysi_model", "artifacts")
-MODEL_PATH = os.path.join(ARTIFACT_DIR, "model.joblib")
+DB_PATH = PROJECT_ROOT / "data" / "database" / "database_main.db"
+ARTIFACT_DIR = TEST_DIR / "ysi_model" / "artifacts"
+MODEL_PATH = ARTIFACT_DIR / "model.joblib"
+PERFORMANCE_DIR = TEST_DIR / "analysis" / "model_performance"
+PERFORMANCE_DIR.mkdir(parents=True, exist_ok=True)
 
 def load_and_split_data(test_size=0.2, random_state=42):
     """
@@ -312,20 +304,20 @@ def main():
         print("✓ Model generalization looks good!")
     
     # Create visualizations
-    plot_results(y_true, y_pred, save_path="ysi_model/evaluation_plots.png")
-    
+    plot_results(y_true, y_pred, save_path=str(PERFORMANCE_DIR / "evaluation_plots.png"))
+
     # Error analysis
     analyze_errors(test_df, y_true, y_pred, top_n=10)
-    
+
     # Save predictions
-    save_predictions(test_df, y_true, y_pred, save_path="ysi_model/test_predictions.csv")
-    
+    save_predictions(test_df, y_true, y_pred, save_path=str(PERFORMANCE_DIR / "test_predictions.csv"))
+
     print("\n" + "="*70)
     print("EVALUATION COMPLETE!")
     print("="*70)
     print("\nGenerated files:")
-    print("  - ysi_model/evaluation_plots.png")
-    print("  - ysi_model/test_predictions.csv")
+    print(f"  - {PERFORMANCE_DIR}/evaluation_plots.png")
+    print(f"  - {PERFORMANCE_DIR}/test_predictions.csv")
     print("="*70)
 
 

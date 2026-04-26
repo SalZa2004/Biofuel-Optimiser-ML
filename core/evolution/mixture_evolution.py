@@ -36,7 +36,7 @@ class MixtureAwareMolecule(Molecule):
 class MixturePredictionCache:
     """Cache DCN predictions for additive+base mixtures."""
     
-    def __init__(self, cache_file: str = "mixture_dcn_cache.pkl"):
+    def __init__(self, cache_file: str = "cache/mixture_dcn_cache.pkl"):
         self.cache_file = Path(cache_file)
         self.cache = self._load()
     
@@ -141,7 +141,7 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
     def _load_ad_checker(self):
         """NEW: Load the trained One-Class SVM."""
         try:
-            with open('mixture_ad_svm.pkl', 'rb') as f:
+            with open('models/mixture/mixture_ad_svm.pkl', 'rb') as f:
                 ad_data = pickle.load(f)
                 self.svm = ad_data['svm']
                 self.scaler = ad_data['scaler']
@@ -149,7 +149,7 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
             print("✓ AD checker loaded")
         
         except FileNotFoundError:
-            print("⚠ mixture_ad_svm.pkl not found - disabling AD filtering")
+            print("⚠ models/mixture/mixture_ad_svm.pkl not found - disabling AD filtering")
             self.use_ad_filtering = False
     
     def _extract_mixture_embedding(self, additive_smiles: str) -> np.ndarray:
@@ -365,8 +365,7 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         
         # STEP 1: Check AD for all molecules (returns numpy arrays)
         ad_scores_array, in_domain_array = self._check_ad_batch(smiles_list)
-        ad_scores_array, in_domain_array = self._check_ad_batch(smiles_list)
-    
+
         # DEBUG: Print AD stats
         n_in_domain = in_domain_array.sum()
         n_out_domain = (~in_domain_array).sum()
@@ -455,7 +454,8 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
                 blend_ratio=mc.additive_fraction,
                 ad_score=float(ad_scores_array[i]),
                 in_domain=bool(in_domain_array[i]),
-                mixture_ysi=mixture_ysi
+                mixture_ysi=mixture_ysi,
+                ysi=mixture_ysi  # mirrors mixture_ysi so Population NSGA-II can use it
             ))
 
         return molecules, filter_stats
@@ -486,19 +486,21 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
             n_in_domain = len(mols)
 
         # Console
+        pareto_size = len(self.population.pareto_front()) if self.config.minimize_ysi else 0
+        extra = f" | Pareto: {pareto_size}" if self.config.minimize_ysi else ""
         if self.use_ad_filtering:
             print(
                 f"Gen {generation}/{self.config.generations} | "
                 f"Pop {len(mols)} | "
                 f"Best: {best_metric:.3f} | "
-                f"AD: {avg_ad:.3f}"
+                f"AD: {avg_ad:.3f}{extra}"
             )
         else:
             print(
                 f"Gen {generation}/{self.config.generations} | "
                 f"Pop {len(mols)} | "
                 f"Best: {best_metric:.3f} | "
-                f"Invalid: {n_invalid}"
+                f"Invalid: {n_invalid}{extra}"
             )
 
         # W&B scalars
@@ -514,6 +516,11 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         if self.use_ad_filtering:
             log_dict["avg_ad_score"] = avg_ad
             log_dict["in_domain_fraction"] = n_in_domain / len(mols) if mols else 0
+
+        if self.config.minimize_ysi:
+            ysi_vals = [m.mixture_ysi for m in mols if m.mixture_ysi is not None]
+            log_dict["avg_mixture_ysi"] = np.mean(ysi_vals) if ysi_vals else float('nan')
+            log_dict["pareto_front_size"] = pareto_size
         
         wandb.log(log_dict)
 

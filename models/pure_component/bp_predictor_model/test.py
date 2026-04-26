@@ -18,15 +18,11 @@ from core.predictors.pure_component.generic import GenericPredictor
 # PATH SETUP
 # ============================================================
 
-# Location of this file
+# Location of this file (bp_predictor_model/)
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Project root (one level up)
-PROJECT_ROOT = os.path.dirname(TEST_DIR)
-sys.path.append(PROJECT_ROOT)
-
 # Performance output directory
-PERFORMANCE_DIR = os.path.join(PROJECT_ROOT, "model_performance")
+PERFORMANCE_DIR = os.path.join(TEST_DIR, "analysis", "model_performance")
 os.makedirs(PERFORMANCE_DIR, exist_ok=True)
 
 
@@ -54,7 +50,7 @@ def save_metrics_txt(metrics: dict, title: str, filename: str):
 # ============================================================
 
 def load_and_split_data(test_size=0.2, random_state=42):
-    df = pd.read_csv("bp_data.csv")
+    df = pd.read_csv("data/bp_data.csv")
 
     # Basic cleaning
     df.dropna(subset=["bp", "SMILES"], inplace=True)

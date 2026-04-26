@@ -18,11 +18,17 @@ from train import DynamicViscosityPredictor, FeatureSelector, featurize_df
 # CONFIG
 # =============================================================================
 
+import os
+from pathlib import Path
+
 TEST_SIZE = 0.2
 RANDOM_STATE = 42
-CSV_PATH = "data/dynamic_viscosity.csv"
-PLOT_PATH = "dynamic_viscosity_model/evaluation_plots.png"
-PRED_PATH = "dynamic_viscosity_model/test_predictions.csv"
+_MODEL_DIR = Path(__file__).resolve().parent
+CSV_PATH = str(_MODEL_DIR / "data" / "dynamic_viscosity.csv")
+PERFORMANCE_DIR = _MODEL_DIR / "analysis" / "model_performance"
+PERFORMANCE_DIR.mkdir(parents=True, exist_ok=True)
+PLOT_PATH = str(PERFORMANCE_DIR / "evaluation_plots.png")
+PRED_PATH = str(PERFORMANCE_DIR / "test_predictions.csv")
 
 # =============================================================================
 # DATA LOADING

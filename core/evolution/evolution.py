@@ -420,11 +420,18 @@ class MolecularEvolution:
         final_df["rank"] = range(1, len(final_df) + 1)
 
         if self.config.minimize_ysi:
-            pareto_mols = self.population.pareto_front()
-            pareto_df = pd.DataFrame([m.to_dict() for m in pareto_mols])
+            # Compute Pareto front only from molecules that passed property filters
+            valid_smiles = set(self._apply_property_filters(raw_df)["smiles"])
+            valid_mols = [m for m in self.population.molecules if m.smiles in valid_smiles]
 
+            from .population import Population
+            filtered_pop = Population(self.config)
+            filtered_pop.add_molecules(valid_mols)
+            pareto_mols = filtered_pop.pareto_front()
+
+            pareto_df = pd.DataFrame([m.to_dict() for m in pareto_mols])
             if not pareto_df.empty:
-                pareto_df = self._sort_df(self._apply_property_filters(pareto_df)).copy()
+                pareto_df = self._sort_df(pareto_df).copy()
                 pareto_df.insert(0, 'rank', range(1, len(pareto_df) + 1))
         else:
             pareto_df = pd.DataFrame()

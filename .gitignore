@@ -43,3 +43,10 @@ biofuel.egg-info/
 *.egg-info/
 dist/
 build/
+
+# Runtime cache
+cache/
+
+# Logs
+logger.log
+**/logger.log

@@ -232,6 +232,16 @@ def get_mixture_config() -> EvolutionConfig:
         except ValueError:
             print("❌ Invalid input. Please enter a number (e.g., 0.1 for 10%).")
     
+    # YSI minimization (multi-objective NSGA-II)
+    print("\nMulti-Objective Optimization:")
+    print("  Minimize mixture YSI alongside DCN? (enables NSGA-II Pareto search)")
+    minimize_ysi_input = input("Minimize mixture YSI? (y/n) [default: n]: ").strip().lower()
+    minimize_ysi = minimize_ysi_input == "y"
+    if minimize_ysi:
+        print("✓ Multi-objective mode: optimize DCN + minimize mixture YSI (NSGA-II)")
+    else:
+        print("✓ Single-objective mode: optimize DCN only")
+
     # Summary
     print("\n" + "="*70)
     print("CONFIGURATION SUMMARY:")
@@ -243,6 +253,7 @@ def get_mixture_config() -> EvolutionConfig:
         print(f"  • Base Fuel Components: {len(base_fuel_smiles)}")
     print(f"  • Additive Fraction: {additive_fraction * 100:.1f}%")
     print(f"  • Base Fuel Fraction: {(1-additive_fraction) * 100:.1f}%")
+    print(f"  • Minimize Mixture YSI: {'Yes (NSGA-II)' if minimize_ysi else 'No'}")
     print("="*70)
 
     # Create mixture config
@@ -254,11 +265,11 @@ def get_mixture_config() -> EvolutionConfig:
         base_fuel_mole_fractions=base_fuel_fractions,
         target_mixture_dcn=target_dcn
     )
-    
+
     return EvolutionConfig(
-        target_cn=target_dcn,  
+        target_cn=target_dcn,
         maximize_cn=maximize_cn,
-        minimize_ysi=False,  # TODO: Add mixture YSI support later
+        minimize_ysi=minimize_ysi,
         mixture_mode=True,
         mixture_config=mixture_cfg
     )

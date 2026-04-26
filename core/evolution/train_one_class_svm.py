@@ -256,7 +256,7 @@ print(f"\nOutliers in training set: {n_outliers}/{len(X_train_scaled)} ({n_outli
 
 # STEP 5: Save BOTH scaler and SVM
 import pickle
-with open('mixture_ad_svm.pkl', 'wb') as f:
+with open('models/mixture/mixture_ad_svm.pkl', 'wb') as f:
     pickle.dump({
         'svm': svm,
         'scaler': scaler,
@@ -264,4 +264,4 @@ with open('mixture_ad_svm.pkl', 'wb') as f:
         'embedding_dim': X_train.shape[1]
     }, f)
 
-print("\n✓ Saved SVM + Scaler to mixture_ad_svm.pkl")
+print("\n✓ Saved SVM + Scaler to models/mixture/mixture_ad_svm.pkl")

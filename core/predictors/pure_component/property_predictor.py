@@ -17,18 +17,13 @@ class PropertyPredictor:
         # Initialize only the predictors we need
         self.predictors = {}
         
-        # Always need CN predictor
-        self.predictors['cn'] = GenericPredictor(
-            PREDICTOR_PATHS['cn'], 
-            'Cetane Number'
-        )
-        
-        # Conditional predictors
-        if config is None or config.minimize_ysi:
-            self.predictors['ysi'] = GenericPredictor(
-                PREDICTOR_PATHS['ysi'], 
-                'YSI'
-            )
+        # Always load all property predictors
+        self.predictors['cn'] = GenericPredictor(PREDICTOR_PATHS['cn'], 'Cetane Number')
+        self.predictors['ysi'] = GenericPredictor(PREDICTOR_PATHS['ysi'], 'YSI')
+        self.predictors['bp'] = GenericPredictor(PREDICTOR_PATHS['bp'], 'Boiling Point')
+        self.predictors['density'] = GenericPredictor(PREDICTOR_PATHS['density'], 'Density')
+        self.predictors['lhv'] = GenericPredictor(PREDICTOR_PATHS['lhv'], 'LHV')
+        self.predictors['dynamic_viscosity'] = GenericPredictor(PREDICTOR_PATHS['dynamic_viscosity'], 'Dynamic Viscosity')
         self._init_tanimoto_reference()
 
         
