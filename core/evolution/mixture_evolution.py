@@ -139,17 +139,18 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         print(f"✓ Base fuel: {len(self.base_smiles)} components")
     
     def _load_ad_checker(self):
-        """NEW: Load the trained One-Class SVM."""
+        """Load the trained One-Class SVM."""
+        ad_path = Path(__file__).resolve().parent.parent.parent / "models" / "mixture" / "mixture_ad_svm.pkl"
         try:
-            with open('models/mixture/mixture_ad_svm.pkl', 'rb') as f:
+            with open(ad_path, 'rb') as f:
                 ad_data = pickle.load(f)
                 self.svm = ad_data['svm']
                 self.scaler = ad_data['scaler']
-            
+
             print("✓ AD checker loaded")
-        
+
         except FileNotFoundError:
-            print("⚠ models/mixture/mixture_ad_svm.pkl not found - disabling AD filtering")
+            print(f"⚠ AD checker not found at {ad_path} - disabling AD filtering")
             self.use_ad_filtering = False
     
     def _extract_mixture_embedding(self, additive_smiles: str) -> np.ndarray:
@@ -341,47 +342,48 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
                 'total': 0,
                 'cn_none': 0,
                 'ysi_none': 0,
-                'tanimoto_fail': 0,
-                'cn_uncertainty_fail': 0,
-                'ysi_uncertainty_fail': 0,
-                'property_fail': 0,
                 'ad_filtered': 0,
-                'passed': 0
+                'passed': 0,
             }
 
         mc = self.config.mixture_config
-        
+
         filter_stats = {
             'total': len(smiles_list),
             'cn_none': 0,
             'ysi_none': 0,
-            'tanimoto_fail': 0,
-            'cn_uncertainty_fail': 0,
-            'ysi_uncertainty_fail': 0,
-            'property_fail': 0,
             'ad_filtered': 0,
-            'passed': 0
+            'passed': 0,
         }
         
         # STEP 1: Check AD for all molecules (returns numpy arrays)
         ad_scores_array, in_domain_array = self._check_ad_batch(smiles_list)
 
-        # DEBUG: Print AD stats
         n_in_domain = in_domain_array.sum()
         n_out_domain = (~in_domain_array).sum()
         print(f"  → AD Check: {n_in_domain} in-domain, {n_out_domain} out-of-domain")
         print(f"     Score range: [{ad_scores_array.min():.3f}, {ad_scores_array.max():.3f}]")
-        
-        # STEP 2: Get DCN predictions (batched)
-        mixture_dcns = self.mixture_predictor.predict_batch_mixtures(
-            additive_smiles_list=smiles_list,
+
+        # Short-circuit: nothing passes AD, skip expensive predictions
+        if n_in_domain == 0:
+            filter_stats['ad_filtered'] = len(smiles_list)
+            return [], filter_stats
+
+        # STEP 2: Get DCN predictions only for in-domain molecules
+        in_domain_indices = [i for i, ok in enumerate(in_domain_array) if ok]
+        in_domain_smiles = [smiles_list[i] for i in in_domain_indices]
+
+        dcn_for_in_domain = self.mixture_predictor.predict_batch_mixtures(
+            additive_smiles_list=in_domain_smiles,
             base_smiles=self.base_smiles,
             base_mole_fractions=self.base_fractions,
             additive_fraction=mc.additive_fraction,
             verbose=False
         )
 
-        # STEP 3: Predict pure-component YSI for all additives + base in one batch
+        mixture_dcns_in_domain = dict(zip(in_domain_indices, dcn_for_in_domain))
+
+        # STEP 3: Predict YSI only for in-domain additives + base components
         from rdkit import Chem
         from rdkit.Chem import Descriptors
 
@@ -392,21 +394,22 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
             paths = load_models()
             self.predictor.predictors['ysi'] = GenericPredictor(paths['ysi'], 'YSI')
 
-        # Featurize all additives + base components in one call
         base_ratio = 1.0 - mc.additive_fraction
-        all_unique_smiles = smiles_list + self.base_smiles
+        all_unique_smiles = in_domain_smiles + self.base_smiles
         props_all = self.predictor.predict_all_properties(all_unique_smiles)
-        ysi_all = props_all.get('ysi', [None] * len(all_unique_smiles))
+        ysi_for_in_domain = props_all.get('ysi', [None] * len(all_unique_smiles))
+        # Build a lookup by original index for in-domain additives
+        ysi_by_orig_idx = {orig_idx: ysi_for_in_domain[pos]
+                           for pos, orig_idx in enumerate(in_domain_indices)}
 
         # Pre-compute base component YSI and molecular weights (same for every additive)
-        base_ysi = ysi_all[len(smiles_list):]
+        base_ysi = ysi_for_in_domain[len(in_domain_smiles):]
         base_mws = []
         for smi in self.base_smiles:
             mol = Chem.MolFromSmiles(smi)
             base_mws.append(Descriptors.ExactMolWt(mol) if mol is not None else None)
 
         def _blend_ysi(additive_ysi, additive_mw):
-            """Apply mass-fraction blending law for one additive."""
             if additive_ysi is None or additive_mw is None:
                 return None
             if any(y is None or mw is None for y, mw in zip(base_ysi, base_mws)):
@@ -421,24 +424,19 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
             ysi_components = [additive_ysi] + list(base_ysi)
             return sum(y * mf for y, mf in zip(ysi_components, mass_fracs))
 
-        # STEP 4: Create molecules with DCN, AD, and YSI
+        # STEP 4: Create molecules — only iterate over in-domain candidates
+        filter_stats['ad_filtered'] = n_out_domain
         molecules = []
 
-        for i, smiles in enumerate(smiles_list):
-            dcn = mixture_dcns[i]
+        for i in in_domain_indices:
+            smiles = smiles_list[i]
+            dcn = mixture_dcns_in_domain.get(i)
 
-            # Filter: No DCN
             if dcn is None:
                 filter_stats['cn_none'] += 1
                 continue
 
-            # Filter: Outside AD
-            if not in_domain_array[i]:
-                filter_stats['ad_filtered'] += 1
-                continue
-
-            # Compute mixture YSI
-            additive_ysi = ysi_all[i]
+            additive_ysi = ysi_by_orig_idx.get(i)
             mol = Chem.MolFromSmiles(smiles)
             additive_mw = Descriptors.ExactMolWt(mol) if mol is not None else None
             mixture_ysi = _blend_ysi(additive_ysi, additive_mw)
@@ -541,3 +539,68 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
             
             table = wandb.Table(data=table_data, columns=columns)
             wandb.log({f"top_molecules_gen_{generation}": table})
+
+    def initialize_population(self, initial_smiles: List[str]) -> int:
+        """Initialize population with AD-based filtering."""
+        print("Predicting properties for initial population...")
+        molecules, filter_stats = self._create_molecules(initial_smiles)
+
+        if filter_stats['total'] > 0:
+            print(f"\n  Initial filtering: {filter_stats['total']} → {filter_stats['passed']} passed")
+            print(f"    AD filtered: {filter_stats['ad_filtered']} | "
+                  f"CN None: {filter_stats['cn_none']}")
+
+        return self.population.add_molecules(molecules)
+
+    def _generate_offspring(self, survivors: List[MixtureAwareMolecule]) -> Tuple[List[MixtureAwareMolecule], Dict]:
+        """Generate offspring using AD-based filtering (no Tanimoto / uncertainty filters)."""
+        import random
+        from rdkit import Chem
+
+        target_count = self.config.population_size - len(survivors)
+        max_attempts = target_count * self.config.max_offspring_attempts
+
+        all_children: List[str] = []
+        new_molecules: List[MixtureAwareMolecule] = []
+        cumulative_stats = {
+            'total': 0,
+            'cn_none': 0,
+            'ysi_none': 0,
+            'ad_filtered': 0,
+            'passed': 0,
+        }
+
+        print(f"  → Generating offspring (target: {target_count})...")
+
+        for _ in range(max_attempts):
+            if len(new_molecules) >= target_count:
+                break
+
+            parent = random.choice(survivors)
+            mol = Chem.MolFromSmiles(parent.smiles)
+            if mol is None:
+                continue
+
+            children = self._mutate_molecule(mol)
+            all_children.extend(children[:self.config.mutations_per_parent])
+
+            if len(all_children) >= self.config.batch_size:
+                batch_mols, batch_stats = self._create_molecules(all_children)
+                new_molecules.extend(batch_mols)
+                for key in cumulative_stats:
+                    cumulative_stats[key] += batch_stats.get(key, 0)
+                all_children = []
+
+        if all_children:
+            batch_mols, batch_stats = self._create_molecules(all_children)
+            new_molecules.extend(batch_mols)
+            for key in cumulative_stats:
+                cumulative_stats[key] += batch_stats.get(key, 0)
+
+        print(f"  ✓ Generated {len(new_molecules)} valid offspring")
+        print(f"    Filtering: {cumulative_stats['total']} → {cumulative_stats['passed']} | "
+              f"AD filtered: {cumulative_stats['ad_filtered']} | "
+              f"CN None: {cumulative_stats['cn_none']} "
+              f"(property constraints applied at end)")
+
+        return new_molecules, cumulative_stats
