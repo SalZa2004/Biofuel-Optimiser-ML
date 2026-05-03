@@ -193,7 +193,9 @@ class MixtureDCNPredictor:
         
         targets = [0.0]  # Dummy target (not used during prediction)
         features = []    # No additional features
-        molefracs = mixture_fractions[:-1]  # N-1 fractions (last is implicit)
+        # Ensure Python floats — numpy float64 values cause a float64 molfrac tensor
+        # which mismatches the float32 MPN outputs inside mixture_forward.
+        molefracs = [float(f) for f in mixture_fractions[:-1]]
         
         try:
             datapoint = DataPoint(
