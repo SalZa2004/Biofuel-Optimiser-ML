@@ -200,18 +200,20 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         print(f"✓ Base fuel: {len(self.base_smiles)} components")
     
     def _load_ad_checker(self):
-        """Load the trained One-Class SVM."""
-        ad_path = Path(__file__).resolve().parent.parent.parent / "models" / "mixture" / "mixture_ocsvm.pkl"
+        """Load the trained One-Class SVM from HuggingFace Hub."""
         try:
+            from huggingface_hub import hf_hub_download
+            ad_path = hf_hub_download(
+                repo_id="SalZa2004/mixture_ocvm_checker",
+                filename="mixture_ocsvm.pkl",
+            )
             with open(ad_path, 'rb') as f:
                 ad_data = pickle.load(f)
                 self.svm = ad_data['svm']
                 self.scaler = ad_data['scaler']
-
             print("✓ AD checker loaded")
-
-        except FileNotFoundError:
-            print(f"⚠ AD checker not found at {ad_path} - disabling AD filtering")
+        except Exception as e:
+            print(f"⚠ AD checker could not be loaded ({e}) - disabling AD filtering")
             self.use_ad_filtering = False
     
     def _extract_mixture_embedding(self, additive_smiles: str) -> np.ndarray:
