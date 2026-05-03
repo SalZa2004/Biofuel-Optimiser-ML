@@ -706,10 +706,56 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
             results[smi] = result_gcc * 1000.0 if result_gcc is not None else None
         return results
 
+    def _sort_df(self, df):
+        """Sort without a hard cn_error cutoff.
+
+        The base class applies cn_error < 5 or < 15 thresholds that are fine for
+        pure-component evolution but too tight for mixture DCN predictions, which
+        can sit further from the target early in the run.
+        """
+        if df.empty:
+            return df
+        if self.config.maximize_cn:
+            if self.config.minimize_ysi and "ysi" in df.columns:
+                return df.sort_values(["cn", "ysi"], ascending=[False, True])
+            return df.sort_values("cn", ascending=False)
+        else:
+            if self.config.minimize_ysi and "ysi" in df.columns:
+                return df.sort_values(["cn_error", "ysi"], ascending=True)
+            return df.sort_values("cn_error", ascending=True)
+
+    def _apply_mixture_filters(self, df):
+        """Filter final_df by mixture_bp and mixture_density bounds.
+
+        Molecules where a property is None (couldn't be computed) are left in —
+        only molecules with a computed value that falls outside the range are removed.
+        """
+        import pandas as pd
+
+        if df.empty:
+            return df
+        mask = pd.Series(True, index=df.index)
+        for prop, (lo, hi) in self.config.mixture_filters.items():
+            if prop not in df.columns:
+                continue
+            col = df[prop]
+            if lo is not None:
+                mask &= col.isna() | (col >= lo)
+            if hi is not None:
+                mask &= col.isna() | (col <= hi)
+        filtered = df[mask].copy()
+        removed = len(df) - len(filtered)
+        if removed > 0:
+            print(f"  Mixture property filters removed {removed}/{len(df)} molecules")
+        filtered["rank"] = range(1, len(filtered) + 1)
+        return filtered
+
     def _generate_results(self):
         """Generate final DataFrames and append mixture_bp and mixture_density."""
         final_df, pareto_df, unfiltered_df = super()._generate_results()
 
+        # Collect smiles from all three DataFrames so bp/density can be computed
+        # even when final_df is still empty before mixture filtering.
         all_smiles = []
         for df in (final_df, pareto_df, unfiltered_df):
             if not df.empty and 'smiles' in df.columns:
@@ -726,5 +772,10 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
                 if not result_df.empty and 'smiles' in result_df.columns:
                     result_df['mixture_bp'] = result_df['smiles'].map(bp_map)
                     result_df['mixture_density'] = result_df['smiles'].map(density_map)
+
+        # Apply mixture-specific property constraints now that blended columns exist.
+        # This is done here rather than in the base class because mixture_bp and
+        # mixture_density don't exist until after the blending computation above.
+        final_df = self._apply_mixture_filters(final_df)
 
         return final_df, pareto_df, unfiltered_df
