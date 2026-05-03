@@ -61,6 +61,48 @@ def blend_bp_riazi_daubert(
     return Tb_K - 273.15
 
 
+def blend_density(
+    smiles: List[str],
+    mole_fracs: List[float],
+    densities: List[Optional[float]],
+) -> Optional[float]:
+    """
+    Mixture density (g/cm³) via the binary interaction model (Eq. 3) with β_ij = 0.
+
+    ρ_mix = [ Σ_i Σ_j  (w_i w_j / 2)(1/ρ_i + 1/ρ_j)(1 - β_ij) ]^-1
+
+    With β_ij = 0 this reduces to the volume-additive rule: 1 / Σ_i (w_i / ρ_i).
+    """
+    from rdkit import Chem
+    from rdkit.Chem import Descriptors
+
+    if any(d is None or d == 0 for d in densities):
+        return None
+
+    mol_weights = []
+    for smi in smiles:
+        mol = Chem.MolFromSmiles(smi)
+        if mol is None:
+            return None
+        mol_weights.append(Descriptors.ExactMolWt(mol))
+
+    masses = [x * mw for x, mw in zip(mole_fracs, mol_weights)]
+    total_mass = sum(masses)
+    if total_mass == 0:
+        return None
+    w = [m / total_mass for m in masses]
+
+    n = len(w)
+    total = sum(
+        w[i] * w[j] / 2.0 * (1.0 / densities[i] + 1.0 / densities[j])
+        for i in range(n)
+        for j in range(n)
+    )
+    if total == 0:
+        return None
+    return 1.0 / total
+
+
 def blend_ysi_mass_weighted(
     smiles: List[str],
     mole_fracs: List[float],

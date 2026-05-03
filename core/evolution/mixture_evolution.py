@@ -678,8 +678,36 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
             )
         return results
 
+    def _compute_mixture_density(self, additive_smiles_list: List[str]) -> Dict[str, Optional[float]]:
+        """Compute mixture density (g/cm³) for each unique additive SMILES using Eq. 3 (β_ij = 0)."""
+        from core.blending.blending_law import blend_density
+
+        mc = self.config.mixture_config
+        base_ratio = 1.0 - mc.additive_fraction
+
+        unique = list(dict.fromkeys(additive_smiles_list))
+        density_map = self._predict_densities(unique + self.base_smiles)
+
+        base_densities = [density_map.get(smi) for smi in self.base_smiles]
+        mole_fracs = [mc.additive_fraction] + [f * base_ratio for f in self.base_fractions]
+
+        results = {}
+        for smi in unique:
+            all_densities = [density_map.get(smi)] + base_densities
+            # Density predictor returns kg/m³; convert to g/cm³ for blending law
+            all_densities_gcc = [
+                d / 1000.0 if d is not None else None for d in all_densities
+            ]
+            result_gcc = blend_density(
+                [smi] + self.base_smiles,
+                mole_fracs,
+                all_densities_gcc,
+            )
+            results[smi] = result_gcc * 1000.0 if result_gcc is not None else None
+        return results
+
     def _generate_results(self):
-        """Generate final DataFrames and append mixture_bp for the final population."""
+        """Generate final DataFrames and append mixture_bp and mixture_density."""
         final_df, pareto_df, unfiltered_df = super()._generate_results()
 
         all_smiles = []
@@ -688,11 +716,15 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
                 all_smiles.extend(df['smiles'].tolist())
 
         if all_smiles:
+            unique_smiles = list(dict.fromkeys(all_smiles))
             print("  Computing mixture boiling points (Riazi-Daubert)...")
-            bp_map = self._compute_mixture_bp(list(dict.fromkeys(all_smiles)))
+            bp_map = self._compute_mixture_bp(unique_smiles)
+            print("  Computing mixture densities (Eq. 3, β_ij = 0)...")
+            density_map = self._compute_mixture_density(unique_smiles)
 
             for result_df in (final_df, pareto_df, unfiltered_df):
                 if not result_df.empty and 'smiles' in result_df.columns:
                     result_df['mixture_bp'] = result_df['smiles'].map(bp_map)
+                    result_df['mixture_density'] = result_df['smiles'].map(density_map)
 
         return final_df, pareto_df, unfiltered_df

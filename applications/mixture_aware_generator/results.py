@@ -52,7 +52,7 @@ def plot_pareto_front(
     # Pareto front in red, connected by a step line
     pf = pareto_df.dropna(subset=[cn_col, ysi_col]).sort_values(cn_col, ascending=True)
     ax.scatter(pf[cn_col], pf[ysi_col], c="#d73027", s=60, zorder=4, label="Pareto front")
-
+    
 
     ax.set_xlabel("Mixture CN" if maximize_cn else "CN Error", fontsize=12)
     ax.set_ylabel("Mixture YSI", fontsize=12)
@@ -73,7 +73,7 @@ def display_results(final_df: pd.DataFrame, pareto_df: pd.DataFrame, unfiltered_
     pareto_df = _rename_cn(pareto_df)
     unfiltered_df = _rename_cn(unfiltered_df)
 
-    cols = ["rank", "smiles", "mixture_cn", "mixture_ysi", "mixture_bp", "cn_error", "bp", "density", "lhv", "dynamic_viscosity"]
+    cols = ["rank", "smiles", "mixture_cn", "mixture_ysi", "mixture_bp", "mixture_density", "cn_error", "bp", "density", "lhv", "dynamic_viscosity"]
 
     if config.maximize_cn:
         cols = [c for c in cols if c != "cn_error"]

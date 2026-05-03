@@ -16,13 +16,18 @@ class EvolutionConfig:
     min_freq = 3
     mixture_config: Optional["MixtureConfig"] = None
 
-    # Filters
+    # Filters (pure-component evolution)
     filters: dict = field(default_factory=lambda: {
         "bp": (60.0, 250.0),
         "density": (720.0, None),
         "lhv": (30.0, None),
         "dynamic_viscosity": (2.0, None),
+    })
 
+    # Filters applied to the blended mixture (mixture-aware evolution only)
+    mixture_filters: dict = field(default_factory=lambda: {
+        "mixture_bp": (180.0, 360.0),
+        "mixture_density": (770.0, 800.0),
     })
 
     def cn_objective(self, cn: float) -> float:
