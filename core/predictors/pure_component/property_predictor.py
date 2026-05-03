@@ -90,24 +90,39 @@ class PropertyPredictor:
         """
         Predict all properties for a batch of SMILES.
         Featurizes ONCE and reuses features for all predictors.
+        Returns lists aligned with smiles_list; invalid SMILES yield None for all properties.
         """
         if not smiles_list:
             return {prop: [] for prop in self.predictors.keys()}
-        
-        # OPTIMIZATION: Featurize only once per batch
-        X_full = featurize_df(smiles_list, return_df=False)
-        
-        if X_full is None:
+
+        featurize_result = featurize_df(smiles_list, return_df=True)
+
+        if featurize_result is None or featurize_result[0] is None:
             return {prop: [None] * len(smiles_list) for prop in self.predictors.keys()}
-        
-        # Predict all properties using the same features
-        results = {}
+
+        X_full, valid_df = featurize_result
+        # valid_df["SMILES"] holds the successfully featurized SMILES in order
+        valid_smiles = valid_df["SMILES"].tolist()
+        # Map each valid SMILES to its position in the compact predictions array
+        smiles_to_pred_idx = {smi: i for i, smi in enumerate(valid_smiles)}
+
+        # Predict on compact (valid-only) feature matrix
+        compact = {}
         for prop_name, predictor in self.predictors.items():
-            predictions = predictor.predict_from_features(X_full)
-            results[prop_name] = self._safe_predict(predictions)
-        
+            compact[prop_name] = self._safe_predict(predictor.predict_from_features(X_full))
+
+        # Expand back to full length, inserting None for molecules that failed featurization
+        results = {}
+        for prop_name, preds in compact.items():
+            full = [None] * len(smiles_list)
+            for orig_i, smi in enumerate(smiles_list):
+                pred_i = smiles_to_pred_idx.get(smi)
+                if pred_i is not None:
+                    full[orig_i] = preds[pred_i]
+            results[prop_name] = full
+
         results["tanimoto"] = self.compute_tanimoto(smiles_list)
-        
+
         return results
     
     def is_valid(self, name, value):

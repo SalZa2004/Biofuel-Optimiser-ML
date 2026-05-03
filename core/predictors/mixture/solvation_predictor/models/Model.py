@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 from core.predictors.mixture.inp import TrainArgs
 
-from solvation_predictor.models.FFN import FFN
-from solvation_predictor.models.MPN import MPN
+from .FFN import FFN
+from .MPN import MPN
 from logging import Logger
 
 

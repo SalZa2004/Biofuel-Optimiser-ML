@@ -5,10 +5,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 from core.config import EvolutionConfig
 
+def _rename_cn(df: pd.DataFrame) -> pd.DataFrame:
+    return df.rename(columns={"cn": "mixture_cn"}) if "cn" in df.columns else df
+
+
 def save_results(final_df: pd.DataFrame, pareto_df: pd.DataFrame, unfiltered_df: pd.DataFrame, minimize_ysi: bool):
     """Save results to CSV files."""
     results_dir = Path("results")
     results_dir.mkdir(exist_ok=True)
+
+    final_df = _rename_cn(final_df)
+    pareto_df = _rename_cn(pareto_df)
+    unfiltered_df = _rename_cn(unfiltered_df)
 
     final_df.to_csv(results_dir / "final_population.csv", index=False)
     unfiltered_df.to_csv(results_dir / "final_population_unfiltered.csv", index=False)
@@ -31,14 +39,11 @@ def plot_pareto_front(
     results_dir.mkdir(exist_ok=True)
 
     maximize_cn = "cn_error" not in pareto_df.columns or pareto_df["cn_error"].isna().all()
-    cn_col = "cn" if maximize_cn else "cn_error"
+    cn_col = "mixture_cn" if maximize_cn else "cn_error"
     ysi_col = "mixture_ysi" if "mixture_ysi" in pareto_df.columns else "ysi"
 
     fig, ax = plt.subplots(figsize=(8, 6))
 
-    # Background: full unfiltered population
-    bg = unfiltered_df.dropna(subset=[cn_col, ysi_col])
-    ax.scatter(bg[cn_col], bg[ysi_col], c="#cccccc", s=15, alpha=0.4, label="All candidates", zorder=1)
 
     # Filtered (passed property constraints) in blue
     filt = final_df.dropna(subset=[cn_col, ysi_col])
@@ -49,7 +54,7 @@ def plot_pareto_front(
     ax.scatter(pf[cn_col], pf[ysi_col], c="#d73027", s=60, zorder=4, label="Pareto front")
 
 
-    ax.set_xlabel("Mixture DCN" if maximize_cn else "DCN Error", fontsize=12)
+    ax.set_xlabel("Mixture CN" if maximize_cn else "CN Error", fontsize=12)
     ax.set_ylabel("Mixture YSI", fontsize=12)
     ax.set_title("Mixture Pareto Front: DCN vs YSI", fontsize=13)
     ax.legend(fontsize=9)
@@ -64,7 +69,11 @@ def plot_pareto_front(
 
 def display_results(final_df: pd.DataFrame, pareto_df: pd.DataFrame, unfiltered_df: pd.DataFrame, config: EvolutionConfig):
     """Display results to console."""
-    cols = ["rank", "smiles", "cn", "cn_error", "mixture_ysi", "bp", "density", "lhv", "dynamic_viscosity"]
+    final_df = _rename_cn(final_df)
+    pareto_df = _rename_cn(pareto_df)
+    unfiltered_df = _rename_cn(unfiltered_df)
+
+    cols = ["rank", "smiles", "mixture_cn", "mixture_ysi", "mixture_bp", "cn_error", "bp", "density", "lhv", "dynamic_viscosity"]
 
     if config.maximize_cn:
         cols = [c for c in cols if c != "cn_error"]

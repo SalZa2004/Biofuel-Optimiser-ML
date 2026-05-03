@@ -1,0 +1,10 @@
+rank,name,mixture_cn,mixture_cn_error,mixture_ysi,n_components
+1,66.2%n-dodecane-33.8%iso-octane,66.777,0.223,72.203,2
+2,66.2%n-dodecane-33.8%iso-octane,66.777,0.223,72.203,2
+3,80.7%n-decane-19.3%iso-octane,66.45,0.55,59.646,2
+4,80.7%n-decane-19.3%iso-octane,66.45,0.55,59.646,2
+5,diethyl carbonate 30% + n-decane,68.358,1.358,48.315,2
+6,diethyl carbonate 50% + n-decane,62.332,4.668,40.588,2
+7,diethyl carbonate 70% + n-decane,56.187,10.813,32.266,2
+8,diethyl carbonate 75% + n-decane,54.629,12.371,30.085,2
+9,dimethyl carbonate 72.5% + n-decane,41.509,25.491,29.461,2

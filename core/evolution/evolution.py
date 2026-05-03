@@ -118,9 +118,9 @@ class MolecularEvolution:
             mutants = list(mutate_mol(
                 mol,
                 db_name=str(self.REP_DB_PATH),
-                max_size=2,
+                max_size=self.config.max_size,
                 max_replacements=100,
-                min_freq=3,
+                min_freq=self.config.min_freq,
                 return_mol=False
             ))
             return [m for m in mutants if m and m not in self.population.seen_smiles]
@@ -159,8 +159,11 @@ class MolecularEvolution:
                 tree.predict(X_selected) for tree in predictor_obj.model.estimators_
             ])
             
-            # Mean and std
-            predictions[prop_name] = np.mean(all_tree_preds, axis=0)
+            # Mean and std (uncertainty stays in model output space for calibration consistency)
+            mean_preds = np.mean(all_tree_preds, axis=0)
+            if predictor_obj.uses_log_transform:
+                mean_preds = np.power(10.0, mean_preds)
+            predictions[prop_name] = mean_preds
             uncertainties[prop_name] = np.std(all_tree_preds, axis=0)
         
         # Add Tanimoto (no uncertainty)
@@ -236,17 +239,19 @@ class MolecularEvolution:
 
             filter_stats['passed'] += 1
             
-            molecules.append(Molecule(
-                smiles=smiles,
-                cn=float(props['cn']),
-                cn_error=abs(float(props['cn']) - self.config.target_cn),
-                cn_score=float(props['cn']),
-                bp=float(props.get('bp')) if props.get('bp') is not None else None,
-                ysi=float(props.get('ysi')) if props.get('ysi') is not None else None,
-                density=float(props.get('density')) if props.get('density') is not None else None,
-                lhv=float(props.get('lhv')) if props.get('lhv') is not None else None,
-                dynamic_viscosity=float(props.get('dynamic_viscosity')) if props.get('dynamic_viscosity') is not None else None
-            ))
+            mol = Molecule(
+            smiles=smiles,
+            cn=float(props['cn']),
+            cn_error=abs(float(props['cn']) - self.config.target_cn),
+            cn_score=0.0,  # placeholder, set below
+            bp=float(props.get('bp')) if props.get('bp') is not None else None,
+            ysi=float(props.get('ysi')) if props.get('ysi') is not None else None,
+            density=float(props.get('density')) if props.get('density') is not None else None,
+            lhv=float(props.get('lhv')) if props.get('lhv') is not None else None,
+            dynamic_viscosity=float(props.get('dynamic_viscosity')) if props.get('dynamic_viscosity') is not None else None
+        )
+            mol.cn_score = mol.fitness(self.config)
+            molecules.append(mol)
         
         return molecules, filter_stats
     
@@ -324,7 +329,10 @@ class MolecularEvolution:
                 break
             
             # Generate mutations
-            parent = random.choice(survivors)
+            # AFTER — fitness-proportionate (roulette wheel) selection
+            weights = np.array([m.fitness(self.config) for m in survivors])
+            weights /= weights.sum()
+            parent = survivors[np.random.choice(len(survivors), p=weights)]
             mol = Chem.MolFromSmiles(parent.smiles)
             if mol is None:
                 continue
@@ -391,19 +399,16 @@ class MolecularEvolution:
         return filtered
 
     def _sort_df(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Sort a DataFrame by CN/YSI objectives without modifying df in-place."""
         if self.config.maximize_cn:
             if self.config.minimize_ysi and "ysi" in df.columns:
-                return df[
-                    (df["cn"] > 50) & (df["ysi"] < 50)
-                ].sort_values(["cn", "ysi"], ascending=[False, True])
+                candidates = df[df["cn"] > 30] if len(df[df["cn"] > 50]) < 10 else df[df["cn"] > 50]
+                return candidates.sort_values(["cn", "ysi"], ascending=[False, True])
             else:
-                return df[df["cn"] > 50].sort_values("cn", ascending=False)
+                candidates = df[df["cn"] > 30] if len(df[df["cn"] > 50]) < 10 else df[df["cn"] > 50]
+                return candidates.sort_values("cn", ascending=False)
         else:
             if self.config.minimize_ysi and "ysi" in df.columns:
-                return df[
-                    (df["cn_error"] < 15) & (df["ysi"] < 50)
-                ].sort_values(["cn_error", "ysi"], ascending=True)
+                return df[df["cn_error"] < 15].sort_values(["cn_error", "ysi"], ascending=True)
             else:
                 return df[df["cn_error"] < 5].sort_values("cn_error", ascending=True)
 
@@ -420,14 +425,7 @@ class MolecularEvolution:
         final_df["rank"] = range(1, len(final_df) + 1)
 
         if self.config.minimize_ysi:
-            # Compute Pareto front only from molecules that passed property filters
-            valid_smiles = set(self._apply_property_filters(raw_df)["smiles"])
-            valid_mols = [m for m in self.population.molecules if m.smiles in valid_smiles]
-
-            from .population import Population
-            filtered_pop = Population(self.config)
-            filtered_pop.add_molecules(valid_mols)
-            pareto_mols = filtered_pop.pareto_front()
+            pareto_mols = self.population.pareto_front()
 
             pareto_df = pd.DataFrame([m.to_dict() for m in pareto_mols])
             if not pareto_df.empty:

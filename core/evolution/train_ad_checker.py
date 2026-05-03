@@ -16,18 +16,6 @@ from pathlib import Path
 import sys
 import os
 
-# Add core to path
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-
-# FIX: Use the EXACT same approach as your prediction script
-# Import the actual modules
-from core.predictors.mixture import inp as mixture_inp
-import core.predictors.mixture.solvation_predictor as sp
-
-# Create module aliases for the old import paths (same as prediction script)
-sys.modules['solvation_predictor.inp'] = mixture_inp
-sys.modules['solvation_predictor'] = sp
-
 
 
 from applicability_domain import ApplicabilityDomainChecker
@@ -483,7 +471,7 @@ def train_ad_checker_for_mixture_model(
 if __name__ == "__main__":
     # Configuration
     TRAINING_CSV = "data/database/mixture_training_dataset.csv"  # Your formatted training data
-    MODEL_DIR = "core/predictors/mixture/solvation_predictor/trained_models/DCN"  # Directory with all 10 models
+    MODEL_DIR = "models/mixture/dcn"  # Directory with all 10 models
     OUTPUT_PATH = "models/mixture_ad_checker.pkl"
     
     # Device selection
@@ -549,7 +537,7 @@ ad_checker = ApplicabilityDomainChecker.load('models/mixture_ad_checker.pkl')
 
 # Load embedding extractor (loads ALL 10 models)
 extractor = MixtureDCNEmbeddingExtractor(
-    'core/predictors/mixture/solvation_predictor/trained_models/DCN',  # Directory!
+    'models/mixture/dcn',  # Directory!
     device='cpu'
 )
 

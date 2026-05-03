@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 from rdkit import Chem
 
-from solvation_predictor.data.data import DataTensor
-from solvation_predictor.features.MolEncoder import MolEncoder
+from ..data.data import DataTensor
+from ..features.MolEncoder import MolEncoder
 
 
 class MPN(nn.Module):

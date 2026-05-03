@@ -4,3 +4,8 @@ omit =
     */train.py
     */evaluate.py
     */cli.py
+    */__init__.py
+    core/evolution/training_ocsvm.py
+    core/evolution/train_ad_checker.py
+    core/evolution/train_one_class_svm.py
+    core/evolution/applicability_domain.py

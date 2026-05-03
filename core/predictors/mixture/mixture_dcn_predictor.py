@@ -8,52 +8,89 @@ import numpy as np
 import torch
 from typing import List, Optional
 from pathlib import Path
-import sys
 import os
+
+HF_REPO_ID = "SalZa2004/MolPool_GNN_model"
 
 
 class MixtureDCNPredictor:
     """
     Direct datapoint creation - properly handles MolencoderDatabase requirement.
     """
-    
+
     def __init__(self, model_dir=None):
-        """Initialize the DCN predictor."""
+        """Initialize the DCN predictor.
+
+        Args:
+            model_dir: Path to directory containing .pt model files.
+                       If None, weights are downloaded from HuggingFace
+                       (cached locally after the first download).
+        """
         if model_dir is None:
-            base_dir = Path(__file__).resolve().parent.parent.parent
-            model_dir = base_dir / "predictors" / "mixture" / "solvation_predictor" / "trained_models" / "DCN"
-        
+            model_dir = self._download_from_hf()
+
         self.model_dir = str(model_dir)
-        
-        # Verify models exist
-        if not os.path.exists(self.model_dir):
-            raise FileNotFoundError(f"Model directory not found: {self.model_dir}")
-        
+
         model_files = [f for f in os.listdir(self.model_dir) if f.endswith('.pt')]
         if len(model_files) == 0:
             raise FileNotFoundError(f"No .pt model files found in {self.model_dir}")
-        
+
         print(f"DCN Predictor initialized with {len(model_files)} models")
-        
+
         # Models (lazy loading)
         self.models = None
         self.scalers = None
         self.args = None
         self._is_initialized = False
+
+    def _download_from_hf(self) -> str:
+        """Download model weights from HuggingFace Hub (cached after first run)."""
+        from huggingface_hub import snapshot_download
+        print(f"Downloading model weights from HuggingFace ({HF_REPO_ID})...")
+        snapshot_dir = snapshot_download(repo_id=HF_REPO_ID)
+
+        # .pt files may be at the repo root or in a subdirectory
+        if any(f.endswith('.pt') for f in os.listdir(snapshot_dir)):
+            return snapshot_dir
+
+        for root, _, files in os.walk(snapshot_dir):
+            if any(f.endswith('.pt') for f in files):
+                return root
+
+        raise FileNotFoundError(f"No .pt model files found in HuggingFace repo {HF_REPO_ID}")
     
     def _initialize_models(self):
         """Lazy initialization of models."""
         if self._is_initialized:
             return
-        
-        # Fix import paths
-        from core.predictors.mixture import inp as mixture_inp
-        import core.predictors.mixture.solvation_predictor as sp
-        
-        sys.modules['solvation_predictor.inp'] = mixture_inp
-        sys.modules['solvation_predictor'] = sp
-        
-        # Import required classes
+
+        # The .pt checkpoints were saved when solvation_predictor was a top-level
+        # package. Patch sys.modules so torch.load can unpickle the stored objects.
+        import sys
+        import importlib
+        _sp_root = 'core.predictors.mixture.solvation_predictor'
+        _aliases = {
+            'solvation_predictor': _sp_root,
+            'solvation_predictor.data': f'{_sp_root}.data',
+            'solvation_predictor.data.data': f'{_sp_root}.data.data',
+            'solvation_predictor.data.Scaler': f'{_sp_root}.data.Scaler',
+            'solvation_predictor.data.Splitter': f'{_sp_root}.data.Splitter',
+            'solvation_predictor.features': f'{_sp_root}.features',
+            'solvation_predictor.features.MolEncoder': f'{_sp_root}.features.MolEncoder',
+            'solvation_predictor.models': f'{_sp_root}.models',
+            'solvation_predictor.models.Model': f'{_sp_root}.models.Model',
+            'solvation_predictor.models.MPN': f'{_sp_root}.models.MPN',
+            'solvation_predictor.models.FFN': f'{_sp_root}.models.FFN',
+            'solvation_predictor.train': f'{_sp_root}.train',
+            'solvation_predictor.train.train': f'{_sp_root}.train.train',
+            'solvation_predictor.train.evaluate': f'{_sp_root}.train.evaluate',
+            # inp.py lives one level up outside solvation_predictor
+            'solvation_predictor.inp': 'core.predictors.mixture.inp',
+        }
+        for alias, real in _aliases.items():
+            if alias not in sys.modules:
+                sys.modules[alias] = importlib.import_module(real)
+
         from core.predictors.mixture.solvation_predictor.train.train import load_checkpoint, load_scaler
         
         # Create args
@@ -335,7 +372,7 @@ if __name__ == "__main__":
     print("TESTING DIRECT DATAPOINT CREATION")
     print("="*70)
     
-    # Initialize predictor
+    # Initialize predictor (downloads from HuggingFace on first run)
     predictor = MixtureDCNPredictor()
     
     # Test with simple molecules

@@ -1,0 +1,231 @@
+rank,name,mixture_cn,mixture_cn_error,mixture_ysi,n_components
+1,66.2%n-dodecane-33.8%iso-octane,66.777,0.223,72.203,2
+2,66.2%n-dodecane-33.8%iso-octane,66.777,0.223,72.203,2
+3,80.7%n-decane-19.3%iso-octane,66.45,0.55,59.646,2
+4,80.7%n-decane-19.3%iso-octane,66.45,0.55,59.646,2
+5,45.9%n-cetane-54.1%iso-cetane,67.981,0.981,107.619,2
+6,diethyl carbonate 30% + n-decane,68.358,1.358,48.315,2
+7,"40.77%n-dodecane-6.93%1,3,5-trimethylbenzene-29.18%2,2,4-trimethylpentane-23.11%n-propylbenzene",65.355,1.645,85.726,2
+8,Nonane 70% + Heptane,65.338,1.662,48.759,2
+9,dimethyl carbonate 24.6% + n-decane,64.935,2.065,50.857,2
+10,79.6%n-decane-20.4%toluene,64.857,2.143,65.577,2
+11,"36.24%2,2,4,4,6,8,8-heptamethylnonane-27.61%n-hexadecane-20.61%1-methylnaphthalene-15.55%cis-decalin ",64.37,2.63,105.533,3
+12,41%n-cetane-59%iso-cetane,64.227,2.773,107.636,2
+13,Decane 70% + Heptane,70.531,3.531,54.25,2
+14,SCG B100,63.43,3.57,125.945,4
+15,"71.44%n-dodecane-28.56%1,3,5-trimethylbenzene",70.655,3.655,80.601,2
+16,"52.84%n-hexadecane-47.16%2,2,4,4,6,8,8-heptamethylnonane",70.793,3.793,108.595,2
+17,Algal,70.807,3.807,120.939,4
+18,74.4%n-decane-25.6%iso-octane,63.065,3.935,59.894,2
+19,74.4%n-decane-25.6%iso-octane,63.065,3.935,59.894,2
+20,dimethyl carbonate 29.9% + n-decane,62.389,4.611,48.905,2
+21,diethyl carbonate 50% + n-decane,62.332,4.668,40.588,2
+22,75%n-dodecane-25%iso-butylbenzene,71.701,4.701,80.801,2
+23,Date pit methyl ester,62.208,4.792,114.562,9
+24,"28.97%2,2,4,4,6,8,8-heptamethylnonane-19.89%n-octadecane-15.6%1,2,3,4-tetrahydronaphthalene (Tetralin)-14.5%1-methylnaphthalene-7.8%1,2,4-trimethylbenzene-5.42%cis-decalin-5.35%n-butylcyclohexane-2.48%n-hexadecane",72.254,5.254,110.417,5
+25,"15.04%1,3,5-triisopropylbenzene-10.66%n-octadecane-19.34%n-butylcyclohexane-11.17%1,3,5-triisopropylcyclohexane-16.41%1,2,3,4-tetrahydronaphthalene (Tetralin)-13.99%1-methylnaphthalene-7.11%2-methylheptadecane-5.64%perhydrophenanthrene-0.64%n-eicosane",61.627,5.373,107.858,6
+26,di-n-butyl carbonate 70% + n-decane,61.436,5.564,51.722,2
+27,"41.08%n-hexadecane-58.92%2,2,4,4,6,8,8-heptamethylnonane",61.198,5.802,108.883,2
+28,10.0% 1-octene + 90.0% n-octane,61.118,5.882,45.742,2
+29,52.7%n-cetane-47.3%iso-cetane,73.239,6.239,107.596,2
+30,93.4%n-decane-6.6%iso-octane,73.323,6.323,59.164,2
+31,93.4%n-decane-6.6%iso-octane,73.323,6.323,59.164,2
+32,Rapeseed B100,59.719,7.281,129.629,4
+33,34.9%n-cetane-65.1%iso-cetane,59.65,7.35,107.658,2
+34,68.3%n-decane-17.2%iso-octane-14.5%toluene,58.902,8.098,64.397,3
+35,25.0% 1-octene + 75.0% n-octane,58.727,8.273,47.623,2
+36,"29.65%n-dodecane-20.36%n-tetradecane-20.57%methylcyclohexane-14.95%1,3-dimethylbenzene (m-Xylene)-10.10%2,2,4-trimethylpentane-4.37%1,2,3,4-tetrahydronaphthalene (Tetralin)",75.333,8.333,79.485,3
+37,Rapeseed methyl ester,58.321,8.679,130.43,5
+38,dimethyl carbonate 39.3% + n-decane,57.892,9.108,45.225,2
+39,51.9%n-dodecane-48.1%iso-octane,57.114,9.886,70.689,2
+40,51.9%n-dodecane-48.1%iso-octane,57.114,9.886,70.689,2
+41,di-2-methyl-propyl carbonate 70% + n-decane,76.909,9.909,58.924,1
+42,di-1-methyl-propyl carbonate 70% + n-decane,76.909,9.909,58.924,1
+43,Soya B100,56.574,10.426,130.636,4
+44,Soybean methyl ester,56.437,10.563,131.063,5
+45,diethyl carbonate 70% + n-decane,56.187,10.813,32.266,2
+46,5-nonanone 70% + n-decane,55.896,11.104,47.57,2
+47,61%n-decane-39%iso-octane,55.837,11.163,60.445,2
+48,61%n-decane-39%iso-octane,55.837,11.163,60.445,2
+49,60.3%n-decane-39.7%iso-octane,55.456,11.544,60.474,2
+50,60.3%n-decane-39.7%iso-octane,55.456,11.544,60.474,2
+51,28.6%n-cetane-71.4%iso-cetane,55.051,11.949,107.68,2
+52,50.0% 1-octene + 50.0% n-octane,54.662,12.338,50.78,2
+53,diethyl carbonate 75% + n-decane,54.629,12.371,30.085,2
+54,Butyl valerate 70% + n-decane,54.495,12.505,50.371,2
+55,50%n-dodecane-50%iso-butylbenzene,54.422,12.578,87.051,2
+56,59.2%n-decane-40.8%toluene,53.777,13.223,73.348,2
+57,"64.61%n-hexadecane-35.39%2,2,4,4,6,8,8-heptamethylnonane",80.573,13.573,108.306,2
+58,dimethyl carbonate 48.9% + n-decane,53.247,13.753,41.148,2
+59,5.0% toluene + 95.0% n-heptane,53.139,13.861,41.853,2
+60,79.68%n-heptane-20.32%n-butylcyclohexane,52.92,14.08,50.494,2
+61,63.1% 1-octene + 36.9% n-octane,52.493,14.507,52.446,2
+62,"27.2%2,2,4,4,6,8,8-heptamethylnonane-23.46%n-octadecane-21.17%1,2,3,4-tetrahydronaphthalene (Tetralin)-15.75%1-methylnaphthalene-12.42%1,2,4-trimethylbenzene",81.729,14.729,114.616,2
+63,"29.33%n-hexadecane-70.67%2,2,4,4,6,8,8-heptamethylnonane",51.95,15.05,109.171,2
+64,44.2%n-dodecane-55.8%iso-octane,51.899,15.101,69.802,2
+65,44.2%n-dodecane-55.8%iso-octane,51.899,15.101,69.802,2
+66,"17.74%n-dodecane-28.28%1,3,5-trimethylbenzene-53.99%2,2,4-trimethylpentane",51.131,15.869,88.176,2
+67,79.54%n-heptane-20.46%cyclooctane,51.001,15.999,42.621,2
+68,10.1% toluene + 89.9% n-heptane,50.932,16.068,45.028,2
+69,59.96%n-heptane-40.04%n-butylcyclohexane,50.617,16.383,60.306,2
+70,75.0% 1-octene + 25.0% n-octane,50.498,16.502,53.966,2
+71,dimethyl carbonate 56% + n-decane,49.75,17.25,37.9,2
+72,80.16%n-heptane-15.43%cyclohexane,49.493,17.507,39.826,2
+73,pentyl valerate 70% + Heptane,49.168,17.832,51.486,2
+74,5-nonanone 70% + Heptane,49.004,17.996,41.79,2
+75,79.84%n-heptane-20.16%decalin,48.815,18.185,55.145,2
+76,40.56%n-heptane-59.44%n-butylcyclohexane,48.453,18.547,68.739,2
+77,79.69%n-heptane-20.31%methylcyclohexane,48.393,18.607,42.329,2
+78,87.5% 1-octene + 12.5% n-octane,48.385,18.615,55.57,2
+79,79.85%n-heptane-20.15%cyclopentane,48.031,18.969,39.509,2
+80,46.7%n-decane-53.3%iso-octane,48.03,18.97,61.068,2
+81,46.7%n-decane-53.3%iso-octane,48.03,18.97,61.068,2
+82,79.69%n-heptane-20.31%cycloheptane,47.933,19.067,40.985,2
+83,butyl valerate 70% + Heptane,47.463,19.537,45.302,2
+84,95% 1-octene + 5% n-octane,47.107,19.893,56.536,2
+85,59.84%n-heptane-40.16%cyclooctane,46.842,20.158,46.164,2
+86,Toluene 20% + Heptane 80%,46.631,20.369,51.269,2
+87,SCG B20,46.582,20.418,84.856,6
+88,20.37%n-heptane-79.63%n-butylcyclohexane,46.506,20.494,76.462,2
+89,Date pit methyl ester B19.8 + RFD,46.399,20.601,78.496,11
+90,Rapeseed B20,45.806,21.194,85.782,6
+91,Rapeseed methyl ester B19.9 + RFD,45.531,21.469,86.12,7
+92,34.6%n-dodecane-65.4%iso-octane,45.357,21.643,68.615,2
+93,34.6%n-dodecane-65.4%iso-octane,45.357,21.643,68.615,2
+94,Soya B20,45.232,21.768,86.589,6
+95,Soybean methyl ester B19.9 + RFD,45.202,21.798,86.868,7
+96,25.0% toluene + 75.0% n-heptane,44.434,22.566,54.459,2
+97,39.8%n-decane-60.2%toluene,44.301,22.699,82.053,2
+98,40%n-decane-60%iso-octane,44.239,22.761,61.374,2
+99,40%n-decane-60%iso-octane,44.239,22.761,61.374,2
+100,"22.51%n-dodecane-24.69%2,2,4,4,6,8,8-heptamethylnonane-24.72%1-methylnaphthalene-21.15%methylcyclohexane-6.93%cis-decalin ",44.126,22.874,83.701,4
+101,Rapeseed methyl ester B9.9 + RFD,43.872,23.128,73.764,7
+102,SCG B7,43.759,23.241,69.014,6
+103,Soybean methyl ester B10 + RFD,43.727,23.273,74.412,7
+104,"76.4%n-hexadecane-23.6%2,2,4,4,6,8,8-heptamethylnonane",90.402,23.402,108.017,2
+105,Rapeseed B7,43.476,23.524,69.316,6
+106,Dipentyl ether 70% + Heptane,90.572,23.572,49.901,2
+107,Soya B7,43.278,23.722,69.716,6
+108,dimethyl carbonate 70% + n-decane,42.782,24.218,30.828,2
+109,"17.59%n-hexadecane-82.41%2,2,4,4,6,8,8-heptamethylnonane",42.779,24.221,109.459,2
+110,39.82%n-heptane-60.18%cyclooctane,42.594,24.406,49.605,2
+111,59.82%n-heptane-40.18%decalin,42.475,24.525,69.26,2
+112,RFD,42.221,24.779,57.676,2
+113,"2,3-dihydrofuran 50% + RFD",42.221,24.779,57.676,2
+114,"2,5-dihydrofuran 50% + RFD",42.221,24.779,57.676,2
+115,60.3%n-heptane-39.7%methylcyclohexane,41.765,25.235,45.76,2
+116,35.4%n-decane-64.6%iso-octane,41.569,25.431,61.589,2
+117,35.4%n-decane-64.6%iso-octane,41.569,25.431,61.589,2
+118,dimethyl carbonate 72.5% + n-decane,41.509,25.491,29.461,2
+119,5.0% farnesene + RFD,41.353,25.647,61.482,3
+120,ethyl valerate 70% + Heptane,41.266,25.734,34.453,2
+121,37.6%n-decane-45.4%iso-octane-17%toluene,41.259,25.741,66.895,3
+122,60.76%n-heptane-39.24%cycloheptane,41.132,25.868,43.07,2
+123,ditert-butyl carbonate 70% + n-decane,41.016,25.984,57.365,2
+124,59.84%n-heptane-40.16%cyclohexane,40.818,26.182,41.514,2
+125,59.84%n-heptane-40.16%cyclopentane,40.7,26.3,40.35,2
+126,7.8% geranial + RFD,40.603,26.397,58.593,3
+127,10.1% farnesene + RFD,40.468,26.532,64.978,3
+128,3-heptanone 70% + Heptane,40.256,26.744,33.751,2
+129,10.0% geranial + RFD,40.147,26.853,58.838,3
+130,35.0% toluene + 65.0% n-heptane,40.047,26.953,60.919,2
+131,35.1% toluene + 64.9% n-heptane,40.003,26.997,60.985,2
+132,Toluene 20% + Hexane 80%,39.981,27.019,48.956,2
+133,26.1%n-dodecane-73.9%iso-octane,39.273,27.727,67.481,2
+134,26.1%n-dodecane-73.9%iso-octane,39.273,27.727,67.481,2
+135,52.97%n-heptane-47.03%iso-octane,39.105,27.895,51.161,2
+136,20.3% farnesene + RFD,38.692,28.308,71.017,3
+137,19.80%n-heptane-80.20%cyclooctane,38.218,28.782,52.895,2
+138,butyl levulinate 70% + Heptane,38.197,28.803,47.601,2
+139,20.3% geranial + RFD,38.002,28.998,59.914,3
+140,40.0% toluene + 60.0% n-heptane,37.919,29.081,64.19,2
+141,39.8%n-heptane-60.2%decalin,37.038,29.962,81.627,2
+142,40.12%n-heptane-59.88%methylcyclohexane,35.41,31.59,49.359,2
+143,46.3% toluene + 53.7% n-heptane,35.388,31.612,68.349,2
+144,40.0% farnesene + RFD,35.274,31.726,80.033,3
+145,52.09%n-heptane-47.91%toluene,34.758,32.242,69.419,2
+146,ethylfuran 10% + n-butanol + RFD,34.471,32.529,51.433,3
+147,methyl-tetrahydrofuran-3-one 10% + n-butanol + RFD,34.471,32.529,51.433,3
+148,39.96%n-heptane-60.04%cycloheptane,34.42,32.58,45.381,2
+149,39.83%n-heptane-60.17%cyclohexane,34.084,32.916,43.03,2
+150,50.0% toluene + 50.0% n-heptane,33.924,33.076,70.813,2
+151,40.0% geranial + RFD,33.918,33.082,61.69,3
+152,25%n-dodecane-75%iso-butylbenzene,33.844,33.156,94.088,2
+153,"88.19%n-hexadecane-11.81%2,2,4,4,6,8,8-heptamethylnonane",100.312,33.312,107.728,2
+154,methyl-tetrahydrofuran 50%  + RFD,33.545,33.455,48.552,3
+155,51.2% farnesene + RFD,33.401,33.599,84.051,3
+156,?-caprolactone 33% + butanol + RFD,33.388,33.612,50.49,3
+157,?-hexalactone 33% + butanol + RFD,33.388,33.612,50.49,3
+158,?-decalactone 33% + butanol + RFD,33.388,33.612,50.49,3
+159,?-caprolactone 33% + butanol + RFD,33.388,33.612,50.49,3
+160,methyl-tetrahydrofuran 10% + n-butanol + RFD,33.266,33.734,50.192,4
+161,52.2% toluene + 47.8% n-heptane,33.04,33.96,72.285,2
+162,37.83%n-heptane-62.17%cyclopentane,32.855,34.145,41.418,2
+163,46.97%n-heptane-53.03%toluene,32.718,34.282,72.842,2
+164,ethyl levulinate 70% + Heptane,32.636,34.364,36.108,2
+165,tetrahydrofuran 50% + RFD,32.573,34.427,42.174,3
+166,furfural 10% + n-butanol + RFD,32.294,34.706,49.285,4
+167,"5.86%n-hexadecane-94.14%2,2,4,4,6,8,8-heptamethylnonane",32.228,34.772,109.747,2
+168,19.93%n-heptane-80.07%decalin,32.133,34.867,92.477,2
+169,Dimethylfuran 10% + n-butanol + RFD,32.124,34.876,53.56,4
+170,20.1%n-decane-79.9%iso-octane,32.114,34.886,62.339,2
+171,20.1%n-decane-79.9%iso-octane,32.114,34.886,62.339,2
+172,59.9% farnesene + RFD,32.02,34.98,86.762,3
+173,acetylfuran 10% + n-butanol + RFD,31.889,35.111,51.277,4
+174,50.0% geranial + RFD,31.861,35.139,62.475,3
+175,36.83%n-heptane-49.05%iso-octane-14.12%toluene,31.686,35.314,60.013,3
+176,32.55%n-heptane-67.45%iso-octane,31.671,35.329,56.079,2
+177,furfuryl alcohol 10% + n-butanol + RFD,31.341,35.659,50.997,4
+178,42.02%n-heptane-57.98%toluene,30.793,36.207,76.178,2
+179,60.0% geranial + RFD,29.784,37.216,63.194,3
+180,20.11%n-heptane-79.89%methylcyclohexane,29.291,37.709,52.957,2
+181,7.76%iso-octane-92.24%1-hexene,29.264,37.736,44.844,2
+182,37.22%n-heptane-62.78%toluene,28.858,38.142,79.441,2
+183,15.92%iso-octane-84.08%1-hexene,28.361,38.639,46.953,2
+184,27.91%n-heptane-57.83%iso-octane-14.26%toluene,28.262,38.738,62.158,3
+185,19.6%n-decane-80.4%toluene,27.89,39.11,92.883,2
+186,Furan 50% + RFD,27.702,39.298,64.498,3
+187,21.97%n-heptane-78.03%iso-octane,27.453,39.547,58.527,2
+188,24.51%iso-octane-75.49%1-hexene,27.435,39.565,49.052,2
+189,20.12%n-heptane-79.88%cyclohexane,27.326,39.674,44.632,2
+190,Methylfuran 50% + RFD,27.281,39.719,68.006,3
+191,Dimethylfuran 50% + RFD,27.269,39.731,64.767,3
+192,32.58%n-heptane-67.42%toluene,26.832,40.168,82.62,2
+193,33.56%iso-octane-66.44%1-hexene,26.432,40.568,51.138,2
+194,19.83%n-heptane-80.17%cyclopentane,26.179,40.821,42.429,2
+195,43.10%iso-octane-56.90%1-hexene,25.364,41.636,53.21,2
+196,26.25%n-heptane-34.96%iso-octane-38.80%toluene,25.086,41.914,71.865,3
+197,28.07%n-heptane-71.93%toluene,24.477,42.523,85.734,2
+198,18.80%n-heptane-66.78%iso-octane-14.41%toluene,24.298,42.702,64.302,3
+199,53.19%iso-octane-46.81%1-hexene,24.154,42.846,55.273,2
+200,63.87%iso-octane-36.13%1-hexene,22.783,44.217,57.324,2
+201,11.12%n-heptane-88.88%iso-octane,22.615,44.385,60.971,2
+202,21.59%n-heptane-28.76%iso-octane-49.65%toluene,22.352,44.648,77.376,3
+203,19.83%n-heptane-41.08%iso-octane-39.09%toluene,22.282,44.718,73.449,3
+204,23.70%n-heptane-76.30%toluene,22.184,44.816,88.774,2
+205,15.93%n-heptane-56.59%iso-octane-27.48%toluene,21.647,45.353,69.796,3
+206,75.19%iso-octane-24.81%1-hexene,21.294,45.706,59.364,2
+207,9.50%n-heptane-75.93%iso-octane-14.57%toluene,20.257,46.743,66.442,3
+208,87.21%iso-octane-12.79%1-hexene,19.801,47.199,61.392,2
+209,13.32%n-heptane-47.30%iso-octane-39.38%toluene,19.34,47.66,75.027,3
+210,14.07%iso-octane-85.93%cyclohexane,18.774,48.226,49.486,2
+211,21.91%iso-octane-78.09%cyclohexane,18.386,48.614,51.085,2
+212,8.04%n-heptane-64.23%iso-octane-27.73%toluene,18.094,48.906,71.645,3
+213,30.39%iso-octane-69.61%cyclohexane,18.017,48.983,52.724,2
+214,39.57%iso-octane-60.43%cyclohexane,17.692,49.308,54.399,2
+215,67.82%iso-octane-93.22%cyclohexane,17.615,49.385,54.847,2
+216,85.49%iso-octane-14.51%cyclohexane,17.585,49.415,61.517,2
+217,10.93%n-heptane-38.81%iso-octane-50.26%toluene,17.496,49.504,80.014,3
+218,49.55%iso-octane-50.45%cyclohexane,17.437,49.563,56.115,2
+219,72.37%iso-octane-27.63%cyclohexane,17.351,49.649,59.673,2
+220,60.44%iso-octane-39.56%cyclohexane,17.299,49.701,57.872,2
+221,6.71%n-heptane-53.62%iso-octane-39.67%toluene,16.478,50.522,76.601,3
+222,87.99%iso-octane-12.01%tetralin,16.178,50.822,68.182,2
+223,76.50%iso-octane-23.50%tetralin,14.546,52.454,72.586,2
+224,65.51%iso-octane-34.49%tetralin,13.167,53.833,76.656,2
+225,54.97%iso-octane-45.03%tetralin,11.985,55.015,80.437,2
+226,44.87%iso-octane-55.13%tetralin,10.98,56.02,83.952,2
+227,35.18%iso-octane-64.82%tetralin,10.112,56.888,87.228,2
+228,25.86%iso-octane-74.14%tetralin,9.349,57.651,90.296,2
+229,16.91%iso-octane-83.09%tetralin,8.647,58.353,93.166,2
+230,8.29%iso-octane-91.71%tetralin,7.989,59.011,95.864,2

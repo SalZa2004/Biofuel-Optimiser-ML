@@ -1,26 +1,31 @@
 import csv
 import math
 
-from memory_profiler import profile
 from core.predictors.mixture.inp import TrainArgs
-from solvation_predictor.data.Scaler import Scaler
-from solvation_predictor.data.data import DatapointList
-from solvation_predictor.data.data import DataTensor
-from solvation_predictor.data.Splitter import Splitter
-from solvation_predictor.models.Model import Model
+from ..data.Scaler import Scaler
+from ..data.data import DatapointList
+from ..data.data import DataTensor
+from ..data.Splitter import Splitter
+from ..models.Model import Model
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import logging
 from typing import Callable, List, Union
-import wandb
+try:
+    import wandb
+except ImportError:
+    wandb = None
 
-from tensorboardX import SummaryWriter
+try:
+    from tensorboardX import SummaryWriter
+except ImportError:
+    SummaryWriter = None
 import torch
 import torch.nn as nn
 from torch.optim import Adam, Optimizer
 from torch.optim.lr_scheduler import _LRScheduler, ExponentialLR, StepLR
 from tqdm import trange
 import numpy as np
-from solvation_predictor.train.evaluate import evaluate, predict
+from .evaluate import evaluate, predict
 import matplotlib.pyplot as plt
 from logging import Logger
 import pandas as pd
@@ -107,7 +112,7 @@ def train(
         loss_sum += (
             loss.item()
         )  # sum over all batches in one epoch, so we have loss per epoch
-        wandb.log({"loss_sum": loss_sum})
+        if wandb: wandb.log({"loss_sum": loss_sum})
         iter_count += batch_size
         loss.backward()
         optimizer.step()
@@ -140,7 +145,7 @@ def run_training(inp: TrainArgs, all_data: DatapointList, logger: Logger):
     test_scores = dict()
 
     for fold in trange(inp.num_folds):
-        wandb.log({"current fold number": fold})
+        if wandb: wandb.log({"current fold number": fold})
         seed = initial_seed + fold
         inp.seed = seed
         logger(f"Starting with fold number {fold} having seed {seed}")
@@ -170,7 +175,7 @@ def run_training(inp: TrainArgs, all_data: DatapointList, logger: Logger):
             raise ValueError("scaler not supported")
 
         for model_i in trange(inp.num_models):
-            wandb.log({"current model number": model_i})
+            if wandb: wandb.log({"current model number": model_i})
             path = inp.output_dir + "/fold_" + str(fold) + "/model" + str(model_i)
             if path != "":
                 os.makedirs(path, exist_ok=True)

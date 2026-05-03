@@ -7,9 +7,9 @@ from sklearn.metrics import mean_squared_error
 from torch import nn
 from tqdm import trange
 
-from solvation_predictor.data.Scaler import Scaler
-from solvation_predictor.data.data import DatapointList
-from solvation_predictor.data.data import DataTensor
+from ..data.Scaler import Scaler
+from ..data.data import DatapointList
+from ..data.data import DataTensor
 from core.predictors.mixture.inp import TrainArgs
 
 

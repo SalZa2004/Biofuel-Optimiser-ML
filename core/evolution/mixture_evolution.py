@@ -10,7 +10,10 @@ import pickle
 import torch
 from pathlib import Path
 import warnings
+from rdkit import RDLogger
+RDLogger.logger().setLevel(RDLogger.CRITICAL)
 warnings.filterwarnings("ignore")
+
 
 class MixtureAwareMolecule(Molecule):
     """Extended Molecule class for mixture optimization with AD info."""
@@ -52,37 +55,84 @@ class MixturePredictionCache:
         return {}
     
     def _save(self):
+        self.cache_file.parent.mkdir(parents=True, exist_ok=True)
         with open(self.cache_file, 'wb') as f:
             pickle.dump(self.cache, f)
-    
-    def get(self, additive_smiles: str, base_fuel_type: str, 
+
+    def _key(self, smiles: str, base_fuel_type: str, fraction: float) -> str:
+        return f"{smiles}|{base_fuel_type}|{fraction:.3f}"
+
+    def get(self, additive_smiles: str, base_fuel_type: str,
             additive_fraction: float) -> float:
-        """Get cached DCN prediction."""
-        key = f"{additive_smiles}|{base_fuel_type}|{additive_fraction:.3f}"
-        return self.cache.get(key)
-    
-    def set(self, additive_smiles: str, base_fuel_type: str, 
-            additive_fraction: float, dcn: float):
-        """Cache DCN prediction."""
-        key = f"{additive_smiles}|{base_fuel_type}|{additive_fraction:.3f}"
-        self.cache[key] = dcn
-        self._save()
-    
+        return self.cache.get(self._key(additive_smiles, base_fuel_type, additive_fraction))
+
     def get_batch(self, additive_smiles_list: list, base_fuel_type: str,
                   additive_fraction: float) -> dict:
-        """Get cached DCN for multiple additives."""
-        cached = {}
-        for smiles in additive_smiles_list:
-            dcn = self.get(smiles, base_fuel_type, additive_fraction)
-            if dcn is not None:
-                cached[smiles] = dcn
-        return cached
-    
+        return {smi: v for smi in additive_smiles_list
+                if (v := self.get(smi, base_fuel_type, additive_fraction)) is not None}
+
     def set_batch(self, predictions: dict, base_fuel_type: str,
                   additive_fraction: float):
-        """Cache multiple DCN predictions."""
+        """Cache multiple predictions and flush to disk once."""
         for smiles, dcn in predictions.items():
-            self.set(smiles, base_fuel_type, additive_fraction, dcn)
+            if dcn is not None:
+                self.cache[self._key(smiles, base_fuel_type, additive_fraction)] = dcn
+        self._save()
+
+    def populate_from_database(self, csv_path: str, base_fuel_type: str,
+                               additive_fraction: float, base_smiles: List[str]):
+        """Pre-load cache from mixture_database.csv using CN_Measured / CN_Regression."""
+        import pandas as pd
+        from rdkit import Chem
+
+        try:
+            df = pd.read_csv(csv_path)
+        except Exception:
+            return
+
+        def canonical(smi):
+            try:
+                return Chem.MolToSmiles(Chem.MolFromSmiles(smi)) if smi and str(smi) != 'nan' else None
+            except Exception:
+                return None
+
+        base_canonical = {canonical(s) for s in base_smiles if s}
+        frac_tol = 0.02
+        added = 0
+
+        for _, row in df.iterrows():
+            cn = row.get('CN_Measured') if not pd.isna(row.get('CN_Measured', float('nan'))) \
+                 else row.get('CN_Regression')
+            if pd.isna(cn):
+                continue
+
+            # Collect all (smiles, fraction) pairs from this row
+            components = []
+            for k in range(1, 12):
+                smi = canonical(str(row.get(f'fuel_{k}_smiles', '') or ''))
+                frac = row.get(f'fraction_fuel_{k}')
+                if smi and not pd.isna(frac):
+                    components.append((smi, float(frac)))
+
+            if len(components) < 2:
+                continue
+
+            # Find if exactly one component is the additive (not a base component)
+            for idx, (smi, frac) in enumerate(components):
+                if smi in base_canonical:
+                    continue
+                if abs(frac - additive_fraction) > frac_tol:
+                    continue
+                rest = [c for j, c in enumerate(components) if j != idx]
+                if all(c[0] in base_canonical for c in rest):
+                    key = self._key(smi, base_fuel_type, additive_fraction)
+                    if key not in self.cache:
+                        self.cache[key] = float(cn)
+                        added += 1
+
+        if added:
+            self._save()
+            print(f"  ✓ Pre-loaded {added} DCN values from database")
 
 class MixtureAwareMolecularEvolution(MolecularEvolution):
     """
@@ -103,16 +153,27 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         self.population = Population(config)
         self.uncertainty_filters = {}
         self.dcn_cache = MixturePredictionCache()
-        
+        # in-memory AD cache: smiles -> (ad_score, in_domain)
+        self._ad_cache: Dict[str, Tuple[float, bool]] = {}
+
         print("Initializing mixture DCN predictor...")
         self.mixture_predictor = MixtureDCNPredictor()
-        self.mixture_predictor._initialize_models()  # Load models now
+        self.mixture_predictor._initialize_models()
         self._load_base_fuel()
-        
-        # NEW: Load AD checker
+
         self.use_ad_filtering = use_ad_filtering
         if use_ad_filtering:
             self._load_ad_checker()
+
+        # Pre-populate DCN cache from database
+        mc = self.config.mixture_config
+        db_path = Path(__file__).resolve().parent.parent.parent / "data" / "database" / "mixture_database.csv"
+        self.dcn_cache.populate_from_database(
+            str(db_path),
+            mc.base_fuel_type,
+            mc.additive_fraction,
+            self.base_smiles,
+        )
         
         wandb.init(
             project="mixture-dcn-evolution",
@@ -140,7 +201,7 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
     
     def _load_ad_checker(self):
         """Load the trained One-Class SVM."""
-        ad_path = Path(__file__).resolve().parent.parent.parent / "models" / "mixture" / "mixture_ad_svm.pkl"
+        ad_path = Path(__file__).resolve().parent.parent.parent / "models" / "mixture" / "mixture_ocsvm.pkl"
         try:
             with open(ad_path, 'rb') as f:
                 ad_data = pickle.load(f)
@@ -154,39 +215,19 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
             self.use_ad_filtering = False
     
     def _extract_mixture_embedding(self, additive_smiles: str) -> np.ndarray:
-        """
-        NEW: Extract mixture embedding for AD checking.
-        
-        Args:
-            additive_smiles: SMILES of new additive
-        
-        Returns:
-            embedding: (202,) array or None
-        """
         from core.predictors.mixture.solvation_predictor.data.data import (
             DataPoint, DatapointList, MolencoderDatabase, DataTensor
         )
-        
+
         mc = self.config.mixture_config
-        
-        # Create mixture
         base_ratio = 1.0 - mc.additive_fraction
         adjusted_base = [f * base_ratio for f in self.base_fractions]
-        
-        mixture_smiles = [additive_smiles] + self.base_smiles
+
+        mixture_smiles    = [additive_smiles] + self.base_smiles
         mixture_fractions = [mc.additive_fraction] + adjusted_base[:-1]  # N-1
-        
-        # Hook to capture embedding
-        model = self.mixture_predictor.models[0]
-        captured = []
-        
-        def hook_fn(module, input, output):
-            captured.append(input[0].detach().cpu())
-        
-        hook = model.ffn.register_forward_hook(hook_fn)
-        
+
+        # Build DataPoint once — reused across all 10 models
         try:
-            # Create datapoint
             mol_db = MolencoderDatabase()
             dp = DataPoint(
                 smiles=mixture_smiles,
@@ -194,88 +235,84 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
                 features=[],
                 molefracs=mixture_fractions,
                 inp=self.mixture_predictor.args,
-                mol_encoders=mol_db
+                mol_encoders=mol_db,
             )
-            
             data = DatapointList([dp])
-            
-            # Create tensors
-            mol_encodings = []
-            tensors = []
-            for _ in range(self.mixture_predictor.args.max_num_mols):
-                mol_encodings.append([])
-            
-            for mol in mol_encodings:
-                encoders = dp.get_mol_encoder()
-                if len(encoders) < self.mixture_predictor.args.max_num_mols:
-                    for _ in range(self.mixture_predictor.args.max_num_mols - len(encoders)):
-                        encoders.append(encoders[0])
-                mol.append(encoders[mol_encodings.index(mol)])
-                tensors.append(DataTensor(mol, self.mixture_predictor.args, 
-                                         property=self.mixture_predictor.args.property))
-            
-            # Forward pass
-            with torch.no_grad():
-                _ = model(data, tensors)
-            
-            if captured:
-                return captured[0].numpy().flatten()
+
+            args = self.mixture_predictor.args
+            enc = dp.get_mol_encoder()
+            if len(enc) < args.max_num_mols:
+                enc += [enc[0]] * (args.max_num_mols - len(enc))
+            mol_encodings = [[enc[m]] for m in range(args.max_num_mols)]
+            tensors = [DataTensor(mol_encodings[m], args, property=args.property)
+                       for m in range(args.max_num_mols)]
+        except Exception:
             return None
-        
-        except:
+
+        all_model_embeddings = []
+        for model in self.mixture_predictor.models:
+            model.eval()
+            captured = []
+
+            def hook_fn(module, input, output):
+                captured.append(input[0].detach().cpu())
+
+            hook = model.ffn.register_forward_hook(hook_fn)
+            try:
+                with torch.no_grad():
+                    _ = model(data, tensors)
+                if captured:
+                    all_model_embeddings.append(captured[0].numpy().flatten())
+            except Exception:
+                continue
+            finally:
+                hook.remove()
+
+        if not all_model_embeddings:
             return None
-        
-        finally:
-            hook.remove()
+        return np.mean(all_model_embeddings, axis=0)
     
     def _check_ad_batch(self, smiles_list: List[str]) -> Tuple[np.ndarray, np.ndarray]:
-        """
-        NEW: Check AD for batch of molecules.
-        
-        Returns:
-            ad_scores: Decision function scores
-            in_domain: Boolean array
-        """
+        """Check AD for a batch, using in-memory cache to skip already-seen SMILES."""
+        scores = np.full(len(smiles_list), -999.0)
+        domain = np.zeros(len(smiles_list), dtype=bool)
+
         if not self.use_ad_filtering:
             return np.zeros(len(smiles_list)), np.ones(len(smiles_list), dtype=bool)
-        
+
+        # Split into cached vs needs-embedding
+        need_emb_idx = []
+        for i, smi in enumerate(smiles_list):
+            if smi in self._ad_cache:
+                scores[i], domain[i] = self._ad_cache[smi]
+            else:
+                need_emb_idx.append(i)
+
+        if not need_emb_idx:
+            return scores, domain
+
         embeddings = []
         valid_idx = []
-        
-        for i, smiles in enumerate(smiles_list):
-            emb = self._extract_mixture_embedding(smiles)
+        for i in need_emb_idx:
+            emb = self._extract_mixture_embedding(smiles_list[i])
             if emb is not None:
                 embeddings.append(emb)
                 valid_idx.append(i)
-        
-        if not embeddings:
-            return np.full(len(smiles_list), -999), np.zeros(len(smiles_list), dtype=bool)
-        
-        # Scale and check
-        embeddings = np.array(embeddings)
-        embeddings_scaled = self.scaler.transform(embeddings)
-        
-        scores_valid = self.svm.decision_function(embeddings_scaled)
-        domain_valid = self.svm.predict(embeddings_scaled) == 1
-        
-        # Map back
-        scores = np.full(len(smiles_list), -999.0)
-        domain = np.zeros(len(smiles_list), dtype=bool)
-        
-        for i, idx in enumerate(valid_idx):
-            scores[idx] = scores_valid[i]
-            domain[idx] = domain_valid[i]
-        
+
+        if embeddings:
+            emb_arr = self.scaler.transform(np.array(embeddings))
+            scores_v = self.svm.decision_function(emb_arr)
+            domain_v = self.svm.predict(emb_arr) == 1
+            for j, idx in enumerate(valid_idx):
+                scores[idx] = scores_v[j]
+                domain[idx] = domain_v[j]
+                self._ad_cache[smiles_list[idx]] = (float(scores_v[j]), bool(domain_v[j]))
+
         return scores, domain
 
     def predict_mixture_ysi(self, additive_smiles: str) -> Optional[float]:
         """
-        Predict mixture YSI using the linear blending law (mass-fraction weighted):
-            ysi_mix = sum(ysi_i * mass_frac_i)
-
-        The additive_fraction in config is treated as a mole fraction; it is
-        converted to a mass fraction together with the base fuel components
-        using RDKit exact molecular weights.
+        Predict mixture YSI using the linear blending law (mass-fraction weighted).
 
         Args:
             additive_smiles: SMILES of the additive molecule.
@@ -283,53 +320,26 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         Returns:
             ysi_mix: Predicted mixture YSI, or None if any step fails.
         """
-        from rdkit import Chem
-        from rdkit.Chem import Descriptors
+        from core.blending.blending_law import blend_ysi_mass_weighted
 
         mc = self.config.mixture_config
-
-        # Build full mole-fraction list: additive + base components
         base_ratio = 1.0 - mc.additive_fraction
         all_smiles = [additive_smiles] + self.base_smiles
         all_mole_fracs = [mc.additive_fraction] + [f * base_ratio for f in self.base_fractions]
 
-        # Compute molecular weights
-        mol_weights = []
-        for smi in all_smiles:
-            mol = Chem.MolFromSmiles(smi)
-            if mol is None:
-                return None
-            mol_weights.append(Descriptors.ExactMolWt(mol))
-
-        # Convert mole fractions -> mass fractions
-        masses = [x * mw for x, mw in zip(all_mole_fracs, mol_weights)]
-        total_mass = sum(masses)
-        if total_mass == 0:
-            return None
-        mass_fracs = [m / total_mass for m in masses]
-
-        # Ensure YSI predictor is loaded
         if 'ysi' not in self.predictor.predictors:
             from core.predictors.pure_component.generic import GenericPredictor
             from core.predictors.pure_component.hf_models import load_models
             paths = load_models()
             self.predictor.predictors['ysi'] = GenericPredictor(paths['ysi'], 'YSI')
 
-        # Predict pure-component YSI for all components
         props = self.predictor.predict_all_properties(all_smiles)
         ysi_values = props.get('ysi', [])
 
         if len(ysi_values) != len(all_smiles):
             return None
 
-        # Apply blending law: ysi_mix = sum(ysi_i * mass_frac_i)
-        ysi_mix = 0.0
-        for ysi_i, mf_i in zip(ysi_values, mass_fracs):
-            if ysi_i is None:
-                return None
-            ysi_mix += ysi_i * mf_i
-
-        return ysi_mix
+        return blend_ysi_mass_weighted(all_smiles, all_mole_fracs, ysi_values)
 
     def predict_mixture_ysi_batch(self, smiles_list: List[str]) -> List[Optional[float]]:
         """Predict mixture YSI for a list of additives."""
@@ -369,23 +379,34 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
             filter_stats['ad_filtered'] = len(smiles_list)
             return [], filter_stats
 
-        # STEP 2: Get DCN predictions only for in-domain molecules
+        # STEP 2: Get DCN predictions only for in-domain molecules (cache-first)
         in_domain_indices = [i for i, ok in enumerate(in_domain_array) if ok]
         in_domain_smiles = [smiles_list[i] for i in in_domain_indices]
 
-        dcn_for_in_domain = self.mixture_predictor.predict_batch_mixtures(
-            additive_smiles_list=in_domain_smiles,
-            base_smiles=self.base_smiles,
-            base_mole_fractions=self.base_fractions,
-            additive_fraction=mc.additive_fraction,
-            verbose=False
+        cached_dcns = self.dcn_cache.get_batch(
+            in_domain_smiles, mc.base_fuel_type, mc.additive_fraction
         )
+        uncached_smiles = [s for s in in_domain_smiles if s not in cached_dcns]
 
-        mixture_dcns_in_domain = dict(zip(in_domain_indices, dcn_for_in_domain))
+        if uncached_smiles:
+            new_dcns = self.mixture_predictor.predict_batch_mixtures(
+                additive_smiles_list=uncached_smiles,
+                base_smiles=self.base_smiles,
+                base_mole_fractions=self.base_fractions,
+                additive_fraction=mc.additive_fraction,
+                verbose=False,
+            )
+            self.dcn_cache.set_batch(
+                dict(zip(uncached_smiles, new_dcns)),
+                mc.base_fuel_type,
+                mc.additive_fraction,
+            )
+            cached_dcns.update(zip(uncached_smiles, new_dcns))
+
+        mixture_dcns_in_domain = {orig_idx: cached_dcns.get(smiles_list[orig_idx])
+                                   for orig_idx in in_domain_indices}
 
         # STEP 3: Predict YSI only for in-domain additives + base components
-        from rdkit import Chem
-        from rdkit.Chem import Descriptors
 
         # Ensure YSI predictor is loaded
         if 'ysi' not in self.predictor.predictors:
@@ -402,27 +423,10 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         ysi_by_orig_idx = {orig_idx: ysi_for_in_domain[pos]
                            for pos, orig_idx in enumerate(in_domain_indices)}
 
-        # Pre-compute base component YSI and molecular weights (same for every additive)
+        # Pre-compute base component YSI (same for every additive)
         base_ysi = ysi_for_in_domain[len(in_domain_smiles):]
-        base_mws = []
-        for smi in self.base_smiles:
-            mol = Chem.MolFromSmiles(smi)
-            base_mws.append(Descriptors.ExactMolWt(mol) if mol is not None else None)
 
-        def _blend_ysi(additive_ysi, additive_mw):
-            if additive_ysi is None or additive_mw is None:
-                return None
-            if any(y is None or mw is None for y, mw in zip(base_ysi, base_mws)):
-                return None
-            mole_fracs = [mc.additive_fraction] + [f * base_ratio for f in self.base_fractions]
-            mol_weights = [additive_mw] + base_mws
-            masses = [x * mw for x, mw in zip(mole_fracs, mol_weights)]
-            total = sum(masses)
-            if total == 0:
-                return None
-            mass_fracs = [m / total for m in masses]
-            ysi_components = [additive_ysi] + list(base_ysi)
-            return sum(y * mf for y, mf in zip(ysi_components, mass_fracs))
+        from core.blending.blending_law import blend_ysi_mass_weighted
 
         # STEP 4: Create molecules — only iterate over in-domain candidates
         filter_stats['ad_filtered'] = n_out_domain
@@ -437,9 +441,12 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
                 continue
 
             additive_ysi = ysi_by_orig_idx.get(i)
-            mol = Chem.MolFromSmiles(smiles)
-            additive_mw = Descriptors.ExactMolWt(mol) if mol is not None else None
-            mixture_ysi = _blend_ysi(additive_ysi, additive_mw)
+            mole_fracs = [mc.additive_fraction] + [f * base_ratio for f in self.base_fractions]
+            mixture_ysi = blend_ysi_mass_weighted(
+                [smiles] + self.base_smiles,
+                mole_fracs,
+                [additive_ysi] + list(base_ysi),
+            )
 
             filter_stats['passed'] += 1
 
@@ -576,7 +583,9 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
             if len(new_molecules) >= target_count:
                 break
 
-            parent = random.choice(survivors)
+            weights = np.array([m.fitness(self.config) for m in survivors])
+            weights /= weights.sum()
+            parent = survivors[np.random.choice(len(survivors), p=weights)]
             mol = Chem.MolFromSmiles(parent.smiles)
             if mol is None:
                 continue
@@ -604,3 +613,84 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
               f"(property constraints applied at end)")
 
         return new_molecules, cumulative_stats
+
+    def _predict_densities(self, smiles_list: List[str]) -> Dict[str, Optional[float]]:
+        """Return a SMILES→density map, handling featurization drop-outs."""
+        from core.shared_features import featurize_df
+
+        if not smiles_list:
+            return {}
+
+        # Start with all None; only successful predictions overwrite entries.
+        density_map: Dict[str, Optional[float]] = {smi: None for smi in smiles_list}
+
+        # return_df=True gives back which SMILES actually survived featurization,
+        # avoiding a silent length mismatch when descriptors fail for some molecules.
+        result = featurize_df(smiles_list, return_df=True)
+        if result is None or result[0] is None:
+            return density_map
+
+        X, df_valid = result
+        valid_smiles = df_valid['SMILES'].tolist()
+
+        preds = self.predictor.predictors['density'].predict_from_features(X)
+        for smi, val in zip(valid_smiles, preds):
+            try:
+                density_map[smi] = float(val) if val is not None and np.isfinite(val) else None
+            except (TypeError, ValueError):
+                density_map[smi] = None
+
+        n_none = sum(1 for v in density_map.values() if v is None)
+        if n_none:
+            smi_sample = next(s for s in smiles_list if density_map.get(s) is None)
+            print(f"  ⚠ Density None for {n_none}/{len(smiles_list)} SMILES "
+                  f"(e.g. '{smi_sample}')")
+
+        return density_map
+
+    def _compute_mixture_bp(self, additive_smiles_list: List[str]) -> Dict[str, Optional[float]]:
+        """Compute Riazi-Daubert mixture boiling point (°C) for each unique additive SMILES."""
+        from core.blending.blending_law import blend_bp_riazi_daubert
+
+        mc = self.config.mixture_config
+        base_ratio = 1.0 - mc.additive_fraction
+
+        unique = list(dict.fromkeys(additive_smiles_list))
+        density_map = self._predict_densities(unique + self.base_smiles)
+
+        base_densities = [density_map.get(smi) for smi in self.base_smiles]
+        mole_fracs = [mc.additive_fraction] + [f * base_ratio for f in self.base_fractions]
+
+        results = {}
+        for smi in unique:
+            all_densities = [density_map.get(smi)] + base_densities
+            # blend_bp_riazi_daubert expects specific gravity in g/cm³;
+            # the density predictor returns kg/m³, so divide by 1000.
+            all_densities_gcc = [
+                d / 1000.0 if d is not None else None for d in all_densities
+            ]
+            results[smi] = blend_bp_riazi_daubert(
+                [smi] + self.base_smiles,
+                mole_fracs,
+                all_densities_gcc,
+            )
+        return results
+
+    def _generate_results(self):
+        """Generate final DataFrames and append mixture_bp for the final population."""
+        final_df, pareto_df, unfiltered_df = super()._generate_results()
+
+        all_smiles = []
+        for df in (final_df, pareto_df, unfiltered_df):
+            if not df.empty and 'smiles' in df.columns:
+                all_smiles.extend(df['smiles'].tolist())
+
+        if all_smiles:
+            print("  Computing mixture boiling points (Riazi-Daubert)...")
+            bp_map = self._compute_mixture_bp(list(dict.fromkeys(all_smiles)))
+
+            for result_df in (final_df, pareto_df, unfiltered_df):
+                if not result_df.empty and 'smiles' in result_df.columns:
+                    result_df['mixture_bp'] = result_df['smiles'].map(bp_map)
+
+        return final_df, pareto_df, unfiltered_df

@@ -12,7 +12,7 @@ import pandas as pd
 
 def extract_mixture_embeddings_simple(
     csv_path: str = "data/database/mixture_training_dataset.csv",
-    model_dir: str = "core/predictors/mixture/solvation_predictor/trained_models/DCN"
+    model_dir: str = "models/mixture/dcn"
 ):
     """
     Extract mixture embeddings from your training data in 5 simple steps.

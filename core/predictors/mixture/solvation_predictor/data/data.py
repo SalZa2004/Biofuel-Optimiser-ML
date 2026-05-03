@@ -1,5 +1,4 @@
 import csv
-from memory_profiler import profile
 import numpy as np
 import torch
 #from features.calculated_features import morgan_fingerprint
@@ -8,7 +7,7 @@ from rdkit.Chem.Scaffolds import MurckoScaffold
 from rdkit.Chem import Lipinski
 
 from torch import nn
-from core.predictors.mixture.solvation_predictor.features.MolEncoder import MolEncoder
+from ..features.MolEncoder import MolEncoder
 from torch.utils.data.dataset import Dataset
 
 import random
