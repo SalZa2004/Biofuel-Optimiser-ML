@@ -550,4 +550,8 @@ Solvation predictor architecture adapted for mixture DCN prediction.
 Repository: https://gitlab.kuleuven.be/creas/vermeiregroup/molpool-for-fuels-properties  
 Used in: `core/predictors/mixture/solvation_predictor/`, `SalZa2004/MolPool_GNN_model`
 
-**[2]** *[TBD — add citation for biodiesel CN predictor model: `mrashid26/Biodiesel_CN_Predictor`]*
+**[2] CReM: chemically reasonable mutations framework for structure generation** — Pavel Polishchuk  
+Polishchuk, P. CReM: chemically reasonable mutations framework for structure generation. *J Cheminform* **12**, 28 (2020). https://doi.org/10.1186/s13321-020-00431-w  
+PMC: https://pmc.ncbi.nlm.nih.gov/articles/PMC7178718/  
+Used in: `core/evolution/evolution.py`, `core/evolution/mixture_evolution.py`
+
