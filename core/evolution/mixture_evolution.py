@@ -164,6 +164,7 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
         self.use_ad_filtering = use_ad_filtering
         if use_ad_filtering:
             self._load_ad_checker()
+        self._mol_db = None  # lazy-loaded MolencoderDatabase cache
 
         # Pre-populate DCN cache from database
         mc = self.config.mixture_config
@@ -230,7 +231,9 @@ class MixtureAwareMolecularEvolution(MolecularEvolution):
 
         # Build DataPoint once — reused across all 10 models
         try:
-            mol_db = MolencoderDatabase()
+            if self._mol_db is None:
+                self._mol_db = MolencoderDatabase()
+            mol_db = self._mol_db
             dp = DataPoint(
                 smiles=mixture_smiles,
                 targets=[0.0],

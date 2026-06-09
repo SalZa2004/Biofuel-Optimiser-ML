@@ -34,17 +34,21 @@ def load_raw_data():
 # ============================================================================
 from rdkit import Chem
 from rdkit.Chem import Descriptors, rdFingerprintGenerator
+from rdkit.DataStructs import ConvertToNumpyArray
 from tqdm import tqdm
 
 # Get descriptor names globally
 DESCRIPTOR_NAMES = [d[0] for d in Descriptors._descList]
 desc_functions = [d[1] for d in Descriptors._descList]
 
+# Module-level cached generator — avoids re-creating it on every call
+_FPGEN = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+
 def morgan_fp_from_mol(mol, radius=2, n_bits=2048):
     """Generate Morgan fingerprint."""
-    fpgen = rdFingerprintGenerator.GetMorganGenerator(radius=radius, fpSize=n_bits)
-    fp = fpgen.GetFingerprint(mol)
-    arr = np.array(list(fp.ToBitString()), dtype=int)
+    fp = _FPGEN.GetFingerprint(mol)
+    arr = np.empty(2048, dtype=np.uint8)
+    ConvertToNumpyArray(fp, arr)
     return arr
 
 def physchem_desc_from_mol(mol):
@@ -87,7 +91,7 @@ def featurize_df(df, smiles_col="SMILES", return_df=True):
     valid_indices = []
     
     # Process valid molecules
-    for i, mol in enumerate(tqdm(mols, desc="Featurizing")):
+    for i, mol in enumerate(tqdm(mols, desc="Featurizing", disable=True)):
         if mol is None:
             continue
             
@@ -179,24 +183,27 @@ class FeatureSelector:
         self.is_fitted = True
         return self
     
+    def _build_absolute_indices(self, n_total_features: int):
+        """Precompute absolute column indices into the raw feature array."""
+        n_desc = n_total_features - self.n_morgan
+        kept_desc_cols = sorted(set(range(n_desc)) - set(int(c) for c in self.corr_cols_to_drop))
+        abs_indices = []
+        for idx in self.selected_indices:
+            if idx < self.n_morgan:
+                abs_indices.append(int(idx))
+            else:
+                abs_indices.append(self.n_morgan + kept_desc_cols[int(idx) - self.n_morgan])
+        self._absolute_transform_indices = np.array(abs_indices)
+
     def transform(self, X):
         """Apply the fitted feature selection to new data."""
         if not self.is_fitted:
             raise RuntimeError("FeatureSelector must be fitted before transform!")
-        
-        # Step 1: Split Morgan and descriptors
-        X_mfp = X[:, :self.n_morgan]
-        X_desc = X[:, self.n_morgan:]
-        
-        # Step 2: Remove same correlated descriptors
-        desc_df = pd.DataFrame(X_desc)
-        desc_filtered = desc_df.drop(columns=self.corr_cols_to_drop, axis=1).values
-        X_corr = np.hstack([X_mfp, desc_filtered])
-        
-        # Step 3: Select same important features
-        X_selected = X_corr[:, self.selected_indices]
-        
-        return X_selected
+
+        if not hasattr(self, '_absolute_transform_indices'):
+            self._build_absolute_indices(X.shape[1])
+
+        return X[:, self._absolute_transform_indices]
     
     def fit_transform(self, X, y):
         """Fit and transform in one step."""

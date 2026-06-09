@@ -185,8 +185,10 @@ class MixtureDCNPredictor:
         if abs(sum(mixture_fractions) - 1.0) > 1e-6:
             raise ValueError(f"Fractions must sum to 1.0, got {sum(mixture_fractions)}")
         
-        # Create MolencoderDatabase (THIS IS THE KEY!)
-        mol_encoder_db = MolencoderDatabase()
+        # Reuse cached MolencoderDatabase across all datapoints
+        if not hasattr(self, '_mol_encoder_db') or self._mol_encoder_db is None:
+            self._mol_encoder_db = MolencoderDatabase()
+        mol_encoder_db = self._mol_encoder_db
         
         # DataPoint constructor signature from data.py:
         # __init__(self, smiles, targets, features, molefracs, inp: TrainArgs, mol_encoders: MolencoderDatabase)

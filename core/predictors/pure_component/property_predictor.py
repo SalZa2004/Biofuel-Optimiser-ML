@@ -24,7 +24,7 @@ class PropertyPredictor:
         self.predictors['density'] = GenericPredictor(PREDICTOR_PATHS['density'], 'Density')
         self.predictors['lhv'] = GenericPredictor(PREDICTOR_PATHS['lhv'], 'LHV')
         self.predictors['dynamic_viscosity'] = GenericPredictor(PREDICTOR_PATHS['dynamic_viscosity'], 'Dynamic Viscosity')
-        self._init_tanimoto_reference()
+        self._train_fps = None  # lazy-loaded on first compute_tanimoto call
 
         
         if self.config is None:
@@ -61,6 +61,8 @@ class PropertyPredictor:
         Compute max Tanimoto similarity to training set
         for each SMILES.
         """
+        if self._train_fps is None:
+            self._init_tanimoto_reference()
         results = []
 
         for s in smiles_list:
@@ -120,8 +122,6 @@ class PropertyPredictor:
                 if pred_i is not None:
                     full[orig_i] = preds[pred_i]
             results[prop_name] = full
-
-        results["tanimoto"] = self.compute_tanimoto(smiles_list)
 
         return results
     
