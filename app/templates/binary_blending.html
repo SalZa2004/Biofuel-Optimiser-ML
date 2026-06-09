@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container py-4">
+
+  <div class="mb-4">
+    <h2 class="fw-bold mb-2">Binary Blending Tool</h2>
+    <p class="text-muted mb-0">
+      Sweep a single additive across a base fuel and predict how mixture DCN and YSI change with blend ratio.
+    </p>
+  </div>
+
+  {% if error %}
+  <div class="alert alert-danger">
+    <i class="bi bi-exclamation-triangle me-2"></i>{{ error }}
+  </div>
+  {% endif %}
+
+  {% if warning %}
+  <div class="alert alert-warning">
+    <i class="bi bi-exclamation-circle me-2"></i>{{ warning }}
+  </div>
+  {% endif %}
+
+  <div class="row g-4">
+
+    <!-- Input -->
+    <div class="col-lg-5">
+      <div class="card card-metric p-4 h-100">
+        <h5 class="fw-bold mb-3">Blend Sweep Configuration</h5>
+
+        <form method="POST">
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Additive SMILES</label>
+            <input
+              type="text"
+              name="additive_smiles"
+              class="form-control"
+              value="{{ form_values.additive_smiles }}"
+              placeholder="e.g. CCCCCCCCCC"
+              required
+            >
+            <div class="form-text">
+              Enter the SMILES of the additive to blend into the base fuel.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Base Fuel</label>
+            <select name="base_fuel_type" class="form-select">
+              <option value="fossil_diesel" {% if form_values.base_fuel_type == "fossil_diesel" %}selected{% endif %}>
+                Fossil diesel
+              </option>
+              <option value="biodiesel" {% if form_values.base_fuel_type == "biodiesel" %}selected{% endif %}>
+                Biodiesel
+              </option>
+            </select>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label class="form-label small fw-semibold">Min fraction</label>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                max="1"
+                name="min_fraction"
+                class="form-control"
+                value="{{ form_values.min_fraction }}"
+              >
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label small fw-semibold">Max fraction</label>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                max="1"
+                name="max_fraction"
+                class="form-control"
+                value="{{ form_values.max_fraction }}"
+              >
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label small fw-semibold">Steps</label>
+              <input
+                type="number"
+                min="2"
+                max="50"
+                name="n_steps"
+                class="form-control"
+                value="{{ form_values.n_steps }}"
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary mt-4 w-100">
+            Run Blend Sweep
+          </button>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- Result Summary -->
+    <div class="col-lg-7">
+      <div class="card card-metric p-4 h-100">
+        <h5 class="fw-bold mb-3">Sweep Output</h5>
+
+        {% if result %}
+          <div class="row g-3 mb-3">
+
+            <div class="col-md-6">
+              <div class="border rounded-3 p-3 bg-white">
+                <p class="text-muted small mb-1">Additive</p>
+                <code>{{ result.additive_smiles }}</code>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="border rounded-3 p-3 bg-white">
+                <p class="text-muted small mb-1">Base fuel</p>
+                <h6 class="fw-bold mb-0">{{ result.base_fuel_type }}</h6>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="border rounded-3 p-3 bg-white">
+                <p class="text-muted small mb-1">Points</p>
+                <h5 class="fw-bold mb-0">{{ result.n_points }}</h5>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="border rounded-3 p-3 bg-white">
+                <p class="text-muted small mb-1">DCN range</p>
+                <h6 class="fw-bold mb-0">{{ result.min_dcn }} – {{ result.max_dcn }}</h6>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="border rounded-3 p-3 bg-white">
+                <p class="text-muted small mb-1">YSI range</p>
+                <h6 class="fw-bold mb-0">{{ result.min_ysi }} – {{ result.max_ysi }}</h6>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="border rounded-3 p-3 bg-white text-center">
+                <a href="{{ url_for('download_binary_blending') }}" class="btn btn-outline-success btn-sm mt-1">
+                  Download CSV
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="alert alert-info small mb-0">
+            DCN is predicted using the mixture GNN model. YSI is estimated from pure-component YSI values
+            using a mass-fraction blending law.
+          </div>
+
+        {% else %}
+          <div class="text-center text-muted py-5">
+            <i class="bi bi-sliders display-5 d-block mb-3"></i>
+            <p class="fw-semibold mb-1">No blend sweep yet</p>
+            <p class="small mb-0">Enter an additive and sweep range, then run the prediction.</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+
+  {% if result_table %}
+  <div class="card card-metric p-4 mt-4">
+    <h5 class="fw-bold mb-3">Blend Sweep Results</h5>
+
+    <div class="table-responsive">
+      {{ result_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+{% endblock %}

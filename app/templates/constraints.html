@@ -2,22 +2,124 @@
 {% block content %}
 
 <div class="container py-4">
+
   <h3 class="fw-bold mb-4">Fuel Property Constraints</h3>
 
   <div class="card card-metric p-4 mb-4">
-    <h5 class="fw-bold mb-3">Design Constraints Applied in BioFuelOpt</h5>
+    <h5 class="fw-bold mb-3">Fuel Constraints Applied in CNthesizer</h5>
 
-    <ul>
-      <li><strong>DCN Range:</strong> add description here</li>
-      <li><strong>YSI Threshold:</strong> add description here</li>
-      <li><strong>More properties:</strong> more description...</li>
-
-    </ul>
-
-    <p class="text-muted mt-3">
-      Can include all relevent contraints used in the model here
+    <p class="text-muted">
+      The following constraints are used to assess whether predicted fuel properties fall within
+      acceptable operational limits for compression-ignition (CI) engine applications.
     </p>
   </div>
+
+  <!-- Pure Component Constraints -->
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-3">Pure Component Constraints</h5>
+
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th style="width: 90px;">No.</th>
+            <th>Constraint</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>
+              Cetane number must satisfy a minimum threshold,
+              <strong>CN ≥ 40</strong>, to ensure acceptable ignition quality.
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>2</strong></td>
+            <td>
+              Yield Sooting Index must remain below a defined limit,
+              <strong>YSI ≤ 50</strong>, to control particulate emissions.
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>3</strong></td>
+            <td>
+              Density must satisfy a minimum threshold,
+              <strong>ρ ≥ 720 kg m<sup>−3</sup></strong>, for compatibility with CI engines.
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>4</strong></td>
+            <td>
+              Dynamic viscosity must remain below a defined limit,
+              <strong>μ ≤ 2.0 mPa s</strong>, to ensure proper fuel injection behaviour.
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>5</strong></td>
+            <td>
+              Boiling point must lie within a specified range,
+              <strong>60°C ≤ T<sub>b</sub> ≤ 250°C</strong>, for compatibility with CI engines.
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>6</strong></td>
+            <td>
+              Lower heating value must satisfy a minimum threshold,
+              <strong>LHV ≥ 30 MJ kg<sup>−1</sup></strong>, to maintain sufficient energy content.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Mixture Constraints -->
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-3">Mixture Constraints</h5>
+
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th style="width: 90px;">No.</th>
+            <th>Constraint</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>7</strong></td>
+            <td>
+              Cetane number must satisfy a minimum threshold,
+              <strong>CN ≥ 51</strong>, consistent with the BS EN 590 standard.
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>8</strong></td>
+            <td>
+              Density must lie within the range,
+              <strong>820 ≤ ρ ≤ 845 kg m<sup>−3</sup></strong>, consistent with the BS EN 590 standard.
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>9</strong></td>
+            <td>
+              Boiling point must fall within the range,
+              <strong>180°C ≤ T<sub>b</sub> ≤ 360°C</strong>, consistent with the BS EN 590 standard.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>
 
 {% endblock %}

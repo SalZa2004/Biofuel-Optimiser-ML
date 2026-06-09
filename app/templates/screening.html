@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container py-4">
+
+  <!-- Header -->
+  <div class="mb-4">
+    <h2 class="fw-bold mb-2">Biofuel Screening Tool</h2>
+    <p class="text-muted mb-0">
+      Screen candidate fuels from a CSV file using property prediction, cetane number targeting,
+      filtering, and Pareto ranking.
+    </p>
+  </div>
+
+  {% if error %}
+  <div class="alert alert-danger">
+    <i class="bi bi-exclamation-triangle me-2"></i>{{ error }}
+  </div>
+  {% endif %}
+
+  {% if info %}
+  <div class="alert alert-info">
+    <i class="bi bi-info-circle me-2"></i>{{ info }}
+  </div>
+  {% endif %}
+
+  <!-- Input Form -->
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-3">Screening Configuration</h5>
+
+    <form method="POST" enctype="multipart/form-data">
+
+      <div class="row g-3">
+
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Screening Mode</label>
+          <select name="mode" id="screeningMode" class="form-select" onchange="toggleFilterPanel()">
+            <option value="pure_component">Pure Component Screening</option>
+            <option value="mixture">Mixture Screening</option>
+          </select>
+          <div class="form-text">
+            Pure mode expects a CSV with a <code>smiles</code> column.
+            Mixture mode expects mixture database format.
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Target CN</label>
+          <input type="number" step="0.01" name="target_cn" class="form-control" value="50">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">CSV File</label>
+          <input type="file" name="csv_file" accept=".csv" class="form-control">
+        </div>
+
+      </div>
+
+      <!-- Pure component filters -->
+      <div id="filterPanel" class="border rounded-3 p-3 mt-4">
+        <h6 class="fw-bold mb-3">Property Filters for Pure Component Screening</h6>
+
+        <div class="row g-3">
+
+          <div class="col-md-3">
+            <label class="form-label small fw-semibold">Min BP (°C)</label>
+            <input type="number" step="0.01" name="bp_min" class="form-control" value="60">
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label small fw-semibold">Max BP (°C)</label>
+            <input type="number" step="0.01" name="bp_max" class="form-control" value="250">
+          </div>
+
+          <div class="col-md-2">
+            <label class="form-label small fw-semibold">Min Density</label>
+            <input type="number" step="0.01" name="density_min" class="form-control" value="720">
+          </div>
+
+          <div class="col-md-2">
+            <label class="form-label small fw-semibold">Min LHV</label>
+            <input type="number" step="0.01" name="lhv_min" class="form-control" value="30">
+          </div>
+
+          <div class="col-md-2">
+            <label class="form-label small fw-semibold">Min Viscosity</label>
+            <input type="number" step="0.01" name="viscosity_min" class="form-control" value="2">
+          </div>
+
+        </div>
+
+        <div class="form-text mt-2">
+          Default filters match the CLI settings: BP 60–250 °C, density ≥ 720 kg/m³,
+          LHV ≥ 30 MJ/kg, and viscosity ≥ 2 cSt.
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-4">
+        Run Screening
+      </button>
+
+    </form>
+  </div>
+
+  <!-- Run summary -->
+  {% if run_info %}
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-3">Screening Summary</h5>
+
+    <div class="row g-3">
+      <div class="col-md-3">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Mode</p>
+          <h6 class="fw-bold mb-0">{{ run_info.mode }}</h6>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Target CN</p>
+          <h6 class="fw-bold mb-0">{{ run_info.target_cn }}</h6>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">All</p>
+          <h6 class="fw-bold mb-0">{{ run_info.n_all }}</h6>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Filtered</p>
+          <h6 class="fw-bold mb-0">{{ run_info.n_filtered }}</h6>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Pareto</p>
+          <h6 class="fw-bold mb-0">{{ run_info.n_pareto }}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Filtered results -->
+  {% if filtered_table %}
+  <div class="card card-metric p-4 mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+      <h5 class="fw-bold mb-0">Top / Filtered Candidates</h5>
+      <a href="{{ url_for('download_screening_result', result_type='filtered') }}" class="btn btn-outline-success btn-sm">
+        Download Filtered Results
+      </a>
+    </div>
+
+    <div class="table-responsive">
+      {{ filtered_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Pareto results -->
+  {% if pareto_table %}
+  <div class="card card-metric p-4 mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+      <h5 class="fw-bold mb-0">Pareto Front</h5>
+      <a href="{{ url_for('download_screening_result', result_type='pareto') }}" class="btn btn-outline-primary btn-sm">
+        Download Pareto Results
+      </a>
+    </div>
+
+    <p class="text-muted small">
+      Pareto candidates balance low CN error with low YSI.
+    </p>
+
+    <div class="table-responsive">
+      {{ pareto_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- All candidates -->
+  {% if all_table %}
+  <div class="card card-metric p-4 mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+      <h5 class="fw-bold mb-0">All Candidates</h5>
+      <a href="{{ url_for('download_screening_result', result_type='all') }}" class="btn btn-outline-secondary btn-sm">
+        Download All Results
+      </a>
+    </div>
+
+    <div class="table-responsive">
+      {{ all_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+function toggleFilterPanel() {
+  const mode = document.getElementById("screeningMode").value;
+  const panel = document.getElementById("filterPanel");
+
+  if (mode === "pure_component") {
+    panel.style.display = "block";
+  } else {
+    panel.style.display = "none";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", toggleFilterPanel);
+</script>
+
+{% endblock %}

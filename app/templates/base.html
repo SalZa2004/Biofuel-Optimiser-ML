@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>BioFuelOpt</title>
+  <title>CNthesizer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap 5 -->
@@ -27,43 +27,71 @@
   <nav id="sidebar-wrapper" class="glass-sidebar">
 
     <div class="sidebar-header text-center py-4">
-      <h5 class="fw-bold m-0">BioFuelOpt 1.0</h5>
+      <h5 class="fw-bold m-0">CNthesizer</h5>
     </div>
 
     <div class="list-group list-group-flush mt-3">
 
+      <!--Dashboard -->
       <a href="{{ url_for('dashboard') }}"
          class="list-group-item sidebar-link {% if request.endpoint == 'dashboard' %}active{% endif %}">
-        <i class="bi bi-speedometer2 me-3"></i>Dashboard
+        <i class="bi bi-grid-1x2-fill me-3"></i>Dashboard
       </a>
 
+      <!--Property Prediction -->
+      <div class="sidebar-section-title">Property Prediction</div>
+      
       <a href="{{ url_for('pure_predictor') }}"
-         class="list-group-item sidebar-link {% if request.endpoint == 'pure_predictor' %}active{% endif %}">
-        <i class="bi bi-droplet-half me-3"></i>Pure fuel predictor
+         class="list-group-item sidebar-link sidebar-sub-link {% if request.endpoint == 'pure_predictor' %}active{% endif %}">
+        <i class="bi bi-droplet-fill me-3"></i>Pure Fuel Property Predictor
       </a>
 
       <a href="{{ url_for('mixture_predictor') }}"
-         class="list-group-item sidebar-link {% if request.endpoint == 'mixture_predictor' %}active{% endif %}">
-        <i class="bi bi-bezier2 me-3"></i>Mixture fuel predictor
+         class="list-group-item sidebar-link sidebar-sub-link {% if request.endpoint == 'mixture_predictor' %}active{% endif %}">
+        <i class="bi bi-diagram-3-fill me-3"></i>Mixture CN Predictor
       </a>
 
+      <a href="{{ url_for('fame_cn_predictor') }}"
+         class="list-group-item sidebar-link sidebar-sub-link {% if request.endpoint == 'fame_cn_predictor' %}active{% endif %}">
+        <i class="bi bi-fuel-pump-fill me-3"></i>Biodiesel CN Predictor
+      </a>
+
+      <!--Optimisation -->
+      <div class="sidebar-section-title">Optimisation</div>
+
+      <a href="{{ url_for('screening') }}"
+         class="list-group-item sidebar-link sidebar-sub-link {% if request.endpoint == 'screening' or request.endpoint == 'constraints' %}active{% endif %}">
+        <i class="bi bi-search me-3"></i>Screening
+      </a>
+
+      <a href="{{ url_for('binary_blending') }}"
+         class="list-group-item sidebar-link sidebar-sub-link {% if request.endpoint == 'binary_blending' %}active{% endif %}">
+        <i class="bi bi-intersect me-3"></i>Binary Blending
+      </a>
+
+      <!--Generation -->
+      <div class="sidebar-section-title">Generation</div>
+      
       <a href="{{ url_for('generative') }}"
-         class="list-group-item sidebar-link {% if request.endpoint == 'generative' %}active{% endif %}">
-        <i class="bi bi-stars me-3"></i>Generative molecule
+         class="list-group-item sidebar-link sidebar-sub-link {% if request.endpoint == 'generative' %}active{% endif %}">
+        <i class="bi bi-magic me-3"></i>Pure Fuel Generator
       </a>
 
-      <a href="{{ url_for('constraints') }}"
-         class="list-group-item sidebar-link {% if request.endpoint == 'constraints' %}active{% endif %}">
-        <i class="bi bi-sliders me-3"></i>Fuel constraints
+      <a href="{{ url_for('generative_mixture') }}"
+         class="list-group-item sidebar-link sidebar-sub-link {% if request.endpoint == 'generative_mixture' %}active{% endif %}">
+        <i class="bi bi-node-plus-fill me-3"></i>Blend Component Generator
       </a>
+
+      <!-- Supporting Pages -->
+      <div class="sidebar-section-title">Supporting Pages</div>
 
       <a href="{{ url_for('dataset') }}"
-         class="list-group-item sidebar-link {% if request.endpoint == 'dataset' %}active{% endif %}">
-        <i class="bi bi-table me-3"></i>Dataset
+         class="list-group-item sidebar-link sidebar-sub-link {% if request.endpoint == 'dataset' %}active{% endif %}">
+        <i class="bi bi-database-fill me-3"></i>Dataset 
       </a>
 
       <a href="{{ url_for('about') }}"
-         class="list-group-item sidebar-link {% if request.endpoint == 'about' %}active{% endif %}">
+         class="list-group-item sidebar-link sidebar-sub-link {% if request.endpoint == 'about' %}active{% endif %}">
         <i class="bi bi-info-circle me-3"></i>About
       </a>
 
@@ -79,7 +107,7 @@
       <button class="btn btn-outline-light me-3" id="sidebarToggle">
         <i class="bi bi-list"></i>
       </button>
-      <span class="navbar-title-center fw-semibold">BioFuelOpt 1.0</span>
+      <span class="navbar-title-center fw-semibold">CNthesizer</span>
     </nav>
 
     <main class="container-fluid py-4">

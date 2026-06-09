@@ -2,27 +2,232 @@
 {% block content %}
 
 <div class="container py-4">
-  <h3 class="fw-bold mb-4">Generative Molecule Design</h3>
 
+  <!-- Header -->
+  <div class="mb-4">
+    <h2 class="fw-bold mb-2">Pure Fuel Generator</h2>
+    <p class="text-muted mb-0">
+      Generate candidate pure fuel molecules using molecular evolution and rank them based on
+      cetane number, fuel property constraints, and optional YSI minimisation.
+    </p>
+  </div>
+
+  <!-- Alerts -->
+  {% if error %}
+  <div class="alert alert-danger">
+    <i class="bi bi-exclamation-triangle me-2"></i>{{ error }}
+  </div>
+  {% endif %}
+
+  {% if info %}
+  <div class="alert alert-info">
+    <i class="bi bi-info-circle me-2"></i>{{ info }}
+  </div>
+  {% endif %}
+
+  <!-- Configuration form -->
   <div class="card card-metric p-4 mb-4">
-    <h5 class="fw-bold mb-3">Generate a Molecule from Target DCN</h5>
+    <h5 class="fw-bold mb-3">Generator Configuration</h5>
 
-    <form method="POST">
-      <div class="mb-3">
-        <label class="form-label">Target DCN</label>
-        <input type="number" step="0.1" name="target_dcn" class="form-control" placeholder="ex: 45" required>
+    <form method="POST" id="gen-form">
+
+      <div class="row g-3 align-items-end">
+
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Optimisation Mode</label>
+          <select name="mode" id="generatorMode" class="form-select" onchange="toggleTargetCN()">
+            <option value="target">Target a specific CN</option>
+            <option value="maximize">Maximise CN</option>
+          </select>
+          <div class="form-text">
+            Choose whether to target a desired CN value or search for the highest CN candidates.
+          </div>
+        </div>
+
+        <div class="col-md-3" id="targetCnBox">
+          <label class="form-label fw-semibold">Target CN</label>
+          <input type="number" step="0.01" name="target_cn" class="form-control" value="50">
+          <div class="form-text">
+            CN above 40 is recommended for easier optimisation.
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label fw-semibold">YSI Objective</label>
+          <div class="form-check mt-2">
+            <input class="form-check-input" type="checkbox" name="minimize_ysi" id="minimizeYsi">
+            <label class="form-check-label" for="minimizeYsi">
+              Minimise YSI
+            </label>
+          </div>
+          <div class="form-text">
+            Enables multi-objective optimisation for CN and smoke tendency.
+          </div>
+        </div>
+
+        <div class="col-md-2 text-md-end">
+          <button id="generate-btn" type="submit" class="btn btn-primary w-100">
+            Run Generator
+          </button>
+        </div>
+
       </div>
 
-      <button class="btn btn-primary" type="submit">Generate Molecule</button>
+      <div id="loading" class="mt-3" style="display:none;">
+        <div class="spinner-border text-primary" role="status"></div>
+        <span class="ms-2">Generating molecules… this may take a few minutes.</span>
+      </div>
+
     </form>
   </div>
 
-  {% if generated %}
+  <!-- Run summary -->
+  {% if run_info %}
   <div class="card card-metric p-4 mb-4">
-    <h5 class="fw-bold mb-3">🔬 Generated Molecule</h5>
-    {{ generated|safe }}
+    <h5 class="fw-bold mb-3">Generation Summary</h5>
+
+    <div class="row g-3">
+
+      <div class="col-md-3">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Mode</p>
+          <h6 class="fw-bold mb-0">{{ run_info.mode }}</h6>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Target CN</p>
+          <h6 class="fw-bold mb-0">
+            {% if run_info.target_cn is not none %}
+              {{ run_info.target_cn }}
+            {% else %}
+              —
+            {% endif %}
+          </h6>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Objective</p>
+          <h6 class="fw-bold mb-0">{{ run_info.objective }}</h6>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Filtered</p>
+          <h6 class="fw-bold mb-0">{{ run_info.n_final }}</h6>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Pareto</p>
+          <h6 class="fw-bold mb-0">{{ run_info.n_pareto }}</h6>
+        </div>
+      </div>
+
+    </div>
   </div>
   {% endif %}
+
+  <!-- Final filtered candidates -->
+  {% if final_table %}
+  <div class="card card-metric p-4 mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+      <div>
+        <h5 class="fw-bold mb-1">Best Candidates with Property Constraints</h5>
+        <p class="text-muted small mb-0">
+          Candidates ranked after applying fuel property filters.
+        </p>
+      </div>
+
+      <a href="{{ url_for('download_generator_result', result_type='final') }}"
+         class="btn btn-outline-success btn-sm">
+        Download Filtered CSV
+      </a>
+    </div>
+
+    <div class="table-responsive">
+      {{ final_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Unfiltered candidates -->
+  {% if unfiltered_table %}
+  <div class="card card-metric p-4 mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+      <div>
+        <h5 class="fw-bold mb-1">Best Candidates without Property Constraints</h5>
+        <p class="text-muted small mb-0">
+          Raw generated candidates before final property filtering.
+        </p>
+      </div>
+
+      <a href="{{ url_for('download_generator_result', result_type='unfiltered') }}"
+         class="btn btn-outline-secondary btn-sm">
+        Download Unfiltered CSV
+      </a>
+    </div>
+
+    <div class="table-responsive">
+      {{ unfiltered_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Pareto front -->
+  {% if pareto_table %}
+  <div class="card card-metric p-4 mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+      <div>
+        <h5 class="fw-bold mb-1">Pareto Front</h5>
+        <p class="text-muted small mb-0">
+          Non-dominated candidates balancing CN accuracy and low YSI.
+        </p>
+      </div>
+
+      <a href="{{ url_for('download_generator_result', result_type='pareto') }}"
+         class="btn btn-outline-primary btn-sm">
+        Download Pareto CSV
+      </a>
+    </div>
+
+    <div class="table-responsive">
+      {{ pareto_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
 </div>
+
+<script>
+const form = document.getElementById("gen-form");
+const btn = document.getElementById("generate-btn");
+const loading = document.getElementById("loading");
+
+function toggleTargetCN() {
+  const mode = document.getElementById("generatorMode").value;
+  const targetBox = document.getElementById("targetCnBox");
+
+  if (mode === "maximize") {
+    targetBox.style.display = "none";
+  } else {
+    targetBox.style.display = "block";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", toggleTargetCN);
+
+if (form) {
+  form.addEventListener("submit", () => {
+    btn.disabled = true;
+    loading.style.display = "block";
+  });
+}
+</script>
 
 {% endblock %}

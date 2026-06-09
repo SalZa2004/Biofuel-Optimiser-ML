@@ -3,9 +3,371 @@
 
 <div class="container py-4">
 
-    <h2 class="fw-bold mb-4">Mixture Fuel Predictor</h2>
-    <p class="text-muted">add more details hhere.</p>
+  <!-- Page Header -->
+  <div class="mb-4">
+    <h2 class="fw-bold mb-2">Mixture CN Predictor</h2>
+    <p class="text-muted mb-0">
+      Predict the derived cetane number and supporting fuel properties of a multi-component fuel mixture
+      using SMILES input and blend composition.
+    </p>
+  </div>
+
+  <!-- Alerts -->
+  {% if error %}
+  <div class="alert alert-danger">
+    <i class="bi bi-exclamation-triangle me-2"></i>{{ error }}
+  </div>
+  {% endif %}
+
+  {% if warning %}
+  <div class="alert alert-warning">
+    <i class="bi bi-exclamation-circle me-2"></i>{{ warning }}
+  </div>
+  {% endif %}
+
+  <div class="row g-4">
+
+    <!-- Input Form -->
+    <div class="col-lg-7">
+      <div class="card card-metric p-4 h-100">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <div>
+            <h5 class="fw-bold mb-1">Mixture Composition</h5>
+            <p class="text-muted small mb-0">
+              Enter at least two components. The total composition must equal 100%.
+            </p>
+          </div>
+          <span class="badge bg-light text-dark border">SMILES input</span>
+        </div>
+
+        <form method="POST" id="mixtureForm">
+
+          <div id="componentRows">
+
+            {% if components %}
+              {% for comp in components %}
+              <div class="component-row border rounded-3 p-3 mb-3">
+                <div class="row g-3 align-items-end">
+                  <div class="col-md-4">
+                    <label class="form-label small fw-semibold">Component Name</label>
+                    <input type="text"
+                           name="component_name[]"
+                           class="form-control"
+                           value="{{ comp.name }}"
+                           placeholder="e.g. n-decane">
+                  </div>
+
+                  <div class="col-md-5">
+                    <label class="form-label small fw-semibold">SMILES</label>
+                    <input type="text"
+                           name="component_smiles[]"
+                           class="form-control"
+                           value="{{ comp.smiles }}"
+                           placeholder="e.g. CCCCCCCCCC">
+                  </div>
+
+                  <div class="col-md-3">
+                    <label class="form-label small fw-semibold">Composition (%)</label>
+                    <input type="number"
+                           name="component_percentage[]"
+                           class="form-control percentage-input"
+                           value="{{ comp.percentage }}"
+                           step="0.01"
+                           min="0"
+                           placeholder="50">
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            {% else %}
+              <div class="component-row border rounded-3 p-3 mb-3">
+                <div class="row g-3 align-items-end">
+                  <div class="col-md-4">
+                    <label class="form-label small fw-semibold">Component Name</label>
+                    <input type="text"
+                           name="component_name[]"
+                           class="form-control"
+                           placeholder="e.g. n-decane">
+                  </div>
+
+                  <div class="col-md-5">
+                    <label class="form-label small fw-semibold">SMILES</label>
+                    <input type="text"
+                           name="component_smiles[]"
+                           class="form-control"
+                           placeholder="e.g. CCCCCCCCCC">
+                  </div>
+
+                  <div class="col-md-3">
+                    <label class="form-label small fw-semibold">Composition (%)</label>
+                    <input type="number"
+                           name="component_percentage[]"
+                           class="form-control percentage-input"
+                           step="0.01"
+                           min="0"
+                           placeholder="50">
+                  </div>
+                </div>
+              </div>
+
+              <div class="component-row border rounded-3 p-3 mb-3">
+                <div class="row g-3 align-items-end">
+                  <div class="col-md-4">
+                    <label class="form-label small fw-semibold">Component Name</label>
+                    <input type="text"
+                           name="component_name[]"
+                           class="form-control"
+                           placeholder="e.g. n-hexadecane">
+                  </div>
+
+                  <div class="col-md-5">
+                    <label class="form-label small fw-semibold">SMILES</label>
+                    <input type="text"
+                           name="component_smiles[]"
+                           class="form-control"
+                           placeholder="e.g. CCCCCCCCCCCCCCCC">
+                  </div>
+
+                  <div class="col-md-3">
+                    <label class="form-label small fw-semibold">Composition (%)</label>
+                    <input type="number"
+                           name="component_percentage[]"
+                           class="form-control percentage-input"
+                           step="0.01"
+                           min="0"
+                           placeholder="50">
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+
+          </div>
+
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <button type="button" class="btn btn-outline-secondary" onclick="addComponentRow()">
+              <i class="bi bi-plus-circle me-1"></i>Add Component
+            </button>
+
+            <button type="button" class="btn btn-outline-danger" onclick="removeComponentRow()">
+              <i class="bi bi-dash-circle me-1"></i>Remove Last
+            </button>
+
+            <button type="submit" class="btn btn-primary ms-auto">
+              <i class="bi bi-cpu me-1"></i>Predict Mixture CN
+            </button>
+          </div>
+
+          <div class="mt-3 small text-muted">
+            Current total:
+            <span id="compositionTotal" class="fw-bold">0.00%</span>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- Result Panel -->
+    <div class="col-lg-5">
+      <div class="card card-metric p-4 h-100">
+
+        <h5 class="fw-bold mb-3">Prediction Output</h5>
+
+        {% if result %}
+          <div class="text-center p-4 rounded-3 bg-light border mb-3">
+            <p class="text-muted mb-1">Predicted Mixture DCN</p>
+            <h1 class="fw-bold display-5 mb-0">{{ result.dcn }}</h1>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="p-3 rounded-3 border bg-white">
+                <p class="text-muted small mb-1">Mixture YSI</p>
+                <h5 class="fw-bold mb-0">
+                  {% if result.ysi is not none %}{{ result.ysi }}{% else %}N/A{% endif %}
+                </h5>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="p-3 rounded-3 border bg-white">
+                <p class="text-muted small mb-1">Boiling Point</p>
+                <h5 class="fw-bold mb-0">
+                  {% if result.bp is not none %}{{ result.bp }} °C{% else %}N/A{% endif %}
+                </h5>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="p-3 rounded-3 border bg-white">
+                <p class="text-muted small mb-1">Density</p>
+                <h5 class="fw-bold mb-0">
+                  {% if result.density is not none %}{{ result.density }} kg/m³{% else %}N/A{% endif %}
+                </h5>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="p-3 rounded-3 border bg-white">
+                <p class="text-muted small mb-1">Components</p>
+                <h5 class="fw-bold mb-0">{{ result.num_components }}</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-info mt-3 mb-0 small">
+            The mixture DCN is predicted using the GNN mixture model. YSI, boiling point,
+            and density are estimated using pure-component predictions and blending laws.
+          </div>
+
+        {% else %}
+          <div class="text-center text-muted py-5">
+            <i class="bi bi-beaker display-5 d-block mb-3"></i>
+            <p class="mb-1 fw-semibold">No mixture prediction yet</p>
+            <p class="small mb-0">
+              Enter the blend composition and click Predict Mixture CN.
+            </p>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Component Summary -->
+  {% if components %}
+  <div class="card card-metric p-4 mt-4">
+    <h5 class="fw-bold mb-3">Component Summary</h5>
+
+    <div class="table-responsive">
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th>Structure</th>
+            <th>Name</th>
+            <th>SMILES</th>
+            <th>Formula</th>
+            <th>MW</th>
+            <th>Composition</th>
+            <th>Pure YSI</th>
+            <th>Pure Density</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for comp in components %}
+          <tr>
+            <td style="width: 120px;">
+              {% if comp.img_id %}
+              <img src="{{ url_for('static', filename='generated/' ~ comp.img_id) }}"
+                   class="img-fluid rounded border bg-white"
+                   alt="Molecule structure">
+              {% else %}
+              <span class="text-muted small">No image</span>
+              {% endif %}
+            </td>
+            <td>{{ comp.name }}</td>
+            <td><code>{{ comp.smiles }}</code></td>
+            <td>{{ comp.formula }}</td>
+            <td>{{ comp.mol_weight }}</td>
+            <td>{{ comp.percentage }}%</td>
+            <td>
+              {% if comp.pure_ysi is not none %}{{ comp.pure_ysi }}{% else %}N/A{% endif %}
+            </td>
+            <td>
+              {% if comp.pure_density is not none %}{{ comp.pure_density }} kg/m³{% else %}N/A{% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endif %}
 
 </div>
+
+<script>
+function addComponentRow() {
+  const container = document.getElementById("componentRows");
+
+  const row = document.createElement("div");
+  row.className = "component-row border rounded-3 p-3 mb-3";
+
+  row.innerHTML = `
+    <div class="row g-3 align-items-end">
+      <div class="col-md-4">
+        <label class="form-label small fw-semibold">Component Name</label>
+        <input type="text"
+               name="component_name[]"
+               class="form-control"
+               placeholder="e.g. component name">
+      </div>
+
+      <div class="col-md-5">
+        <label class="form-label small fw-semibold">SMILES</label>
+        <input type="text"
+               name="component_smiles[]"
+               class="form-control"
+               placeholder="e.g. CCCCCCCCCC">
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label small fw-semibold">Composition (%)</label>
+        <input type="number"
+               name="component_percentage[]"
+               class="form-control percentage-input"
+               step="0.01"
+               min="0"
+               placeholder="0">
+      </div>
+    </div>
+  `;
+
+  container.appendChild(row);
+  attachTotalListeners();
+  updateCompositionTotal();
+}
+
+function removeComponentRow() {
+  const rows = document.querySelectorAll(".component-row");
+
+  if (rows.length > 2) {
+    rows[rows.length - 1].remove();
+    updateCompositionTotal();
+  }
+}
+
+function updateCompositionTotal() {
+  const inputs = document.querySelectorAll(".percentage-input");
+  let total = 0;
+
+  inputs.forEach(input => {
+    const value = parseFloat(input.value);
+    if (!isNaN(value)) {
+      total += value;
+    }
+  });
+
+  const totalSpan = document.getElementById("compositionTotal");
+  totalSpan.textContent = total.toFixed(2) + "%";
+
+  if (Math.abs(total - 100) <= 0.01) {
+    totalSpan.className = "fw-bold text-success";
+  } else {
+    totalSpan.className = "fw-bold text-danger";
+  }
+}
+
+function attachTotalListeners() {
+  document.querySelectorAll(".percentage-input").forEach(input => {
+    input.removeEventListener("input", updateCompositionTotal);
+    input.addEventListener("input", updateCompositionTotal);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  attachTotalListeners();
+  updateCompositionTotal();
+});
+</script>
 
 {% endblock %}

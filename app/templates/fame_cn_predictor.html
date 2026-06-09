@@ -1,0 +1,345 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container py-4">
+
+  <!-- Header -->
+  <div class="mb-4">
+    <h2 class="fw-bold mb-2">Biodiesel FAME Cetane Number Predictor</h2>
+    <p class="text-muted mb-0">
+      Predict biodiesel cetane number from FAME composition using a trained machine learning model.
+      Enter a single sample manually or upload a CSV file for batch prediction.
+    </p>
+  </div>
+
+  <!-- Alerts -->
+  {% if error %}
+    <div class="alert alert-danger">
+      <i class="bi bi-exclamation-triangle me-2"></i>{{ error }}
+    </div>
+  {% endif %}
+
+  {% if warning %}
+    <div class="alert alert-warning">
+      <i class="bi bi-exclamation-circle me-2"></i>{{ warning }}
+    </div>
+  {% endif %}
+
+  {% if info %}
+    <div class="alert alert-info">
+      <i class="bi bi-info-circle me-2"></i>{{ info }}
+    </div>
+  {% endif %}
+
+  <!-- Mode selector -->
+  <div class="card card-metric p-4 mb-4">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+      <div>
+        <h5 class="fw-bold mb-1">Input Method</h5>
+        <p class="text-muted small mb-0">
+          Choose whether to predict one biodiesel sample or upload a CSV file.
+        </p>
+      </div>
+
+      <form method="POST" enctype="multipart/form-data" class="d-flex gap-2">
+        <select name="mode" class="form-select" onchange="this.form.submit()">
+          <option value="single" {% if mode == "single" %}selected{% endif %}>Single sample</option>
+          <option value="csv" {% if mode == "csv" %}selected{% endif %}>CSV batch upload</option>
+        </select>
+      </form>
+    </div>
+  </div>
+
+  {% if mode == "single" %}
+
+  <div class="row g-4">
+
+    <!-- Input Card -->
+    <div class="col-lg-8">
+      <div class="card card-metric p-4">
+
+        <h5 class="fw-bold mb-2">FAME Composition Input</h5>
+        <p class="text-muted small">
+          Enter composition values as percentages by weight. The total should be between 95% and 105%.
+          Valid inputs are normalised to 100% before prediction.
+        </p>
+
+        <form method="POST">
+          <input type="hidden" name="mode" value="single">
+
+          {% for group_name, group_fames in fame_groups.items() %}
+          <div class="border rounded-3 p-3 mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="fw-bold mb-0">{{ group_name }}</h6>
+            </div>
+
+            <div class="row g-3">
+              {% for fame in group_fames %}
+              <div class="col-md-3 col-sm-4 col-6">
+                <label class="form-label small fw-semibold">{{ fame }}</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  max="100"
+                  name="{{ fame }}"
+                  class="form-control fame-input"
+                  value="{{ single_values.get(fame, 0) }}"
+                >
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+
+          <div class="row g-3 align-items-end">
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Measured CN Optional</label>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                name="measured_cn"
+                class="form-control"
+                value="{{ measured_cn if measured_cn else 0 }}"
+              >
+              <div class="form-text">
+                Add measured CN only if available. It will be used to calculate absolute error.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="small text-muted">Current total</div>
+              <div id="fameTotal" class="fs-5 fw-bold">0.00%</div>
+            </div>
+
+            <div class="col-md-3 text-md-end">
+              <button type="submit" class="btn btn-primary px-4">
+                Predict CN
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- Result Card -->
+    <div class="col-lg-4">
+      <div class="card card-metric p-4 h-100">
+        <h5 class="fw-bold mb-3">Prediction Output</h5>
+
+        {% if prediction_result %}
+          <div class="text-center p-4 rounded-3 bg-light border mb-3">
+            <p class="text-muted mb-1">Predicted Cetane Number</p>
+            <h1 class="fw-bold display-5 mb-0">{{ prediction_result.predicted_cn }}</h1>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="border rounded-3 p-3 bg-white">
+                <p class="text-muted small mb-1">Original total</p>
+                <h6 class="fw-bold mb-0">{{ prediction_result.original_total }}%</h6>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="border rounded-3 p-3 bg-white">
+                <p class="text-muted small mb-1">Normalised total</p>
+                <h6 class="fw-bold mb-0">{{ prediction_result.total }}%</h6>
+              </div>
+            </div>
+          </div>
+
+          {% if prediction_result.ood_flag %}
+            <div class="alert alert-warning mt-3 mb-0 small">
+              Outside training range. Prediction may be less reliable.
+            </div>
+          {% else %}
+            <div class="alert alert-success mt-3 mb-0 small">
+              Input is within the training feature range.
+            </div>
+          {% endif %}
+
+          {% if prediction_result.measured_cn %}
+            <hr>
+            <p class="mb-1">Measured CN: <strong>{{ prediction_result.measured_cn }}</strong></p>
+            <p class="mb-0">Absolute error: <strong>{{ prediction_result.abs_error }}</strong></p>
+          {% endif %}
+
+        {% else %}
+          <div class="text-center text-muted py-5">
+            <i class="bi bi-droplet-half display-5 d-block mb-3"></i>
+            <p class="fw-semibold mb-1">No prediction yet</p>
+            <p class="small mb-0">Enter FAME composition and click Predict CN.</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+
+  {% if valid_table %}
+  <div class="card card-metric p-4 mt-4">
+    <h5 class="fw-bold mb-3">Processed Input and Engineered Features</h5>
+    <div class="table-responsive">
+      {{ valid_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if invalid_table %}
+  <div class="card card-metric p-4 mt-4">
+    <h5 class="fw-bold mb-3">Validation Details</h5>
+    <div class="table-responsive">
+      {{ invalid_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+  {% elif mode == "csv" %}
+
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-2">CSV Batch Prediction</h5>
+    <p class="text-muted">
+      Upload a CSV containing FAME composition columns such as <code>C16:0</code>, <code>C18:1</code>,
+      and <code>C18:2</code>. Missing FAME columns are treated as zero.
+    </p>
+
+    <div class="mb-3">
+      <a class="btn btn-outline-primary me-2"
+         download="biodiesel_template.csv"
+         href="data:text/csv;base64,{{ template_b64 }}">
+        Download Template
+      </a>
+
+      <a class="btn btn-outline-secondary"
+         download="example_biodiesel.csv"
+         href="data:text/csv;base64,{{ example_b64 }}">
+        Download Example
+      </a>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="mode" value="csv">
+
+      <div class="mb-3">
+        <label class="form-label fw-semibold">CSV file</label>
+        <input type="file" name="csv_file" accept=".csv" class="form-control">
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        Upload and Predict
+      </button>
+    </form>
+  </div>
+
+  {% if unsupported_fames %}
+  <div class="alert alert-warning">
+    These FAME-like columns were not in the training set and were ignored:
+    {{ unsupported_fames }}
+  </div>
+  {% endif %}
+
+  {% if valid_table %}
+  <div class="card card-metric p-4 mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+      <h5 class="fw-bold mb-0">Valid Predictions</h5>
+      <a href="{{ url_for('download_fame_valid') }}" class="btn btn-outline-success btn-sm">
+        Download Valid Predictions
+      </a>
+    </div>
+
+    <div class="table-responsive">
+      {{ valid_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if evaluation %}
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-3">Evaluation Metrics</h5>
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-4">
+        <div class="border rounded-3 text-center p-3 bg-white">
+          <p class="text-muted small mb-1">RMSE</p>
+          <h4 class="fw-bold mb-0">{{ evaluation.rmse }}</h4>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="border rounded-3 text-center p-3 bg-white">
+          <p class="text-muted small mb-1">MAE</p>
+          <h4 class="fw-bold mb-0">{{ evaluation.mae }}</h4>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="border rounded-3 text-center p-3 bg-white">
+          <p class="text-muted small mb-1">R²</p>
+          <h4 class="fw-bold mb-0">{{ evaluation.r2 }}</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      {{ evaluation.table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if invalid_table %}
+  <div class="card card-metric p-4 mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+      <h5 class="fw-bold mb-0">Invalid Samples</h5>
+      <a href="{{ url_for('download_fame_invalid') }}" class="btn btn-outline-danger btn-sm">
+        Download Invalid Samples
+      </a>
+    </div>
+
+    <div class="table-responsive">
+      {{ invalid_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+  {% endif %}
+
+</div>
+
+<script>
+function updateFameTotal() {
+  const inputs = document.querySelectorAll(".fame-input");
+  let total = 0;
+
+  inputs.forEach(input => {
+    const value = parseFloat(input.value);
+    if (!isNaN(value)) {
+      total += value;
+    }
+  });
+
+  const totalBox = document.getElementById("fameTotal");
+
+  if (totalBox) {
+    totalBox.textContent = total.toFixed(2) + "%";
+
+    if (total >= 95 && total <= 105) {
+      totalBox.className = "fs-5 fw-bold text-success";
+    } else {
+      totalBox.className = "fs-5 fw-bold text-danger";
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".fame-input").forEach(input => {
+    input.addEventListener("input", updateFameTotal);
+  });
+
+  updateFameTotal();
+});
+</script>
+
+{% endblock %}

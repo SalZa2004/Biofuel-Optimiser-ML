@@ -4,8 +4,8 @@
 <div class="container py-4">
 
   <!-- Page title -->
-  <h2 class="fw-bold mb-3">Pure Fuel Cetane Number Predictor</h2>
-  <p class="text-muted">Enter one or more pure fuels using IUPAC names or SMILES to predict DCN.</p>
+  <h2 class="fw-bold mb-3">Pure Fuel Property Predictor</h2>
+  <p class="text-muted">Enter one or more pure fuels using IUPAC names or SMILES.</p>
 
   <!-- Input form card -->
   <div class="card card-metric p-4 mb-4">
@@ -76,6 +76,13 @@
           <th>Name</th>
           <th>SMILES</th>
           <th>Predicted DCN</th>
+          <th>Measured DCN</th>
+          <th>Predicted YSI</th>
+          <th>Measured YSI</th>
+          <th>Predicted BP</th>
+          <th>Predicted Density</th>
+          <th>Predicted LHV</th>
+          <th>Predicted Dynamic Viscosity</th>
           <th>Structure</th>
           <th>Status</th>
         </tr>
@@ -89,7 +96,28 @@
         <td>
           {% if r.dcn %}<strong>{{ r.dcn }}</strong>{% else %}-{% endif %}
         </td>
-
+        <td>
+          {% if r.measured_dcn is not none %}<strong>{{ r.measured_dcn }}</strong>{% else %}-{% endif %}
+        </td>
+        <td>
+          {% if r.ysi %}<strong>{{ r.ysi }}</strong>{% else %}-{% endif %}
+        </td>
+        <td>
+          {% if r.measured_ysi is not none %}<strong>{{ r.measured_ysi }}</strong>{% else %}-{% endif %}
+        </td>
+        <td>
+          {% if r.bp is not none %}<strong>{{ r.bp }}</strong>{% else %}-{% endif %}
+        </td>
+        <td>
+          {% if r.density is not none %}<strong>{{ r.density }}</strong>{% else %}-{% endif %}
+        </td>
+        <td>
+          {% if r.lhv is not none %}<strong>{{ r.lhv }}</strong>{% else %}-{% endif %}
+        </td>
+        <td>
+          {% if r.dynamic_viscosity is not none %}<strong>{{ r.dynamic_viscosity }}</strong>{% else %}-{% endif %}
+        </td>
+        
         <td>
           {% if r.img_id %}
             <img src="{{ url_for('static', filename='generated/' ~ r.img_id) }}" width="120">

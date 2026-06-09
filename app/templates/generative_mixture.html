@@ -1,0 +1,387 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container py-4">
+
+  <!-- Header -->
+  <div class="mb-4">
+    <h2 class="fw-bold mb-2">Blend Component Generator</h2>
+    <p class="text-muted mb-0">
+      Generate candidate additive molecules for a selected base fuel and evaluate the resulting blend
+      using mixture DCN, mixture YSI, and supporting fuel-property constraints.
+    </p>
+  </div>
+
+  <!-- Alerts -->
+  {% if error %}
+  <div class="alert alert-danger">
+    <i class="bi bi-exclamation-triangle me-2"></i>{{ error }}
+  </div>
+  {% endif %}
+
+  {% if info %}
+  <div class="alert alert-info">
+    <i class="bi bi-info-circle me-2"></i>{{ info }}
+  </div>
+  {% endif %}
+
+  <!-- Configuration Form -->
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-3">Mixture Generator Configuration</h5>
+
+    <form method="POST" id="mixture-gen-form">
+
+      <div class="row g-3 align-items-end">
+
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Optimisation Mode</label>
+          <select name="mode" id="mixtureGenMode" class="form-select" onchange="toggleMixtureTarget()">
+            <option value="target" {% if form_values.mode == "target" %}selected{% endif %}>
+              Target a specific mixture DCN
+            </option>
+            <option value="maximize" {% if form_values.mode == "maximize" %}selected{% endif %}>
+              Maximise mixture DCN
+            </option>
+          </select>
+        </div>
+
+        <div class="col-md-3" id="targetDcnBox">
+          <label class="form-label fw-semibold">Target Mixture DCN</label>
+          <input
+            type="number"
+            step="0.01"
+            name="target_dcn"
+            class="form-control"
+            value="{{ form_values.target_dcn }}"
+          >
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label fw-semibold">Additive Mole Fraction</label>
+          <input
+            type="number"
+            step="0.01"
+            min="0.01"
+            max="0.99"
+            name="additive_fraction"
+            class="form-control"
+            value="{{ form_values.additive_fraction }}"
+          >
+          <div class="form-text">
+            Example: 0.15 means 15% additive and 85% base fuel.
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <button id="mixture-generate-btn" type="submit" class="btn btn-primary w-100">
+            Run Generator
+          </button>
+        </div>
+
+      </div>
+
+      <hr class="my-4">
+
+      <div class="row g-3 align-items-start">
+
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Base Fuel</label>
+          <select name="base_fuel_type" id="baseFuelType" class="form-select" onchange="toggleCustomBaseFuel()">
+            <option value="fossil_diesel" {% if form_values.base_fuel_type == "fossil_diesel" %}selected{% endif %}>
+              Fossil diesel
+            </option>
+            <option value="biodiesel" {% if form_values.base_fuel_type == "biodiesel" %}selected{% endif %}>
+              Biodiesel
+            </option>
+            <option value="custom" {% if form_values.base_fuel_type == "custom" %}selected{% endif %}>
+              Custom base fuel
+            </option>
+          </select>
+          <div class="form-text">
+            Fossil diesel and biodiesel use predefined representative compositions.
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">YSI Objective</label>
+          <div class="form-check mt-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="minimize_ysi"
+              id="minimizeMixtureYsi"
+              {% if form_values.minimize_ysi %}checked{% endif %}
+            >
+            <label class="form-check-label" for="minimizeMixtureYsi">
+              Minimise mixture YSI
+            </label>
+          </div>
+          <div class="form-text">
+            Enables Pareto optimisation for mixture DCN and smoke tendency.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Custom Base Fuel -->
+      <div id="customBaseFuelBox" class="border rounded-3 p-3 mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div>
+            <h6 class="fw-bold mb-1">Custom Base Fuel Composition</h6>
+            <p class="text-muted small mb-0">
+              Enter at least two base fuel components. Fractions will be normalised automatically.
+            </p>
+          </div>
+
+          <button type="button" class="btn btn-outline-secondary btn-sm" onclick="addCustomBaseRow()">
+            Add Component
+          </button>
+        </div>
+
+        <div id="customBaseRows">
+          <div class="custom-base-row row g-3 mb-2">
+            <div class="col-md-8">
+              <label class="form-label small fw-semibold">SMILES</label>
+              <input type="text" name="custom_smiles[]" class="form-control" placeholder="e.g. CCCCCCCCCCCCCCCC">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label small fw-semibold">Mole Fraction</label>
+              <input type="number" step="0.01" min="0" name="custom_fraction[]" class="form-control" placeholder="0.5">
+            </div>
+          </div>
+
+          <div class="custom-base-row row g-3 mb-2">
+            <div class="col-md-8">
+              <input type="text" name="custom_smiles[]" class="form-control" placeholder="e.g. CCCCCCCCCCCC">
+            </div>
+            <div class="col-md-4">
+              <input type="number" step="0.01" min="0" name="custom_fraction[]" class="form-control" placeholder="0.5">
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-outline-danger btn-sm mt-2" onclick="removeCustomBaseRow()">
+          Remove Last Component
+        </button>
+      </div>
+
+      <div id="mixture-loading" class="mt-3" style="display:none;">
+        <div class="spinner-border text-primary" role="status"></div>
+        <span class="ms-2">Generating blend candidates… this may take a few minutes.</span>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Run Summary -->
+  {% if run_info %}
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-3">Generation Summary</h5>
+
+    <div class="row g-3">
+
+      <div class="col-md-3">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Mode</p>
+          <h6 class="fw-bold mb-0">{{ run_info.mode }}</h6>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Target DCN</p>
+          <h6 class="fw-bold mb-0">
+            {% if run_info.target_dcn is not none %}
+              {{ run_info.target_dcn }}
+            {% else %}
+              —
+            {% endif %}
+          </h6>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Base Fuel</p>
+          <h6 class="fw-bold mb-0">{{ run_info.base_fuel_type }}</h6>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Additive Fraction</p>
+          <h6 class="fw-bold mb-0">{{ run_info.additive_fraction }}</h6>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Objective</p>
+          <h6 class="fw-bold mb-0">{{ run_info.objective }}</h6>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row g-3 mt-1">
+      <div class="col-md-4">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Filtered Candidates</p>
+          <h6 class="fw-bold mb-0">{{ run_info.n_final }}</h6>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Unfiltered Candidates</p>
+          <h6 class="fw-bold mb-0">{{ run_info.n_unfiltered }}</h6>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="border rounded-3 p-3 bg-white">
+          <p class="text-muted small mb-1">Pareto Candidates</p>
+          <h6 class="fw-bold mb-0">{{ run_info.n_pareto }}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Filtered Results -->
+  {% if final_table %}
+  <div class="card card-metric p-4 mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+      <div>
+        <h5 class="fw-bold mb-1">Best Blend Candidates with Property Constraints</h5>
+        <p class="text-muted small mb-0">
+          Generated additive molecules ranked after applying mixture and property constraints.
+        </p>
+      </div>
+
+      <a href="{{ url_for('download_mixture_generator_result', result_type='final') }}"
+         class="btn btn-outline-success btn-sm">
+        Download Filtered CSV
+      </a>
+    </div>
+
+    <div class="table-responsive">
+      {{ final_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Unfiltered Results -->
+  {% if unfiltered_table %}
+  <div class="card card-metric p-4 mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+      <div>
+        <h5 class="fw-bold mb-1">Best Blend Candidates without Property Constraints</h5>
+        <p class="text-muted small mb-0">
+          Raw generated candidates before final property filtering.
+        </p>
+      </div>
+
+      <a href="{{ url_for('download_mixture_generator_result', result_type='unfiltered') }}"
+         class="btn btn-outline-secondary btn-sm">
+        Download Unfiltered CSV
+      </a>
+    </div>
+
+    <div class="table-responsive">
+      {{ unfiltered_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Pareto Results -->
+  {% if pareto_table %}
+  <div class="card card-metric p-4 mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+      <div>
+        <h5 class="fw-bold mb-1">Pareto Front</h5>
+        <p class="text-muted small mb-0">
+          Non-dominated blend candidates balancing mixture DCN and mixture YSI.
+        </p>
+      </div>
+
+      <a href="{{ url_for('download_mixture_generator_result', result_type='pareto') }}"
+         class="btn btn-outline-primary btn-sm">
+        Download Pareto CSV
+      </a>
+    </div>
+
+    <div class="table-responsive">
+      {{ pareto_table | safe }}
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+const mixtureForm = document.getElementById("mixture-gen-form");
+const mixtureBtn = document.getElementById("mixture-generate-btn");
+const mixtureLoading = document.getElementById("mixture-loading");
+
+function toggleMixtureTarget() {
+  const mode = document.getElementById("mixtureGenMode").value;
+  const targetBox = document.getElementById("targetDcnBox");
+
+  if (mode === "maximize") {
+    targetBox.style.display = "none";
+  } else {
+    targetBox.style.display = "block";
+  }
+}
+
+function toggleCustomBaseFuel() {
+  const baseFuel = document.getElementById("baseFuelType").value;
+  const customBox = document.getElementById("customBaseFuelBox");
+
+  if (baseFuel === "custom") {
+    customBox.style.display = "block";
+  } else {
+    customBox.style.display = "none";
+  }
+}
+
+function addCustomBaseRow() {
+  const container = document.getElementById("customBaseRows");
+  const row = document.createElement("div");
+
+  row.className = "custom-base-row row g-3 mb-2";
+  row.innerHTML = `
+    <div class="col-md-8">
+      <input type="text" name="custom_smiles[]" class="form-control" placeholder="Component SMILES">
+    </div>
+    <div class="col-md-4">
+      <input type="number" step="0.01" min="0" name="custom_fraction[]" class="form-control" placeholder="Mole fraction">
+    </div>
+  `;
+
+  container.appendChild(row);
+}
+
+function removeCustomBaseRow() {
+  const rows = document.querySelectorAll(".custom-base-row");
+
+  if (rows.length > 2) {
+    rows[rows.length - 1].remove();
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  toggleMixtureTarget();
+  toggleCustomBaseFuel();
+});
+
+if (mixtureForm) {
+  mixtureForm.addEventListener("submit", () => {
+    mixtureBtn.disabled = true;
+    mixtureLoading.style.display = "block";
+  });
+}
+</script>
+
+{% endblock %}

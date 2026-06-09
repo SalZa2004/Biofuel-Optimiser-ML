@@ -1,77 +1,369 @@
 {% extends "base.html" %}
+
 {% block content %}
 
-<div class="container py-4">
+<div class="container-fluid px-4 py-4 dashboard-page">
 
-  <!-- Title -->
-  <h2 class="fw-bold mb-3">Welcome to BioFuelOpt</h2>
-  <p class="text-muted">add description here</p>
+  <!-- HERO SECTION -->
+  <section class="dashboard-hero mb-5">
+    <div class="row align-items-center">
 
-  <!-- Section 1: Intro to Biofuels -->
-  <div class="card card-metric p-4 mb-4">
-    <h4 class="fw-bold mb-3">Introduction to Biofuels</h4>
-    <p>
-      Add description about biofuels here. Can also include info abt compression ignition
-    </p>
-    <p>
-      Can add images or diagrams if needed
-    </p>
+      <div class="col-lg-7">
+        <h1 class="dashboard-title mt-3">
+          CNthesizer
+        </h1>
+
+        <h4 class="dashboard-subtitle">
+          Data-Driven Optimisation of Compression Ignition Fuel 
+        </h4>
+
+        <p class="dashboard-description">
+          CNthesizer is an integrated computational platform developed to support 
+          the efficient exploration of compression ignition fuel design space.
+          Motivated by the continued importance of diesel engines in transport
+          and industry, and the need to reduce emissions from conventional fossil
+          fuels, the platform combines molecular data, machine learning property
+          prediction, mixture and biodiesel analysis, fuel constraint screening,
+          optimisation, and generative molecular design within a single workflow.
+        </p>
+
+        <p class="dashboard-description">
+          The tool focuses on key fuel properties that govern ignition behaviour,
+          combustion performance, emissions potential, and practical fuel suitability,
+          including cetane number, yield sooting index, boiling point, density,
+          viscosity, and lower heating value.
+        </p>
+      </div>
+
+      <div class="col-lg-5 mt-4 mt-lg-0">
+      <div class="hero-figure-card">
+        <img src="{{ url_for('static', filename='img/oil_demand.png') }}"
+             alt="Non-OECD oil demand by product, 2024 to 2050"
+             class="img-fluid hero-figure">
+
+        <p class="figure-caption mt-2">
+          Projected oil demand highlights the continued importance of diesel in non-OECD markets.
+        </p>
+      </div>
+    </div>
+
   </div>
+</section>
 
-  <!-- Section 2: DCN & YSI -->
-  <div class="card card-metric p-4 mb-4">
-    <h4 class="fw-bold mb-3">Why We Focus on DCN and YSI?</h4>
-    <p>
-      Our machine learning models target two primary fuel properties:
-    </p>
-    <ul>
-      <li><strong>Derived Cetane Number (DCN)</strong> – add explanation here</li>
-      <li><strong>Yield Sooting Index (YSI)</strong> – add explanation here</li>
-    </ul>
-    <p>
-      Can add images or diagrams if needed
-    </p>
-  </div>
 
-  <!-- Section 3: How the ML App Helps -->
-  <div class="card card-metric p-4 mb-4">
-    <h4 class="fw-bold mb-3">How This ML App Helps</h4>
-    <p>
-      Explanation on how the ML app can contribute to biofuel context
-    </p>
-    <ul>
-      <li>add bullet points</li>
-    </ul>
-  </div>
+  <!-- PROJECT MOTIVATION -->
+  <section class="mb-5">
+    <div class="row g-4">
 
-  <!-- Section 4: How to Use the App -->
-  <div class="card card-metric p-4 mb-4">
-    <h4 class="fw-bold mb-3">How to Use This App</h4>
+      <div class="col-md-4">
+        <div class="dashboard-info-card h-100">
+          <div class="info-icon bg-success-subtle text-success">
+            <i class="bi bi-truck"></i>
+          </div>
+          <h5>Why CI Fuels?</h5>
+          <p>
+            Compression ignition engines remain important in transport and industry
+            because of their high efficiency, durability, and reliability under demanding
+            operating conditions.
+          </p>
+        </div>
+      </div>
 
-    <p>Follow these steps to navigate the platform effectively:</p>
+      <div class="col-md-4">
+        <div class="dashboard-info-card h-100">
+          <div class="info-icon bg-warning-subtle text-warning">
+            <i class="bi bi-cloud-haze2"></i>
+          </div>
+          <h5>Why Cleaner Fuels?</h5>
+          <p>
+            Conventional diesel fuels contribute to greenhouse gas emissions and particulate
+            matter formation. Cleaner alternative fuels and additives are therefore needed
+            to reduce environmental impact.
+          </p>
+        </div>
+      </div>
 
-    <ol>
-      <li><strong>Pure Fuel Predictor:</strong>  
-          Enter IUPAC names or SMILESto predict DCN & YSI of single molecules.
-          Add multiple pure fuels to get ranked results and visual comparisons.</li>
+      <div class="col-md-4">
+        <div class="dashboard-info-card h-100">
+          <div class="info-icon bg-primary-subtle text-primary">
+            <i class="bi bi-cpu"></i>
+          </div>
+          <h5>Why Machine Learning?</h5>
+          <p>
+            Experimental fuel testing is expensive and time-consuming. Machine learning
+            enables rapid prediction and screening of large molecular and mixture design
+            spaces.
+          </p>
+        </div>
+      </div>
 
-      <li><strong>Mixture Fuel Predictor:</strong>  
-          Provide component IUPAC names or SMILES + composition percentages of all mixture components to predict DCN & YSI values. 
-          Add multiple mixture fuels to get ranked results and visual comparisons.</li>
+    </div>
+  </section>
 
-      <li><strong>Generative Molecule:</strong>  
-          Input your target DCN and let the model propose a new hypothetical molecule.</li>
 
-      <li><strong>Fuel Constraint:</strong>  
-          Review all design guidelines applied within optimisation and prediction steps.</li>
+ <!-- PLATFORM MODULES -->
+ <section class="mb-5">
+   <div class="dashboard-section-heading">
+     <h3>CNthesizer Functional Modules</h3>
+     <p>
+       The platform is organised into three main functional modules: property prediction,
+       optimisation, and generation. Each module contains sub-tools that support fuel
+       evaluation, blend analysis, candidate screening, and molecular design.
+     </p>
+   </div>
 
-      <li><strong>Dataset:</strong>  
-          Download the pure or mixture dataset or submit new data for review (admin approval required).</li>
+   <div class="row g-4">
 
-      <li><strong>About:</strong>  
-          Learn more about the research background and project contributors. Github link is included here</li>
-    </ol>
-  </div>
+     <!-- MODULE 1: PROPERTY PREDICTION -->
+     <div class="col-lg-4">
+       <div class="module-group-card">
+ 
+         <div class="module-group-header">
+           <div class="module-group-icon">
+             <i class="bi bi-graph-up-arrow"></i>
+           </div>
+           <div>
+             <h4>Property Prediction</h4>
+             <p class="mb-0">
+               Predict key fuel properties from molecular structure or fuel composition.
+             </p>
+           </div>
+         </div>
+
+         <div class="row g-3">
+
+           <div class="col-12">
+             <a href="{{ url_for('pure_predictor') }}" class="submodule-card">
+               <h6>Pure Fuel Property Predictor</h6>
+               <p>
+                 Predict DCN, YSI, boiling point, density, viscosity, and lower heating value
+                 from IUPAC name or SMILES.
+               </p>
+             </a>
+           </div>
+
+           <div class="col-12">
+             <a href="{{ url_for('fame_cn_predictor') }}" class="submodule-card">
+               <h6>Biodiesel CN Predictor</h6>
+               <p>
+                 Predict biodiesel cetane number from FAME composition and engineered
+                 composition features.
+               </p>
+             </a>
+           </div>
+
+           <div class="col-12">
+             <a href="{{ url_for('mixture_predictor') }}" class="submodule-card">
+               <h6>Mixture CN Predictor</h6>
+               <p>
+                 Estimate mixture fuel properties using blend components and composition
+                 fractions.
+               </p>
+             </a>
+           </div>
+ 
+         </div>
+
+       </div>
+     </div>
+
+     <!-- MODULE 2: OPTIMISATION -->
+     <div class="col-lg-4">
+       <div class="module-group-card">
+
+         <div class="module-group-header">
+           <div class="module-group-icon">
+             <i class="bi bi-sliders2"></i>
+           </div>
+           <div>
+             <h4>Optimisation</h4>
+             <p class="mb-0">
+               Screen and optimise candidate fuels based on target performance constraints.
+             </p>
+           </div>
+         </div>
+ 
+         <div class="row g-3">
+
+           <div class="col-12">
+             <a href="{{ url_for('screening') }}" class="submodule-card">
+               <h6>Screening</h6>
+               <p>
+                 Apply fuel property constraints to identify candidates that satisfy
+                 operational CI engine requirements.
+               </p>
+             </a>
+           </div>
+
+           <div class="col-12">
+             <a href="{{ url_for('binary_blending') }}" class="submodule-card">
+               <h6>Binary Blending</h6>
+               <p>
+                 Explore binary blend compositions and identify promising blend ratios for
+                 target fuel properties.
+               </p>
+             </a>
+           </div>
+ 
+         </div>
+ 
+       </div>
+     </div>
+
+     <!-- MODULE 3: GENERATION -->
+     <div class="col-lg-4">
+       <div class="module-group-card">
+ 
+         <div class="module-group-header">
+           <div class="module-group-icon">
+             <i class="bi bi-stars"></i>
+           </div>
+           <div>
+             <h4>Generation</h4>
+             <p class="mb-0">
+               Generate new molecular candidates and blend components for fuel design.
+             </p>
+           </div>
+         </div>
+
+         <div class="row g-3">
+
+           <div class="col-12">
+             <a href="{{ url_for('generative') }}" class="submodule-card">
+               <h6>Pure Fuel Generator</h6>
+               <p>
+                 Use molecular evolution to generate pure fuel candidates targeting high CN,
+                 low YSI, or specified CN values.
+               </p>
+             </a>
+           </div>
+
+           <div class="col-12">
+             <a href="{{ url_for('generative_mixture') }}" class="submodule-card">
+               <h6>Blend Component Generator</h6>
+               <p>
+                 Generate possible additives or blend components to improve fuel performance
+                 and composition suitability.
+               </p>
+             </a>
+           </div>
+ 
+         </div>
+ 
+       </div>
+     </div>
+ 
+   </div>
+ </section>
+
+  <!-- KEY PROPERTIES -->
+  <section class="mb-5">
+    <div class="dashboard-section-heading">
+      <h3>Key Fuel Properties Considered</h3>
+    </div>
+
+    <div class="row g-3">
+
+      <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="property-box">
+          <h5>CN / DCN</h5>
+          <p>Ignition quality and ignition delay</p>
+        </div>
+      </div>
+
+      <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="property-box">
+          <h5>YSI</h5>
+          <p>Sooting tendency and PM formation</p>
+        </div>
+      </div>
+
+      <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="property-box">
+          <h5>BP</h5>
+          <p>Volatility and evaporation behaviour</p>
+        </div>
+      </div>
+
+      <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="property-box">
+          <h5>Density</h5>
+          <p>Fuel mass and injection behaviour</p>
+        </div>
+      </div>
+
+      <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="property-box">
+          <h5>Viscosity</h5>
+          <p>Flow, spray, and atomisation quality</p>
+        </div>
+      </div>
+
+      <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="property-box">
+          <h5>LHV</h5>
+          <p>Fuel energy content</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- RESEARCH CONTRIBUTION -->
+  <section class="mb-5">
+    <div class="row g-4">
+
+      <div class="col-lg-6">
+        <div class="research-card h-100">
+          <h4>Research Gap</h4>
+          <p>
+            Existing machine learning studies often focus on predicting properties of pure
+            compounds. However, real compression ignition fuels are usually complex blends,
+            and fuel design requires balancing multiple competing objectives such as high
+            cetane number and low sooting tendency.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="research-card h-100">
+          <h4>Project Contribution</h4>
+          <p>
+            CNthesizer addresses this gap by integrating pure fuel prediction, mixture
+            modelling, biodiesel FAME prediction, fuel constraint screening, and generative
+            molecule design within a single computational tool.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FUNCTIONAL WORKFLOW -->
+ <section class="mb-5">
+   <div class="dashboard-section-heading">
+     <h3>Functional Workflow</h3>
+     <p>
+       The GUI follows the same logic as the project methodology: users provide molecular
+       or composition inputs, select a module, and receive predictions, optimised blends,
+       or generated candidates.
+     </p>
+   </div>
+ 
+   <div class="module-flow-card text-center">
+     <span class="flow-pill">User Inputs</span>
+     <span class="flow-arrow">→</span>
+     <span class="flow-pill">Property Prediction</span>
+     <span class="flow-arrow">→</span>
+     <span class="flow-pill">Optimisation</span>
+     <span class="flow-arrow">→</span>
+     <span class="flow-pill">Generation</span>
+     <span class="flow-arrow">→</span>
+     <span class="flow-pill">Candidate Outputs</span>
+   </div>
+ </section>
+
 
 </div>
 

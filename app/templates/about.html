@@ -1,14 +1,139 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container py-4">
+<div class="container py-4 about-page">
 
-  <h3 class="fw-bold mb-4">About This Project</h3>
-
-  <div class="card card-metric p-4 mb-4">
-    <p>
-      <strong>BioFuelOpt</strong> is a.... more info to be added here...also add contributors, GitHub link, etc...
+  <!-- PAGE HEADER -->
+  <div class="mb-4">
+    <h3 class="fw-bold mb-2">About CNthesizer</h3>
+    <p class="text-muted mb-0">
+      An integrated computational platform for data-driven compression ignition fuel design.
     </p>
+  </div>
+
+
+  <!-- PROJECT OVERVIEW -->
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-3">Project Overview</h5>
+
+    <p>
+      CNthesizer was developed as part of a fourth-year integrated master group project
+      at University College London. The project focuses on the use of machine learning,
+      molecular data, optimisation, and generative design methods to support the discovery
+      and evaluation of cleaner fuel candidates for compression ignition engines.
+    </p>
+
+    <p>
+      Compression ignition engines remain important in transport and industry due to
+      their high efficiency, durability, and reliability under demanding conditions.
+      However, continued reliance on conventional diesel fuels contributes to greenhouse
+      gas emissions and particulate matter formation. This motivates the development of
+      cleaner alternative fuels, biodiesel components, fuel blends, and additives.
+    </p>
+
+    <p class="mb-0">
+      CNthesizer brings together fuel property prediction, mixture analysis, biodiesel
+      FAME-based cetane number prediction, screening constraints, and molecular generation
+      into a single computational workflow.
+    </p>
+  </div>
+
+
+  <!-- PROJECT AIM -->
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-3">Project Aim</h5>
+
+    <p class="mb-0">
+      The aim of this project is to support the efficient exploration of compression
+      ignition fuel design space by developing a unified, data-driven framework that
+      predicts key fuel properties, models mixtures and biodiesel formulations, performs
+      screening and optimisation, and identifies promising fuel candidates and additives.
+    </p>
+  </div>
+
+
+  <!-- PLATFORM CAPABILITIES -->
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-3">Platform Capabilities</h5>
+
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="about-feature-box h-100">
+          <h6 class="fw-bold">Fuel Property Prediction</h6>
+          <p>
+            Predict key fuel properties such as cetane number, yield sooting index,
+            boiling point, density, viscosity, and lower heating value from molecular
+            structure.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="about-feature-box h-100">
+          <h6 class="fw-bold">Mixture and Blend Analysis</h6>
+          <p>
+            Estimate properties of multi-component fuel mixtures using component
+            identities and composition fractions.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="about-feature-box h-100">
+          <h6 class="fw-bold">Biodiesel FAME Prediction</h6>
+          <p>
+            Predict biodiesel cetane number from fatty acid methyl ester composition,
+            including the influence of chain length and degree of unsaturation.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="about-feature-box h-100">
+          <h6 class="fw-bold">Generative Fuel Design</h6>
+          <p>
+            Generate and screen new candidate molecules or additives using property
+            prediction models, design constraints, and optimisation methods.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- CONTRIBUTORS -->
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-3">Contributors</h5>
+
+    <ul class="mb-0">
+      <li>
+        <strong>Team Members:</strong> Salvina, Maimoona, Nadia, Intan, Yang
+      </li>
+      <li>
+        <strong>Supervisor:</strong> Prof. Paul Hellier, University College London (UCL)
+      </li>
+      <li>
+        <strong>Co-Supervisor:</strong> Sergey
+      </li>
+    </ul>
+  </div>
+
+
+  <!-- GITHUB REPOSITORY -->
+  <div class="card card-metric p-4 mb-4">
+    <h5 class="fw-bold mb-3">GitHub Repository</h5>
+
+    <p class="mb-2">
+      The full source code and project files are available through the project repository:
+    </p>
+
+    <a href="https://github.com/SalZa2004/Biofuel-Optimiser-ML.git"
+       target="_blank"
+       class="btn btn-success">
+      <i class="bi bi-github me-2"></i>View GitHub Repository
+    </a>
   </div>
 
 </div>
