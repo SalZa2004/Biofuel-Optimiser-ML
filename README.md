@@ -38,6 +38,7 @@ This project develops **AI-powered tools** for designing optimal biofuel molecul
 Constraints:
 - **Physical Properties**: Boiling point, Density, Lower heating value, Dynamic viscosity
 
+![System Overview](docs/system_overview.png)
 
 ## 📁 Project Structure
 ```
