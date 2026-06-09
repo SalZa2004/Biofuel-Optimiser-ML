@@ -1,20 +1,38 @@
-# Predicting Optimal Biofuel Composition Using Machine Learning
+# Data-Driven Optimisation of Compression Ignition Fuel Mixtures
 
-This project aims to develop a machine learning (ML)-based model for predicting the best 
-biofuel compositions tailored for certain applications and engine types. With the world turning 
-towards green energy, biofuels represent an acceptable substitute for fossil fuels. However, it 
-takes time and is costly to experiment to determine the best combination of bio-components 
-such as ethanol, biodiesel, and other biomass-derived fuels. By applying data-driven 
-approaches, the project seeks to improve the process of finding compositions that achieve 
-efficiency maximisation, emissions minimisation, and maintaining engine performance. 
+The development of cleaner and more efficient compression ignition (CI) fuels is becoming
+increasingly important due to growing environmental concerns and stricter emissions regulations.
+Traditional fuel design methods based on experimental testing are often costly, time-consuming, and
+limited in their ability to explore large chemical spaces. To address these challenges, this project
+developed an integrated, data-driven framework for the prediction, optimisation, and generation of
+pure and blended compression ignition (CI) fuels.
 
-The system will use the past record of fuel compositions, combustion properties, and engine 
-performance parameters to train supervised machine learning algorithms. The algorithm will 
-learn to map certain fuel compositions to target output values (e.g. energy density, emissions 
-profile, ignition delay). The aim is to create a predictive model that can suggest biofuel 
-compositions for specific constraints or applications, e.g. heavy transport, air transport, power 
-generation. This study has the potential to speed up greener fuel adoption and aid in 
-decarbonisation efforts in different industries.
+Machine learning models were developed to predict key fuel properties, including cetane number
+(CN), yield sooting index (YSI), boiling point, density, lower heating value, and dynamic viscosity
+from molecular structure representations. Molecular fingerprints and physicochemical descriptors
+derived from Simplified Molecular Input Line Entry System (SMILES) strings were combined with
+ensemble learning methods to model pure fuel properties. The developed CN and YSI models
+achieved 𝑅2 values of 0.94 and 0.91 respectively, demonstrating strong predictive capability across a
+diverse chemical space. A graph neural network-based model was implemented for CN prediction of
+fuel mixtures, and a separate biodiesel model was developed to predict CN from fatty acid methyl
+ester (FAME) compositions. In addition, an experimental setup was designed for YSI measurement
+to support model validation.
+
+To support fuel design and optimisation, screening, binary blending, and genetic algorithm-based
+molecular generation tools were implemented. These tools enabled constrained single-objective
+and multi-objective optimisation, allowing trade-offs between ignition quality and sooting tendency
+to be explored through Pareto-optimal solutions. Chemically reasonable mutation methods and
+applicability domain constraints were incorporated to improve the validity and reliability of generated
+molecules.
+
+The developed models and optimisation tools were integrated into a software platform named
+CNthesizer to provide a unified workflow. Overall, the project demonstrated the strong potential of
+combining machine learning, cheminformatics, and optimisation techniques to accelerate intelligent
+and sustainable CI fuel design.
+
+To try out our app on the interactive HuggingFace GUI:
+
+https://huggingface.co/spaces/carrotcake3/Biofuel-Optimiser
 
 ## 📋 Table of Contents
 
@@ -421,7 +439,7 @@ Six trained ML models, each in its own directory:
 
 ---
 
-## 🚀 Installation
+## Installation (for running locally)
 
 ### Prerequisites
 - Python 3.10
@@ -466,9 +484,9 @@ docker exec -it biofuel-ml bash
 
 ---
 
-## 💻 Usage
+## Usage 
 
-### Quick Start
+### Using the terminal CLI:
 ```bash
 # Predict pure component properties
 python -m applications.pure_predictor.main
