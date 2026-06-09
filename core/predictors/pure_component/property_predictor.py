@@ -1,0 +1,136 @@
+import numpy as np
+from .generic import GenericPredictor
+from core.shared_features import featurize_df
+from core.config import EvolutionConfig
+from typing import List, Dict, Optional, Tuple, Callable
+from .hf_models import load_models
+from rdkit import Chem
+from rdkit.Chem import AllChem, DataStructs
+
+PREDICTOR_PATHS = load_models()
+class PropertyPredictor:
+    """Handles batch prediction for all molecular properties."""
+    
+    def __init__(self, config: EvolutionConfig | None = None):
+        self.config = config
+        
+        # Initialize only the predictors we need
+        self.predictors = {}
+        
+        # Always load all property predictors
+        self.predictors['cn'] = GenericPredictor(PREDICTOR_PATHS['cn'], 'Cetane Number')
+        self.predictors['ysi'] = GenericPredictor(PREDICTOR_PATHS['ysi'], 'YSI')
+        self.predictors['bp'] = GenericPredictor(PREDICTOR_PATHS['bp'], 'Boiling Point')
+        self.predictors['density'] = GenericPredictor(PREDICTOR_PATHS['density'], 'Density')
+        self.predictors['lhv'] = GenericPredictor(PREDICTOR_PATHS['lhv'], 'LHV')
+        self.predictors['dynamic_viscosity'] = GenericPredictor(PREDICTOR_PATHS['dynamic_viscosity'], 'Dynamic Viscosity')
+        self._train_fps = None  # lazy-loaded on first compute_tanimoto call
+
+        
+        if self.config is None:
+            self.validators = {}
+        else:
+        # Define validation rules
+            self.validators = {
+                'bp': lambda v: self.config.min_bp <= v <= self.config.max_bp,
+                'density': lambda v: v > self.config.min_density,
+                'lhv': lambda v: v > self.config.min_lhv,
+                'dynamic_viscosity': lambda v: self.config.min_dynamic_viscosity < v <= self.config.max_dynamic_viscosity
+            }
+    def _init_tanimoto_reference(self):
+        """
+        Load training-set fingerprints for Tanimoto similarity.
+        Used as a proxy for prediction confidence.
+        """
+        # You MUST replace this with your actual training dataset source
+        from core.data_prep import df  # or wherever your training df lives
+
+        train_smiles = df["SMILES"].tolist()
+
+        self._train_fps = []
+        for s in train_smiles:
+            mol = Chem.MolFromSmiles(s)
+            if mol is not None:
+                fp = AllChem.GetMorganFingerprintAsBitVect(
+                    mol, radius=2, nBits=2048
+                )
+                self._train_fps.append(fp)
+    
+    def compute_tanimoto(self, smiles_list: List[str]) -> List[Optional[float]]:
+        """
+        Compute max Tanimoto similarity to training set
+        for each SMILES.
+        """
+        if self._train_fps is None:
+            self._init_tanimoto_reference()
+        results = []
+
+        for s in smiles_list:
+            mol = Chem.MolFromSmiles(s)
+            if mol is None:
+                results.append(None)
+                continue
+
+            fp = AllChem.GetMorganFingerprintAsBitVect(
+                mol, radius=2, nBits=2048
+            )
+
+            sims = DataStructs.BulkTanimotoSimilarity(fp, self._train_fps)
+            results.append(max(sims))
+
+        return results
+
+    
+    def _safe_predict(self, predictions: List) -> List[Optional[float]]:
+        """Safely convert predictions, handling None/NaN/inf values."""
+        return [
+            float(pred) if pred is not None and np.isfinite(pred) else None
+            for pred in predictions
+        ]
+    
+    def predict_all_properties(self, smiles_list: List[str]) -> Dict[str, List[Optional[float]]]:
+        """
+        Predict all properties for a batch of SMILES.
+        Featurizes ONCE and reuses features for all predictors.
+        Returns lists aligned with smiles_list; invalid SMILES yield None for all properties.
+        """
+        if not smiles_list:
+            return {prop: [] for prop in self.predictors.keys()}
+
+        featurize_result = featurize_df(smiles_list, return_df=True)
+
+        if featurize_result is None or featurize_result[0] is None:
+            return {prop: [None] * len(smiles_list) for prop in self.predictors.keys()}
+
+        X_full, valid_df = featurize_result
+        # valid_df["SMILES"] holds the successfully featurized SMILES in order
+        valid_smiles = valid_df["SMILES"].tolist()
+        # Map each valid SMILES to its position in the compact predictions array
+        smiles_to_pred_idx = {smi: i for i, smi in enumerate(valid_smiles)}
+
+        # Predict on compact (valid-only) feature matrix
+        compact = {}
+        for prop_name, predictor in self.predictors.items():
+            compact[prop_name] = self._safe_predict(predictor.predict_from_features(X_full))
+
+        # Expand back to full length, inserting None for molecules that failed featurization
+        results = {}
+        for prop_name, preds in compact.items():
+            full = [None] * len(smiles_list)
+            for orig_i, smi in enumerate(smiles_list):
+                pred_i = smiles_to_pred_idx.get(smi)
+                if pred_i is not None:
+                    full[orig_i] = preds[pred_i]
+            results[prop_name] = full
+
+        return results
+    
+    def is_valid(self, name, value):
+        if value is None or name not in self.config.filters:
+            return True
+        lo, hi = self.config.filters[name]
+        if lo is not None and value < lo:
+            return False
+        if hi is not None and value > hi:
+            return False
+        return True
