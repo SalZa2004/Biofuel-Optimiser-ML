@@ -8,6 +8,7 @@
 *.hdf5
 model.pt
 **/model.pt
+\__pycache__/
 
 # Archives
 *.tar.gz
