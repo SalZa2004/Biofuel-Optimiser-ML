@@ -62,9 +62,9 @@ def run(config):
     smiles = [config["smiles"]]
 
     predictor = PropertyPredictor()  # 👈 NO EvolutionConfig
-    results = predictor.predict_all_properties(smiles)
+    tanimoto = predictor.compute_tanimoto(smiles)
 
-       
+
     # --- Predict ---
     result = {
         "SMILES": smiles,
@@ -74,7 +74,7 @@ def run(config):
         "DENSITY": density_predictor.predict_from_features(X_full)[0],
         "LHV": lhv_predictor.predict_from_features(X_full)[0],
         "DYNAMIC VISCOSITY": dyn_visc_predictor.predict_from_features(X_full)[0],
-        "TANIMOTO": results["tanimoto"]
+        "TANIMOTO": tanimoto[0]
     }
 
     return result
