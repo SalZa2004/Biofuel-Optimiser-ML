@@ -41,6 +41,7 @@ https://huggingface.co/spaces/carrotcake3/Biofuel-Optimiser
 - [Key Components](#-key-components)
 - [Installation](#-installation)
 - [Usage](#-usage)
+- [Testing](#-testing)
 - [Current Status](#-current-status)
 - [References](#-references)
 
@@ -509,6 +510,44 @@ python -m applications.biodiesel_predictor.main
 # Screen a CSV of candidates against a target CN
 python -m applications.screening_tool.main
 ```
+
+---
+
+## Testing
+
+Tests live in `tests/` and are run with [pytest](https://docs.pytest.org/). The `pytest.ini` is pre-configured to collect all `test_*.py` files and report coverage for the `core/` and `applications/` packages.
+
+### Run all tests
+```bash
+pytest
+```
+
+### Run a specific test file
+```bash
+pytest tests/test_property_predictor.py
+```
+
+### Run without coverage (faster)
+```bash
+pytest --no-cov
+```
+
+### Test coverage
+Coverage is measured over `core/` and `applications/` and printed to the terminal with missing lines highlighted (`--cov-report=term-missing`).
+
+### Test files
+
+| File | What it covers |
+|------|---------------|
+| `test_featurisation.py` | RDKit descriptor generation (`core/shared_features.py`) |
+| `test_generic_predictor.py` | Generic predictor wrapper (`core/predictors/pure_component/generic.py`) |
+| `test_property_predictor.py` | Batch property prediction with optimisation constraints |
+| `test_blending_laws.py` | Riazi-Daubert BP and mass-weighted YSI blending laws |
+| `test_mixture_predictor.py` | MolPool GNN mixture DCN predictor |
+| `test_mixture_predictor_results.py` | Results formatting for mixture predictor output |
+| `test_molecule_generator.py` | Pure-component genetic algorithm |
+| `test_mixture_aware_generator_results.py` | Results formatting for mixture-aware generator output |
+| `test_pure_predictor_app.py` | End-to-end pure-component predictor application |
 
 ---
 
